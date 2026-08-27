@@ -36,3 +36,9 @@
 2026-08-27 | He has NO BALANCE SHEET. All projections assume zero starting corpus, which is wrong - EPF from TCS + PPF could be Rs 30-50L. Getting that number is the single highest-value action open.
 2026-08-27 | Housing question restated: where he retires sizes the whole plan (Pune Rs 5 Cr vs tier-2/land Rs 2.5-3 Cr). Where he lives NOW is only a commute question and is settled.
 2026-08-27 | The career goal (better-paid role, added 9 Oct 2022, one action in four years) is worth more than everything else in his Todoist combined, because income is the binding constraint on saving.
+2026-08-27 | KEY UNLOCK: SNBP is a school GROUP with campuses at Moshi, Rahatani (411017) and Pimpri Colony. Rahatani is ~5km from Wakad, ~7km from Hinjawadi. An intra-group transfer avoids a real school change.
+2026-08-27 | HOUSING SOLVE: let out D303 (~Rs 16k/mo), rent 2BHK Wakad (~Rs 22k/mo), net Rs 6k/mo. Commute 25km->7km. See notes/Everyday-Life/Household/rent-options.md.
+2026-08-27 | Renting beats buying here purely on friction: Rs 5-8L stamp duty and brokerage is irreversible; a deposit comes back and the lease is 11 months.
+2026-08-27 | Rents Aug 2026: Chikhali 2BHK 15.5-18k. Wakad 2BHK 18-25k. Punawale 2BHK ~23.4k / 3BHK ~30.2k. Tathawade ~Wakad band.
+2026-08-27 | School year is April-March, so any move must land April 2027. Blocking first action: call SNBP Rahatani about seats in both grades.
+2026-08-27 | Deposit is the real cash constraint: Pune runs 3-6 months rent, so Rs 1.1-1.85L needed by Feb 2027. Ring-fence it separately from the investing number.

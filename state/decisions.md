@@ -24,7 +24,14 @@ Until #4 is answered, propose writes and wait for a yes. Reads are always fine.
 
 ## Settled
 
-- **Where to live: stay in Chikhali. Do not sell D303.** A move carries 8–10%
+- **Where to live: let out D303, rent in Wakad, move the children to SNBP
+  Rahatani for April 2027.** Net ≈ ₹6,000/month; commute 25 km → 7 km; no stamp
+  duty; reversible. Blocked on one call: does SNBP Rahatani have seats in both
+  grades? If not, fall back to staying. See
+  `notes/Everyday-Life/Household/rent-options.md`.
+- **Do not buy near Hinjawadi.** ₹5–8 lakh of irreversible friction, and it anchors
+  to the employer he is trying to leave.
+- _(superseded)_ **Stay in Chikhali, do not sell D303.** A move carries 8–10%
   round-trip friction — roughly 25–33 months of saving at the real ₹20k/month rate
   — to fix a commute the WFO exception fixes for free. Full reasoning in
   `notes/Everyday-Life/Household/where-to-live.md`. Revisit only on the four
