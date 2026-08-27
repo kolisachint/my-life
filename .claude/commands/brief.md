@@ -8,5 +8,5 @@ Run `make brief`, then summarise in under 150 words:
 2. What is due today
 3. Any blocking chain — a dated task whose prerequisite is undated or overdue
 
-Use the `todoist` CLI only. Do not call a Todoist MCP server. If you need one
-task's full detail, `todoist show <id>` for that task alone.
+Use the `td` CLI only, never a Todoist MCP server. For one task's full detail,
+`td task <id>` for that task alone.

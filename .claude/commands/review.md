@@ -12,7 +12,7 @@ Run `make review`. Then work through, in order:
    that everything else is optional.
 4. **Neglect check.** Anything that should move to ⛔️ Neglect?
 
-Apply changes with the `todoist` CLI. Confirm before any delete. Then append to
+Apply changes with the `td` CLI. Confirm before any delete. Then append to
 `memory/learned.txt` and `state/log.md`, and commit.
 
 $ARGUMENTS

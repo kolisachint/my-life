@@ -1,44 +1,47 @@
 #!/bin/sh
-# Install the real CLIs. Nothing here is hand-written — both are maintained
-# upstream projects. Run once per machine.
+# Install the tools. Both are official, maintained upstream projects.
+# Nothing in this repo reimplements either one.
 set -e
 export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-
 have() { command -v "$1" >/dev/null 2>&1; }
 
-install_one() {
-  name=$1; brewpkg=$2; gopkg=$3
-  if have "$name"; then echo "$name: already installed"; return; fi
-  if have brew && brew install "$brewpkg" 2>/dev/null; then
-    echo "$name: installed via brew"; return
-  fi
-  if have go && go install "$gopkg" 2>&1 | tail -1; then
-    echo "$name: installed via go install -> \$HOME/go/bin"; return
-  fi
-  echo "$name: MANUAL - grab a binary from the project's GitHub releases page" >&2
-}
-
-install_one dbxcli  dbxcli  github.com/dropbox/dbxcli/v3@latest
-install_one todoist todoist github.com/sachaos/todoist@latest
-
-# Todoist reads its token from a machine-local config, never from the repo.
-[ -f "$ROOT/.env" ] && . "$ROOT/.env"
-if [ -n "$TODOIST_API_TOKEN" ]; then
-  mkdir -p "$HOME/.config/todoist"
-  printf '{"token":"%s","color":"false","shortdatetimeformat":"2006-01-02 15:04","shortdateformat":"2006-01-02"}\n' \
-    "$TODOIST_API_TOKEN" > "$HOME/.config/todoist/config.json"
-  chmod 600 "$HOME/.config/todoist/config.json"
-  echo "todoist: token written to ~/.config/todoist/config.json"
+# Todoist — official CLI from Doist. Binary is `td`.
+# v4 requires Node >=24. On older Node, npm silently resolves to an ancient
+# version instead of failing, so check first.
+if have node; then
+  NODE_MAJOR=$(node -v | sed 's/^v\([0-9]*\).*/\1/')
+  [ "$NODE_MAJOR" -lt 24 ] 2>/dev/null && \
+    echo "WARNING: Node $(node -v) is below v24. npm will silently install an old td." >&2 && \
+    echo "         Upgrade Node, then re-run: npm install -g @doist/todoist-cli@latest" >&2
+fi
+if have td; then
+  echo "td: already installed ($(td --version 2>/dev/null))"
+elif have npm; then
+  npm install -g @doist/todoist-cli@latest >/dev/null 2>&1 && echo "td: installed via npm ($(td --version 2>/dev/null))"
 else
-  echo "todoist: no TODOIST_API_TOKEN in .env - run 'todoist' once to be prompted" >&2
+  echo "td: needs npm — install Node, then: npm install -g @doist/todoist-cli" >&2
 fi
 
-if [ -n "$DROPBOX_ACCESS_TOKEN" ]; then
-  echo "dbxcli: will use DBXCLI_ACCESS_TOKEN from .env"
+# Dropbox — official CLI from Dropbox.
+if have dbxcli; then
+  echo "dbxcli: already installed ($(dbxcli version 2>/dev/null | head -1))"
+elif have brew && brew install dbxcli >/dev/null 2>&1; then
+  echo "dbxcli: installed via brew"
+elif have go && go install github.com/dropbox/dbxcli/v3@latest >/dev/null 2>&1; then
+  echo "dbxcli: installed via go install -> \$HOME/go/bin"
 else
-  echo "dbxcli: run 'dbxcli login' once (saves refreshable OAuth credentials)" >&2
+  echo "dbxcli: install manually from github.com/dropbox/dbxcli/releases" >&2
+fi
+
+# Doist ships an official agent skill describing the whole td surface.
+if have td; then
+  td skill install claude-code --local --force >/dev/null 2>&1 \
+    && echo "td: official claude-code skill installed to .claude/skills/todoist-cli/"
 fi
 
 echo
-echo "Add to your shell profile if needed:  export PATH=\$PATH:\$HOME/go/bin"
+echo "Then authenticate:"
+echo "  td auth login        # or: export TODOIST_API_TOKEN=... for headless"
+echo "  dbxcli login"
+echo "  make doctor"

@@ -6,51 +6,52 @@ single source of truth; `CLAUDE.md` just points here.
 
 ## Tools — use these, never MCP, never write your own
 
-| Job | Tool | Why |
+| Job | Tool | Notes |
 | --- | --- | --- |
-| Todoist | `todoist` ([sachaos](https://github.com/sachaos/todoist)) | Maintained, current API, `--filter` + `--csv` |
-| Dropbox | `dbxcli` ([dropbox](https://github.com/dropbox/dbxcli)) | Official, `--output json`, non-interactive auth |
-| HTML→PDF | headless Chromium via `bin/pub` | Already installed everywhere Chrome is |
+| Todoist | `td` — [Doist/todoist-cli](https://github.com/Doist/todoist-cli), official | `--json` / `--ndjson`, built for agents. **Needs Node ≥24.** |
+| Dropbox | `dbxcli` — [dropbox/dbxcli](https://github.com/dropbox/dbxcli), official | `--output json`, non-interactive auth |
+| HTML→PDF | headless Chromium via `bin/pub` | Present wherever Chrome is |
 
-`bin/setup` installs both. Do **not** call the Todoist or Dropbox MCP servers —
-they cost ~20x the tokens for the same answer. Do **not** write a new client for
-either; if something is missing, check the tool's `--help` first.
+`bin/setup` installs both. Do **not** call the Todoist or Dropbox MCP servers.
+Do **not** write a client for either — check `td <command> --help` first; the
+surface is large and almost certainly already covers it.
+
+**Doist ships the official `todoist-cli` skill in `.claude/skills/todoist-cli/`.**
+It documents every command, flag and gotcha. Read it instead of guessing, and
+never duplicate it into another file.
 
 ## Start of session
 
 ```sh
-make brief        # four Todoist filter queries -> data/brief.md
+make brief        # td today + upcoming + undated p1 -> data/brief.md
 ```
 
-That is the whole ritual. It is a few hundred tokens and covers overdue, today,
-next 7 days, and undated p1.
+That is the whole ritual. `td`'s default `--json` returns a lean field set;
+`--full` is what drags in every long description, so never reach for it casually.
 
 ## Reading budget — cheapest first
 
 | Need | Do this |
 | --- | --- |
 | What's urgent | `cat data/brief.md` |
-| A specific query | `todoist list --filter '<expr>' --csv --header` |
-| One task's full detail | `todoist show <id>` — one at a time, never in a loop |
-| Projects / sections | `todoist projects` · `todoist sections` |
+| A specific query | `td task list --filter '<expr>' --json` |
+| One task's full detail | `td task <id>` — one at a time, never in a loop |
+| Projects / sections | `td project list --json` · `td section list --json` |
 | What I already learned | `cat memory/learned.txt` |
 | Standing decisions | `cat state/decisions.md` |
 
-Todoist filter syntax is the query language — use it instead of listing
-everything and filtering yourself. Examples: `overdue`, `today`, `7 days`,
-`p1 & no date`, `##Goals & @Action`, `(overdue | today) & p1`, `search: passport`.
+Todoist filter syntax is the query language — let the server select, rather than
+listing everything and filtering yourself. Examples: `overdue`, `today`,
+`7 days`, `p1 & no date`, `##Goals & @Action`, `search: passport`.
 
 ## Writing to Todoist
 
-```sh
-todoist add "Book PSK appointment" -P Everyday -d friday -p 1 -L Action
-todoist modify <id> -d "every workday"
-todoist close <id>          # advances a recurring task; does not end the series
-todoist delete <id>
-```
+See the official skill for the full surface. The rules that are mine, not Doist's:
 
-Check `todoist add --help` before guessing a flag. **Ask before deleting** — this
-is real personal data. Batch related writes into one shell invocation.
+- **Ask before deleting.** This is real personal data.
+- Use `--dry-run` on anything you are unsure about; every mutating command has it.
+- Batch related writes into one shell invocation.
+- Prefer editing an existing task over creating a parallel one.
 
 ## Where output goes — decide before you create anything
 
@@ -82,14 +83,15 @@ you finish. A session that discovered something and wrote nothing down wasted it
 AGENTS.md            this file
 CLAUDE.md            pointer to this file
 LIFE-PLAN.md         the standing audit and operating plan
-bin/setup            install dbxcli + todoist, write configs from .env
-bin/brief            todoist filters -> data/brief.md
+bin/setup            install td + dbxcli, install Doist's official skill
+bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> optional PDF -> Dropbox -> share link
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
 memory/learned.txt   append-only facts
 state/decisions.md   settled answers + open questions
 state/log.md         session log
+.claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`
 ```
 
 ## Standing context
@@ -110,6 +112,5 @@ Settled — do not re-derive.
 ## Working style
 
 - Answer from the brief. Don't reload the world to confirm what you just read.
-- Prefer editing an existing task over creating a parallel one.
 - After any session that changes Todoist or settles something: append to
   `memory/learned.txt` and `state/log.md`, then commit.

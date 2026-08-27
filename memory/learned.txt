@@ -8,3 +8,9 @@
 2026-08-27 | Todoist shut down Sync API v9 and REST v2 on 2026-02-10. Anything older than sachaos/todoist v0.23 is dead.
 2026-08-27 | Chromium is the PDF engine; no pandoc/wkhtmltopdf needed. bin/pub finds it automatically.
 2026-08-27 | Writes excellent goal statements but rarely attaches a dated action. Do not accept a goal without one.
+2026-08-27 | Doist ships an OFFICIAL CLI: @doist/todoist-cli, binary `td`. Use it, not sachaos or any other third-party client.
+2026-08-27 | `td` v4 requires Node >=24. On older Node npm SILENTLY installs v2.1.0 instead of failing. Check `td --version` after install.
+2026-08-27 | `td skill install claude-code --local` writes Doist's own 424-line skill. Never hand-write Todoist mechanics; `td skill update` refreshes it.
+2026-08-27 | `td --json` returns a lean field set; `--full` is what pulls in long descriptions. Default is already token-cheap.
+2026-08-27 | OpenCode support dropped — he named it as an example of portability, not a requirement. AGENTS.md is the portable layer.
+2026-08-27 | Pattern to apply everywhere: look for the vendor's own official tool FIRST, then a maintained third-party one, and only then write anything.

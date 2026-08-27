@@ -2,6 +2,27 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-27 — switched to Doist's official CLI, dropped OpenCode
+
+Sachin: "todoist has release todoist cli why other?" Correct again — I had used a
+third-party client when Doist ships an official one.
+
+- **Todoist is now `td`** ([Doist/todoist-cli](https://github.com/Doist/todoist-cli),
+  `@doist/todoist-cli` v4.0.0). Removed sachaos/todoist. `td` has `--json` /
+  `--ndjson`, `--dry-run` on every mutation, and its own `td doctor`.
+- **Doist ships an official agent skill.** `td skill install claude-code --local`
+  writes 424 lines covering every command, flag and security gotcha. Committed at
+  `.claude/skills/todoist-cli/`. Our `life-ops` skill was cut down to only what is
+  specific to Sachin; all Todoist mechanics were deleted from it.
+- **`bin/doctor` now delegates** to `td doctor` rather than re-checking what the
+  tool already checks.
+- **Dropped OpenCode config** (`.opencode/`, `opencode.json`). He named OpenCode as
+  an example of portability, not a requirement. `AGENTS.md` is the portable layer
+  and every major agent reads it.
+
+Gotcha found: `td` v4 requires **Node ≥24**. On Node 22 npm silently resolves to
+v2.1.0 instead of failing. `bin/setup` now warns, and `td doctor` catches it too.
+
 ## 2026-08-27 — replaced the hand-rolled CLI with real tools
 
 Sachin pushed back on inventing a client. He was right.

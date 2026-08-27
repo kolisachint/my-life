@@ -1,26 +1,15 @@
 ---
 name: life-ops
-description: Planning, reviewing and restructuring Sachin's life system — Todoist tasks, goals, weekly or quarterly review, money planning, updating LIFE-PLAN.md. Use whenever the work touches his tasks or plans rather than code.
+description: Planning and reviewing Sachin's life system — his goals, the weekly and quarterly review, money decisions, and LIFE-PLAN.md. Use when the work is about his plans rather than about operating Todoist.
 ---
 
 # Life operations
 
-## Before anything
+**Todoist mechanics are not here.** Doist ships the `todoist-cli` skill in this
+repo covering every `td` command, flag and gotcha. Use it. This file is only what
+is specific to Sachin.
 
-```sh
-make brief          # four filter queries, a few hundred tokens
-cat memory/learned.txt
-```
-
-Use the `todoist` CLI, never the MCP server. Query with Todoist's own filter
-syntax rather than listing everything and filtering yourself:
-
-```sh
-todoist list --filter 'overdue & p1' --csv --header
-todoist list --filter '##Goals & @Action' --csv --header
-todoist list --filter 'search: passport' --csv --header
-todoist show <id>          # full detail for ONE task — never loop this
-```
+Start with `make brief`, then `cat memory/learned.txt`.
 
 ## The failure mode in this system
 
@@ -28,7 +17,7 @@ todoist show <id>          # full detail for ONE task — never loop this
 (`As a X, I want Y, so that Z`) and then attaches nothing doable. Twelve of
 seventeen goals were in that state in Aug 2026; two were over three years old.
 
-When you find one you have exactly three moves. There is no fourth:
+When you find one there are exactly three moves. There is no fourth:
 
 1. Attach one concrete, dated action.
 2. Move it to ⛔️ Neglect, deliberately, for a named period.
@@ -36,10 +25,7 @@ When you find one you have exactly three moves. There is no fourth:
 
 "Leave it and revisit" is how a goal reaches four years old.
 
-Finding them needs a parent/child join that filters cannot express, so do it by
-eye during a review, not on every brief.
-
-## Writing a good action
+## What makes an action real
 
 Names a physical thing to do, fits one sitting, has a date. Rewrite anything that
 fails that test.
@@ -48,8 +34,8 @@ fails that test.
   workdays would finish the certification. Impossible tasks train skipping.
 - Good: `PCA study — 45 min`, every workday, anchored to a booked exam date.
 
-Check the arithmetic of a recurrence before writing it, and check that a parent
-is not dated after its own children.
+Check the arithmetic of a recurrence before writing it, and check that a parent is
+not dated after its own children.
 
 ## Reviews
 
@@ -69,5 +55,4 @@ without saying which one you used and that it is still open.
 
 ## Finishing
 
-Append to `memory/learned.txt` and `state/log.md`, then commit. That log is how
-the next session starts warm.
+Append to `memory/learned.txt` and `state/log.md`, then commit.
