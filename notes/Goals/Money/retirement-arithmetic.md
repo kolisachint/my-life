@@ -1,92 +1,88 @@
 # Retirement arithmetic
 
-_Revised 2026-08-27 with actual CTC of ₹38 LPA. The earlier version's central
-claim was wrong — see the correction below._
+_Rebuilt 2026-08-27 from the actual CTC letter, July 2026 payslip and his own
+handwritten budget. Two earlier versions of this file were wrong; see below._
 
-## Correction
+## Bottom line
 
-I previously said **income was the binding constraint.** It is not. That was built
-on a ₹14.5L service-firm reference point with no figure from him.
+**His own written plan reaches ₹5 crore. The plan is sound. Only execution is
+missing.**
 
-At ₹38L he is **above the Pune 75th percentile (₹35L)** and inside the
-senior/principal band (₹35.4–55.9L). A job move is an **optimisation worth perhaps
-₹20–50k/month**, not the ₹50k–1L/month I implied. And EPF does far more work than
-I credited, so the "8.9× gap" was badly overstated.
+## Corrections to what I said before
 
-Corollary worth stating: the ₹1.32L/month plan he wrote in 2023–24 was **never
-fantasy** — it was roughly right for his income. The "₹20k no-mercy floor" was
-capitulation, not honesty.
+1. **"Income is the binding constraint."** Wrong. At ₹36.99 L CTC he is above the
+   Pune 75th percentile. A job move is an optimisation.
+2. **"₹1.79 lakh/month needed, an 8.9× gap."** Wrong — it assumed a zero starting
+   corpus. Real requirement is **₹63,700/month**.
+3. **"He saves ₹20,000, 9% of take-home."** Wrong. **₹35,152/month is already
+   saving automatically** through PF, VPF and NPS before he lifts a finger.
+4. **"₹2.03 lakh/month unaccounted for."** Wrong twice over — take-home is
+   ~₹1.74 L, not ₹2.23 L, and a second home loan (Lakeshore) absorbs part of it.
 
-## Where he stands
+## Real cash position
 
-| Solution Architect, Pune | ₹/yr |
+| | ₹ |
 | --- | ---: |
-| 25th pct | 17.5 L |
-| average | 26.8 L |
-| 75th pct | 35.0 L |
-| **Sachin** | **38.0 L** |
-| senior / principal | 35.4 – 55.9 L |
+| Normal month net | ~1,74,000 |
+| Food + communication cards | 8,001 |
+| **Effective** | **~1,82,000** |
+| July 2026 net (bonus month) | 2,34,061 |
 
-**Estimated take-home ≈ ₹2.23 lakh/month** (₹38L gross, less employer PF and
-gratuity, less old-regime tax with ~₹2.5L deductions; basic assumed 40% of CTC).
+₹8.14 L of the ₹36.99 L CTC is **variable** — do not plan fixed commitments
+against it.
 
-**He saves ₹20,000 — 9% of take-home. ₹2.03 lakh/month is unaccounted for.**
+## Retirement assets already in motion — no new action required
 
-Some is obvious (two children at SNBP, fuel, household of four). Some may be a
-home-loan EMI on D303, which is *partly saving* — principal builds equity and must
-be counted. He does not know the split.
-
-## EPF — the overlooked asset
-
-Earlier projections assumed a zero starting corpus. At ₹38L with ~17 years of
-service that was badly wrong.
-
-| EPF component | Value at 55 (8.25%) |
+| Source | Value at 55 |
 | --- | ---: |
-| Future contributions alone (~₹3.65L/yr) | ₹0.94 Cr |
-| If balance today is ₹40 L | ₹1.25 Cr |
-| If balance today is ₹50 L | ₹1.57 Cr |
-| If balance today is ₹70 L | ₹2.19 Cr |
+| EPF balance today ₹28,13,625, at 8.25% | ₹0.90 Cr |
+| Future PF inflow ₹3.33 L/yr | ₹0.89 Cr |
+| NPS ₹88,608/yr at 10% | ₹0.27 Cr |
+| Gratuity (₹3.43 L accrued, estimated) | ₹0.15 Cr |
+| **Total** | **₹2.21 Cr** |
 
-Plus PPF. **EPF + PPF plausibly deliver ₹2–3 Cr by 55 with no new action.**
+Age 40 (DOB 24 Apr 1986); 14.67 years to 55 in April 2041.
 
-| If EPF + PPF delivers | New SIP needed for ₹5 Cr |
+## The requirement
+
+| | |
 | --- | ---: |
-| ₹2.0 Cr | ₹70,800/mo |
-| ₹2.5 Cr | ₹59,000/mo |
-| ₹3.0 Cr | ₹47,200/mo |
+| Target | ₹5.00 Cr |
+| Already in motion | ₹2.21 Cr |
+| Gap | ₹2.79 Cr |
+| **New SIP needed** | **₹63,700/month** |
 
-**Not ₹1.19 lakh. Between ₹47k and ₹71k** — a 21–32% savings rate on ₹2.23L
-take-home. Demanding, ordinary, entirely possible.
+**His handwritten plan allocates ₹80,000/month** to Gold (20k) + Real Estate (30k)
++ Stock/MF (30k). At 11% that reaches **₹5.72 Cr total** — comfortably past target.
 
-## Revised sequence
+Caveat: "Real Estate 30k" is almost certainly the **Lakeshore EMI**, of which only
+the principal portion is saving. So the genuinely investable figure is Gold ₹20k +
+Stock/MF ₹30k = **₹50,000/month**, which reaches ₹2.19 Cr + ₹2.21 Cr = **₹4.40 Cr**
+— short of ₹5 Cr but close, and the Lakeshore equity is not counted in that.
 
-1. **This week — pull the balances.** EPF passbook (EPFO portal), PPF statement,
-   existing MF/shares, outstanding home-loan balance. One evening; may halve the
-   problem.
-2. **Next 30 days — find the ₹2.03 lakh.** One month categorised, using the
-   categories already in his monthly budget task. Looking for shape, not waste.
-   Realistically frees ₹40–60k/month — worth more than the job move, costs nothing.
-3. **1 October — automate.** SIP mandate just after salary credit, even at ₹40k.
-   His automate-transfers goal has been actionless since Oct 2023.
-4. **Then house, then job.** Wakad at net ₹6k/month is trivially affordable on
-   ₹2.23L; deposit is under a month's pay. It now depends on one question only:
-   **is he actually leaving TCS?** If staying, Wakad is safe — move in April.
-   The job search stays worth doing for the GenAI ceiling (₹45–70L, and he has real
-   retrieval work), but on his timetable.
+## So the real question
 
-## Unchanged
+**Is the ₹50,000/month of gold and equity actually happening?** The "₹20k
+no-mercy" note from 1 Aug 2026 suggests not. If it is not, that single line is the
+entire gap between his plan and his outcome.
 
-- **Delay costs most.** 2.6 of the original 17 years are gone. Automating ₹40k in
-  October beats automating the perfect number in April.
-- **Retiring at 60 rather than 55 is worth ~₹57,000/month.** The age-55 assumption
-  was written in 2022 and never tested.
-- **Where he retires sizes the target.** ₹5 Cr is priced for Pune; ₹2.5–3 Cr
-  elsewhere — which, on the EPF numbers, he may already be most of the way toward.
+## What is still unknown — and now blocking
+
+1. **The Lakeshore EMI amount and outstanding balance.** Largest single hole.
+   Determines what is genuinely free each month.
+2. Whether the gold and equity NACH mandates are live.
+3. PPF balance (he pays annually).
+
+## Unchanged from earlier analysis
+
+- **Delay costs most.** 2.6 of the original 17 years are gone.
+- **Retiring at 60 instead of 55** still roughly halves the monthly requirement.
+- **Where he retires sizes the target.** ₹5 Cr is priced for Pune.
+- **Tax regime is NEW**, and the Todoist goal saying "opt for old regime" is stale.
+  One CA conversation.
 
 ## Caveats
 
-Take-home estimated, not from a payslip. EPF balance guessed — the passbook
-settles it. 11% equity assumption over 14.4 years. Weddings, D303 equity, ancestral
-land and salary growth all excluded, and all work in his favour. Not tax advice;
-the CA conversation should now happen sooner.
+8.25% assumed on EPF, 10% on NPS, 11% on equity over 14.67 years — assumptions,
+not promises. Gratuity estimated. Weddings, both properties' equity, ancestral land
+and future salary growth all excluded, and all work in his favour.

@@ -10,8 +10,10 @@ _Last updated: 2026-08-27_
 | # | Question | Status |
 | - | --- | --- |
 | 1 | Real monthly investing number (₹20k floor vs ₹1.32L on paper) | **unanswered** |
-| 1a | **EPF + PPF balances + home-loan outstanding.** Now the single highest-value action — decides whether the SIP needed is ₹47k or ₹71k | **unanswered** |
-| 1d | **Where does ₹2.03 lakh/month go?** One month categorised | **unanswered** |
+| 1a | ~~EPF balance~~ — **answered: ₹28,13,625** (Jul 2026). Assets in motion ≈ ₹2.21 Cr | **settled** |
+| 1f | **Lakeshore EMI amount + outstanding.** Largest remaining hole — decides what is genuinely free each month | **unanswered** |
+| 1g | **Are the gold (₹20k) and equity (₹30k) mandates actually live?** This single line is the whole gap | **unanswered** |
+| 1d | ~~Where does ₹2.03 lakh go~~ — **largely answered** by the payslip and the Lakeshore loan. Take-home is ₹1.74 L, not ₹2.23 L | **settled** |
 | 1e | **Are you actually leaving TCS?** Unblocks the Wakad move | **unanswered** |
 | 1b | **Is retiring at 55 actually fixed?** Moving to 60 is worth ₹57,200/mo | **unanswered** |
 | 1c | **Where do you retire?** Pune ₹5 Cr vs lower-cost ₹2.5–3 Cr | **unanswered** |

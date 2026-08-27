@@ -55,3 +55,17 @@
 2026-08-27 | REVISED SEQUENCE: 1) pull balances this week 2) categorise one month of spending 3) automate a SIP on 1 Oct 4) house, then job. Job dropped to third - it is an optimisation worth 20-50k/month, not a rescue.
 2026-08-27 | Home-loan principal is SAVING, not expense. Count it when assessing his real savings rate.
 2026-08-27 | Wakad at net Rs 6k/month is trivially affordable on 2.23L take-home; deposit is under a month's pay. It now hinges on one question only: is he actually leaving TCS?
+2026-08-27 | REAL IDENTITY: Sachin Tatyaso Koli, DOB 24 Apr 1986 (age 40). Wife Dipali, kids Srishti + Samarth, father Tatyaso. BE CSE, Walchand College of Engineering Sangli 2003-07.
+2026-08-27 | He is a DATA ARCHITECT (~18.5 yrs), not a generic Solution Architect. Deep GCP: BigQuery, DataFlow, Pub/Sub, Composer, Beam, Airflow. Domains banking/telecom/retail. TCS grade C3B since ~2022; before that Sears 2018-22, Cognizant 2010-18, Mahindra Satyam 2008-10.
+2026-08-27 | Best resume line: GCP Email Preference Center API serving millions, cut annual cost by 600K dollars. Also led Teradata to BigQuery migration.
+2026-08-27 | RESUME IS 4.5 YEARS STALE (Feb 2022) and OMITS TCS ENTIRELY. Still says "Sears... Till Date" and "14 years". No AI/ML content. This is the concrete career blocker.
+2026-08-27 | CTC Rs 36,99,331 (not 38L). Rs 8.14L (22%) is VARIABLE - never plan fixed commitments against it. Fixed salary Rs 27.78L.
+2026-08-27 | REAL take-home: normal month ~Rs 1,74,000 + Rs 8,001 food/comm cards. July 2026 showed Rs 2,34,061 only because it included an Rs 81,558 performance bonus.
+2026-08-27 | ALREADY AUTO-SAVING Rs 35,152/month: employee PF 6,408 + VPF 14,952 + NPS 7,384 + employer PF 6,408. He does not count this.
+2026-08-27 | EPF BALANCE Rs 28,13,625 and gratuity Rs 3,43,158 as of Jul 2026. EPF+NPS+gratuity reach ~Rs 2.21 Cr by 55 with NO new action.
+2026-08-27 | REAL SIP REQUIREMENT: Rs 63,700/month, not Rs 1.19 lakh. His own handwritten plan allocates Rs 80k/month to gold+realestate+equity, which would reach Rs 5.72 Cr. THE PLAN IS SOUND - only execution is missing.
+2026-08-27 | HIS BUDGET PLAN (handwritten): Expenses 80k = parents 10 + leisure 20 + monthly 30 + education 20. Investments 1L = gold 20 + real estate 30 + stock/MF 30 + PF 20. Totals 1.8L, matching take-home almost exactly. It is a good plan.
+2026-08-27 | SECOND PROPERTY: "Lakeshore Flat" with an HDFC home loan, ACH mandate from Jun 2022, bought under construction. The "Real Estate 30k" budget line is almost certainly this EMI. EMI AMOUNT UNKNOWN - biggest remaining gap.
+2026-08-27 | Tax regime is NEW (per payslip). His Todoist goal saying "opt for old tax regime" is STALE and probably wrong for him now. Flag for CA, do not rewrite unilaterally.
+2026-08-27 | Dropbox: Digital_Drive/{Sachin,Dipali,Srishti,Samarth,Tatyaso,Sachin_And_Dipali}. Filing is genuinely good - ITRs and Form 16s unbroken since 2010.
+2026-08-27 | NEVER commit PAN, UAN, bank account or loan account numbers to this repo - it pushes to GitHub. Keep identifiers in Dropbox; store only planning figures here.
