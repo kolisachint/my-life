@@ -15,22 +15,33 @@ single source of truth; `CLAUDE.md` just points here.
 `bin/setup` installs both. Do **not** write a client for either — check
 `td <command> --help` first; the surface is large and almost certainly covers it.
 
-### Which transport to use
-
-Decide once, at the start of the session, and say which one you are on:
+### Transport: the CLI is the system. MCP is a fallback.
 
 ```sh
-td auth status >/dev/null 2>&1 && echo CLI || echo MCP
+make doctor        # reports egress, auth and versions in one call
 ```
 
-- **CLI available** (his laptop, any machine with network) — use it. Never touch
-  the MCP servers there.
-- **CLI unavailable** (Claude Code on the web, and any sandbox where the egress
-  proxy blocks `api.todoist.com` / `api.dropboxapi.com`) — the MCP servers are
-  the only working transport, because MCP traffic bypasses that proxy. Use them,
-  under the rules below.
+Use the CLI. It is the whole point of this repo: it works on any machine, with
+any model, with no vendor in the middle. Reach for MCP **only** when `make
+doctor` shows the API hosts are unreachable, and say so in your reply when you do.
 
-### If you are on MCP
+**Known blocked environment: Claude Code on the web.** Its egress policy denies
+`api.todoist.com` and `api.dropboxapi.com` with a 403 at CONNECT, so the CLIs
+cannot work there regardless of credentials. This is an organisation policy
+denial — never retry it and never route around it.
+
+*The fix, and it is worth doing:* allow these hosts in the environment's network
+policy, and the CLI works everywhere with one code path.
+
+```
+api.todoist.com  todoist.com
+api.dropboxapi.com  content.dropboxapi.com  www.dropbox.com
+```
+
+Installs already work in that environment (`registry.npmjs.org` and
+`proxy.golang.org` are permitted), so only runtime calls are affected.
+
+### If you are genuinely stuck on MCP
 
 MCP is not inherently expensive; **one tool is**. The 40k-token session that
 started all this was `get-overview`, not MCP as such.
@@ -40,12 +51,12 @@ started all this was `get-overview`, not MCP as such.
   the CLI uses: `overdue`, `today`, `7 days`, `p1 & no date`, `##Goals & @Action`.
 - Use `find-tasks-by-date` for date windows; it is already compact.
 - Read one task's description with `fetch-object`, one at a time, never in a loop.
-- For artefacts, the Dropbox MCP replaces `bin/pub` — but keep the identical
-  `/my-life/<Project>/<Section>/` tree and the same placement rule. Create
-  folders on demand. Nothing else about the structure changes.
+- For artefacts, the Dropbox MCP stands in for `bin/pub` — keep the identical
+  `/my-life/<Project>/<Section>/` tree, the same placement rule, folders on
+  demand. Nothing about the structure changes.
 
 Everything outside the transport — the tree, the placement rule, the memory
-files, the review cadence — is the same on both paths.
+files, the review cadence — is identical on both paths.
 
 **Doist ships the official `todoist-cli` skill in `.claude/skills/todoist-cli/`.**
 It documents every command, flag and gotcha. Read it instead of guessing, and

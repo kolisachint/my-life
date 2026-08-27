@@ -20,3 +20,6 @@
 2026-08-27 | Claude Code on the web CANNOT use the CLIs: the egress proxy blocks api.todoist.com and api.dropboxapi.com (CONNECT 403). Not a token problem. MCP works there because mcp-proxy.anthropic.com bypasses the proxy.
 2026-08-27 | Check transport at session start: `td auth status` succeeds -> CLI; fails -> MCP. Say which one you are using.
 2026-08-27 | MCP is not what cost 40k tokens - `get-overview` did. MCP find-tasks takes the SAME Todoist filter strings as the CLI and is comparably cheap. Never call get-overview.
+2026-08-27 | Prefers fixing the root cause over accepting a workaround. Lead with the fix; offer the fallback second.
+2026-08-27 | Blocked hosts to allow in the web environment's network policy: api.todoist.com, todoist.com, api.dropboxapi.com, content.dropboxapi.com, www.dropbox.com. Installs already work (npm + go proxies permitted); only runtime calls are denied.
+2026-08-27 | `make doctor` diagnoses egress, auth and versions in one call. Run it before concluding anything about why a tool is not working.

@@ -7,6 +7,31 @@ ROOT=$(cd "$(dirname "$0")/.." && pwd)
 ok=0
 chk() { printf '%-18s %s\n' "$1" "$2"; }
 
+# Egress first: in a sandboxed environment the CLIs can be installed and
+# authenticated and still be useless because the API hosts are policy-blocked.
+# Diagnose that here once, so no session has to work it out again.
+echo "--- egress ---"
+blocked=""
+for h in api.todoist.com api.dropboxapi.com; do
+  if curl -sS -m 6 -o /dev/null "https://$h/" 2>&1 | grep -q "403"; then
+    blocked="$blocked $h"
+  fi
+done
+if [ -n "$blocked" ]; then
+  chk "reachability" "BLOCKED:$blocked"
+  echo
+  echo "  This environment's egress policy blocks the API hosts, so the CLIs"
+  echo "  cannot work here no matter what credentials are set. Do not route"
+  echo "  around it. Either allow these hosts in the environment's network"
+  echo "  policy (preferred - one code path everywhere):"
+  echo "      api.todoist.com  todoist.com"
+  echo "      api.dropboxapi.com  content.dropboxapi.com  www.dropbox.com"
+  echo "  or fall back to the MCP servers per AGENTS.md."
+  echo
+else
+  chk "reachability" "api hosts reachable"
+fi
+
 echo "--- todoist (td doctor) ---"
 if command -v td >/dev/null 2>&1; then
   td doctor </dev/null 2>&1 | sed 's/^/  /' || ok=1
