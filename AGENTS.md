@@ -95,6 +95,30 @@ See the official skill for the full surface. The rules that are mine, not Doist'
 - Batch related writes into one shell invocation.
 - Prefer editing an existing task over creating a parallel one.
 
+## Stamp every Todoist change
+
+**Every task you create or modify gets the `claude` label and a dated footer.**
+Sachin uses this to find what an agent touched, so it is not optional.
+
+```
+labels:  existing labels + "claude"
+footer:  \n\n---\n_Updated by Claude · YYYY-MM-DD_
+```
+
+Use `_Created by Claude · YYYY-MM-DD_` for tasks you add rather than edit.
+
+Three things to get right:
+
+- **`update-tasks` replaces the whole label array.** Always send the existing
+  labels plus `claude`, never `claude` alone, or you will strip `Action`.
+- **Replace an existing footer, do not stack them.** One line per task, showing
+  the most recent change.
+- **Never create date-stamped labels** like `claude-2026-08-27`. Todoist Free caps
+  personal labels at 5 and three are already in use — one per day would break it
+  within a week.
+
+He finds them with the filter `@claude`.
+
 ## Where output goes — decide before you create anything
 
 Dropbox and the repo both mirror the **Todoist Project / Section** tree. One

@@ -53,6 +53,13 @@ commitment (₹1.32L across three goals) and the actual floor (₹20k) differ by
 and the gap is unresolved. Never present a projection built on either number
 without saying which one you used and that it is still open.
 
+## Stamping changes
+
+Every task you create or modify carries the `claude` label and a dated footer —
+see AGENTS.md for the exact format and the three traps. Sachin filters on
+`@claude` to review what an agent did, so a change without the stamp is a change
+he cannot audit.
+
 ## Finishing
 
 Append to `memory/learned.txt` and `state/log.md`, then commit.

@@ -99,3 +99,7 @@
 2026-08-27 | Root cause of the passport slip: the container task was p1 while every blocking step was p4. Check for that inversion in other chains.
 2026-08-27 | Use reschedule-tasks for date moves, never update-tasks - it replaces the whole due string and destroys recurrence. Todoist MCP is explicit about this.
 2026-08-27 | Still awaiting separate approval: delete Sprint Planning + duplicate quarterly budget review, rewrite the two impossible recurrences, attach actions to the 12 stalled goals.
+2026-08-27 | STAMP EVERY TODOIST CHANGE: add the `claude` label and a footer `---\n_Updated by Claude - YYYY-MM-DD_` (or `_Created by_` for new tasks). He filters on @claude to audit what an agent touched. Not optional.
+2026-08-27 | update-tasks REPLACES the whole labels array - always send existing labels PLUS claude, or you strip Action.
+2026-08-27 | Todoist Free caps personal labels at 5. He had 3 (Action, QuarterlyGoal, the yin-yang one); `claude` is the 4th. NEVER create date-stamped labels like claude-2026-08-27 - it would break the cap within a week. Date goes in the description footer instead.
+2026-08-27 | Replace an existing Claude footer rather than stacking a second one. One line per task, showing the most recent change.
