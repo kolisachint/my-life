@@ -95,3 +95,7 @@
 2026-08-27 | Temper the top of the range: 55-95L is Google-tier GCC with product pedigree. He has 18 yrs entirely in services (Sears was a captive, so some GCC exposure), a legacy-heavy stack alongside GCP, and 15-20 year old certifications. Realistic first move 45-55L; 60L+ needs the AI/GenAI angle.
 2026-08-27 | THE BLOCKER IS THE INSTRUMENT, NOT THE MARKET: his resume is from Feb 2022, omits TCS entirely, says "Sears... Till Date" and claims 14 years against an actual 18.5. He cannot test the market with it. Fix the resume before answering "can I get more?"
 2026-08-27 | 8.14L of his 36.99L CTC is VARIABLE. An offer with higher fixed pay improves his position by more than the headline gap suggests.
+2026-08-27 | FIRST TODOIST EDITS APPLIED with his approval: passport chain repriced to p1, docs and property tax moved to today, new SNBP bonafide task created for 28 Aug, POPSK/PCMC detail added to descriptions. Nothing deleted.
+2026-08-27 | Root cause of the passport slip: the container task was p1 while every blocking step was p4. Check for that inversion in other chains.
+2026-08-27 | Use reschedule-tasks for date moves, never update-tasks - it replaces the whole due string and destroys recurrence. Todoist MCP is explicit about this.
+2026-08-27 | Still awaiting separate approval: delete Sprint Planning + duplicate quarterly budget review, rewrite the two impossible recurrences, attach actions to the 12 stalled goals.

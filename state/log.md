@@ -2,6 +2,29 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-27 — first Todoist edits applied (approved)
+
+Six changes to the passport chain and property tax. Nothing deleted.
+
+| Task | Change |
+| --- | --- |
+| Gather passport documents | 25 Aug -> **27 Aug (today)**, p4 -> **p1**. Description rewritten: birth certificate is a PCMC e-services download, school ID from SNBP Moshi. |
+| **NEW** Request bonafide from SNBP Moshi | **28 Aug, p1**, child of "Get passport for Samarth". The longest lead time in the chain and the item with no task of its own. |
+| Book PSK appointment | date unchanged (28 Aug), p4 -> **p1**. Added POPSK Pimpri-Chinchwad address, the fill -> pay -> book order, and a morning-slot rationale. |
+| PSK visit - both parents | left undated, p4 -> **p1** so it surfaces under "Undated p1" instead of vanishing. |
+| Pay property tax | 25 Aug -> **27 Aug**, p4 -> **p1**. Noted PCMC not PMC, batch with the birth certificate, and check Lakeshore's Wakad-ward dues. |
+
+The fix underneath all of it: the container task was p1 while every step that
+actually blocked was p4. That inversion is why the chain slipped.
+
+Used reschedule-tasks for dates rather than update-tasks, per the Todoist MCP
+guidance, so no recurrence was touched. All four passport subtasks verified after.
+
+Still not done, awaiting separate decisions: deleting Sprint Planning and the
+duplicate quarterly budget review, rewriting the two impossible recurrences
+(PCA 20%/workday, 10K steps), and attaching next actions to the twelve stalled
+goals.
+
 ## 2026-08-27 — artefacts mirror the Todoist tree
 
 - `bin/pub` now places files under **Project / Section**, the same structure as
