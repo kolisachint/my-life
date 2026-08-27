@@ -14,3 +14,6 @@
 2026-08-27 | `td --json` returns a lean field set; `--full` is what pulls in long descriptions. Default is already token-cheap.
 2026-08-27 | OpenCode support dropped — he named it as an example of portability, not a requirement. AGENTS.md is the portable layer.
 2026-08-27 | Pattern to apply everywhere: look for the vendor's own official tool FIRST, then a maintained third-party one, and only then write anything.
+2026-08-27 | Dropbox and repo artefacts mirror the Todoist Project/Section tree. /my-life/<Project>/<Section>/ and notes/<Project>/<Section>/. Never invent a different layout.
+2026-08-27 | Folders are created lazily by bin/pub. Never pre-create a project or section folder anywhere.
+2026-08-27 | The Project/Section names are cached in the artifact-publish skill. Read them there; do not run `td project list` to find out.

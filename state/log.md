@@ -2,6 +2,19 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-27 — artefacts mirror the Todoist tree
+
+- `bin/pub` now places files under **Project / Section**, the same structure as
+  Todoist: `/my-life/<Project>/<Section>/` in Dropbox, `notes/<Project>/<Section>/`
+  in the repo. Emoji are stripped and spaces hyphenated, so `⚽️ Goals` / `💲Money`
+  becomes `Goals/Money`; either form can be passed.
+- `--task <id>` infers project and section from the task itself. `--repo` writes
+  long-term artefacts instead of publishing. `--tmp` keeps tentative work off both.
+- Folders are created **on demand**, one level at a time. Nothing is pre-built.
+- The project and section names are cached in the `artifact-publish` skill so no
+  session needs to run `td project list` to place a file — that is the token saving.
+  Verified against all ten of his real project and section names.
+
 ## 2026-08-27 — switched to Doist's official CLI, dropped OpenCode
 
 Sachin: "todoist has release todoist cli why other?" Correct again — I had used a

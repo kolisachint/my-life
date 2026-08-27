@@ -55,14 +55,25 @@ See the official skill for the full surface. The rules that are mine, not Doist'
 
 ## Where output goes — decide before you create anything
 
-| Kind of artefact | Destination | How |
-| --- | --- | --- |
-| For a human to read or keep (report, plan, chart, PDF) | **Dropbox** `/my-life` | `bin/pub file.html --pdf` |
-| Long-term memory — things I must know next session | **this repo** | commit it |
-| Tentative, one-off, exploratory | **nowhere** | `bin/pub x.html --tmp`, then delete |
+Dropbox and the repo both mirror the **Todoist Project / Section** tree. One
+command handles render, folder creation, upload and share link:
 
-Never leave a scratch file in the repo. Never commit something a human wants to
-open — that belongs in Dropbox. `bin/pub` prints a share link.
+```sh
+bin/pub FILE --project Goals --section Money --pdf    # -> Dropbox + share link
+bin/pub FILE --task <id> --pdf                        # infers P/S from the task
+bin/pub FILE --project Goals --section Career --repo  # -> notes/, memory
+bin/pub FILE --tmp                                    # -> nowhere, delete after
+```
+
+| Kind of artefact | Destination |
+| --- | --- |
+| A human will read or keep it | **Dropbox** `/my-life/<Project>/<Section>/` |
+| I must know it next session | **repo** `notes/<Project>/<Section>/` |
+| Tentative, one-off, exploratory | **nowhere** — `--tmp`, then delete |
+
+Folders are created on demand; nothing is pre-built. The project and section
+names are listed in the `artifact-publish` skill — read them there rather than
+querying `td`. Never `mkdir`, `dbxcli put` or render a PDF yourself.
 
 ## Memory — I do not learn between sessions
 
@@ -85,9 +96,10 @@ CLAUDE.md            pointer to this file
 LIFE-PLAN.md         the standing audit and operating plan
 bin/setup            install td + dbxcli, install Doist's official skill
 bin/brief            td today + upcoming -> data/brief.md
-bin/pub              artefact -> optional PDF -> Dropbox -> share link
+bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
+notes/<P>/<S>/       long-term artefacts, same tree as Todoist (lazy)
 memory/learned.txt   append-only facts
 state/decisions.md   settled answers + open questions
 state/log.md         session log

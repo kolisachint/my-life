@@ -1,11 +1,14 @@
 ---
-description: Publish a file to Dropbox /my-life, with a PDF if it is HTML
+description: Publish a file to Dropbox or the repo, in the Todoist Project/Section tree
 ---
 
 Publish: $ARGUMENTS
 
-Use `bin/pub`. Decide the destination first, per AGENTS.md:
-human-facing → Dropbox; long-term memory → repo; tentative → `--tmp` then delete.
+Use `bin/pub` — one command covers render, folder creation, upload and link.
 
-Add `--pdf` for HTML. Report the share link back. Do not call `dbxcli` directly
-and do not render the PDF yourself — `bin/pub` does both.
+Pick the destination first (AGENTS.md): human-facing → Dropbox (default);
+long-term memory → `--repo`; tentative → `--tmp` then delete. Always pass
+`--project` and `--section`, taking the names from the `artifact-publish` skill
+rather than querying `td`. Add `--pdf` for HTML.
+
+Report the share link back.

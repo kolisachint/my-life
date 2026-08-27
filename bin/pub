@@ -1,32 +1,38 @@
 #!/bin/sh
-# pub - publish an artefact to Dropbox /my-life, optionally rendering a PDF first.
+# pub - place an artefact using the same Project/Section tree as Todoist.
 #
-# Uses dbxcli (official Dropbox CLI) for transport and headless Chromium for
-# HTML->PDF. Nothing here reimplements either.
+#   Todoist   ⚽️ Goals  >  💲Money  >  task
+#   Dropbox   /my-life/Goals/Money/2026-08-27-plan.pdf
+#   repo      notes/Goals/Money/plan.md
 #
-#   bin/pub report.html --pdf              upload HTML + PDF, print share link
-#   bin/pub chart.png --dir charts         upload to /my-life/charts/
-#   bin/pub draft.html --tmp               render locally, do NOT upload
-#   bin/pub notes.pdf --no-link            upload, skip the share link
+# Folders are created on demand — nothing is pre-built.
 #
-# Placement rule (see AGENTS.md):
-#   for a human to read   -> Dropbox   (this script)
-#   long-term memory      -> the repo  (git, not this script)
-#   tentative one-off     -> --tmp, then delete
+#   bin/pub plan.html --project Goals --section Money --pdf
+#   bin/pub plan.html --task 6h9qvH87vv8638rV --pdf     # infers both from the task
+#   bin/pub notes.md  --project Goals --section Career --repo
+#   bin/pub draft.html --tmp                            # nowhere; delete after
+#
+# Destination rule (AGENTS.md):
+#   a human reads it     -> Dropbox   (default)
+#   memory for next time -> the repo  (--repo)
+#   tentative one-off    -> nowhere   (--tmp)
 set -e
 export PATH="$PATH:$HOME/go/bin"
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 [ -f "$ROOT/.env" ] && . "$ROOT/.env"
 [ -n "$DROPBOX_ACCESS_TOKEN" ] && export DBXCLI_ACCESS_TOKEN="$DROPBOX_ACCESS_TOKEN"
 
-SRC=""; SUB=""; PDF=0; TMP=0; LINK=1
+SRC=""; PROJ=""; SECT=""; TASK=""; PDF=0; TMP=0; REPO=0; LINK=1
 while [ $# -gt 0 ]; do
   case "$1" in
+    --project) PROJ="$2"; shift ;;
+    --section) SECT="$2"; shift ;;
+    --task)    TASK="$2"; shift ;;
     --pdf)     PDF=1 ;;
     --tmp)     TMP=1 ;;
+    --repo)    REPO=1 ;;
     --no-link) LINK=0 ;;
-    --dir)     SUB="$2"; shift ;;
-    -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,22p' "$0"; exit 0 ;;
     -*)        echo "pub: unknown flag $1" >&2; exit 2 ;;
     *)         SRC="$1" ;;
   esac
@@ -36,20 +42,51 @@ done
 [ -n "$SRC" ] || { echo "pub: no file given. try --help" >&2; exit 2; }
 [ -f "$SRC" ] || { echo "pub: no such file: $SRC" >&2; exit 2; }
 
-BASE=$(basename "$SRC")
-STEM=${BASE%.*}
-EXT=${BASE##*.}
+BASE=$(basename "$SRC"); STEM=${BASE%.*}; EXT=${BASE##*.}
 STAMP=$(date +%Y-%m-%d)
 
-# ---- find a Chromium, only if a PDF was asked for -------------------------
+# Strip emoji and punctuation, keep the name: "⚽️ Goals" -> Goals,
+# "✅ Everyday Life" -> Everyday-Life. Same tree, typeable.
+slug() {
+  printf '%s' "$1" | sed 's/[^[:alnum:] _-]//g; s/^ *//; s/ *$//; s/  */-/g'
+}
+
+# --- resolve Project/Section from a task id, if one was given ---------------
+if [ -n "$TASK" ]; then
+  command -v td >/dev/null 2>&1 || { echo "pub: --task needs the td CLI" >&2; exit 3; }
+  eval "$(td task "$TASK" --json </dev/null 2>/dev/null | python3 -c '
+import json,sys
+try: d=json.load(sys.stdin)
+except Exception: sys.exit(0)
+if isinstance(d,list): d = d[0] if d else {}
+def pick(*keys):
+    for k in keys:
+        v=d.get(k)
+        if isinstance(v,dict): v=v.get("name")
+        if isinstance(v,str) and v.strip(): return v.strip()
+    return ""
+p=pick("projectName","project_name","project")
+s=pick("sectionName","section_name","section")
+print("PROJ=%s" % json.dumps(p))
+print("SECT=%s" % json.dumps(s))
+' 2>/dev/null)"
+  [ -n "$PROJ" ] || { echo "pub: could not read project/section from task $TASK." >&2
+                      echo "     pass --project/--section instead." >&2; exit 3; }
+  echo "resolved  $PROJ${SECT:+ / $SECT}"
+fi
+
+REL=""
+[ -n "$PROJ" ] && REL="$(slug "$PROJ")"
+[ -n "$SECT" ] && REL="$REL/$(slug "$SECT")"
+[ -z "$REL" ] && REL="_inbox"
+
+# --- render a PDF first, if asked ------------------------------------------
 find_chrome() {
   [ -n "$CHROME" ] && [ -x "$CHROME" ] && { echo "$CHROME"; return; }
-  for c in \
-    /opt/pw-browsers/chromium-*/chrome-linux/chrome \
-    /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-    "/Applications/Chromium.app/Contents/MacOS/Chromium"
-  do
+  for c in /opt/pw-browsers/chromium-*/chrome-linux/chrome \
+           /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
+           "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+           "/Applications/Chromium.app/Contents/MacOS/Chromium"; do
     [ -x "$c" ] && { echo "$c"; return; }
   done
   for c in google-chrome chromium chromium-browser microsoft-edge; do
@@ -58,48 +95,59 @@ find_chrome() {
   return 1
 }
 
-OUTDIR=$(mktemp -d)
-trap 'rm -rf "$OUTDIR"' EXIT
-UPLOADS="$SRC"
+WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
+FILES="$SRC"
 
 if [ "$PDF" = 1 ]; then
   case "$EXT" in
     html|htm)
-      CHROME=$(find_chrome) || {
-        echo "pub: no Chromium found for PDF rendering. Install Chrome, or set CHROME=/path/to/chrome" >&2
-        exit 3; }
+      CHROME=$(find_chrome) || { echo "pub: no Chromium for PDF. set CHROME=/path/to/chrome" >&2; exit 3; }
       ABS=$(cd "$(dirname "$SRC")" && pwd)/$BASE
       "$CHROME" --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
-                --print-to-pdf="$OUTDIR/$STEM.pdf" "file://$ABS" >/dev/null 2>&1
-      [ -s "$OUTDIR/$STEM.pdf" ] || { echo "pub: PDF render produced nothing" >&2; exit 3; }
-      echo "rendered $STEM.pdf ($(wc -c < "$OUTDIR/$STEM.pdf") bytes)"
-      UPLOADS="$SRC $OUTDIR/$STEM.pdf"
+                --print-to-pdf="$WORK/$STEM.pdf" "file://$ABS" >/dev/null 2>&1
+      [ -s "$WORK/$STEM.pdf" ] || { echo "pub: PDF render produced nothing" >&2; exit 3; }
+      echo "rendered  $STEM.pdf ($(wc -c < "$WORK/$STEM.pdf") bytes)"
+      FILES="$SRC $WORK/$STEM.pdf"
       ;;
-    *) echo "pub: --pdf only applies to HTML input; uploading $BASE as-is" >&2 ;;
+    *) echo "pub: --pdf applies to HTML only; placing $BASE as-is" >&2 ;;
   esac
 fi
 
-# ---- tentative: render only, never upload ---------------------------------
+# --- tentative: never leaves the machine ------------------------------------
 if [ "$TMP" = 1 ]; then
   KEEP=${TMPDIR:-/tmp}/my-life-tmp
   mkdir -p "$KEEP"
-  for f in $UPLOADS; do cp "$f" "$KEEP/"; echo "tmp: $KEEP/$(basename "$f")"; done
-  echo "not uploaded (--tmp). delete when done: rm -rf $KEEP"
+  for f in $FILES; do cp "$f" "$KEEP/"; echo "tmp       $KEEP/$(basename "$f")"; done
+  echo "not published (--tmp). delete when done: rm -rf $KEEP"
   exit 0
 fi
 
-# ---- upload ---------------------------------------------------------------
-command -v dbxcli >/dev/null 2>&1 || { echo "pub: dbxcli not installed. run bin/setup" >&2; exit 3; }
+# --- repo: long-term memory -------------------------------------------------
+if [ "$REPO" = 1 ]; then
+  DEST="$ROOT/notes/$REL"
+  mkdir -p "$DEST"
+  for f in $FILES; do cp "$f" "$DEST/"; echo "repo      notes/$REL/$(basename "$f")"; done
+  echo "remember to commit."
+  exit 0
+fi
 
-DEST="/my-life"
-[ -n "$SUB" ] && DEST="$DEST/$SUB"
-dbxcli mkdir "$DEST" >/dev/null 2>&1 || true
+# --- Dropbox: human-facing --------------------------------------------------
+command -v dbxcli >/dev/null 2>&1 || { echo "pub: dbxcli not installed. run make setup" >&2; exit 3; }
 
-for f in $UPLOADS; do
+DEST="/my-life/$REL"
+# lazy mkdir, one level at a time; already-exists is fine
+acc="/my-life"
+dbxcli mkdir "$acc" >/dev/null 2>&1 || true
+for part in $(printf '%s' "$REL" | tr '/' ' '); do
+  acc="$acc/$part"
+  dbxcli mkdir "$acc" >/dev/null 2>&1 || true
+done
+
+for f in $FILES; do
   n=$(basename "$f")
   target="$DEST/$STAMP-$n"
   dbxcli put "$f" "$target" >/dev/null
-  echo "uploaded  $target"
+  echo "dropbox   $target"
   if [ "$LINK" = 1 ]; then
     url=$(dbxcli share-link create "$target" --output json 2>/dev/null \
           | sed -n 's/.*"url"[ ]*:[ ]*"\([^"]*\)".*/\1/p' | head -1)
