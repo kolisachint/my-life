@@ -1,9 +1,19 @@
-# Where to live
+# Where to live — SUPERSEDED
 
-_Decided 2026-08-27. Revisit only on the triggers at the bottom._
+> **This note is kept for its reasoning only. Its conclusion is out of date.**
+>
+> It compared *staying* against *buying*, before renting was priced and before the
+> Lakeshore flat and the Akiwat retirement plan were known.
+>
+> **Current answer: `notes/Everyday-Life/Household/rent-options.md`.**
+> The buy-versus-stay analysis below still holds — do not buy — but the live
+> options are staying in Chikhali or renting in Wakad, decided in February once
+> the job answer is in.
 
-**Answer: stay in Chikhali. Do not sell D303. Solve the commute at work, not with
-property.**
+_Written 2026-08-27, superseded the same day._
+
+**Original answer: stay in Chikhali. Do not sell D303. Solve the commute at work,
+not with property.**
 
 ---
 
