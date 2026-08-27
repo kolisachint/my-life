@@ -84,13 +84,27 @@ Against his handwritten plan:
 | Needed: education | 59,400 |
 | Needed: Akiwat top-up (comfortable) | ~32,400 |
 
-He is saving **₹71,069/month — about 40% of take-home.** Far better than the
-"₹20,000 no-mercy" note suggested. The problem is not discipline.
+He is saving well — the "₹20,000 no-mercy" note badly undersold it. The problem is
+not discipline.
 
-The problem is **allocation**: ₹24,083 of the ₹30,000 EMI is interest on a flat he
-does not live in. Freeing that single line takes investable saving from ₹30,000 to
-₹60,000 and covers both children almost exactly. See
-`notes/Goals/Money/lakeshore.md` — it is the largest lever available.
+**The problem is that ₹49,000/month is unexplained.** Vishal pays ₹15,000/month
+into his account against the Lakeshore EMI, so:
+
+| Monthly cash | ₹ |
+| --- | ---: |
+| Net salary | 1,74,000 |
+| From Vishal | 15,000 |
+| **Total in** | **1,89,000** |
+| Gold 10k + EMI 30k + MF 20k | −60,000 |
+| **Left for living** | **1,29,000** |
+| His own budget planned | 80,000 |
+| **Unexplained** | **49,000** |
+
+₹1.29 lakh a month for a family of four in Pune with two children in private
+school is plausible — school fees, fuel, a car, parents, insurance, activities.
+It is not necessarily waste. But **he does not know the split, and that ₹49,000 is
+now the largest single lever on this page** — larger than exiting Lakeshore
+(₹15,000) or any housing or job move.
 
 ## Corrections to earlier versions
 

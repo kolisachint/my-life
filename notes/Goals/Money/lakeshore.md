@@ -1,80 +1,87 @@
-# Lakeshore — the biggest single lever
+# Lakeshore — a paperwork problem, not a money problem
 
-_2026-08-27. Established after Sachin corrected the ownership._
+_2026-08-27. Corrected after Sachin clarified: **Vishal is on paper nothing, and
+pays half the EMI into Sachin's account.**_
 
 ## The arrangement
 
-**Lakeshore, Flat 301, Vinod Nagar, Wakad 411057.** Owned **50/50 with his friend
-Vishal**. **Vishal lives there.** Sachin pays **₹30,000/month** against an HDFC
-loan with **₹34,00,000 outstanding**. The loan account and ACH mandate are in
-**Sachin's name**.
+**Lakeshore, Flat 301, Vinod Nagar, Wakad 411057.**
 
-## What that ₹30,000 actually buys
+- **On paper: Sachin is the sole owner and the sole borrower.** ₹34,00,000
+  outstanding with HDFC, mandate in his name.
+- **In practice: 50/50 with his friend Vishal**, who lives there and pays
+  **₹15,000/month** into Sachin's account.
+- Running since **June 2022 — about 50 months.**
 
-At roughly 8.5% on ₹34 lakh:
+## Correcting my own claim
+
+I said exiting Lakeshore was the biggest lever available and worth ₹30,000/month.
+**That was wrong** — it ignored Vishal's contribution.
 
 | | ₹/month |
 | --- | ---: |
-| Interest — pure cost | **24,083** |
-| Principal — the only part that saves | 5,917 |
+| Full EMI | 30,000 |
+| Vishal pays in | −15,000 |
+| **Sachin's net outlay** | **15,000** |
+| — of which his half of interest | 12,042 |
+| — of which his half of principal | 2,958 |
 
-**₹2.89 lakh a year of interest, on a flat he does not live in.**
+His real cost is **₹1.45 lakh a year of interest** for a 50% stake, not ₹2.89
+lakh. And exiting frees **₹15,000/month**, which takes investable saving to
+₹45,000 against an education need of ₹59,400 — **still ₹14,400 short.** It is a
+useful lever, not the decisive one.
 
-And of the ₹5,917 that does build equity, half accrues to Vishal's share — so
-Sachin's own equity grows by roughly **₹2,958/month** for a ₹30,000 outlay.
+## The actual problem
 
-Meanwhile he commutes 25 km from Chikhali, and the flat is 7 km from his office.
+**Vishal has put roughly ₹7.5 lakh into this flat over 50 months, plus an unknown
+share of the down payment and registration. There is nothing on paper.**
 
-## Three questions before anything else
+That exposes both families, in both directions:
 
-The arrangement may be perfectly sound — friends structure things informally and
-there may be terms not visible in the documents. But these need answering:
+- **If Sachin dies**, his family inherits a flat Vishal has half-paid for, and
+  Vishal has no legal claim to any of it.
+- **If Vishal dies**, his family has no claim and no record that their money went
+  anywhere.
+- **If they fall out**, there is no document to point at — only bank transfers
+  that could be characterised many ways.
+- **If Sachin ever needs to sell**, he legally can without Vishal's signature. That
+  is not a power he should be holding over a friend by accident.
+- **Sachin's borrowing capacity** is fully encumbered by ₹34 lakh for an asset he
+  half-owns.
 
-1. **Is Vishal paying half the EMI, or any rent?** Wakad 2BHK market rent is
-   ₹18,000–25,000, so Sachin's 50% share of the *use* is worth ₹9,000–12,500 a
-   month. If nothing is coming back, that is the real cost of the arrangement on
-   top of the interest.
-2. **Is the ₹34 lakh the whole loan, or Sachin's half?** If the whole loan sits on
-   his account, he carries **100% of the liability for 50% of the asset.** That
-   asymmetry is the structural risk, not the money.
-3. **Is Vishal a co-borrower, or only a co-owner?** If only a co-owner, Sachin's
-   credit is exposed alone.
+There is also a **tax question**. ₹15,000 a month lands in his account against a
+property he solely owns. Without documentation, that has no defensible
+characterisation — it could be read as rental income. Whether tax is actually
+payable is a CA question (interest is deductible against rental income, so it may
+well net to a carried-forward loss), but **"we never wrote it down" is not an
+answer to the department.**
 
-Worth noting without drawing conclusions: Vishal also appears on the written-off
-lending list (₹27,000), and there is an open Todoist task to discuss tax with him.
-That is a lot of financial entanglement in one friendship — not wrong, but worth
-being deliberate about.
+## What to do — cheap, and this week
 
-## Why this is the biggest lever available
+**Get it in writing.** A notarised co-ownership agreement or memorandum recording:
+who paid what, the 50/50 beneficial split, who occupies, who pays what monthly, and
+what happens on sale, death or exit.
 
-| If he exits Lakeshore | ₹/month |
-| --- | ---: |
-| EMI freed | 30,000 |
-| Plus current gold 10k + MF 20k | 30,000 |
-| **Investable** | **60,000** |
-| **Both children's education needs** | **59,400** |
+Cost: one lawyer visit and a few thousand rupees. It protects Vishal, protects
+Sachin's family, and gives the ₹15,000/month a defensible identity for tax.
 
-**Exiting Lakeshore funds both children's higher education almost exactly.**
+**This is the highest value-per-rupee action anywhere in this repo.** It is not
+about the money — it is about ₹7.5 lakh of a friend's savings and a ₹34 lakh
+liability held together by goodwill alone.
 
-Nothing else on any list comes close — not the job move, not the housing move, not
-the spending audit.
+Better still, if both agree: **register Vishal's 50% properly**, or sell him the
+whole flat since he lives there. Either ends the asymmetry permanently.
 
-## Options
+## Options, re-ranked
 
-1. **Sell his 50% to Vishal.** Cleanest. Vishal lives there, so Vishal should own
-   it. Clears the loan, frees ₹30,000/month, ends the liability asymmetry.
-   Requires Vishal to be able to buy or refinance — that is the real constraint.
-2. **Sell the flat jointly.** Splits proceeds, clears the loan. Slower, and it is
-   Vishal's home.
-3. **Formalise it.** Vishal pays rent for Sachin's half, or takes over half the
-   EMI, in writing. Keeps the friendship and the asset, fixes the cash flow.
-4. **Leave it.** Costs ₹2.89 lakh a year in interest and delays the education fund.
+1. **Document it now.** Urgent, cheap, non-negotiable. Do this regardless of
+   everything below.
+2. **Sell his 50% to Vishal.** Cleanest end state — Vishal lives there, Vishal
+   should own it. Frees ₹15,000/month and removes ₹34 lakh of liability.
+3. **Leave the economics, fix only the paper.** Perfectly reasonable if the flat is
+   a deliberate long-term holding and the friendship is solid.
 
-Options 1 and 3 are both reasonable. Option 4 is the current default and is the
-expensive one.
+## Not a housing solution
 
-## Not to be confused with
-
-This does **not** solve the commute. Vishal lives in the Wakad flat, so moving in
-is not available. Housing stays a separate question — see
+Vishal lives there, so moving in is not available. Housing stays separate — see
 `notes/Everyday-Life/Household/`.
