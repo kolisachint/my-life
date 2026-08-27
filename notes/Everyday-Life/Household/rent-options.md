@@ -1,9 +1,10 @@
-# Housing — solved
+# Housing
 
-_2026-08-27. **Supersedes the rent-in-Wakad plan entirely.** He already owns a
-flat in Wakad; I had not read the property documents when I wrote that._
+_2026-08-27, revised twice in one day. The Wakad flat he owns is **50/50 with
+Vishal, who lives there** — so moving in is not available. What follows is kept
+only to record why._
 
-## Answer: move into the Lakeshore flat
+## ~~Answer: move into the Lakeshore flat~~ — NOT AVAILABLE
 
 **Lakeshore, Flat 301, Survey No. 107/3/1A, behind Akshara School, Vinod Nagar,
 Wakad 411057.** Owned outright in his name, HDFC loan against it, completion
@@ -22,6 +23,19 @@ proposed. A ₹22,000/month swing, and no deposit to find.
 
 The HDFC EMI continues either way — the difference is that it now buys housing he
 actually lives in rather than an asset sitting idle.
+
+## Where this leaves housing
+
+Two options remain, unchanged from before Lakeshore was discovered:
+
+1. **Stay in Chikhali** and press the WFO exception plus TCS transport. Zero cost.
+2. **Rent in Wakad or Tathawade** — net ≈ ₹6,000/month after letting out D303,
+   plus a ₹1.1–1.85 lakh deposit. Details earlier in this file's history.
+
+Sequencing is unchanged: the **SNBP Rahatani call** is free information with a long
+lead time, so make it regardless. But the housing decision is now **second** to the
+Lakeshore decision — see `notes/Goals/Money/lakeshore.md`, which is worth
+₹30,000/month against housing's ₹6,000–16,000.
 
 ## Why the earlier plan was wrong
 

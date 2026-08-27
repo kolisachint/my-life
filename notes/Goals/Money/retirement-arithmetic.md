@@ -77,15 +77,20 @@ Against his handwritten plan:
 | | ₹/month |
 | --- | ---: |
 | Already automatic (PF + VPF + NPS) — retirement only | 35,152 |
-| His plan: Gold 20k + Stock/MF 30k | 50,000 |
-| **Needed: education** | **59,400** |
-| **Needed: Akiwat top-up (comfortable)** | **~32,400** |
+| Gold (actual, plan said 20k) | 10,000 |
+| Stock/MF (actual, plan said 30k) | 20,000 |
+| Lakeshore EMI — of which only ₹5,917 is principal | 30,000 |
+| **Genuine saving today** | **~71,000** |
+| Needed: education | 59,400 |
+| Needed: Akiwat top-up (comfortable) | ~32,400 |
 
-The ₹50,000 of gold and equity does not quite cover education alone. But PF is
-already carrying most of the retirement load, and Akiwat keeps that load small.
+He is saving **₹71,069/month — about 40% of take-home.** Far better than the
+"₹20,000 no-mercy" note suggested. The problem is not discipline.
 
-**The plan works if the ₹50,000 is actually running.** That remains the single
-unverified line.
+The problem is **allocation**: ₹24,083 of the ₹30,000 EMI is interest on a flat he
+does not live in. Freeing that single line takes investable saving from ₹30,000 to
+₹60,000 and covers both children almost exactly. See
+`notes/Goals/Money/lakeshore.md` — it is the largest lever available.
 
 ## Corrections to earlier versions
 
@@ -96,13 +101,13 @@ unverified line.
 
 ## Open
 
-1. **Is the ₹50,000 of gold + equity actually running?** The whole plan turns on it.
-2. **HDFC EMI amount and remaining tenure.** ₹34 L outstanding; if the tenure runs
-   past 55 it becomes a retirement expense.
-3. **Should the loan be prepaid?** Under the new tax regime there is no interest
-   deduction, so it is a straight ~8.5–9% risk-free return against ~11% risky.
-   Worth a decision, not a default.
-4. **PPF balance.**
+1. **Lakeshore** — is Vishal paying rent or half the EMI? Is the ₹34 L the whole
+   loan or Sachin's half? Is Vishal a co-borrower or only a co-owner? These three
+   answers decide the biggest number on this page.
+2. **HDFC remaining tenure.** If it runs past 55 it becomes a retirement expense.
+3. **PPF balance.**
+4. Gold at ₹10,000/month is a large allocation for an asset with no real yield.
+   Worth asking whether it is doing a job that equity would do better.
 
 ## Caveats
 
