@@ -17,3 +17,6 @@
 2026-08-27 | Dropbox and repo artefacts mirror the Todoist Project/Section tree. /my-life/<Project>/<Section>/ and notes/<Project>/<Section>/. Never invent a different layout.
 2026-08-27 | Folders are created lazily by bin/pub. Never pre-create a project or section folder anywhere.
 2026-08-27 | The Project/Section names are cached in the artifact-publish skill. Read them there; do not run `td project list` to find out.
+2026-08-27 | Claude Code on the web CANNOT use the CLIs: the egress proxy blocks api.todoist.com and api.dropboxapi.com (CONNECT 403). Not a token problem. MCP works there because mcp-proxy.anthropic.com bypasses the proxy.
+2026-08-27 | Check transport at session start: `td auth status` succeeds -> CLI; fails -> MCP. Say which one you are using.
+2026-08-27 | MCP is not what cost 40k tokens - `get-overview` did. MCP find-tasks takes the SAME Todoist filter strings as the CLI and is comparably cheap. Never call get-overview.

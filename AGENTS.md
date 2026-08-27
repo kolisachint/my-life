@@ -12,9 +12,40 @@ single source of truth; `CLAUDE.md` just points here.
 | Dropbox | `dbxcli` — [dropbox/dbxcli](https://github.com/dropbox/dbxcli), official | `--output json`, non-interactive auth |
 | HTML→PDF | headless Chromium via `bin/pub` | Present wherever Chrome is |
 
-`bin/setup` installs both. Do **not** call the Todoist or Dropbox MCP servers.
-Do **not** write a client for either — check `td <command> --help` first; the
-surface is large and almost certainly already covers it.
+`bin/setup` installs both. Do **not** write a client for either — check
+`td <command> --help` first; the surface is large and almost certainly covers it.
+
+### Which transport to use
+
+Decide once, at the start of the session, and say which one you are on:
+
+```sh
+td auth status >/dev/null 2>&1 && echo CLI || echo MCP
+```
+
+- **CLI available** (his laptop, any machine with network) — use it. Never touch
+  the MCP servers there.
+- **CLI unavailable** (Claude Code on the web, and any sandbox where the egress
+  proxy blocks `api.todoist.com` / `api.dropboxapi.com`) — the MCP servers are
+  the only working transport, because MCP traffic bypasses that proxy. Use them,
+  under the rules below.
+
+### If you are on MCP
+
+MCP is not inherently expensive; **one tool is**. The 40k-token session that
+started all this was `get-overview`, not MCP as such.
+
+- **Never call `get-overview`.** It dumps every task with its full description.
+- Use `find-tasks` with a raw `filter` string — the *same* Todoist filter syntax
+  the CLI uses: `overdue`, `today`, `7 days`, `p1 & no date`, `##Goals & @Action`.
+- Use `find-tasks-by-date` for date windows; it is already compact.
+- Read one task's description with `fetch-object`, one at a time, never in a loop.
+- For artefacts, the Dropbox MCP replaces `bin/pub` — but keep the identical
+  `/my-life/<Project>/<Section>/` tree and the same placement rule. Create
+  folders on demand. Nothing else about the structure changes.
+
+Everything outside the transport — the tree, the placement rule, the memory
+files, the review cadence — is the same on both paths.
 
 **Doist ships the official `todoist-cli` skill in `.claude/skills/todoist-cli/`.**
 It documents every command, flag and gotcha. Read it instead of guessing, and
