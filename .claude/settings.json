@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make:*)",
+      "Bash(./bin/brief)",
+      "Bash(./bin/pub:*)",
+      "Bash(./bin/doctor)",
+      "Bash(./bin/setup)",
+      "Bash(td today:*)",
+      "Bash(td upcoming:*)",
+      "Bash(td inbox:*)",
+      "Bash(td task list:*)",
+      "Bash(td task view:*)",
+      "Bash(td project list:*)",
+      "Bash(td section list:*)",
+      "Bash(td label list:*)",
+      "Bash(td filter list:*)",
+      "Bash(td doctor:*)",
+      "Bash(td auth status)",
+      "Bash(td task add:*)",
+      "Bash(td task update:*)",
+      "Bash(td task complete:*)",
+      "Bash(dbxcli ls:*)",
+      "Bash(dbxcli account)",
+      "Bash(cat data/*)",
+      "Bash(cat state/*)",
+      "Bash(cat memory/*)",
+      "Bash(grep:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Read(data/**)",
+      "Read(state/**)",
+      "Read(memory/**)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/*.pem)",
+      "Read(./**/*credentials*)",
+      "Read(./**/*secret*)"
+    ]
+  },
+  "hooks": {}
+}

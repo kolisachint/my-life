@@ -1,0 +1,63 @@
+#!/bin/sh
+# Delegates to each tool's own diagnostics. Only checks what they don't cover.
+export PATH="$PATH:$HOME/go/bin"
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+[ -f "$ROOT/.env" ] && . "$ROOT/.env"
+[ -n "$DROPBOX_ACCESS_TOKEN" ] && export DBXCLI_ACCESS_TOKEN="$DROPBOX_ACCESS_TOKEN"
+ok=0
+chk() { printf '%-18s %s\n' "$1" "$2"; }
+
+# Egress first: in a sandboxed environment the CLIs can be installed and
+# authenticated and still be useless because the API hosts are policy-blocked.
+# Diagnose that here once, so no session has to work it out again.
+echo "--- egress ---"
+blocked=""
+for h in api.todoist.com api.dropboxapi.com; do
+  if curl -sS -m 6 -o /dev/null "https://$h/" 2>&1 | grep -q "403"; then
+    blocked="$blocked $h"
+  fi
+done
+if [ -n "$blocked" ]; then
+  chk "reachability" "BLOCKED:$blocked"
+  echo
+  echo "  This environment's egress policy blocks the API hosts, so the CLIs"
+  echo "  cannot work here no matter what credentials are set. Do not route"
+  echo "  around it. Either allow these hosts in the environment's network"
+  echo "  policy (preferred - one code path everywhere):"
+  echo "      api.todoist.com  todoist.com"
+  echo "      api.dropboxapi.com  content.dropboxapi.com  www.dropbox.com"
+  echo "  or fall back to the MCP servers per AGENTS.md."
+  echo
+else
+  chk "reachability" "api hosts reachable"
+fi
+
+echo "--- todoist (td doctor) ---"
+if command -v td >/dev/null 2>&1; then
+  td doctor </dev/null 2>&1 | sed 's/^/  /' || ok=1
+else
+  chk td "MISSING - run make setup"; ok=1
+fi
+
+echo "--- dropbox ---"
+if command -v dbxcli >/dev/null 2>&1; then
+  chk dbxcli "$(dbxcli version 2>/dev/null | head -1)"
+  if dbxcli account >/dev/null 2>&1; then chk "auth" "ok"
+  else chk "auth" "not logged in - run 'dbxcli login'"; ok=1; fi
+else
+  chk dbxcli "MISSING - run make setup"; ok=1
+fi
+
+echo "--- this repo ---"
+c=""
+for p in /opt/pw-browsers/chromium-*/chrome-linux/chrome \
+         /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
+         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; do
+  [ -x "$p" ] && { c="$p"; break; }
+done
+[ -z "$c" ] && c=$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)
+[ -n "$c" ] && chk "pdf engine" "$c" || chk "pdf engine" "none - bin/pub --pdf will fail"
+[ -f "$ROOT/data/brief.md" ] && chk "brief.md" "$(wc -c < "$ROOT/data/brief.md") bytes" \
+                             || chk "brief.md" "not generated - run make brief"
+chk "memory" "$(grep -vc '^#' "$ROOT/memory/learned.txt" 2>/dev/null || echo 0) facts"
+exit $ok

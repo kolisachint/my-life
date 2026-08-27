@@ -1,0 +1,105 @@
+# Append-only. One line per fact. Newest at the bottom.
+# I do not remember between sessions — if it is not written here, it is lost.
+# Format: YYYY-MM-DD | fact
+
+2026-08-27 | Prefers real, maintained CLIs over anything hand-rolled. Check GitHub releases / brew / go install BEFORE writing a client. He will call it out.
+2026-08-27 | Wants minimum tokens. Never bulk-read Todoist; use filter queries and `todoist show <id>` for single tasks.
+2026-08-27 | Artefacts for humans go to Dropbox /my-life. Long-term memory goes in this repo. Tentative work gets deleted, not committed.
+2026-08-27 | Todoist shut down Sync API v9 and REST v2 on 2026-02-10. Anything older than sachaos/todoist v0.23 is dead.
+2026-08-27 | Chromium is the PDF engine; no pandoc/wkhtmltopdf needed. bin/pub finds it automatically.
+2026-08-27 | Writes excellent goal statements but rarely attaches a dated action. Do not accept a goal without one.
+2026-08-27 | Doist ships an OFFICIAL CLI: @doist/todoist-cli, binary `td`. Use it, not sachaos or any other third-party client.
+2026-08-27 | `td` v4 requires Node >=24. On older Node npm SILENTLY installs v2.1.0 instead of failing. Check `td --version` after install.
+2026-08-27 | `td skill install claude-code --local` writes Doist's own 424-line skill. Never hand-write Todoist mechanics; `td skill update` refreshes it.
+2026-08-27 | `td --json` returns a lean field set; `--full` is what pulls in long descriptions. Default is already token-cheap.
+2026-08-27 | OpenCode support dropped — he named it as an example of portability, not a requirement. AGENTS.md is the portable layer.
+2026-08-27 | Pattern to apply everywhere: look for the vendor's own official tool FIRST, then a maintained third-party one, and only then write anything.
+2026-08-27 | Dropbox and repo artefacts mirror the Todoist Project/Section tree. /my-life/<Project>/<Section>/ and notes/<Project>/<Section>/. Never invent a different layout.
+2026-08-27 | Folders are created lazily by bin/pub. Never pre-create a project or section folder anywhere.
+2026-08-27 | The Project/Section names are cached in the artifact-publish skill. Read them there; do not run `td project list` to find out.
+2026-08-27 | Claude Code on the web CANNOT use the CLIs: the egress proxy blocks api.todoist.com and api.dropboxapi.com (CONNECT 403). Not a token problem. MCP works there because mcp-proxy.anthropic.com bypasses the proxy.
+2026-08-27 | Check transport at session start: `td auth status` succeeds -> CLI; fails -> MCP. Say which one you are using.
+2026-08-27 | MCP is not what cost 40k tokens - `get-overview` did. MCP find-tasks takes the SAME Todoist filter strings as the CLI and is comparably cheap. Never call get-overview.
+2026-08-27 | Prefers fixing the root cause over accepting a workaround. Lead with the fix; offer the fallback second.
+2026-08-27 | Blocked hosts to allow in the web environment's network policy: api.todoist.com, todoist.com, api.dropboxapi.com, content.dropboxapi.com, www.dropbox.com. Installs already work (npm + go proxies permitted); only runtime calls are denied.
+2026-08-27 | `make doctor` diagnoses egress, auth and versions in one call. Run it before concluding anything about why a tool is not working.
+2026-08-27 | Home: D303 Anjani Gaatha, Chikhali (PCMC ~411062). School: SNBP International, Moshi (~5km). Work: TCS Sahyadri Park, Hinjawadi Ph.3 (~25km, 60-90min). Full detail in notes/Everyday-Life/Household/geography.md.
+2026-08-27 | Chikhali and Moshi are PCMC, NOT Pune Municipal Corporation. Property tax, birth certificates and ward matters all go through the PCMC portal. Batch them in one session.
+2026-08-27 | Passport centre is POPSK Pimpri-Chinchwad, Kharalwadi (~30min from home, opposite direction from work). Prefer a morning slot so the afternoon can be WFH. Passport Seva order is fill form -> pay -> then book.
+2026-08-27 | WHERE TO LIVE: decided - stay in Chikhali, do not sell D303. A move costs 8-10% round-trip friction, about 25-33 months of saving at the real 20k/month rate, to fix a commute that the WFO exception fixes free. See notes/Everyday-Life/Household/where-to-live.md.
+2026-08-27 | The `Raise WFO exception` task is worth roughly a month of life per year at 3 office days/week. It is sitting at p4 and should not be.
+2026-08-27 | Housing is downstream of the savings number. At 1.32L/month a move is absorbable; at 20k it is destructive. Answer the money question first.
+2026-08-27 | Decision window on housing closes in ~2 years when Srishti reaches 8th standard - after that a school change before boards is its own cost.
+2026-08-27 | THE central finding: retirement + both educations need Rs 1,78,800/month. He saves Rs 20,000. An 8.9x gap. See notes/Goals/Money/retirement-arithmetic.md.
+2026-08-27 | Rs 75,000/month NO LONGER reaches Rs 5 Cr - 2.6 years of delay moved the requirement to Rs 1,19,400/month. Never quote the old Rs 75k figure as sufficient.
+2026-08-27 | Retiring at 60 instead of 55 is worth Rs 57,200/month. The age 55 assumption was written in 2022 and has never been tested. Raise it every time the plan is discussed.
+2026-08-27 | He has NO BALANCE SHEET. All projections assume zero starting corpus, which is wrong - EPF from TCS + PPF could be Rs 30-50L. Getting that number is the single highest-value action open.
+2026-08-27 | Housing question restated: where he retires sizes the whole plan (Pune Rs 5 Cr vs tier-2/land Rs 2.5-3 Cr). Where he lives NOW is only a commute question and is settled.
+2026-08-27 | The career goal (better-paid role, added 9 Oct 2022, one action in four years) is worth more than everything else in his Todoist combined, because income is the binding constraint on saving.
+2026-08-27 | KEY UNLOCK: SNBP is a school GROUP with campuses at Moshi, Rahatani (411017) and Pimpri Colony. Rahatani is ~5km from Wakad, ~7km from Hinjawadi. An intra-group transfer avoids a real school change.
+2026-08-27 | HOUSING SOLVE: let out D303 (~Rs 16k/mo), rent 2BHK Wakad (~Rs 22k/mo), net Rs 6k/mo. Commute 25km->7km. See notes/Everyday-Life/Household/rent-options.md.
+2026-08-27 | Renting beats buying here purely on friction: Rs 5-8L stamp duty and brokerage is irreversible; a deposit comes back and the lease is 11 months.
+2026-08-27 | Rents Aug 2026: Chikhali 2BHK 15.5-18k. Wakad 2BHK 18-25k. Punawale 2BHK ~23.4k / 3BHK ~30.2k. Tathawade ~Wakad band.
+2026-08-27 | School year is April-March, so any move must land April 2027. Blocking first action: call SNBP Rahatani about seats in both grades.
+2026-08-27 | Deposit is the real cash constraint: Pune runs 3-6 months rent, so Rs 1.1-1.85L needed by Feb 2027. Ring-fence it separately from the investing number.
+2026-08-27 | SEQUENCING: job before house. Wakad is optimised for Hinjawadi; TCS's other Pune campuses are Kharadi and Hadapsar (east Pune, worse from PCMC). Job answer must land before the Feb 2027 lease decision.
+2026-08-27 | BIG FINDING: his Rust embedding-search library and hoo-code semantic-search work IS RAG infrastructure - the 20-70 LPA GenAI band. It sits undated in Everyday Life > OfficeWork. Publishing it on GitHub beats the certification for resume value.
+2026-08-27 | Pune SA market: 25th pct 17.5L, avg 26.8L, 75th pct 35L, senior 35-56L. Service firms pay ~14.5L for the same title. AI SA 24-33L, senior 55-80L. GenAI 20-70L.
+2026-08-27 | Cloud certs carry a 10-20% mid-career premium. GCP PCA is correctly chosen and STILL has no exam date - that is the single blocking action.
+2026-08-27 | UNKNOWN and important: his current CTC. Decides whether the job move is a nudge or an emergency. Ask before advising further on comp.
+2026-08-27 | Recommend laddering not jumping: internal TCS AI practice rung, then external product/GCC at 35-45L, then AI SA at 45-70L. He is 40 with two kids and 20k/month slack.
+2026-08-27 | CTC IS Rs 38 LPA. Above Pune 75th percentile (35L), inside senior/principal band. CORRECTION: income is NOT the binding constraint - I was wrong about that and said so.
+2026-08-27 | Estimated take-home ~Rs 2.23 lakh/month. He saves Rs 20,000 = 9%. Rs 2.03 lakh/month is unaccounted for. THE constraint is spending, not earning.
+2026-08-27 | EPF changes everything: ~Rs 3.65L/yr going in, plus ~17 years of balance. EPF+PPF plausibly deliver Rs 2-3 Cr by 55 unaided. Required new SIP is Rs 47-71k/month, NOT Rs 1.19 lakh.
+2026-08-27 | The Rs 1.32L/month plan he wrote in 2023-24 was never fantasy - it was roughly right for his income. The "20k no-mercy floor" was capitulation, not honesty. Say this plainly.
+2026-08-27 | REVISED SEQUENCE: 1) pull balances this week 2) categorise one month of spending 3) automate a SIP on 1 Oct 4) house, then job. Job dropped to third - it is an optimisation worth 20-50k/month, not a rescue.
+2026-08-27 | Home-loan principal is SAVING, not expense. Count it when assessing his real savings rate.
+2026-08-27 | Wakad at net Rs 6k/month is trivially affordable on 2.23L take-home; deposit is under a month's pay. It now hinges on one question only: is he actually leaving TCS?
+2026-08-27 | REAL IDENTITY: Sachin Tatyaso Koli, DOB 24 Apr 1986 (age 40). Wife Dipali, kids Srishti + Samarth, father Tatyaso. BE CSE, Walchand College of Engineering Sangli 2003-07.
+2026-08-27 | He is a DATA ARCHITECT (~18.5 yrs), not a generic Solution Architect. Deep GCP: BigQuery, DataFlow, Pub/Sub, Composer, Beam, Airflow. Domains banking/telecom/retail. TCS grade C3B since ~2022; before that Sears 2018-22, Cognizant 2010-18, Mahindra Satyam 2008-10.
+2026-08-27 | Best resume line: GCP Email Preference Center API serving millions, cut annual cost by 600K dollars. Also led Teradata to BigQuery migration.
+2026-08-27 | RESUME IS 4.5 YEARS STALE (Feb 2022) and OMITS TCS ENTIRELY. Still says "Sears... Till Date" and "14 years". No AI/ML content. This is the concrete career blocker.
+2026-08-27 | CTC Rs 36,99,331 (not 38L). Rs 8.14L (22%) is VARIABLE - never plan fixed commitments against it. Fixed salary Rs 27.78L.
+2026-08-27 | REAL take-home: normal month ~Rs 1,74,000 + Rs 8,001 food/comm cards. July 2026 showed Rs 2,34,061 only because it included an Rs 81,558 performance bonus.
+2026-08-27 | ALREADY AUTO-SAVING Rs 35,152/month: employee PF 6,408 + VPF 14,952 + NPS 7,384 + employer PF 6,408. He does not count this.
+2026-08-27 | EPF BALANCE Rs 28,13,625 and gratuity Rs 3,43,158 as of Jul 2026. EPF+NPS+gratuity reach ~Rs 2.21 Cr by 55 with NO new action.
+2026-08-27 | REAL SIP REQUIREMENT: Rs 63,700/month, not Rs 1.19 lakh. His own handwritten plan allocates Rs 80k/month to gold+realestate+equity, which would reach Rs 5.72 Cr. THE PLAN IS SOUND - only execution is missing.
+2026-08-27 | HIS BUDGET PLAN (handwritten): Expenses 80k = parents 10 + leisure 20 + monthly 30 + education 20. Investments 1L = gold 20 + real estate 30 + stock/MF 30 + PF 20. Totals 1.8L, matching take-home almost exactly. It is a good plan.
+2026-08-27 | SECOND PROPERTY: "Lakeshore Flat" with an HDFC home loan, ACH mandate from Jun 2022, bought under construction. The "Real Estate 30k" budget line is almost certainly this EMI. EMI AMOUNT UNKNOWN - biggest remaining gap.
+2026-08-27 | Tax regime is NEW (per payslip). His Todoist goal saying "opt for old tax regime" is STALE and probably wrong for him now. Flag for CA, do not rewrite unilaterally.
+2026-08-27 | Dropbox: Digital_Drive/{Sachin,Dipali,Srishti,Samarth,Tatyaso,Sachin_And_Dipali}. Filing is genuinely good - ITRs and Form 16s unbroken since 2010.
+2026-08-27 | NEVER commit PAN, UAN, bank account or loan account numbers to this repo - it pushes to GitHub. Keep identifiers in Dropbox; store only planning figures here.
+2026-08-27 | RULE: never write identity or account numbers into this repo (PAN, Aadhaar, UAN, passport no, bank/loan/demat/policy/employee IDs, credentials). It pushes to GitHub. Planning figures are fine; identifiers are not. Reference Dropbox paths, never contents.
+2026-08-27 | HE ALREADY OWNS A FLAT IN WAKAD: Lakeshore, Flat 301, Survey 107/3/1A, behind Akshara School, Vinod Nagar, Wakad 411057. 7km from TCS Sahyadri Park. I wrote a whole rent-in-Wakad plan before reading his property documents. Read Dropbox property folders BEFORE any housing advice.
+2026-08-27 | HOUSING ANSWER: move into the Wakad flat he owns, let out D303 Chikhali (+16k/mo). Beats renting by 22k/month and needs no deposit. Check first whether Lakeshore is currently tenanted and whether Flat 301 fits a family of four.
+2026-08-27 | RETIREMENT IS AKIWAT, not Pune. He owns a 1500 sqft house there and plans a low-cost life. Corpus needed drops from 5.71 Cr (Pune, 20L/yr) to 1.71-2.86 Cr (Akiwat, 6-10L/yr). Worth ~1.3 lakh/month. RETIRE THE 5 CRORE FIGURE - it answers a question he is not asking.
+2026-08-27 | Assets: EPF 28.14L + MF 10L + gratuity 3.43L = 41.57L, less HDFC 34L outstanding = 7.57L net financial. Plus three properties (D303 Chikhali, Lakeshore Wakad, Akiwat) and 2L owed by Tayadi.
+2026-08-27 | By 55 in today's rupees the existing assets become ~1.44 Cr. Akiwat top-up needed is only 10-54k/month depending on lifestyle.
+2026-08-27 | THE CHILDREN ARE NOW THE BIGGER BILL: Srishti 50L in 7 yrs = 39,400/mo, Samarth 60L in 12 yrs = 20,000/mo, total 59,400/mo. Shorter clock than retirement and PF cannot fund it.
+2026-08-27 | Open: is the 50k/month of gold+equity actually running? HDFC EMI amount and tenure? Prepay the loan (no interest deduction under new regime, so ~8.5-9% risk-free vs 11% risky)? PPF balance?
+2026-08-27 | LAKESHORE IS 50/50 WITH HIS FRIEND VISHAL, AND VISHAL LIVES THERE. Sachin cannot move in. The loan account and ACH mandate are in Sachin's name alone.
+2026-08-27 | ACTUAL monthly investing (he confirmed): gold 10k, Lakeshore EMI 30k, MF 20k = 60k. His written plan said gold 20k / realestate 30k / MF 30k = 80k. He is running at 75% of plan.
+2026-08-27 | Of the 30k EMI, ~24,083 is INTEREST and only ~5,917 is principal - and half that equity is Vishal's. Rs 2.89 lakh/year of interest on a flat he does not live in.
+2026-08-27 | TOTAL genuine saving is Rs 71,069/month (~40% of take-home). He is NOT undisciplined. The problem is allocation, not saving rate.
+2026-08-27 | BIGGEST LEVER: exiting Lakeshore frees 30k/month, taking investable from 30k to 60k, which covers both children's education (59,400/month) almost exactly. Bigger than the job move or any housing move.
+2026-08-27 | Ask before advising on Lakeshore: is Vishal paying rent or half the EMI? Is 34L the whole loan or Sachin's half? Is Vishal a co-borrower or only co-owner? If sole borrower, he carries 100% liability for 50% of the asset.
+2026-08-27 | Vishal also appears on the written-off lending list (27k) and in an open tax task. Note the concentration factually; do not moralise about the friendship.
+2026-08-27 | CORRECTION: Vishal is ON PAPER NOTHING. Sachin is sole owner AND sole borrower of Lakeshore. Vishal pays 15,000/month into Sachin's account. So Sachin's NET outlay is 15k/month, not 30k - I overstated the lever.
+2026-08-27 | Exiting Lakeshore frees only 15k/month, taking investable to 45k against education need of 59,400. Useful, NOT decisive. Do not repeat the "biggest lever" claim.
+2026-08-27 | THE URGENT ITEM: Vishal has put ~7.5 lakh in over 50 months (since Jun 2022) with NOTHING IN WRITING, on a flat Sachin solely owns with 34L of sole liability. Exposes both families on death, falling-out, or sale. Also leaves the 15k/month with no defensible tax characterisation. Fix: notarised co-ownership agreement or memorandum. One lawyer visit. Highest value-per-rupee action in the repo.
+2026-08-27 | THE REAL GAP IS SPENDING: in 1,74,000 salary + 15,000 Vishal = 1,89,000. Out: gold 10k + EMI 30k + MF 20k = 60k. Leaves 1,29,000 for living against a planned 80,000. Rs 49,000/month unexplained - bigger than any other lever. Plausible (school fees, car, parents) but unmeasured.
+2026-08-27 | Revised priority order: 1) document the Vishal arrangement 2) track one month of spending (worth up to 49k) 3) exit or restructure Lakeshore (15k) 4) housing (6-16k) 5) job.
+2026-08-27 | SALARY - I WAS TOO NARROW, GEMINI WAS DIRECTIONALLY RIGHT. Rs 36.99L is above the 75th pct for a GENERIC "Solution Architect, Pune", but well below the Rs 55-95L band for senior GCP/data architects at product companies and GCCs. Benchmark him against the right cohort.
+2026-08-27 | TCS is NOT shortchanging him: levels.fyi C3B median 22.1L, range 12.1-30.6L. At 36.99L he is above his own grade's band top. The constraint is COMPANY TIER, not employer. Internal negotiation cannot fix it.
+2026-08-27 | A tier move is the biggest lever in the whole plan: to 45L = +46,700/mo net, to 50L = +75,900/mo, to 55L = +1,05,000/mo. Compare spending gap 49k, Lakeshore 15k, housing 6-16k. REINSTATE income as the top lever.
+2026-08-27 | Temper the top of the range: 55-95L is Google-tier GCC with product pedigree. He has 18 yrs entirely in services (Sears was a captive, so some GCC exposure), a legacy-heavy stack alongside GCP, and 15-20 year old certifications. Realistic first move 45-55L; 60L+ needs the AI/GenAI angle.
+2026-08-27 | THE BLOCKER IS THE INSTRUMENT, NOT THE MARKET: his resume is from Feb 2022, omits TCS entirely, says "Sears... Till Date" and claims 14 years against an actual 18.5. He cannot test the market with it. Fix the resume before answering "can I get more?"
+2026-08-27 | 8.14L of his 36.99L CTC is VARIABLE. An offer with higher fixed pay improves his position by more than the headline gap suggests.
+2026-08-27 | FIRST TODOIST EDITS APPLIED with his approval: passport chain repriced to p1, docs and property tax moved to today, new SNBP bonafide task created for 28 Aug, POPSK/PCMC detail added to descriptions. Nothing deleted.
+2026-08-27 | Root cause of the passport slip: the container task was p1 while every blocking step was p4. Check for that inversion in other chains.
+2026-08-27 | Use reschedule-tasks for date moves, never update-tasks - it replaces the whole due string and destroys recurrence. Todoist MCP is explicit about this.
+2026-08-27 | Still awaiting separate approval: delete Sprint Planning + duplicate quarterly budget review, rewrite the two impossible recurrences, attach actions to the 12 stalled goals.
+2026-08-27 | STAMP EVERY TODOIST CHANGE: `claude` LABEL to select + a COMMENT to explain. Comments are NOT filterable in Todoist, so the label is the only selector; the comment carries date, what changed and why. Do NOT write footers into descriptions - that is his text.
+2026-08-27 | update-tasks REPLACES the whole labels array - always send existing labels PLUS claude, or you strip Action.
+2026-08-27 | Todoist Free caps personal labels at 5. He had 3 (Action, QuarterlyGoal, the yin-yang one); `claude` is the 4th. NEVER create date-stamped labels like claude-2026-08-27 - it would break the cap within a week. Date goes in the description footer instead.
+2026-08-27 | Comment format: `**Claude - YYYY-MM-DD**` then what changed and why. Use `- new task` suffix for creations. Pass notifyUsers:["none"]. Comments DO work on Todoist Free (verified).
