@@ -10,12 +10,14 @@ _Last updated: 2026-08-27_
 | # | Question | Status |
 | - | --- | --- |
 | 1 | Real monthly investing number (₹20k floor vs ₹1.32L on paper) | **unanswered** |
-| 1a | **Total existing corpus — EPF + PPF + investments.** Blocks every projection | **unanswered** |
+| 1a | **EPF + PPF balances + home-loan outstanding.** Now the single highest-value action — decides whether the SIP needed is ₹47k or ₹71k | **unanswered** |
+| 1d | **Where does ₹2.03 lakh/month go?** One month categorised | **unanswered** |
+| 1e | **Are you actually leaving TCS?** Unblocks the Wakad move | **unanswered** |
 | 1b | **Is retiring at 55 actually fixed?** Moving to 60 is worth ₹57,200/mo | **unanswered** |
 | 1c | **Where do you retire?** Pune ₹5 Cr vs lower-cost ₹2.5–3 Cr | **unanswered** |
 | 2 | Tayadi's ₹2,00,000 — chase or write off | **unanswered** |
 | 3 | GCP PCA exam month — **now the single blocking career action** | **unanswered** |
-| 3a | **Current CTC.** Decides if the job move is a nudge or an emergency | **unanswered** |
+| 3a | ~~Current CTC~~ — **answered: ₹38 LPA.** Above market; job move is an optimisation, not a rescue | **settled** |
 | 4 | May an agent edit Todoist directly without asking each time | **unanswered** |
 
 Until #1 is answered, do not present a savings projection as fact. Say which

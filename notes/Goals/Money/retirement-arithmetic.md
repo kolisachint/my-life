@@ -1,79 +1,92 @@
 # Retirement arithmetic
 
-_Run 2026-08-27. Supersedes the framing in `where-to-live.md` — housing is downstream of this._
+_Revised 2026-08-27 with actual CTC of ₹38 LPA. The earlier version's central
+claim was wrong — see the correction below._
 
-## The finding
+## Correction
 
-At an 11% blended return, from today:
+I previously said **income was the binding constraint.** It is not. That was built
+on a ₹14.5L service-firm reference point with no figure from him.
 
-| Target | Horizon | ₹/month needed |
-| --- | ---: | ---: |
-| Retirement corpus — ₹5 Cr at 55 | 14.4 yrs | 1,19,400 |
-| Srishti — ₹50L higher education | 7 yrs | 39,400 |
-| Samarth — ₹60L higher education | 12 yrs | 20,000 |
-| **Total required** | | **1,78,800** |
-| Actual ("no-mercy" floor) | | 20,000 |
-| **Shortfall** | | **1,58,800 — a 8.9× gap** |
+At ₹38L he is **above the Pune 75th percentile (₹35L)** and inside the
+senior/principal band (₹35.4–55.9L). A job move is an **optimisation worth perhaps
+₹20–50k/month**, not the ₹50k–1L/month I implied. And EPF does far more work than
+I credited, so the "8.9× gap" was badly overstated.
 
-Both weddings (₹25L, ₹30L) excluded. Including them makes it worse.
+Corollary worth stating: the ₹1.32L/month plan he wrote in 2023–24 was **never
+fantasy** — it was roughly right for his income. The "₹20k no-mercy floor" was
+capitulation, not honesty.
 
-## What delay already cost
+## Where he stands
 
-The plan said ₹75,000/month for 17 years from Jan 2024. It is now 2.6 years later
-and contributions never started.
+| Solution Architect, Pune | ₹/yr |
+| --- | ---: |
+| 25th pct | 17.5 L |
+| average | 26.8 L |
+| 75th pct | 35.0 L |
+| **Sachin** | **38.0 L** |
+| senior / principal | 35.4 – 55.9 L |
 
-| If you invest | Reaches by 55 | vs ₹5 Cr |
-| --- | ---: | ---: |
-| ₹20,000/mo | ₹0.84 Cr | 17% |
-| ₹75,000/mo *(original plan)* | ₹3.14 Cr | 63% |
-| ₹1,32,000/mo | ₹5.53 Cr | 111% |
+**Estimated take-home ≈ ₹2.23 lakh/month** (₹38L gross, less employer PF and
+gratuity, less old-regime tax with ~₹2.5L deductions; basic assumed 40% of CTC).
 
-**₹75,000/month no longer reaches ₹5 Cr.** Delay alone moved the requirement from
-₹75,000 to ₹1,19,400 — ₹44,400/month, permanently. Every further year raises it.
+**He saves ₹20,000 — 9% of take-home. ₹2.03 lakh/month is unaccounted for.**
 
-## Levers, by value
+Some is obvious (two children at SNBP, fuel, household of four). Some may be a
+home-loan EMI on D303, which is *partly saving* — principal builds equity and must
+be counted. He does not know the split.
 
-1. **Find out what you already have** — *unknown, possibly ₹40L+*
-   Every figure assumes starting from zero. EPF from years at TCS, PPF, existing
-   investments are uncounted. **Seventeen detailed goals and no balance sheet.**
-   One evening's work; highest-value item here.
+## EPF — the overlooked asset
 
-2. **Retire at 60 instead of 55** — *₹57,200/month*
-   Drops the retirement requirement from ₹1,19,400 to ₹62,200. Costs nothing but
-   the assumption that 55 is fixed. Written in 2022, never tested.
+Earlier projections assumed a zero starting corpus. At ₹38L with ~17 years of
+service that was badly wrong.
 
-3. **Decide where you retire** — *up to ₹50,000/month*
-   ₹5 Cr is sized for ₹20L/year in Pune. A lower-cost location — the ancestral
-   land, a tier-2 town — could size it at ₹2.5–3 Cr. **This is the housing
-   question that matters, and it is not about the commute.**
+| EPF component | Value at 55 (8.25%) |
+| --- | ---: |
+| Future contributions alone (~₹3.65L/yr) | ₹0.94 Cr |
+| If balance today is ₹40 L | ₹1.25 Cr |
+| If balance today is ₹50 L | ₹1.57 Cr |
+| If balance today is ₹70 L | ₹2.19 Cr |
 
-4. **Raise the income** — *the only route to ₹60k+*
-   ₹20k saving means income is the constraint, not discipline. Runs through the
-   career goal added 9 Oct 2022 with one action attached in four years. On these
-   numbers it is worth more than everything else in Todoist combined.
+Plus PPF. **EPF + PPF plausibly deliver ₹2–3 Cr by 55 with no new action.**
 
-5. **Move house for the commute** — *₹0, and costs ₹5–8 lakh*
-   The only lever with a negative return.
+| If EPF + PPF delivers | New SIP needed for ₹5 Cr |
+| --- | ---: |
+| ₹2.0 Cr | ₹70,800/mo |
+| ₹2.5 Cr | ₹59,000/mo |
+| ₹3.0 Cr | ₹47,200/mo |
 
-## The combination that works
+**Not ₹1.19 lakh. Between ₹47k and ₹71k** — a 21–32% savings rate on ₹2.23L
+take-home. Demanding, ordinary, entirely possible.
 
-Retire at **60**, in a **lower-cost location** → ₹3 Cr over 19 years ≈
-**₹37,000/month**, not ₹1.19 lakh. Reachable on one good role change.
+## Revised sequence
 
-**The plan is not impossible. It is mis-specified.**
+1. **This week — pull the balances.** EPF passbook (EPFO portal), PPF statement,
+   existing MF/shares, outstanding home-loan balance. One evening; may halve the
+   problem.
+2. **Next 30 days — find the ₹2.03 lakh.** One month categorised, using the
+   categories already in his monthly budget task. Looking for shape, not waste.
+   Realistically frees ₹40–60k/month — worth more than the job move, costs nothing.
+3. **1 October — automate.** SIP mandate just after salary credit, even at ₹40k.
+   His automate-transfers goal has been actionless since Oct 2023.
+4. **Then house, then job.** Wakad at net ₹6k/month is trivially affordable on
+   ₹2.23L; deposit is under a month's pay. It now depends on one question only:
+   **is he actually leaving TCS?** If staying, Wakad is safe — move in April.
+   The job search stays worth doing for the GenAI ceiling (₹45–70L, and he has real
+   retrieval work), but on his timetable.
 
-## Where to live, correctly stated — three decisions, three clocks
+## Unchanged
 
-- **Now → 2 yrs:** stay in Chikhali. Settled. Don't anchor to Hinjawadi anyway —
-  you are trying to change roles, so buying near the current employer optimises
-  for something you intend to leave.
-- **2 → 10 yrs:** follow the job, not the office. Window narrows when Srishti
-  reaches 8th standard (~2 yrs).
-- **Retirement:** the genuinely open question. Sizes the entire plan. Start with
-  where the ancestral land is and whether it is habitable.
+- **Delay costs most.** 2.6 of the original 17 years are gone. Automating ₹40k in
+  October beats automating the perfect number in April.
+- **Retiring at 60 rather than 55 is worth ~₹57,000/month.** The age-55 assumption
+  was written in 2022 and never tested.
+- **Where he retires sizes the target.** ₹5 Cr is priced for Pune; ₹2.5–3 Cr
+  elsewhere — which, on the EPF numbers, he may already be most of the way toward.
 
 ## Caveats
 
-Assumes a zero starting corpus (wrong — see lever 1). Excludes salary growth,
-D303 equity, land value, both weddings. 11% is an assumption. Not tax advice.
-None of this changes the direction; several change the size.
+Take-home estimated, not from a payslip. EPF balance guessed — the passbook
+settles it. 11% equity assumption over 14.4 years. Weddings, D303 equity, ancestral
+land and salary growth all excluded, and all work in his favour. Not tax advice;
+the CA conversation should now happen sooner.

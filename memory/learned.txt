@@ -48,3 +48,10 @@
 2026-08-27 | Cloud certs carry a 10-20% mid-career premium. GCP PCA is correctly chosen and STILL has no exam date - that is the single blocking action.
 2026-08-27 | UNKNOWN and important: his current CTC. Decides whether the job move is a nudge or an emergency. Ask before advising further on comp.
 2026-08-27 | Recommend laddering not jumping: internal TCS AI practice rung, then external product/GCC at 35-45L, then AI SA at 45-70L. He is 40 with two kids and 20k/month slack.
+2026-08-27 | CTC IS Rs 38 LPA. Above Pune 75th percentile (35L), inside senior/principal band. CORRECTION: income is NOT the binding constraint - I was wrong about that and said so.
+2026-08-27 | Estimated take-home ~Rs 2.23 lakh/month. He saves Rs 20,000 = 9%. Rs 2.03 lakh/month is unaccounted for. THE constraint is spending, not earning.
+2026-08-27 | EPF changes everything: ~Rs 3.65L/yr going in, plus ~17 years of balance. EPF+PPF plausibly deliver Rs 2-3 Cr by 55 unaided. Required new SIP is Rs 47-71k/month, NOT Rs 1.19 lakh.
+2026-08-27 | The Rs 1.32L/month plan he wrote in 2023-24 was never fantasy - it was roughly right for his income. The "20k no-mercy floor" was capitulation, not honesty. Say this plainly.
+2026-08-27 | REVISED SEQUENCE: 1) pull balances this week 2) categorise one month of spending 3) automate a SIP on 1 Oct 4) house, then job. Job dropped to third - it is an optimisation worth 20-50k/month, not a rescue.
+2026-08-27 | Home-loan principal is SAVING, not expense. Count it when assessing his real savings rate.
+2026-08-27 | Wakad at net Rs 6k/month is trivially affordable on 2.23L take-home; deposit is under a month's pay. It now hinges on one question only: is he actually leaving TCS?
