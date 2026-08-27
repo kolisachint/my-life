@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./bin/todoist:*)",
+      "Bash(make:*)",
+      "Bash(cat data/*)",
+      "Bash(cat state/*)",
+      "Bash(grep:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Read(data/**)",
+      "Read(state/**)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(data/store.json)"
+    ]
+  }
+}

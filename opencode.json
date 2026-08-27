@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "mcp": {},
+  "permission": {
+    "bash": {
+      "./bin/todoist *": "allow",
+      "make *": "allow",
+      "cat data/*": "allow",
+      "grep *": "allow",
+      "git status": "allow",
+      "git diff*": "allow",
+      "*": "ask"
+    },
+    "edit": "allow"
+  }
+}
