@@ -21,6 +21,13 @@ Until #4 is answered, propose writes and wait for a yes. Reads are always fine.
 
 ## Settled
 
+- **Where to live: stay in Chikhali. Do not sell D303.** A move carries 8–10%
+  round-trip friction — roughly 25–33 months of saving at the real ₹20k/month rate
+  — to fix a commute the WFO exception fixes for free. Full reasoning in
+  `notes/Everyday-Life/Household/where-to-live.md`. Revisit only on the four
+  triggers listed there; the window closes in ~2 years when Srishti reaches 8th
+  standard.
+
 - Review cadence is **weekly (Sun 7pm) + monthly (1st) + quarterly**. Sprint
   Planning and the duplicate "quarterly" budget review are to be deleted. Do not
   propose new recurring reviews.

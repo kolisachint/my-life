@@ -23,3 +23,10 @@
 2026-08-27 | Prefers fixing the root cause over accepting a workaround. Lead with the fix; offer the fallback second.
 2026-08-27 | Blocked hosts to allow in the web environment's network policy: api.todoist.com, todoist.com, api.dropboxapi.com, content.dropboxapi.com, www.dropbox.com. Installs already work (npm + go proxies permitted); only runtime calls are denied.
 2026-08-27 | `make doctor` diagnoses egress, auth and versions in one call. Run it before concluding anything about why a tool is not working.
+2026-08-27 | Home: D303 Anjani Gaatha, Chikhali (PCMC ~411062). School: SNBP International, Moshi (~5km). Work: TCS Sahyadri Park, Hinjawadi Ph.3 (~25km, 60-90min). Full detail in notes/Everyday-Life/Household/geography.md.
+2026-08-27 | Chikhali and Moshi are PCMC, NOT Pune Municipal Corporation. Property tax, birth certificates and ward matters all go through the PCMC portal. Batch them in one session.
+2026-08-27 | Passport centre is POPSK Pimpri-Chinchwad, Kharalwadi (~30min from home, opposite direction from work). Prefer a morning slot so the afternoon can be WFH. Passport Seva order is fill form -> pay -> then book.
+2026-08-27 | WHERE TO LIVE: decided - stay in Chikhali, do not sell D303. A move costs 8-10% round-trip friction, about 25-33 months of saving at the real 20k/month rate, to fix a commute that the WFO exception fixes free. See notes/Everyday-Life/Household/where-to-live.md.
+2026-08-27 | The `Raise WFO exception` task is worth roughly a month of life per year at 3 office days/week. It is sitting at p4 and should not be.
+2026-08-27 | Housing is downstream of the savings number. At 1.32L/month a move is absorbable; at 20k it is destructive. Answer the money question first.
+2026-08-27 | Decision window on housing closes in ~2 years when Srishti reaches 8th standard - after that a school change before boards is its own cost.
