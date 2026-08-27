@@ -108,7 +108,12 @@ now the largest single lever on this page** — larger than exiting Lakeshore
 
 ## Corrections to earlier versions
 
-1. "Income is the binding constraint" — wrong; he is above the Pune 75th percentile.
+1. "Income is the binding constraint" — I said this, then **wrongly walked it
+   back**. Reinstated: he is above the 75th percentile for a *generic* Pune
+   Solution Architect, but well below the ₹55–95 L band for senior GCP/data
+   architects at product companies and GCCs. A tier move to ₹50 L is worth
+   **+₹75,900/month net** — larger than every other lever combined. See
+   `notes/Goals/Career/job-options.md`.
 2. "₹1.79 lakh/month needed, 8.9× gap" — wrong; assumed a zero starting corpus.
 3. "He saves ₹20,000" — wrong; ₹35,152 is already automatic.
 4. "₹63,700/month needed" — wrong target; that priced a Pune retirement.

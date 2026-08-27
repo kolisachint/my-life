@@ -1,93 +1,98 @@
-# Job options — and why this comes before the house
+# Job options
 
-_2026-08-27._
+_Rewritten 2026-08-27 after Gemini said he is underpaid. **Gemini is directionally
+right and my earlier framing was too narrow.**_
 
-## Sequencing answer: JOB FIRST. House decision in February.
+## The correction
 
-Senior architect searches run 3–6 months. Start now (Aug 2026) → offers Dec–Mar.
-The lease must be signed ~Feb for an April move tied to the school year. The job
-answer lands just before the house commitment falls due.
+I said income was not the binding constraint, because ₹36.99 L sits above the 75th
+percentile for "Solution Architect, Pune". That was **true of the wrong cohort** —
+a generic title spanning all experience levels and, crucially, all company tiers.
 
-**Exception:** call SNBP Rahatani *this week*. Free information, long lead time,
-and it tells you whether the house plan is viable at all.
+The useful cohort is **senior GCP / data architect at a product company or GCC**,
+and against that he is clearly below band.
 
-### Three reasons, all pointing the same way
-
-1. **The house plan depends on the employer.** Wakad works because it is 7 km from
-   Sahyadri Park. TCS's *other* Pune campuses are **Kharadi and Hadapsar — east
-   Pune**, worse from PCMC than Hinjawadi. Pune architect roles are spread across
-   Hinjawadi / Kharadi / Magarpatta / Baner. Commit to Wakad, land a Kharadi role,
-   and you moved house to make the commute worse.
-2. **~10× the value.** Wakad saves ₹6k/month + 26 working days/yr. A move from a
-   service-company band to market is worth ₹10–20L/yr gross ≈ ₹50k–1L/month net.
-   The retirement gap is 8.9× and income is its binding constraint.
-3. **The clocks fit.** Run them the other way and you are guessing.
-
-## Market (Pune, 2026 — public aggregates, not offers)
-
-| Band | ₹/yr |
-| --- | ---: |
-| Solution Architect, Pune — 25th pct | 17.5 L |
-| Solution Architect, Pune — average | 26.8 L |
-| Solution Architect, Pune — 75th pct | 35.0 L |
-| Senior / principal, Pune | 35.4 – 55.9 L |
-| SA at a large service firm (Tech Mahindra ref) | 14.5 L |
-| **AI Solutions Architect, India** | **24 – 33 L** (senior/principal 55–80 L) |
-| **GenAI specialist band** | **20 – 70 L** (vs 10–40 L traditional ML) |
-
-Cloud certs (GCP Professional, AWS SAP, Azure AZ-305) carry a **10–20% mid-career
-premium** — on ₹25L that is ₹2.5–5L/yr = ₹20–40k/month toward the gap. The PCA
-goal is correctly chosen and still has **no exam date**.
-
-**Unknown and important: his current CTC.** Decides whether this is a nudge or an
-emergency. Ask before advising further.
-
-## The finding: he is already building what the market is short of
-
-Filed under ✅ Everyday Life → 💻 OfficeWork, undated and untracked:
-
-- A **Rust embedding-search library** — lightweight model, low latency,
-  configurable similarity metrics and dimensions, CLI, efficient index updates.
-- **hoo-code** extensions — repo-scale embedding, local persistence across
-  sessions, semantic search with text fallback, TS spawning the Rust binary.
-
-That is **RAG infrastructure**: embedding generation, vector indexing, similarity
-search, semantic retrieval, plus MLOps-shaped concerns. Precisely the 20–70L band,
-in a market where <3% of Indian engineering graduates have real AI/ML skills.
-
-**Most architects claiming GenAI have read about RAG. He has built the retrieval
-layer in Rust.** It is a portfolio filed next to "buy dash camera". Publishing it
-on GitHub with a real README does more for the resume than the certification will.
-
-## Three routes
-
-| Route | Band | Note |
+| Cohort | Range | Where ₹36.99 L sits |
 | --- | --- | --- |
-| Internal move to TCS AI practice | — | Lowest risk. No commute change, no notice period. Gets GenAI on the CV with a big logo. Not the destination — a rung. |
-| **External SA at a product company / GCC** | **35–45 L** | **Recommended.** GCCs and product firms pay well above service bands for the same title. Filter every target by office location — that list feeds the February housing call. |
-| AI / GenAI Solution Architect | 45–70 L | Highest ceiling. Realistic in 12–18 months if he ships the library, adds Vertex AI to PCA prep, and gets one AI project on the CV. Destination, not next step. |
+| Solution Architect, Pune (what I used) | avg ₹26.8 L, 75th ₹35 L | **above 75th pct** |
+| Data Architect, India | avg ₹27.3 L, Cloud DA 75th ₹38.9 L | around 75th pct |
+| Sr. Cloud Architect, India | avg ₹38.6 L, range ₹27–100 L | at the average |
+| **Senior GCP architect, product/GCC** | **₹55–95 L** | **well below** |
+| Google Sr. Architect, India | avg ₹61 L, range ₹50–90 L | well below |
 
-At 40, two children, ₹20k/month of slack — **laddering beats jumping.**
+## But TCS is not shortchanging him
 
-## Next 90 days
+| TCS grade C3B (levels.fyi) | ₹ |
+| --- | ---: |
+| Median total comp | 22.1 L |
+| Range | 12.1 – 30.6 L |
+| **Him** | **36.99 L** |
+
+He is **above the top of his own grade's band.** So internal negotiation will not
+fix this — there is nothing left to extract. **The constraint is the company tier,
+not the employer.** Only a move changes it.
+
+At 15–25 years' experience the market spread is roughly 9× and is driven by
+"company tier and specialisation" rather than by the individual. He is in the
+services tier.
+
+## What a tier move is worth
+
+| Move to | Gross gain | Net gain/month |
+| --- | ---: | ---: |
+| ₹45 L | +₹8.0 L | **+₹46,700** |
+| ₹50 L | +₹13.0 L | **+₹75,900** |
+| ₹55 L | +₹18.0 L | **+₹1,05,000** |
+
+Against every other lever in this repo: spending gap ₹49,000, Lakeshore ₹15,000,
+housing ₹6,000–16,000.
+
+**The job move is the biggest lever. I was wrong to demote it.**
+
+Also note ₹8.14 L of his current CTC is **variable**. An offer with a higher fixed
+component improves his position by more than the headline difference suggests.
+
+## Where I would temper Gemini
+
+₹55–95 L is the top of the market and mostly describes people at Google-tier GCCs,
+usually with product-company pedigree. Realistically:
+
+- **18 years entirely in services** — Mahindra Satyam → Cognizant → Sears → TCS.
+  Sears Holdings India was a captive, so there is genuine GCC exposure, but no
+  product-company name on the CV.
+- **Significant legacy stack** alongside the GCP work — Teradata, DataStage,
+  Ab-Initio, Informatica.
+- **Certifications are 15–20 years old.** GCP PCA is not yet booked.
+
+**Realistic first move: ₹45–55 L.** ₹60 L+ needs the AI/GenAI angle to land — and
+he has real material there (the Rust embedding library, the hoo-code semantic
+search work) that almost no competing candidate will have.
+
+## The actual blocker is not the market
+
+**His resume was last modified 14 February 2022. It omits TCS entirely**, still
+shows Sears as "Till Date", and claims 14 years when he has 18.5.
+
+He cannot test this market with that document. "Can I get a better offer?" is
+currently unanswerable — not because the market is unclear, but because he has no
+instrument to measure it with.
+
+## Order of work
 
 | When | Do |
 | --- | --- |
-| This week | Book the GCP PCA exam (paid, dated, non-refundable). Call SNBP Rahatani. |
-| Weeks 2–3 | Push the embedding library to GitHub with a design-decisions README |
-| Weeks 3–5 | Rewrite the resume around decisions and outcomes, leading with retrieval work |
-| Weeks 4–8 | Target list of 20 companies **with office locations attached** |
-| Weeks 6–12 | Work the network, not the portals — senior roles move by referral |
-| February | Decide the house, job answer in hand |
+| Week 1 | Rewrite the resume. Add TCS, correct the tenure, lead with the $600K GCP cost saving and the Teradata→BigQuery migration. |
+| Week 1 | Book the GCP PCA exam — a paid, dated slot. |
+| Weeks 2–3 | Push the Rust embedding library to GitHub with a design-decisions README. It is the differentiator. |
+| Weeks 3–6 | Apply to 20 GCC and product targets, **with office locations recorded** — that list feeds the housing decision. |
+| Weeks 6–12 | Work referrals, not portals. Senior roles move that way. |
+| Ongoing | Let the market answer the question. Offers settle it; neither model's opinion does. |
 
-## The pattern to break
+## The honest summary
 
-The career goal was written **9 Oct 2022** and has produced one action in nearly
-four years. On these numbers it is worth more than everything else in his Todoist
-combined, and it has been treated as the least urgent thing in it.
+Both readings were true of different questions. Mine: *is he well paid for this
+title in this city?* Yes. Gemini's: *could he earn materially more elsewhere?*
+Also yes, and that is the question that matters for his plan.
 
-## Caveats
-
-Salary figures are public aggregates, not offers. A job change carries real risk —
-notice period, probation, and a first year where saving may fall. That argues for
-the internal rung first if the external market tests thin.
+The way to resolve it is not to ask another model. It is to fix the resume and
+take four interviews.
