@@ -69,3 +69,11 @@
 2026-08-27 | Tax regime is NEW (per payslip). His Todoist goal saying "opt for old tax regime" is STALE and probably wrong for him now. Flag for CA, do not rewrite unilaterally.
 2026-08-27 | Dropbox: Digital_Drive/{Sachin,Dipali,Srishti,Samarth,Tatyaso,Sachin_And_Dipali}. Filing is genuinely good - ITRs and Form 16s unbroken since 2010.
 2026-08-27 | NEVER commit PAN, UAN, bank account or loan account numbers to this repo - it pushes to GitHub. Keep identifiers in Dropbox; store only planning figures here.
+2026-08-27 | RULE: never write identity or account numbers into this repo (PAN, Aadhaar, UAN, passport no, bank/loan/demat/policy/employee IDs, credentials). It pushes to GitHub. Planning figures are fine; identifiers are not. Reference Dropbox paths, never contents.
+2026-08-27 | HE ALREADY OWNS A FLAT IN WAKAD: Lakeshore, Flat 301, Survey 107/3/1A, behind Akshara School, Vinod Nagar, Wakad 411057. 7km from TCS Sahyadri Park. I wrote a whole rent-in-Wakad plan before reading his property documents. Read Dropbox property folders BEFORE any housing advice.
+2026-08-27 | HOUSING ANSWER: move into the Wakad flat he owns, let out D303 Chikhali (+16k/mo). Beats renting by 22k/month and needs no deposit. Check first whether Lakeshore is currently tenanted and whether Flat 301 fits a family of four.
+2026-08-27 | RETIREMENT IS AKIWAT, not Pune. He owns a 1500 sqft house there and plans a low-cost life. Corpus needed drops from 5.71 Cr (Pune, 20L/yr) to 1.71-2.86 Cr (Akiwat, 6-10L/yr). Worth ~1.3 lakh/month. RETIRE THE 5 CRORE FIGURE - it answers a question he is not asking.
+2026-08-27 | Assets: EPF 28.14L + MF 10L + gratuity 3.43L = 41.57L, less HDFC 34L outstanding = 7.57L net financial. Plus three properties (D303 Chikhali, Lakeshore Wakad, Akiwat) and 2L owed by Tayadi.
+2026-08-27 | By 55 in today's rupees the existing assets become ~1.44 Cr. Akiwat top-up needed is only 10-54k/month depending on lifestyle.
+2026-08-27 | THE CHILDREN ARE NOW THE BIGGER BILL: Srishti 50L in 7 yrs = 39,400/mo, Samarth 60L in 12 yrs = 20,000/mo, total 59,400/mo. Shorter clock than retirement and PF cannot fund it.
+2026-08-27 | Open: is the 50k/month of gold+equity actually running? HDFC EMI amount and tenure? Prepay the loan (no interest deduction under new regime, so ~8.5-9% risk-free vs 11% risky)? PPF balance?

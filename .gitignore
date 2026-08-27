@@ -2,3 +2,19 @@
 *.tmp
 .DS_Store
 __pycache__/
+
+# Never commit anything carrying identity or account numbers.
+# Planning figures belong in notes/; source documents belong in Dropbox.
+*payslip*
+*Payslip*
+*form16*
+*Form16*
+*ITR*
+*aadhaar*
+*Aadhaar*
+*pan-card*
+*PAN*
+*passport-copy*
+*.pem
+*credentials*
+*secret*

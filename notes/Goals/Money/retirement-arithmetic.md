@@ -1,88 +1,112 @@
 # Retirement arithmetic
 
-_Rebuilt 2026-08-27 from the actual CTC letter, July 2026 payslip and his own
-handwritten budget. Two earlier versions of this file were wrong; see below._
+_Rebuilt 2026-08-27 with the full balance sheet and the Akiwat retirement plan.
+Earlier versions were wrong; each correction is noted below._
 
 ## Bottom line
 
-**His own written plan reaches ₹5 crore. The plan is sound. Only execution is
-missing.**
+**Retirement is close to solved. The children's education is now the bigger bill.**
 
-## Corrections to what I said before
+The ₹5 crore target was priced for retiring in Pune. He intends to retire to the
+**Akiwat house (1,500 sq ft, owned outright)** and live a low-cost life. That
+changes the target more than any investing decision could.
 
-1. **"Income is the binding constraint."** Wrong. At ₹36.99 L CTC he is above the
-   Pune 75th percentile. A job move is an optimisation.
-2. **"₹1.79 lakh/month needed, an 8.9× gap."** Wrong — it assumed a zero starting
-   corpus. Real requirement is **₹63,700/month**.
-3. **"He saves ₹20,000, 9% of take-home."** Wrong. **₹35,152/month is already
-   saving automatically** through PF, VPF and NPS before he lifts a finger.
-4. **"₹2.03 lakh/month unaccounted for."** Wrong twice over — take-home is
-   ~₹1.74 L, not ₹2.23 L, and a second home loan (Lakeshore) absorbs part of it.
+## Balance sheet, today
 
-## Real cash position
-
-| | ₹ |
+| Asset | ₹ |
 | --- | ---: |
-| Normal month net | ~1,74,000 |
-| Food + communication cards | 8,001 |
-| **Effective** | **~1,82,000** |
-| July 2026 net (bonus month) | 2,34,061 |
+| EPF | 28,13,625 |
+| Mutual funds | 10,00,000 |
+| Gratuity accrued | 3,43,158 |
+| **Financial assets** | **41,56,783** |
+| HDFC home loan outstanding (Lakeshore) | −34,00,000 |
+| **Net financial** | **7,56,783** |
 
-₹8.14 L of the ₹36.99 L CTC is **variable** — do not plan fixed commitments
-against it.
+Plus three properties — **D303 Chikhali**, **Lakeshore Flat 301, Wakad**,
+**Akiwat house 1,500 sq ft** — and ₹2,00,000 owed to him by Tayadi.
 
-## Retirement assets already in motion — no new action required
+## What the existing assets become by 55, in today's rupees
 
-| Source | Value at 55 |
+Real returns used: EPF 2.1%, NPS 4%, equity 5% (nominal less 6% inflation).
+Age 40 now; 14.67 years to April 2041.
+
+| Source | Value at 55 (today's ₹) |
 | --- | ---: |
-| EPF balance today ₹28,13,625, at 8.25% | ₹0.90 Cr |
-| Future PF inflow ₹3.33 L/yr | ₹0.89 Cr |
-| NPS ₹88,608/yr at 10% | ₹0.27 Cr |
-| Gratuity (₹3.43 L accrued, estimated) | ₹0.15 Cr |
-| **Total** | **₹2.21 Cr** |
+| EPF balance 28.14 L | 38.2 L |
+| Future PF inflow 3.33 L/yr | 56.5 L |
+| NPS 0.886 L/yr | 17.2 L |
+| Mutual funds 10 L | 20.5 L |
+| Gratuity (estimated) | 12.0 L |
+| **Total** | **₹1.44 Cr** |
 
-Age 40 (DOB 24 Apr 1986); 14.67 years to 55 in April 2041.
+## Akiwat changes everything
 
-## The requirement
+Corpus required at a 3.5% withdrawal rate, in today's rupees:
 
-| | |
+| Retire in | Annual spend | Corpus needed | Gap | New SIP needed |
+| --- | ---: | ---: | ---: | ---: |
+| **Akiwat, modest** | ₹6 L | ₹1.71 Cr | ₹27 L | **₹10,400/mo** |
+| **Akiwat, comfortable** | ₹8 L | ₹2.29 Cr | ₹84 L | **₹32,400/mo** |
+| **Akiwat, generous** | ₹10 L | ₹2.86 Cr | ₹141 L | **₹54,400/mo** |
+| Pune (the old target) | ₹20 L | ₹5.71 Cr | ₹427 L | ₹1,64,200/mo |
+
+**Choosing Akiwat over Pune is worth roughly ₹1.3 lakh a month.** No investing
+decision available to him comes close to that. The ₹5 crore figure should be
+retired — it answers a question he is not asking.
+
+He owns the Akiwat house, so there is no rent and no purchase. The main risk is
+**healthcare**: rural access is thinner and costs rise with age. Budget for
+insurance and for travel to Kolhapur or Sangli for treatment.
+
+## The real constraint is now the children
+
+| Goal | Horizon | ₹/month needed (nominal, 11%) |
+| --- | ---: | ---: |
+| Srishti — ₹50 L higher education | 7 yrs | 39,400 |
+| Samarth — ₹60 L higher education | 12 yrs | 20,000 |
+| **Total** | | **59,400** |
+
+This is larger than the retirement requirement and on a much shorter clock.
+Srishti's fund has seven years, and PF cannot be used for it — education must come
+from investable savings, not retirement accounts.
+
+## Putting it together
+
+Against his handwritten plan:
+
+| | ₹/month |
 | --- | ---: |
-| Target | ₹5.00 Cr |
-| Already in motion | ₹2.21 Cr |
-| Gap | ₹2.79 Cr |
-| **New SIP needed** | **₹63,700/month** |
+| Already automatic (PF + VPF + NPS) — retirement only | 35,152 |
+| His plan: Gold 20k + Stock/MF 30k | 50,000 |
+| **Needed: education** | **59,400** |
+| **Needed: Akiwat top-up (comfortable)** | **~32,400** |
 
-**His handwritten plan allocates ₹80,000/month** to Gold (20k) + Real Estate (30k)
-+ Stock/MF (30k). At 11% that reaches **₹5.72 Cr total** — comfortably past target.
+The ₹50,000 of gold and equity does not quite cover education alone. But PF is
+already carrying most of the retirement load, and Akiwat keeps that load small.
 
-Caveat: "Real Estate 30k" is almost certainly the **Lakeshore EMI**, of which only
-the principal portion is saving. So the genuinely investable figure is Gold ₹20k +
-Stock/MF ₹30k = **₹50,000/month**, which reaches ₹2.19 Cr + ₹2.21 Cr = **₹4.40 Cr**
-— short of ₹5 Cr but close, and the Lakeshore equity is not counted in that.
+**The plan works if the ₹50,000 is actually running.** That remains the single
+unverified line.
 
-## So the real question
+## Corrections to earlier versions
 
-**Is the ₹50,000/month of gold and equity actually happening?** The "₹20k
-no-mercy" note from 1 Aug 2026 suggests not. If it is not, that single line is the
-entire gap between his plan and his outcome.
+1. "Income is the binding constraint" — wrong; he is above the Pune 75th percentile.
+2. "₹1.79 lakh/month needed, 8.9× gap" — wrong; assumed a zero starting corpus.
+3. "He saves ₹20,000" — wrong; ₹35,152 is already automatic.
+4. "₹63,700/month needed" — wrong target; that priced a Pune retirement.
 
-## What is still unknown — and now blocking
+## Open
 
-1. **The Lakeshore EMI amount and outstanding balance.** Largest single hole.
-   Determines what is genuinely free each month.
-2. Whether the gold and equity NACH mandates are live.
-3. PPF balance (he pays annually).
-
-## Unchanged from earlier analysis
-
-- **Delay costs most.** 2.6 of the original 17 years are gone.
-- **Retiring at 60 instead of 55** still roughly halves the monthly requirement.
-- **Where he retires sizes the target.** ₹5 Cr is priced for Pune.
-- **Tax regime is NEW**, and the Todoist goal saying "opt for old regime" is stale.
-  One CA conversation.
+1. **Is the ₹50,000 of gold + equity actually running?** The whole plan turns on it.
+2. **HDFC EMI amount and remaining tenure.** ₹34 L outstanding; if the tenure runs
+   past 55 it becomes a retirement expense.
+3. **Should the loan be prepaid?** Under the new tax regime there is no interest
+   deduction, so it is a straight ~8.5–9% risk-free return against ~11% risky.
+   Worth a decision, not a default.
+4. **PPF balance.**
 
 ## Caveats
 
-8.25% assumed on EPF, 10% on NPS, 11% on equity over 14.67 years — assumptions,
-not promises. Gratuity estimated. Weddings, both properties' equity, ancestral land
-and future salary growth all excluded, and all work in his favour.
+Real returns assumed at 2.1% (EPF), 4% (NPS), 5% (equity), i.e. 6% inflation.
+A 3.5% withdrawal rate suits a 30+ year retirement. Gratuity estimated. Property
+equity, the ancestral land, both weddings and future salary growth all excluded —
+all work in his favour. Not tax or investment advice.

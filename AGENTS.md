@@ -117,6 +117,29 @@ Folders are created on demand; nothing is pre-built. The project and section
 names are listed in the `artifact-publish` skill — read them there rather than
 querying `td`. Never `mkdir`, `dbxcli put` or render a PDF yourself.
 
+## Never store secrets or identity numbers
+
+This repo is pushed to GitHub. Treat it as public.
+
+**Never write to any file here:**
+
+- Identity numbers — PAN, Aadhaar, UAN, passport number, driving licence, voter ID
+- Account numbers — bank account, loan account, credit/debit card, demat, folio,
+  policy numbers, employee ID
+- Credentials — passwords, API tokens, OTPs, security answers, mandate/UMRN refs
+- Full account statements, Form 16s, payslips or ITRs pasted verbatim
+
+**Planning figures are fine** — salary totals, balances, EMIs, valuations. It is
+the *identifiers* that must not leak, because a number without an identifier
+attached is only information; with one it is an attack surface.
+
+If a document is needed, reference its **Dropbox path**, never its contents. When
+a user pastes something containing an identifier, use the figures and silently
+drop the identifier — do not echo it back into a file or a commit message.
+
+`.env` is gitignored and holds tokens. Nothing else in this repo should ever
+contain one.
+
 ## Memory — I do not learn between sessions
 
 Anything worth carrying forward goes in a file, or it is gone:

@@ -35,7 +35,11 @@
       "Read(memory/**)"
     ],
     "deny": [
-      "Read(./.env)"
+      "Read(./.env)",
+      "Read(./**/*.pem)",
+      "Read(./**/*credentials*)",
+      "Read(./**/*secret*)"
     ]
-  }
+  },
+  "hooks": {}
 }
