@@ -14,7 +14,8 @@ _Last updated: 2026-08-27_
 | 1b | **Is retiring at 55 actually fixed?** Moving to 60 is worth ₹57,200/mo | **unanswered** |
 | 1c | **Where do you retire?** Pune ₹5 Cr vs lower-cost ₹2.5–3 Cr | **unanswered** |
 | 2 | Tayadi's ₹2,00,000 — chase or write off | **unanswered** |
-| 3 | GCP PCA exam month | **unanswered** |
+| 3 | GCP PCA exam month — **now the single blocking career action** | **unanswered** |
+| 3a | **Current CTC.** Decides if the job move is a nudge or an emergency | **unanswered** |
 | 4 | May an agent edit Todoist directly without asking each time | **unanswered** |
 
 Until #1 is answered, do not present a savings projection as fact. Say which
@@ -23,6 +24,13 @@ figure you used and that it is open.
 Until #4 is answered, propose writes and wait for a yes. Reads are always fine.
 
 ## Settled
+
+- **Sequence: job search first, house decision in February.** The Wakad plan is
+  optimised for Hinjawadi and TCS's other Pune campuses are east-side; committing to
+  a lease before knowing the next employer risks optimising for the wrong side of
+  the city. The job move is also worth roughly 10× the house move. Exception: call
+  SNBP Rahatani this week — free information, long lead time. See
+  `notes/Goals/Career/job-options.md`.
 
 - **Where to live: let out D303, rent in Wakad, move the children to SNBP
   Rahatani for April 2027.** Net ≈ ₹6,000/month; commute 25 km → 7 km; no stamp

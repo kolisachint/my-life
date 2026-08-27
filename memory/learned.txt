@@ -42,3 +42,9 @@
 2026-08-27 | Rents Aug 2026: Chikhali 2BHK 15.5-18k. Wakad 2BHK 18-25k. Punawale 2BHK ~23.4k / 3BHK ~30.2k. Tathawade ~Wakad band.
 2026-08-27 | School year is April-March, so any move must land April 2027. Blocking first action: call SNBP Rahatani about seats in both grades.
 2026-08-27 | Deposit is the real cash constraint: Pune runs 3-6 months rent, so Rs 1.1-1.85L needed by Feb 2027. Ring-fence it separately from the investing number.
+2026-08-27 | SEQUENCING: job before house. Wakad is optimised for Hinjawadi; TCS's other Pune campuses are Kharadi and Hadapsar (east Pune, worse from PCMC). Job answer must land before the Feb 2027 lease decision.
+2026-08-27 | BIG FINDING: his Rust embedding-search library and hoo-code semantic-search work IS RAG infrastructure - the 20-70 LPA GenAI band. It sits undated in Everyday Life > OfficeWork. Publishing it on GitHub beats the certification for resume value.
+2026-08-27 | Pune SA market: 25th pct 17.5L, avg 26.8L, 75th pct 35L, senior 35-56L. Service firms pay ~14.5L for the same title. AI SA 24-33L, senior 55-80L. GenAI 20-70L.
+2026-08-27 | Cloud certs carry a 10-20% mid-career premium. GCP PCA is correctly chosen and STILL has no exam date - that is the single blocking action.
+2026-08-27 | UNKNOWN and important: his current CTC. Decides whether the job move is a nudge or an emergency. Ask before advising further on comp.
+2026-08-27 | Recommend laddering not jumping: internal TCS AI practice rung, then external product/GCC at 35-45L, then AI SA at 45-70L. He is 40 with two kids and 20k/month slack.
