@@ -1,7 +1,12 @@
 ---
-description: Show the current brief from cache without hitting the network
+description: Refresh the Todoist brief and say what needs attention
 ---
 
-`cat data/brief.md` and summarise it in under 120 words. No sync, no other reads.
+Run `make brief`, then summarise in under 150 words:
 
-If the file says it was synced more than a day ago, say so and offer `/sync`.
+1. Anything overdue, and how many days it has slipped
+2. What is due today
+3. Any blocking chain — a dated task whose prerequisite is undated or overdue
+
+Use the `todoist` CLI only. Do not call a Todoist MCP server. If you need one
+task's full detail, `todoist show <id>` for that task alone.

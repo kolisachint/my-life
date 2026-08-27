@@ -1,0 +1,109 @@
+#!/bin/sh
+# pub - publish an artefact to Dropbox /my-life, optionally rendering a PDF first.
+#
+# Uses dbxcli (official Dropbox CLI) for transport and headless Chromium for
+# HTML->PDF. Nothing here reimplements either.
+#
+#   bin/pub report.html --pdf              upload HTML + PDF, print share link
+#   bin/pub chart.png --dir charts         upload to /my-life/charts/
+#   bin/pub draft.html --tmp               render locally, do NOT upload
+#   bin/pub notes.pdf --no-link            upload, skip the share link
+#
+# Placement rule (see AGENTS.md):
+#   for a human to read   -> Dropbox   (this script)
+#   long-term memory      -> the repo  (git, not this script)
+#   tentative one-off     -> --tmp, then delete
+set -e
+export PATH="$PATH:$HOME/go/bin"
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+[ -f "$ROOT/.env" ] && . "$ROOT/.env"
+[ -n "$DROPBOX_ACCESS_TOKEN" ] && export DBXCLI_ACCESS_TOKEN="$DROPBOX_ACCESS_TOKEN"
+
+SRC=""; SUB=""; PDF=0; TMP=0; LINK=1
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --pdf)     PDF=1 ;;
+    --tmp)     TMP=1 ;;
+    --no-link) LINK=0 ;;
+    --dir)     SUB="$2"; shift ;;
+    -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
+    -*)        echo "pub: unknown flag $1" >&2; exit 2 ;;
+    *)         SRC="$1" ;;
+  esac
+  shift
+done
+
+[ -n "$SRC" ] || { echo "pub: no file given. try --help" >&2; exit 2; }
+[ -f "$SRC" ] || { echo "pub: no such file: $SRC" >&2; exit 2; }
+
+BASE=$(basename "$SRC")
+STEM=${BASE%.*}
+EXT=${BASE##*.}
+STAMP=$(date +%Y-%m-%d)
+
+# ---- find a Chromium, only if a PDF was asked for -------------------------
+find_chrome() {
+  [ -n "$CHROME" ] && [ -x "$CHROME" ] && { echo "$CHROME"; return; }
+  for c in \
+    /opt/pw-browsers/chromium-*/chrome-linux/chrome \
+    /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    "/Applications/Chromium.app/Contents/MacOS/Chromium"
+  do
+    [ -x "$c" ] && { echo "$c"; return; }
+  done
+  for c in google-chrome chromium chromium-browser microsoft-edge; do
+    command -v "$c" >/dev/null 2>&1 && { command -v "$c"; return; }
+  done
+  return 1
+}
+
+OUTDIR=$(mktemp -d)
+trap 'rm -rf "$OUTDIR"' EXIT
+UPLOADS="$SRC"
+
+if [ "$PDF" = 1 ]; then
+  case "$EXT" in
+    html|htm)
+      CHROME=$(find_chrome) || {
+        echo "pub: no Chromium found for PDF rendering. Install Chrome, or set CHROME=/path/to/chrome" >&2
+        exit 3; }
+      ABS=$(cd "$(dirname "$SRC")" && pwd)/$BASE
+      "$CHROME" --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
+                --print-to-pdf="$OUTDIR/$STEM.pdf" "file://$ABS" >/dev/null 2>&1
+      [ -s "$OUTDIR/$STEM.pdf" ] || { echo "pub: PDF render produced nothing" >&2; exit 3; }
+      echo "rendered $STEM.pdf ($(wc -c < "$OUTDIR/$STEM.pdf") bytes)"
+      UPLOADS="$SRC $OUTDIR/$STEM.pdf"
+      ;;
+    *) echo "pub: --pdf only applies to HTML input; uploading $BASE as-is" >&2 ;;
+  esac
+fi
+
+# ---- tentative: render only, never upload ---------------------------------
+if [ "$TMP" = 1 ]; then
+  KEEP=${TMPDIR:-/tmp}/my-life-tmp
+  mkdir -p "$KEEP"
+  for f in $UPLOADS; do cp "$f" "$KEEP/"; echo "tmp: $KEEP/$(basename "$f")"; done
+  echo "not uploaded (--tmp). delete when done: rm -rf $KEEP"
+  exit 0
+fi
+
+# ---- upload ---------------------------------------------------------------
+command -v dbxcli >/dev/null 2>&1 || { echo "pub: dbxcli not installed. run bin/setup" >&2; exit 3; }
+
+DEST="/my-life"
+[ -n "$SUB" ] && DEST="$DEST/$SUB"
+dbxcli mkdir "$DEST" >/dev/null 2>&1 || true
+
+for f in $UPLOADS; do
+  n=$(basename "$f")
+  target="$DEST/$STAMP-$n"
+  dbxcli put "$f" "$target" >/dev/null
+  echo "uploaded  $target"
+  if [ "$LINK" = 1 ]; then
+    url=$(dbxcli share-link create "$target" --output json 2>/dev/null \
+          | sed -n 's/.*"url"[ ]*:[ ]*"\([^"]*\)".*/\1/p' | head -1)
+    [ -z "$url" ] && url=$(dbxcli share-link create "$target" 2>/dev/null | grep -o 'https://[^ ]*' | head -1)
+    [ -n "$url" ] && echo "link      $url"
+  fi
+done

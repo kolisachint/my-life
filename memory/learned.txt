@@ -1,0 +1,10 @@
+# Append-only. One line per fact. Newest at the bottom.
+# I do not remember between sessions — if it is not written here, it is lost.
+# Format: YYYY-MM-DD | fact
+
+2026-08-27 | Prefers real, maintained CLIs over anything hand-rolled. Check GitHub releases / brew / go install BEFORE writing a client. He will call it out.
+2026-08-27 | Wants minimum tokens. Never bulk-read Todoist; use filter queries and `todoist show <id>` for single tasks.
+2026-08-27 | Artefacts for humans go to Dropbox /my-life. Long-term memory goes in this repo. Tentative work gets deleted, not committed.
+2026-08-27 | Todoist shut down Sync API v9 and REST v2 on 2026-02-10. Anything older than sachaos/todoist v0.23 is dead.
+2026-08-27 | Chromium is the PDF engine; no pandoc/wkhtmltopdf needed. bin/pub finds it automatically.
+2026-08-27 | Writes excellent goal statements but rarely attaches a dated action. Do not accept a goal without one.

@@ -1,26 +1,26 @@
 SHELL := /bin/sh
-.PHONY: help sync brief review doctor commit
+.PHONY: help setup brief review doctor pub commit
 
 help:
-	@echo "make sync    - pull Todoist changes into data/ (incremental)"
-	@echo "make brief   - print the agent brief from cache (no network)"
-	@echo "make review  - sync, then print brief + standing decisions"
-	@echo "make doctor  - check token, connectivity, cache freshness"
-	@echo "make commit  - commit the refreshed cache"
+	@echo "make setup   - install todoist + dbxcli, write configs from .env"
+	@echo "make brief   - refresh data/brief.md from Todoist filters"
+	@echo "make review  - brief + standing decisions + memory (the Sunday ritual)"
+	@echo "make doctor  - verify tools, tokens, connectivity, PDF engine"
+	@echo "make commit  - commit the refreshed brief and memory"
+	@echo
+	@echo "publish:  ./bin/pub FILE [--pdf] [--dir SUB] [--tmp]"
 
-sync:
-	@./bin/todoist sync
+setup:
+	@./bin/setup
 
 brief:
-	@./bin/todoist brief
+	@./bin/brief
 
-review: sync
-	@cat data/brief.md
-	@echo
-	@cat state/decisions.md
+review: brief
+	@echo; cat state/decisions.md; echo; cat memory/learned.txt
 
 doctor:
-	@./bin/todoist doctor
+	@./bin/doctor
 
 commit:
-	@git add -A data state && git commit -q -m "sync: refresh cache $$(date +%F)" || echo "nothing to commit"
+	@git add -A data memory state && git commit -q -m "sync: $$(date +%F)" || echo "nothing to commit"

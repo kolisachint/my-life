@@ -1,118 +1,142 @@
 # my-life
 
 Life operations for Sachin, in a git repo. Portable across Claude Code, OpenCode,
-Codex, Cursor, or a plain terminal — no vendor lock-in, no MCP server required.
+Codex, Cursor, or a plain terminal. No vendor lock-in, no MCP servers, no
+hand-rolled clients.
 
-## Setup (once, ~2 minutes)
+## Setup (once per machine)
 
 ```sh
-git clone <this repo> && cd my-life
-cp .env.example .env
-# paste your token: Todoist → Settings → Integrations → Developer → API token
-$EDITOR .env
-
-make doctor    # checks token, connectivity, cache
-make sync      # first full pull — populates data/
-git add -A data && git commit -m "sync: initial cache"
+cp .env.example .env && $EDITOR .env    # paste your Todoist API token
+make setup                              # installs todoist + dbxcli
+dbxcli login                            # one-time Dropbox OAuth
+make doctor                             # verify everything
 ```
 
-Requires `python3` (3.8+) and nothing else. No pip, no npm, no MCP server.
+Needs `go` or `brew` for the install step, and Chrome/Chromium if you want PDFs.
+Nothing else.
 
 ## Daily use
 
 ```sh
-make sync      # incremental pull, ~1 second
-make brief     # what's overdue / today / next 7 days, from cache
-make review    # sync + brief + standing decisions (the Sunday ritual)
+make brief     # what's overdue / today / next 7 days
+make review    # brief + standing decisions + memory (the Sunday ritual)
+make doctor    # something misbehaving?
 ```
 
 ```sh
-./bin/todoist ls --overdue
-./bin/todoist ls --project Goals --label Action
-./bin/todoist add "Book PSK appointment" --due "friday" --pri 1 --project Everyday --label Action
-./bin/todoist done 6h9qvH87vv8638rV
-./bin/todoist resched 6X5xq7HGXPXXvMPc "every workday"
-./bin/todoist show 6h9qqVCjfFwf4xWV
+todoist list --filter '(overdue | today) & p1' --csv --header
+todoist add "Book PSK appointment" -P Everyday -d friday -p 1 -L Action
+todoist close <id>
+todoist show <id>
+
+bin/pub report.html --pdf          # -> Dropbox /my-life, prints a share link
+bin/pub chart.png --dir charts
+bin/pub draft.html --tmp           # local only, never uploaded
 ```
 
-Run `./bin/todoist --help` for everything.
+## The tools are not mine
+
+| Job | Tool | Source |
+| --- | --- | --- |
+| Todoist | `todoist` | [sachaos/todoist](https://github.com/sachaos/todoist) — Go, maintained, current API |
+| Dropbox | `dbxcli` | [dropbox/dbxcli](https://github.com/dropbox/dbxcli) — official, v3.7.2 |
+| HTML → PDF | headless Chromium | already on any machine with Chrome |
+
+`bin/` holds four thin shell scripts that wire these together — `setup`, `brief`,
+`pub`, `doctor`. That is all the code in this repo.
+
+> Todoist shut down Sync API v9 and REST API v2 on **10 February 2026**. Any
+> Todoist client older than sachaos/todoist v0.23 is dead. `make setup` always
+> pulls latest.
+
+## Where things go
+
+| Kind of artefact | Destination | How |
+| --- | --- | --- |
+| A human will read or keep it | **Dropbox** `/my-life` | `bin/pub file.html --pdf` |
+| An agent must know it next session | **this repo** | commit it |
+| Tentative, exploratory, one-off | **nowhere** | `bin/pub file.html --tmp`, delete after |
+
+Nothing human-facing gets committed; nothing scratch survives.
+
+## Memory
+
+An agent does not remember between sessions, so anything learned is written down
+or lost:
+
+- `memory/learned.txt` — append-only, one line per fact. Preferences, gotchas,
+  corrections.
+- `state/decisions.md` — settled answers and open blocking questions.
+- `state/log.md` — session log, newest first.
 
 ## Using it with an agent
 
-Every agent reads the same file: **`AGENTS.md`**. `CLAUDE.md` is a five-line
-pointer to it, so there is one set of instructions, not two that drift.
+Every agent reads **`AGENTS.md`**. `CLAUDE.md` is a five-line pointer to it, so
+there is one set of instructions that cannot drift.
 
 | Tool | Reads | Commands | Config |
 | --- | --- | --- | --- |
 | Claude Code | `CLAUDE.md` → `AGENTS.md` | `.claude/commands/` | `.claude/settings.json` |
-| OpenCode | `AGENTS.md` | `.opencode/command/` → symlinks | `opencode.json` |
+| OpenCode | `AGENTS.md` | `.opencode/command/` (symlinks) | `opencode.json` |
 | Codex / Cursor / Amp | `AGENTS.md` | — | — |
 
-`.opencode/command/*.md` are **symlinks** into `.claude/commands/`, so a command
-is written once and works in both. Frontmatter is kept to `description` only —
-the field both parsers agree on.
+`.opencode/command/*.md` are symlinks into `.claude/commands/`, so a command is
+written once and works in both. Frontmatter is limited to `description`, the one
+field both parsers accept.
 
-Slash commands: `/sync`, `/brief`, `/review`, `/capture`, `/plan`.
+Slash commands: `/brief`, `/review`, `/capture`, `/publish`, `/remember`, `/plan`.
+
+Skills in `.claude/skills/` carry the procedures — `life-ops` for planning and
+reviews, `artifact-publish` for producing files — so the same thing is not
+re-derived every session.
 
 ### OpenCode with free models
 
-Nothing here depends on the model. Point OpenCode at whatever you like:
+Nothing here depends on the model. The CLIs do the work; the model reads a
+few-hundred-token brief and decides. A free OpenRouter model or a local Ollama
+model handles this fine.
 
 ```sh
-opencode              # then /models to pick
+opencode        # /models to pick
 ```
 
-Free options that work fine for this repo's work (sync, triage, editing tasks):
-free tiers on OpenRouter, or a local model via Ollama. The heavy lifting is done
-by `bin/todoist`, not by the model — which is the point. A small model reading a
-1.5k-token brief does this job well.
+If your OpenCode version rejects a key in `opencode.json`, delete that key —
+`AGENTS.md` plus the CLIs is the whole system; everything else is convenience.
 
-If your OpenCode version rejects a key in `opencode.json`, delete that key. The
-repo still works: `AGENTS.md` plus the CLI is the whole system, and everything
-else is convenience.
+## Why it's cheap
 
-## Why it's fast
+Reading Todoist over MCP pulled every task's full description — roughly **40,000
+tokens** for this account, mostly 2,000-word goal essays irrelevant to "what's due
+Friday".
 
-Reading Todoist through an MCP server pulls every task's full description —
-around **40,000 tokens** for this account, most of it 2,000-word goal essays that
-are irrelevant to "what's due Friday".
-
-This repo syncs once over HTTP and writes small derived views:
-
-| File | Size | Purpose |
-| --- | --- | --- |
-| `data/brief.md` | ~1.5k tokens | Overdue, today, next 7 days, stalled goals |
-| `data/tasks.tsv` | ~2.5k tokens | One greppable line per task |
-| `data/notes/<id>.md` | on demand | A single task's long description |
-| `data/meta.json` | ~600 tokens | Project / section / label IDs |
-| `data/store.json` | never read | Raw cache, only used to regenerate the above |
-
-A session now starts at roughly **1.5k tokens instead of 40k**. Sync is
-incremental — the first call is a full pull, every call after sends a
-`sync_token` and gets back only what changed.
-
-`data/` is committed on purpose. That is what makes the next session start warm.
+`make brief` runs four Todoist filter queries and writes a few hundred tokens of
+CSV. Full detail is one command away (`todoist show <id>`) for one task at a
+time. Filter syntax does the selection server-side, so nothing large is ever
+transferred, parsed, or read into context.
 
 ## Layout
 
 ```
-AGENTS.md              instructions for every agent — the single source of truth
-CLAUDE.md              pointer to AGENTS.md
-LIFE-PLAN.md           the standing audit and operating plan
-Makefile               sync / brief / review / doctor
-bin/todoist            the CLI (python3 stdlib only)
-data/                  generated cache, committed
-state/decisions.md     standing answers and open questions
-state/log.md           what changed, newest first
-.claude/               commands, skill, permission allowlist
-.opencode/             symlinked commands, agent definition
+AGENTS.md            instructions for every agent — single source of truth
+CLAUDE.md            pointer to AGENTS.md
+LIFE-PLAN.md         the standing audit and operating plan
+bin/setup            install todoist + dbxcli, write configs from .env
+bin/brief            todoist filters -> data/brief.md
+bin/pub              artefact -> optional PDF -> Dropbox -> share link
+bin/doctor           verify tools, tokens, connectivity, PDF engine
+data/brief.md        generated, committed
+memory/learned.txt   append-only facts
+state/               decisions and session log
+.claude/  .opencode/ commands, skills, permissions
 ```
 
 ## Notes
 
-- `.env` is gitignored. The token never enters the repo.
-- `./bin/todoist done` uses Todoist's *close* semantics, so a recurring task
-  advances to its next occurrence instead of ending the series.
-- `./bin/todoist resched` refuses to put a plain date on a recurring task,
-  because that silently destroys the recurrence. Use `--force` to override.
-- Behind a TLS-inspecting proxy, set `SSL_CERT_FILE` to your CA bundle.
+- `.env` is gitignored. Tokens never enter the repo — `bin/setup` writes the
+  Todoist one to `~/.config/todoist/config.json` (mode 600).
+- Prefer `dbxcli login` over a raw Dropbox token; it saves refreshable OAuth
+  credentials. A token in `.env` is only for CI or a headless box.
+- `todoist close` advances a recurring task to its next occurrence. `todoist
+  delete` ends it — an agent must ask first.
+- Behind a TLS-inspecting proxy, set `SSL_CERT_FILE`.

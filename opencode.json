@@ -1,15 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["AGENTS.md"],
+  "instructions": [
+    "AGENTS.md"
+  ],
   "mcp": {},
   "permission": {
     "bash": {
-      "./bin/todoist *": "allow",
       "make *": "allow",
+      "./bin/*": "allow",
+      "todoist list*": "allow",
+      "todoist show*": "allow",
+      "todoist projects": "allow",
+      "dbxcli ls*": "allow",
       "cat data/*": "allow",
+      "cat memory/*": "allow",
+      "cat state/*": "allow",
       "grep *": "allow",
       "git status": "allow",
       "git diff*": "allow",
+      "todoist delete*": "ask",
+      "dbxcli rm*": "ask",
       "*": "ask"
     },
     "edit": "allow"

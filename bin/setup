@@ -1,0 +1,44 @@
+#!/bin/sh
+# Install the real CLIs. Nothing here is hand-written — both are maintained
+# upstream projects. Run once per machine.
+set -e
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+
+have() { command -v "$1" >/dev/null 2>&1; }
+
+install_one() {
+  name=$1; brewpkg=$2; gopkg=$3
+  if have "$name"; then echo "$name: already installed"; return; fi
+  if have brew && brew install "$brewpkg" 2>/dev/null; then
+    echo "$name: installed via brew"; return
+  fi
+  if have go && go install "$gopkg" 2>&1 | tail -1; then
+    echo "$name: installed via go install -> \$HOME/go/bin"; return
+  fi
+  echo "$name: MANUAL - grab a binary from the project's GitHub releases page" >&2
+}
+
+install_one dbxcli  dbxcli  github.com/dropbox/dbxcli/v3@latest
+install_one todoist todoist github.com/sachaos/todoist@latest
+
+# Todoist reads its token from a machine-local config, never from the repo.
+[ -f "$ROOT/.env" ] && . "$ROOT/.env"
+if [ -n "$TODOIST_API_TOKEN" ]; then
+  mkdir -p "$HOME/.config/todoist"
+  printf '{"token":"%s","color":"false","shortdatetimeformat":"2006-01-02 15:04","shortdateformat":"2006-01-02"}\n' \
+    "$TODOIST_API_TOKEN" > "$HOME/.config/todoist/config.json"
+  chmod 600 "$HOME/.config/todoist/config.json"
+  echo "todoist: token written to ~/.config/todoist/config.json"
+else
+  echo "todoist: no TODOIST_API_TOKEN in .env - run 'todoist' once to be prompted" >&2
+fi
+
+if [ -n "$DROPBOX_ACCESS_TOKEN" ]; then
+  echo "dbxcli: will use DBXCLI_ACCESS_TOKEN from .env"
+else
+  echo "dbxcli: run 'dbxcli login' once (saves refreshable OAuth credentials)" >&2
+fi
+
+echo
+echo "Add to your shell profile if needed:  export PATH=\$PATH:\$HOME/go/bin"

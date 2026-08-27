@@ -1,0 +1,45 @@
+#!/bin/sh
+# Verify every moving part. Run after setup, or when something behaves oddly.
+export PATH="$PATH:$HOME/go/bin"
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+[ -f "$ROOT/.env" ] && . "$ROOT/.env"
+[ -n "$DROPBOX_ACCESS_TOKEN" ] && export DBXCLI_ACCESS_TOKEN="$DROPBOX_ACCESS_TOKEN"
+ok=0
+
+chk() { printf '%-22s %s\n' "$1" "$2"; }
+
+if command -v todoist >/dev/null 2>&1; then chk todoist "$(command -v todoist)"
+else chk todoist "MISSING - run bin/setup"; ok=1; fi
+if command -v dbxcli >/dev/null 2>&1; then chk dbxcli "$(dbxcli version 2>/dev/null | head -1)"
+else chk dbxcli "MISSING - run bin/setup"; ok=1; fi
+
+if grep -q '"token"[ ]*:[ ]*"[^"]\+"' "$HOME/.config/todoist/config.json" 2>/dev/null; then
+  chk "todoist token" "~/.config/todoist/config.json"
+else
+  chk "todoist token" "EMPTY or MISSING - run bin/setup"; ok=1
+fi
+
+if command -v todoist >/dev/null 2>&1 \
+   && todoist --csv --header list --filter today </dev/null 2>/dev/null | grep -qi '^ID,\|^id,'; then
+  chk "todoist api" "reachable"
+else
+  chk "todoist api" "FAILED - no valid token, or the API is unreachable"; ok=1
+fi
+
+if command -v dbxcli >/dev/null 2>&1 && dbxcli account >/dev/null 2>&1; then
+  chk "dropbox auth" "ok"
+else chk "dropbox auth" "not logged in - run 'dbxcli login' or set DROPBOX_ACCESS_TOKEN"; ok=1; fi
+
+c=""
+for p in /opt/pw-browsers/chromium-*/chrome-linux/chrome \
+         /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
+         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; do
+  [ -x "$p" ] && { c="$p"; break; }
+done
+[ -z "$c" ] && c=$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)
+if [ -n "$c" ]; then chk "pdf engine" "$c"; else chk "pdf engine" "none - --pdf will fail"; fi
+
+[ -f "$ROOT/data/brief.md" ] && chk "brief.md" "$(wc -c < "$ROOT/data/brief.md") bytes" \
+                             || chk "brief.md" "not generated - run make brief"
+chk "memory" "$(grep -vc '^#' "$ROOT/memory/learned.txt" 2>/dev/null || echo 0) facts"
+exit $ok

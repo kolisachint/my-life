@@ -1,21 +1,35 @@
 {
   "permissions": {
     "allow": [
-      "Bash(./bin/todoist:*)",
       "Bash(make:*)",
+      "Bash(./bin/brief)",
+      "Bash(./bin/pub:*)",
+      "Bash(./bin/doctor)",
+      "Bash(./bin/setup)",
+      "Bash(todoist list:*)",
+      "Bash(todoist show:*)",
+      "Bash(todoist projects)",
+      "Bash(todoist sections)",
+      "Bash(todoist labels)",
+      "Bash(todoist add:*)",
+      "Bash(todoist modify:*)",
+      "Bash(todoist close:*)",
+      "Bash(dbxcli ls:*)",
+      "Bash(dbxcli account)",
       "Bash(cat data/*)",
       "Bash(cat state/*)",
+      "Bash(cat memory/*)",
       "Bash(grep:*)",
       "Bash(git status)",
       "Bash(git diff:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Read(data/**)",
-      "Read(state/**)"
+      "Read(state/**)",
+      "Read(memory/**)"
     ],
     "deny": [
-      "Read(./.env)",
-      "Read(data/store.json)"
+      "Read(./.env)"
     ]
   }
 }
