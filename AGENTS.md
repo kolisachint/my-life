@@ -97,27 +97,37 @@ See the official skill for the full surface. The rules that are mine, not Doist'
 
 ## Stamp every Todoist change
 
-**Every task you create or modify gets the `claude` label and a dated footer.**
-Sachin uses this to find what an agent touched, so it is not optional.
+**Label to select, comment to explain.** They do different jobs — use both.
+
+| | Job | Why |
+| --- | --- | --- |
+| **`claude` label** | The selector | Comments are **not filterable** in Todoist. The label is the only way he can pull up everything an agent touched. |
+| **A comment** | The record | Holds the date, what changed and why, without editing his own text. Multiple comments build a history in order. |
+
+**Do not write a footer into the description.** That was the earlier approach and
+it was wrong — the description is his content, and the comment carries the same
+information better.
+
+Comment format:
 
 ```
-labels:  existing labels + "claude"
-footer:  \n\n---\n_Updated by Claude · YYYY-MM-DD_
+**Claude · YYYY-MM-DD**
+
+What changed, and why it mattered.
 ```
 
-Use `_Created by Claude · YYYY-MM-DD_` for tasks you add rather than edit.
+Use `**Claude · YYYY-MM-DD — new task**` for tasks you create. Pass
+`notifyUsers: ["none"]` so a shared project does not ping collaborators.
 
-Three things to get right:
+Two traps:
 
 - **`update-tasks` replaces the whole label array.** Always send the existing
   labels plus `claude`, never `claude` alone, or you will strip `Action`.
-- **Replace an existing footer, do not stack them.** One line per task, showing
-  the most recent change.
 - **Never create date-stamped labels** like `claude-2026-08-27`. Todoist Free caps
-  personal labels at 5 and three are already in use — one per day would break it
-  within a week.
+  personal labels at 5 and four are now in use — one per day would break it within
+  a week. The date belongs in the comment.
 
-He finds them with the filter `@claude`.
+He selects them with the filter `@claude`, then opens a task to read why.
 
 ## Where output goes — decide before you create anything
 

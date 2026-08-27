@@ -55,10 +55,10 @@ without saying which one you used and that it is still open.
 
 ## Stamping changes
 
-Every task you create or modify carries the `claude` label and a dated footer —
-see AGENTS.md for the exact format and the three traps. Sachin filters on
-`@claude` to review what an agent did, so a change without the stamp is a change
-he cannot audit.
+Every task you create or modify gets the `claude` label **and** a comment saying
+what changed and why — see AGENTS.md for the format and the two traps. The label
+is what he filters on (comments are not filterable); the comment is what he reads.
+Never write a footer into the description; that is his text, not yours.
 
 ## Finishing
 
