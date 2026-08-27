@@ -10,6 +10,9 @@ _Last updated: 2026-08-27_
 | # | Question | Status |
 | - | --- | --- |
 | 1 | Real monthly investing number (₹20k floor vs ₹1.32L on paper) | **unanswered** |
+| 1a | **Total existing corpus — EPF + PPF + investments.** Blocks every projection | **unanswered** |
+| 1b | **Is retiring at 55 actually fixed?** Moving to 60 is worth ₹57,200/mo | **unanswered** |
+| 1c | **Where do you retire?** Pune ₹5 Cr vs lower-cost ₹2.5–3 Cr | **unanswered** |
 | 2 | Tayadi's ₹2,00,000 — chase or write off | **unanswered** |
 | 3 | GCP PCA exam month | **unanswered** |
 | 4 | May an agent edit Todoist directly without asking each time | **unanswered** |

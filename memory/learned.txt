@@ -30,3 +30,9 @@
 2026-08-27 | The `Raise WFO exception` task is worth roughly a month of life per year at 3 office days/week. It is sitting at p4 and should not be.
 2026-08-27 | Housing is downstream of the savings number. At 1.32L/month a move is absorbable; at 20k it is destructive. Answer the money question first.
 2026-08-27 | Decision window on housing closes in ~2 years when Srishti reaches 8th standard - after that a school change before boards is its own cost.
+2026-08-27 | THE central finding: retirement + both educations need Rs 1,78,800/month. He saves Rs 20,000. An 8.9x gap. See notes/Goals/Money/retirement-arithmetic.md.
+2026-08-27 | Rs 75,000/month NO LONGER reaches Rs 5 Cr - 2.6 years of delay moved the requirement to Rs 1,19,400/month. Never quote the old Rs 75k figure as sufficient.
+2026-08-27 | Retiring at 60 instead of 55 is worth Rs 57,200/month. The age 55 assumption was written in 2022 and has never been tested. Raise it every time the plan is discussed.
+2026-08-27 | He has NO BALANCE SHEET. All projections assume zero starting corpus, which is wrong - EPF from TCS + PPF could be Rs 30-50L. Getting that number is the single highest-value action open.
+2026-08-27 | Housing question restated: where he retires sizes the whole plan (Pune Rs 5 Cr vs tier-2/land Rs 2.5-3 Cr). Where he lives NOW is only a commute question and is settled.
+2026-08-27 | The career goal (better-paid role, added 9 Oct 2022, one action in four years) is worth more than everything else in his Todoist combined, because income is the binding constraint on saving.
