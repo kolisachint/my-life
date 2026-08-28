@@ -2,6 +2,38 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-28 — the July 2025 profile card lands
+
+Sachin supplied a photograph of his **TCS consultant profile card, dated July
+2025**. Transcribed to `notes/Goals/Career/tcs-profile-2025.md`; the image is not
+committed — it carries his photograph, mobile number and TCS e-mail, and this repo
+is public. It belongs in `Digital_Drive/Sachin/Job_Resume/`.
+
+**What it settles.** Three of the five resume defects recorded on 27 Aug are gone:
+TCS is present, Sears is correctly closed at 2021, and the tenure reads 18 years.
+The "he cannot test the market with that document" framing is retired.
+
+**What it does not.** The card is a client-facing TCS artefact — clients not
+employers, no continuous employment history, TCS branding, no AI/GenAI content,
+one quantified achievement in the whole page. The rewrite is now **assembly, not
+archaeology**, but it is still unwritten.
+
+**What is new and material.**
+
+| | |
+| --- | --- |
+| **Two industry awards** | Self-serve fraud journey at Lloyds — Banking Tech Awards **2024**, Card & Payments Awards **2025**. Nothing in the repo knew about these. |
+| **A payments specialisation** | Four years on LBG Digital Cards — wallets, card controls, View PIN, fraud, on-prem → GCP. Prices above generic "data architect"; opens card networks, banking GCCs and fintech as targets. |
+
+**New open questions** (`state/decisions.md`): **I** — does he actually hold the
+Google Cloud **Professional Data Engineer** certification the card claims, or is
+that a Coursera specialisation written up? It changes the top of the resume either
+way. **J** — the card reads 2022–**2026**; is the LBG engagement ending?
+
+Files touched: `notes/Goals/Career/tcs-profile-2025.md` (new),
+`notes/Goals/Identity/profile.md`, `notes/Goals/Career/job-options.md`,
+`state/decisions.md`, `memory/learned.txt`. No Todoist changes.
+
 ## 2026-08-27 — first Todoist edits applied (approved)
 
 Six changes to the passport chain and property tax. Nothing deleted.

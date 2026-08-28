@@ -37,20 +37,40 @@ Marketing stack: Adobe Campaign, IBM Unica.
 cost by $600K**. Also led a Teradata → BigQuery migration and replaced self-hosted
 tooling with cloud-native across five stacks.
 
-**Certifications:** GCP Data Engineering/Big Data/ML specialisation (Coursera),
-Teradata Basics + SQL V2R5, Oracle 9i SQL. **All old.** GCP PCA is in progress and
-still has no exam date.
+**Client engagements**, as distinct from employers — Barclays (2010–15,
+Emerging Markets DW / One Africa), Saudi Telecom (2015–18, enterprise DW),
+Sears (2018–21, architect + data architect + program manager), **Lloyds Banking
+Group UK (2022–present, Digital Cards modernisation on GCP)**.
+→ `notes/Goals/Career/tcs-profile-2025.md`
 
-### Resume problems — concrete and fixable
+**Recognition:** the self-serve fraud journey he architected at LBG won at the
+**Banking Tech Awards 2024** and the **Card & Payments Awards 2025**. Two dated,
+external, third-party awards — the scarcest asset on a services CV.
 
-The file `Digital_Drive/Sachin/Job_Resume/Sachin_Koli_Resume.docx` was last
-modified **14 Feb 2022**. It therefore:
+**Certifications:** Teradata Basics + SQL V2R5, Oracle 9i SQL — **both old**. The
+July 2025 TCS profile card claims a full **Google Cloud Certified Professional
+Data Engineer**; the Dropbox evidence only shows Coursera GCP specialisations.
+**Unresolved — see decision I.** GCP PCA is in progress and still has no exam date.
 
-1. **Omits TCS entirely** — his current employer of ~4 years.
-2. Still shows Sears Holdings as "Till Date". Factually wrong.
-3. Says "14 years"; it is now ~18.5.
-4. Contains **no AI/ML/GenAI content** despite him building embedding search.
-5. Leads with certifications that are 20-year-old technology.
+### Resume problems — half fixed as of the July 2025 profile card
+
+The market resume `Digital_Drive/Sachin/Job_Resume/Sachin_Koli_Resume.docx` was
+last modified **14 Feb 2022**. The **TCS profile card of July 2025** is a
+different document — client-facing, TCS-branded, organised by engagement — and it
+fixes the factual defects without being sendable to a recruiter.
+
+| # | Defect (14 Feb 2022 resume) | Status |
+| - | --- | --- |
+| 1 | **Omits TCS entirely** | **Fixed** on the card |
+| 2 | Shows Sears as "Till Date" | **Fixed** — closed at 2021 |
+| 3 | Says "14 years"; it is ~18.5 | **Fixed** — card says 18 |
+| 4 | **No AI/ML/GenAI content** despite him building embedding search | **Stands** |
+| 5 | Leads with 20-year-old certifications | **Stands** |
+| 6 | *(new)* Card names **clients, not employers** — no continuous history | Card only |
+| 7 | *(new)* Only **one quantified** achievement ($600K) in the whole document | Both |
+
+**So the instrument is half built.** Current material exists; it has not been
+assembled into a document he can send to a hiring manager.
 
 ## Compensation (TCS, FY 2026–27)
 

@@ -3,7 +3,7 @@
 Settled answers and open blocking questions. Read before planning anything; it
 stops the same questions being re-asked every session.
 
-_Last updated: 2026-08-27_
+_Last updated: 2026-08-28_
 
 ## Open — blocking
 
@@ -17,6 +17,8 @@ _Last updated: 2026-08-27_
 | F | **Tayadi's ₹2,00,000 — chase or write off?** | Open since Dec 2022, no action ever attached |
 | G | **Is retiring at 55 fixed?** | Moving to 60 roughly halves the monthly requirement |
 | H | **May an agent edit Todoist without asking each time?** | Six passport/property edits are waiting |
+| I | **Does he hold the Google Cloud Professional Data Engineer certification?** | The July 2025 TCS card claims it; Dropbox shows only Coursera specialisations. Changes the top of the resume, and whether PCA is his first Google cert or his second |
+| J | **Is the July 2025 card still current?** | It reads "2022–2026" for the LBG engagement — a forward-looking end date at the time. Is the Digital Cards work ending? |
 
 ## Settled
 
@@ -65,6 +67,17 @@ library is career material — publish it.
 
 **Tax regime is NEW.** The Todoist goal saying "opt for old regime" is stale.
 One CA conversation, not a unilateral rewrite.
+
+**Resume.** The 14 Feb 2022 resume is superseded in *content* by the **July 2025
+TCS profile card** — TCS present, Sears closed at 2021, 18 years stated. It is not
+superseded in *form*: the card names clients not employers, is TCS-branded, and
+carries no AI/GenAI content. The rewrite is now assembly, not archaeology.
+→ `notes/Goals/Career/tcs-profile-2025.md`
+
+**Specialisation.** He is a **payments architect** — four years on Lloyds Digital
+Cards (wallets, card controls, fraud journeys), with **two industry awards**
+(Banking Tech 2024, Card & Payments 2025). That prices above generic "data
+architect" and points the target list at card networks, banking GCCs and fintech.
 
 ## Resolved this session
 
