@@ -1,0 +1,34 @@
+---
+description: Refresh the career document set — resume, ATS file, one-pager, profile card
+---
+
+Refresh the career documents: $ARGUMENTS
+
+Read the `career-docs` skill first. It has the nine documents, the
+confidentiality rule, the print-CSS traps and the environment gotchas.
+
+**The sweep, in order:**
+
+1. `cat data/career-facts.md` — the single source of truth. Everything derives
+   from it.
+2. `bin/portfolio` — refresh the open-source inventory. His repos move fast; do
+   this before claiming anything about the AI half.
+3. Apply the change to **`data/career-facts.md` first**, then to every consumer
+   it names. There are nine and the file lists them — do not update three and
+   call it done.
+4. Re-render each changed artefact:
+   `bin/pub notes/Goals/Career/<name>.html --project Goals --section Career --repo --pdf`
+5. **`bin/pdfcheck` each rendered PDF, then Read the PNGs.** Page count, orphaned
+   headings, dead space, leftover `[N]`. Never skip this — every layout defect
+   ever found here was found this way.
+6. Rebuild the ATS file if its master changed:
+   `cd notes/Goals/Career/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx`
+   (`npm install docx` first if the require fails.)
+7. Append what you learned to `memory/learned.txt`, add a `state/log.md` entry,
+   commit.
+
+**Before finishing, state plainly:** which of the nine changed, which you left
+alone and why, and anything you could not verify.
+
+If he has supplied new numbers, put them where the `[N]` placeholders are and say
+which are still outstanding.

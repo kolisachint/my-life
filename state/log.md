@@ -2,6 +2,38 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — tooled the career work so it stops being improvised
+
+He said he will be doing this repeatedly, so the workflow is now packaged rather
+than re-derived each time.
+
+**The real problem was drift, not effort.** Nine documents carry his career facts
+— three rendered PDFs, a DOCX, five Markdown masters, plus `profile.md`. Change
+one date and eight places go stale. So:
+
+| New | What it does |
+| --- | --- |
+| `data/career-facts.md` | **Single source of truth** — employment dates from the letters, clients, awards, certs, the OSS story. Ends with a manifest naming all nine consumers and how to regenerate each. |
+| `data/portfolio-repos.txt` | The repos the documents cite. Deliberately short — evidence, not an archive. |
+| `bin/pdfcheck` | Renders (if HTML) and rasterises to page PNGs, so a document can be **looked at**. |
+| `bin/portfolio` | Shallow-clones the tracked repos → `notes/Goals/Career/portfolio.md` with languages, last push and the first real README paragraph. |
+| `.claude/skills/career-docs/` | The nine documents, the confidentiality rule, the settled positioning, the print-CSS traps, the environment gotchas. |
+| `/resume` · `/portfolio` | The sweep, and the inventory refresh. |
+
+Both scripts were run and their output checked, not just written. `bin/portfolio`
+needed a fix on first run — the README extractor leaked an indented `<picture>`
+block on hoocode because the HTML test ran before the whitespace trim.
+
+**Also fixed a real `bin/pub` bug** found the hard way: re-rendering a source that
+already lives at the destination made `cp` fail with "same file", and `set -e`
+aborted *before* the new PDF was copied — silently leaving the old one. I
+reviewed a stale render because of it. Now detected with `-ef` and skipped.
+
+**Enumerating his repos cannot be scripted here** — `api.github.com` refuses
+user-level endpoints ("sessions are bound to their configured repositories"). The
+`list_repos` MCP tool does it; cloning public repos anonymously works fine. That
+split is documented in both the script and the command.
+
 ## 2026-08-29 — the AI work was already shipped; I had it wrong
 
 He named the repositories and I read them. **The "AI is a direction, not

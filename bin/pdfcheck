@@ -1,0 +1,82 @@
+#!/bin/sh
+# pdfcheck - rasterise a PDF (or render an HTML first) so an agent can LOOK at it.
+#
+#   bin/pdfcheck notes/Goals/Career/Sachin_Koli_Resume.pdf
+#   bin/pdfcheck notes/Goals/Career/Sachin_Koli_Resume.html      # renders, then rasterises
+#   bin/pdfcheck out.pdf --dpi 150 --out /tmp/look
+#
+# Prints the page count and the PNG paths. Read the PNGs — do not skip this.
+#
+# Why this exists: on 2026-08-29 a resume looked fine in HTML and came out three
+# pages with an orphaned heading and half a page of dead space. None of that is
+# visible without rendering it and looking. Every layout defect found that day
+# was found this way, and none of them any other way.
+set -e
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+
+SRC=""; DPI=110; OUT=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dpi) DPI="$2"; shift ;;
+    --out) OUT="$2"; shift ;;
+    -h|--help) sed -n '2,12p' "$0"; exit 0 ;;
+    -*) echo "pdfcheck: unknown flag $1" >&2; exit 2 ;;
+    *)  SRC="$1" ;;
+  esac
+  shift
+done
+
+[ -n "$SRC" ] || { echo "pdfcheck: no file given. try --help" >&2; exit 2; }
+[ -f "$SRC" ] || { echo "pdfcheck: no such file: $SRC" >&2; exit 2; }
+
+BASE=$(basename "$SRC"); STEM=${BASE%.*}; EXT=${BASE##*.}
+[ -n "$OUT" ] || OUT="${TMPDIR:-/tmp}/pdfcheck/$STEM"
+mkdir -p "$OUT"
+
+# --- HTML in? render it the same way bin/pub does, so what you see is what ships
+PDF="$SRC"
+case "$EXT" in
+  html|htm)
+    CHROME=""
+    for c in /opt/pw-browsers/chromium-*/chrome-linux/chrome \
+             /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell \
+             "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; do
+      [ -x "$c" ] && { CHROME="$c"; break; }
+    done
+    [ -n "$CHROME" ] || for c in google-chrome chromium chromium-browser; do
+      command -v "$c" >/dev/null 2>&1 && { CHROME=$(command -v "$c"); break; }
+    done
+    [ -n "$CHROME" ] || { echo "pdfcheck: no Chromium found" >&2; exit 3; }
+    ABS=$(cd "$(dirname "$SRC")" && pwd)/$BASE
+    PDF="$OUT/$STEM.pdf"
+    "$CHROME" --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
+              --print-to-pdf="$PDF" "file://$ABS" >/dev/null 2>&1
+    [ -s "$PDF" ] || { echo "pdfcheck: render produced nothing" >&2; exit 3; }
+    echo "rendered  $PDF"
+    ;;
+  pdf) ;;
+  *) echo "pdfcheck: need a .pdf or .html, got .$EXT" >&2; exit 2 ;;
+esac
+
+python3 - "$PDF" "$OUT" "$DPI" <<'PY'
+import sys, os
+try:
+    import pymupdf
+except ImportError:
+    try:
+        import fitz as pymupdf
+    except ImportError:
+        sys.exit("pdfcheck: need pymupdf — run: pip install pymupdf")
+
+pdf, out, dpi = sys.argv[1], sys.argv[2], int(sys.argv[3])
+doc = pymupdf.open(pdf)
+print(f"pages     {doc.page_count}")
+for i, page in enumerate(doc, 1):
+    p = os.path.join(out, f"page{i}.png")
+    page.get_pixmap(dpi=dpi).save(p)
+    print(f"page {i}    {p}")
+print()
+print("Now READ those PNGs. Things only visible here: page count, orphaned")
+print("headings, dead space at a page foot, text collided with a rule,")
+print("a placeholder you meant to fill.")
+PY

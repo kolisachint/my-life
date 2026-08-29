@@ -193,6 +193,24 @@ notes/Goals/Career/tcs-profile-2025.jpg   the source image
 Dropbox stays the filing cabinet of record for the family's documents. The repo
 now keeps its own copy of anything an agent will need to re-read.
 
+## Career documents — use the skill, not improvisation
+
+Resumes, the profile card, LinkedIn, bios, the portfolio: **read the
+`career-docs` skill first**, and `data/career-facts.md` before quoting any date,
+title or figure. Nine documents derive from that one file; it names all nine.
+
+```sh
+bin/portfolio        # refresh the open-source inventory (his AI evidence)
+bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
+```
+
+`/resume` runs the whole sweep. Two rules that are not optional:
+
+- **Always `bin/pdfcheck` a rendered document and read the PNGs.** Page count,
+  orphaned headings, dead space and leftover placeholders are invisible in HTML.
+- **Client names go only in privately addressed documents** — never on LinkedIn
+  or his public site. See the skill.
+
 ## Memory — I do not learn between sessions
 
 Anything worth carrying forward goes in a file, or it is gone:
@@ -215,10 +233,15 @@ LIFE-PLAN.md         the standing audit and operating plan
 bin/setup            install td + dbxcli, install Doist's official skill
 bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
+bin/pdfcheck         PDF/HTML -> page PNGs, so a render can be looked at
+bin/portfolio        public repos -> notes/Goals/Career/portfolio.md
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
+data/career-facts.md single source of truth for every career document
+data/portfolio-repos.txt  repos the career documents cite
 notes/<P>/<S>/       long-term artefacts, same tree as Todoist (lazy)
 memory/learned.txt   append-only facts
+.claude/skills/career-docs/   resumes, profile card, bios — read before editing any
 state/decisions.md   settled answers + open questions
 state/log.md         session log
 .claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`

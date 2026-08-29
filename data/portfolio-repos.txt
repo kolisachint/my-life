@@ -1,0 +1,25 @@
+# Repos cited by the career documents. One "owner/name" per line.
+# Refresh the inventory with `bin/portfolio`.
+#
+# To find new ones: call the claude-code-remote `list_repos` MCP tool with
+# query "kolisachint". The plain GitHub API is blocked in this environment.
+# Keep this list SHORT — it is the evidence a recruiter would actually open,
+# not an archive of everything he has ever pushed.
+
+# --- the four that carry the AI story ---
+kolisachint/hoocode
+kolisachint/embeddingsearchtools
+kolisachint/voicetools
+kolisachint/webtools
+
+# --- the rest of the agent-tooling ecosystem ---
+kolisachint/browsertools
+kolisachint/computertools
+kolisachint/filetools
+kolisachint/hooteams
+kolisachint/hoocowork
+kolisachint/hoocanvas
+kolisachint/pycortex
+kolisachint/cortexcode
+kolisachint/product-builder
+kolisachint/BrainDock
