@@ -2,6 +2,44 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — the AI work was already shipped; I had it wrong
+
+He named the repositories and I read them. **The "AI is a direction, not
+experience" call was wrong, twice.** Corrected everywhere.
+
+`github.com/kolisachint` holds ~25 public repos. Four matter:
+
+| Repo | Stack | Substance |
+| --- | --- | --- |
+| **hoocode** | TypeScript | Terminal coding agent **published to npm**. Four packages; unified LLM API across **25+ providers**; permission gate per edit/command; four modes; MCP; subagents. 1,203 commits since May 2026, ~473 his. A fork of MIT `pi-mono` — framed as "extended a fork" everywhere. |
+| **embeddingsearchtools** | Rust | MiniLM via **ONNX Runtime**, int8 bundled in-binary; exact + **HNSW ANN from scratch**; **BM25 hybrid retrieval**; mmap store, CLI, daemon. |
+| **voicetools** | Rust | Offline ASR — mic → VAD → **Parakeet-TDT on ONNX**, 25 languages, whisper.cpp fallback. |
+| **webtools** | Rust | Token-efficient agent fetch/search; single-token URL markers under a budget. |
+
+That is more hands-on LLM and retrieval engineering than most people with an "AI
+Engineer" title. All five documents now carry it as a first-class section, the
+ATS keyword block runs at full strength, and the rendered PDF and DOCX were
+regenerated. **MLOps and model training stay off** — he does inference and
+retrieval, not training.
+
+**Also built: a visual profile card**, replacing the July 2025 TCS one.
+`Sachin_Koli_Profile_Card.pdf` / `.png`. An engineering spec-sheet treatment —
+monospace utility face, hairline rules, one signal colour — with a *Shipped, in
+public* table as the centrepiece, which is what no competing card has. Answered
+his format question honestly: good as a supplement (staffing decks, LinkedIn
+Featured, in person), never as the primary resume, because it parses to garbage
+in an ATS.
+
+**Fixed a real bug in `bin/pub`:** re-rendering a source that already lives at
+the destination made `cp` fail with "same file", and `set -e` aborted the script
+*before* the new PDF was copied — silently leaving the old one in place. I
+reviewed a stale render because of it. Now detected with `-ef` and skipped.
+
+**Dropbox note:** the MCP path works for metadata and text, but `download_link`
+URLs point at `dl.dropboxusercontent.com`, which the egress policy still blocks —
+so binary files cannot be pulled. The headshot came from cropping his uploaded
+card photo instead, treated as monochrome.
+
 ## 2026-08-29 — the resumes exist as real files now
 
 Rendered the sendable formats through `bin/pub` and reviewed them as images.

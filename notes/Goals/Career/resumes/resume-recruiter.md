@@ -3,7 +3,7 @@
 **Solution Architect — Cloud Data & AI Platforms**
 **Google Cloud Certified Professional Data Engineer**
 Pune, India · +91 95522 36200 · kolisachint@gmail.com
-linkedin.com/in/kolisachint · kolisachint.github.io
+linkedin.com/in/kolisachint · github.com/kolisachint · kolisachint.github.io
 
 > **Version 1 of 5 — the workhorse.** Full client detail. Send to named
 > recruiters and hiring managers. Do not post publicly.
@@ -27,9 +27,11 @@ Across twelve prior years in retail, telecom and banking data: a **Teradata →
 BigQuery** lake migration, and a customer preference API on GCP that **cut
 $600,000 a year** in operating cost.
 
-I work the full arc — platform selection, architecture, build, and the
-stakeholder conversation that gets it funded. Currently extending into applied
-AI on top of the platforms I build.
+Alongside all of it I **ship applied-AI tooling in the open** — a terminal coding
+agent published to npm, and the Rust beneath it: ONNX inference, an ANN index
+written from scratch, hybrid dense/lexical retrieval. I work the full arc, from
+platform selection through build to the stakeholder conversation that gets it
+funded.
 
 ---
 
@@ -145,25 +147,31 @@ Oracle → Teradata migration; Control-M scheduling.
 
 ---
 
-## Independent engineering — applied AI
+## Open source — applied AI & agent tooling
 
-Built outside work, in my own time:
+Built in my own time and shipped in public — **github.com/kolisachint**
 
-- **Rust embedding library** — a from-scratch implementation of text embedding
-  generation, written to understand the mechanics rather than call an API.
-- **Semantic code search** — retrieval over a codebase using vector similarity
-  rather than keyword matching.
+- **hoocode** — a deterministic terminal coding agent, **published to npm** as
+  `@kolisachint/hoocode-agent`. TypeScript monorepo of four packages: the CLI, an
+  agent runtime with tool calling and state management, a **unified LLM API across
+  25+ providers**, and a TUI library with differential rendering. A permission
+  gate on every edit and shell command, four scoped modes (ask/plan/build/debug),
+  MCP servers and subagents. ~470 commits since May 2026, extending a fork of the
+  MIT-licensed *pi-mono*.
+- **embeddingsearchtools** (Rust) — an embedding search engine. all-MiniLM-L6-v2
+  via **ONNX Runtime** with int8 weights bundled into the binary; exact and
+  **HNSW approximate-nearest-neighbour** indexes written from scratch; **BM25
+  lexical fusion for hybrid retrieval**; mmap-friendly persistence behind a
+  library API, a CLI and a long-lived daemon.
+- **voicetools** (Rust) — offline speech-to-text for the terminal. Microphone
+  capture through voice-activity detection into **Parakeet-TDT on ONNX Runtime**
+  (25 languages, int8), with a whisper.cpp fallback.
+- **webtools** (Rust) — token-efficient fetch and search for LLM agents.
+  Reference-style URL preservation collapses links to single-token markers;
+  total output is capped to a token budget.
 
-*This is where I am taking the platform work next: the warehouse and streaming
-infrastructure I build is the natural substrate for retrieval, semantic layers
-and ML workloads, and I want to own that layer as well as the pipes.*
-
-> **Before sending this resume: publish the Rust library.** This section is the
-> single most differentiating thing on the page and it currently points at
-> nothing a reader can open. A public repo with a design-decisions README turns
-> it from a claim into evidence. See `README.md`.
-
----
+*Plus ~20 more public repositories in the same ecosystem — browser, computer and
+file tool servers, agent workspaces and experiments.*
 
 ## Technical
 

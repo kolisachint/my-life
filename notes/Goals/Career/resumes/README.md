@@ -16,6 +16,7 @@ Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
 | **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** |
 | **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases |
 | **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager |
+| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone |
 
 The `.html` beside each PDF is the source — edit it and re-run:
 
@@ -27,6 +28,28 @@ The ATS `.docx` is generated from `resumes/build_ats.js` (`node build_ats.js out
 
 **LinkedIn and the public bio are not documents** — they are text you paste into
 fields on a website. They stay as Markdown below; there is nothing to render.
+
+### On the visual card — is that format any good?
+
+**Yes, as a supplement. Never as your primary resume.** It is worth being precise
+about where each one wins:
+
+| Use it for | Do NOT use it for |
+| --- | --- |
+| The TCS/client staffing context the original was built for | **Any ATS or job portal** — two columns, a photo and boxed text parse to garbage, and you are rejected by a machine no human overrules |
+| A LinkedIn **Featured** image, or your site | A recruiter's inbox, where they want text they can scan, copy and forward |
+| Handing to someone in person, or a slide | Anywhere a hiring manager expects a standard CV — a designed card outside consulting reads as unusual, not impressive |
+
+`Sachin_Koli_Profile_Card.pdf` is the replacement for the July 2025 TCS card. It
+is laid out as an engineering spec sheet rather than a brochure: a monospace
+utility face carrying the labels and data, hairline rules, and one deep signal
+colour. The centrepiece is a **Shipped, in public** table of the four
+repositories — which is the thing no competing profile card has, and the reason
+this version is worth sending at all. The headshot is treated as monochrome,
+deliberately: the only source available was a photograph of the original card on
+a screen, and greyscale reads as a design choice rather than a bad scan.
+**Replace it with a proper headshot when you have one** — the file to swap is the
+base64 block in `Sachin_Koli_Profile_Card.html`.
 
 ### How these were checked
 
@@ -72,51 +95,47 @@ without editing.
 
 ---
 
-## The Data & AI question — read this before sending anything
+## The Data & AI question — settled 2026-08-29
 
-You said the core profile is **data and AI**, and that you want to move toward
-it. Those are two different statements and the resumes treat them differently.
+Earlier in this session I told you twice that AI was "a direction, not
+experience" and that your AI work was unpublished. **That was wrong.** You
+pointed me at the repositories and I read them. Both halves of the heading are
+earned, and the AI half is arguably the stronger one.
 
-**Data is earned.** The July 2025 – present workstream — Confluent Kafka, Cloud
-Composer, dbt, BigQuery, Terraform — is a genuine modern data platform build. It
-is the most current and most marketable thing on your CV, and it now leads every
-one of these documents.
+**What is actually shipped** (`github.com/kolisachint`):
 
-**AI is not, yet.** The work you described contains **no AI at all**: no models,
-no ML pipelines, no GenAI, no inference serving, no vector search. Not one line.
-If a resume claims AI and an interviewer asks "what have you shipped?", the
-honest answer today is "nothing in production."
+| Repo | Stack | Substance |
+| --- | --- | --- |
+| **hoocode** | TypeScript | Deterministic terminal coding agent **published to npm**. Four packages: CLI, agent runtime with tool calling, unified LLM API across **25+ providers**, differential-rendering TUI. Permission gate on every edit and command, four scoped modes, MCP servers, subagents. ~470 of 1,203 commits are yours, since May 2026. |
+| **embeddingsearchtools** | Rust | Embedding search engine. MiniLM via **ONNX Runtime**, int8 weights bundled into the binary. Exact and **HNSW approximate-nearest-neighbour** indexes written from scratch. **BM25 fusion for hybrid retrieval.** mmap-friendly store, library API, CLI, daemon. |
+| **voicetools** | Rust | Offline speech-to-text. Mic → VAD → **Parakeet-TDT on ONNX Runtime**, 25 languages, whisper.cpp fallback. |
+| **webtools** | Rust | Token-efficient fetch/search for agents. Reference-style URL preservation collapses links to single-token markers under a token budget. |
 
-So every document here:
+Plus roughly twenty more public repos in the same ecosystem.
 
-- **Headlines "Data & AI Platforms"** — legitimate, because it describes where
-  the platform work points and what you are building toward.
-- **Sells the data platform on its own merits** — it does not need AI to be
-  impressive.
-- **Carries your real AI material in an "Independent Engineering" section** —
-  the Rust embedding library and the semantic-search work. That is genuine
-  applied-AI engineering and almost no competing services candidate has it.
-- **Never claims AI experience you cannot demonstrate.**
+**That is more hands-on LLM and retrieval engineering than most people holding
+an "AI Engineer" title.** ONNX inference in two model families, an ANN index
+implemented rather than imported, hybrid dense/lexical retrieval, a provider
+abstraction across 25+ APIs, and agent architecture with tool calling and
+permissioning. All of it public and readable.
 
-### The single action that closes the gap
+### How the documents handle it now
 
-**Publish the Rust embedding library.** `decisions.md` has said this since
-27 Aug and it has not moved. Right now your AI claim rests on work no one can
-see. A public repo with a README explaining the design decisions converts
-"interested in AI" into "here is applied AI I built" — and it is the difference
-between the ₹45–55 L band and the one above it.
+- The AI work has its own section in every version, with the repo names.
+- The ATS keyword block runs at **full strength** — LLM agents, MCP, ANN, HNSW,
+  hybrid retrieval, RAG, ONNX, ASR — because a repo backs each one.
+- **Two words are still deliberately absent: MLOps and model training.** You do
+  inference and retrieval, not training pipelines, and claiming those would draw
+  a screen on work you have not done.
 
-It is one weekend. It is the highest-leverage career action in this repo.
+### One honest framing point
 
-### The second action
-
-**Get AI into the day job.** You are already the architect of a BigQuery data
-platform — that is the natural substrate for a first ML or GenAI use case
-(anomaly detection on the streams, a semantic layer, BigQuery ML on existing
-tables, an LLM interface over the warehouse). One shipped use case at Lloyds
-would move this from aspiration to experience within a quarter.
-
----
+hoocode is a **fork of the MIT-licensed `pi-mono`** by Mario Zechner, credited
+in your own README. Every document says "extending a fork", never "built from
+scratch" — the ~470 commits and the four-package structure are substantial on
+their own, and a reviewer who checks (they do) should find the framing already
+matches what the repo says. The Rust tools are wholly yours; those carry no such
+caveat.
 
 ## Numbers you need to supply
 

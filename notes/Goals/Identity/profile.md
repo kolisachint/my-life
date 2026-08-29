@@ -19,30 +19,35 @@ exception. See AGENTS.md._
   **koli.sachin1@tcs.com**
 - LinkedIn `in/kolisachint` · site `kolisachint.github.io`
 
-## Direction — DATA & AI (settled 2026-08-29)
+## Direction — DATA & AI (settled 2026-08-29, both halves earned)
 
-**He has chosen the heading himself: data and AI.** Do not re-litigate it, and do
-not reposition him as a payments architect — payments is now a *domain
+**He chose the heading himself and both halves hold up.** Payments is a *domain
 credential*, not his identity.
 
-Two halves, and they are not equally earned:
+- **Data** — the Jul 2025– Lloyds platform: Kafka, Composer, dbt, BigQuery,
+  Terraform. Current and marketable.
+- **AI** — **shipped, public, and substantial.** See below.
 
-- **Data is real.** The Jul 2025 – present Lloyds platform work (Kafka, Composer,
-  dbt, BigQuery, Terraform) is a current, marketable, modern data-platform build.
-  Lead everything with it.
-- **AI is a direction, not yet experience.** That workstream contains **no AI at
-  all** — no models, no ML pipelines, no GenAI, no serving. His only AI material
-  is the **Rust embedding library** and **semantic code search**, both built in
-  his own time and **both unpublished**.
+### Correction: the AI work was never unpublished
 
-**So the gating action is publishing the Rust library.** `decisions.md` has said
-this since 27 Aug and nothing has moved. Until it is public, the AI half of his
-own chosen positioning rests on work no one can verify. It is one weekend and it
-is the highest-leverage career action in the repo.
+Twice on 2026-08-29 I recorded that AI was "a direction, not experience" and that
+his AI material was unpublished. **Both statements were wrong**; he pointed me at
+the repositories. **Never repeat that framing.**
 
-Second action: get one AI use case into the day job. He already architects the
-BigQuery platform — that is the natural substrate for anomaly detection on the
-streams, BigQuery ML, a semantic layer, or an LLM interface over the warehouse.
+`github.com/kolisachint` — around 25 public repos. The four that matter:
+
+| Repo | Stack | What it is |
+| --- | --- | --- |
+| **hoocode** | TypeScript | Deterministic terminal coding agent, **published to npm** (`@kolisachint/hoocode-agent`). Four packages: CLI, agent runtime with tool calling, **unified LLM API across 25+ providers**, differential-rendering TUI. Permission gate per edit/command, four modes, MCP, subagents. 1,203 commits since May 2026, ~473 his. **A fork of MIT-licensed `pi-mono`** — say "extended a fork", never "built from scratch". |
+| **embeddingsearchtools** | Rust | Embedding search engine. MiniLM via **ONNX Runtime**, int8 weights bundled in the binary. Exact + **HNSW ANN written from scratch** (>0.9 recall @k=10). **BM25 fusion for hybrid retrieval.** mmap store, library API, CLI, daemon. *His most impressive single artefact.* |
+| **voicetools** | Rust | Offline ASR. Mic → VAD → **Parakeet-TDT on ONNX Runtime**, 25 languages, whisper.cpp fallback. Found and documented a real bug: multi-threaded int8 ONNX is non-deterministic and garbles greedy decode. |
+| **webtools** | Rust | Token-efficient fetch/search for LLM agents. Reference-style URL preservation → single-token markers under a token budget. |
+
+**This is more hands-on LLM and retrieval engineering than most people holding an
+"AI Engineer" title.** Check these repos before ever suggesting he lacks evidence.
+
+**Still true:** he does *inference and retrieval*, not model training. Keep
+"MLOps" and "model training" off his documents.
 
 ## Career — he is a DATA architect, not a generic Solution Architect
 

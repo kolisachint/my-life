@@ -11,7 +11,7 @@
 
 ```
 Solution architect. I build the cloud data platforms large enterprises run on,
-and I am moving that work toward AI.
+and ship the applied-AI tooling that sits on top of them.
 ```
 
 ## Short bio — 50 words
@@ -45,8 +45,9 @@ Earlier he built enterprise data platforms across retail, telecom and banking,
 including a Teradata-to-BigQuery lake migration and a customer preference API
 that removed $600,000 a year in operating cost.
 
-He writes about cloud architecture, data engineering and applied AI at
-kolisachint.github.io.
+He also ships open-source AI tooling — a terminal coding agent published to npm,
+and Rust libraries for embedding search, speech recognition and agent web
+retrieval. github.com/kolisachint
 ```
 
 ## Long bio — the site's About page
@@ -79,13 +80,19 @@ running cost. I built enterprise warehouses for a national telecom operator, and
 unified a global bank's data across several African countries into something you
 could actually report on.
 
-Lately I have been pulling on the AI thread. I wrote a text embedding library
-from scratch in Rust — not because the world needs another one, but because I
-wanted to understand the mechanics rather than call somebody's API — and built
-semantic search over a codebase on top of it. That is the direction the platform
-work points anyway: the warehouses and streams I design are exactly the substrate
-retrieval and machine learning need, and I would rather build that layer than
-hand it to someone else.
+Lately I have been pulling hard on the AI thread, in the open. I publish a
+terminal coding agent to npm — deterministic by design, with a permission gate on
+every edit and a unified API across more than twenty-five model providers. Under
+it sits Rust I wrote myself: an embedding search engine running MiniLM through
+ONNX with an approximate-nearest-neighbour index built from scratch and keyword
+fusion on top, offline speech-to-text, and a web fetcher that collapses links to
+single tokens so an agent's context is not spent on URLs.
+
+None of that started as a career move. I wanted to understand the mechanics
+rather than call somebody's API. But it is the direction the platform work points
+anyway: the warehouses and streams I design are exactly the substrate retrieval
+and machine learning need, and I would rather build that layer than hand it to
+someone else.
 
 I studied Computer Science and Engineering at Walchand College of Engineering,
 Sangli, and I am a Google Cloud Certified Professional Data Engineer. I live in
@@ -107,10 +114,11 @@ a mobile number on it is a spam magnet, and it is already on the documents that
 matter.
 
 **The AI paragraph is the reason to have a personal site at all.** On a resume,
-"I wrote an embedding library in Rust" is one line a reader skims. On your own
-site you can show the thing — a post explaining what you learned building it is
-worth more than any bullet point, and it is the artefact that makes the Data & AI
-positioning real to someone who has never met you.
+the open-source work is four lines a reader skims. On your own site you can show
+it — a post on why HNSW recall behaves the way it does, or what broke when you
+ran int8 inference multi-threaded, is worth more than any bullet point and is the
+artefact that makes the Data & AI positioning real to someone who has never met
+you. You already write this way in your READMEs; the material exists.
 
 **The long bio is deliberately first-person and plain.** A personal site that
 reads like a resume is a resume; the point of having one is to sound like a

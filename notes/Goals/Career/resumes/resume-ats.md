@@ -27,6 +27,7 @@ Pune, Maharashtra, India
 +91 9552236200
 kolisachint@gmail.com
 linkedin.com/in/kolisachint
+github.com/kolisachint
 kolisachint.github.io
 
 
@@ -41,8 +42,11 @@ Airflow), BigQuery, dbt, Python and Terraform. Previously architected digital
 cards and payments modernisation on GCP at the same bank. Expertise in data
 architecture, data modelling, real-time streaming ingestion, ELT and ETL
 pipeline design, infrastructure as code, data governance and cloud cost
-optimisation. Recognised at the Banking Tech Awards 2024 and the Card and
-Payments Awards 2025. Domains: banking, cards and payments, retail, telecom.
+optimisation. Also ships open-source applied AI: an LLM coding agent published
+to npm and Rust libraries for vector embedding search, approximate nearest
+neighbour retrieval and speech recognition. Recognised at the Banking Tech
+Awards 2024 and the Card and Payments Awards 2025. Domains: banking, cards and
+payments, retail, telecom.
 
 
 SKILLS
@@ -82,8 +86,11 @@ MultiLoad, FastExport, TPump
 Business Intelligence: Tableau, Looker Studio, Google Data Studio, Cognos,
 reporting, data visualisation, analytics
 
-Machine Learning and AI: Vector embeddings, semantic search, vector similarity
-retrieval, Rust, applied machine learning (independent projects)
+Machine Learning and AI: Large language models (LLM), LLM agents, agentic
+workflows, tool calling, function calling, Model Context Protocol (MCP), vector
+embeddings, vector search, semantic search, approximate nearest neighbour (ANN),
+HNSW, hybrid retrieval, BM25, retrieval augmented generation (RAG), ONNX Runtime,
+sentence transformers, automatic speech recognition (ASR), Rust, TypeScript
 
 Marketing Technology: Adobe Campaign Classic, Adobe Campaign Standard, IBM
 Unica, marketing automation, campaign management
@@ -203,15 +210,31 @@ Client: Telstra Corporation, Australia (Telecom)
 - Performed unit testing, data validation and defect resolution.
 
 
-INDEPENDENT PROJECTS
+OPEN SOURCE PROJECTS
 
-Rust Embedding Library
-- Implemented text embedding generation from scratch in Rust, covering
-  tokenisation, vector generation and similarity computation.
+hoocode - github.com/kolisachint/hoocode (TypeScript)
+- Deterministic terminal coding agent published to npm as
+  @kolisachint/hoocode-agent. Four packages: CLI, agent runtime with tool
+  calling and state management, unified LLM API across 25+ providers, and a
+  terminal UI library with differential rendering.
+- Permission gating on every file edit and shell command, four scoped agent
+  modes, Model Context Protocol (MCP) server support, and subagent delegation.
 
-Semantic Code Search
-- Built retrieval over a source code repository using vector similarity search
-  rather than keyword matching.
+embeddingsearchtools - github.com/kolisachint/embeddingsearchtools (Rust)
+- Embedding search engine. Sentence-transformer inference (all-MiniLM-L6-v2)
+  via ONNX Runtime with int8 quantised weights bundled into the binary.
+- Exact and HNSW approximate nearest neighbour vector indexes implemented from
+  scratch; BM25 lexical index fused for hybrid retrieval; memory-mapped
+  persistence exposed through a library API, CLI and long-lived daemon.
+
+voicetools - github.com/kolisachint/voicetools (Rust)
+- Offline automatic speech recognition for the terminal. Microphone capture,
+  voice activity detection and resampling into Parakeet-TDT on ONNX Runtime
+  across 25 languages, with a Whisper fallback backend.
+
+webtools - github.com/kolisachint/webtools (Rust)
+- Token-efficient web fetch and search tooling for LLM agents, with
+  reference-style URL preservation and total output token budgeting.
 
 
 EDUCATION
@@ -249,11 +272,12 @@ Preferred locations: Pune, Bengaluru, Hyderabad, Remote
 - **Mirror the advert's exact vocabulary.** If a posting says "Data Platform
   Architect" and you have written "Solution Architect", add their phrase to the
   Summary. Matching is literal, not semantic.
-- **The AI keywords are deliberately modest.** "Vector embeddings, semantic
-  search, applied machine learning (independent projects)" is true and will match
-  AI-adjacent searches. Do not add "LLM", "GenAI", "MLOps" or "model deployment"
-  until you have shipped something — those are the words that trigger a technical
-  screen you cannot currently pass.
+- **The AI keywords are now full strength**, because the shipped repositories
+  back every one of them. LLM agents, MCP, ANN/HNSW, hybrid retrieval, ONNX and
+  ASR are all things you can open a repo and demonstrate. The two words still
+  absent are **MLOps** and **model training** — you do inference and retrieval,
+  not training pipelines, and those would draw a screen on work you have not
+  done.
 - **Do not add a CTC or expected-salary line.** Portals ask separately; putting
   it in the file anchors you before a conversation exists.
 - **Clients are named here.** Normal for private applications — but an agency

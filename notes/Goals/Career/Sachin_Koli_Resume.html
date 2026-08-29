@@ -149,7 +149,7 @@
 <div class="title">Solution Architect — Cloud Data &amp; AI Platforms</div>
 <div class="cert-line">Google Cloud Certified — Professional Data Engineer</div>
 <div class="contact">
-  <span>Pune, India</span><span class="sep">·</span><span>+91 95522 36200</span><span class="sep">·</span><span>kolisachint@gmail.com</span><span class="sep">·</span><span>linkedin.com/in/kolisachint</span><span class="sep">·</span><span>kolisachint.github.io</span>
+  <span>Pune, India</span><span class="sep">·</span><span>+91 95522 36200</span><span class="sep">·</span><span>kolisachint@gmail.com</span><span class="sep">·</span><span>linkedin.com/in/kolisachint</span><span class="sep">·</span><span>github.com/kolisachint</span><span class="sep">·</span><span>kolisachint.github.io</span>
 </div>
 
 <h2>Summary</h2>
@@ -167,9 +167,10 @@
 
   <p>Across twelve prior years in retail, telecom and banking data: a
   <strong>Teradata → BigQuery</strong> lake migration, and a customer preference API
-  on GCP that <strong>cut $600,000 a year</strong> in operating cost. I work the full
-  arc — platform selection, architecture, build, and the stakeholder conversation
-  that gets it funded.</p>
+  on GCP that <strong>cut $600,000 a year</strong> in operating cost. Alongside all
+  of it I <strong>ship applied-AI tooling in the open</strong> — a terminal coding
+  agent published to npm, and the Rust beneath it: ONNX inference, an ANN index
+  written from scratch, hybrid dense/lexical retrieval.</p>
 </div>
 
 <h2>Experience</h2>
@@ -314,16 +315,28 @@
   </ul>
 </div>
 
-<h2>Independent Engineering — Applied AI</h2>
+<h2>Open Source — Applied AI &amp; Agent Tooling</h2>
+<div class="note" style="margin-bottom:3pt">Built in my own time and shipped in
+public — <strong>github.com/kolisachint</strong></div>
 <ul class="keep">
-  <li><strong>Rust embedding library</strong> — a from-scratch implementation of text
-    embedding generation, written to understand the mechanics rather than call an
-    API.</li>
-  <li><strong>Semantic code search</strong> — retrieval over a codebase using vector
-    similarity rather than keyword matching.</li>
+  <li><strong>hoocode</strong> — deterministic terminal coding agent,
+    <strong>published to npm</strong>. TypeScript monorepo of four packages: CLI,
+    agent runtime with tool calling, a <strong>unified LLM API across 25+
+    providers</strong>, and a differential-rendering TUI. Permission gate on every
+    edit and command, four scoped modes, MCP servers and subagents. ~470 commits
+    since May 2026, extending a fork of the MIT-licensed <em>pi-mono</em>.</li>
+  <li><strong>embeddingsearchtools</strong> (Rust) — embedding search engine.
+    MiniLM via <strong>ONNX Runtime</strong>, int8 weights bundled into the binary;
+    exact and <strong>HNSW approximate-nearest-neighbour</strong> indexes written
+    from scratch; <strong>BM25 fusion for hybrid retrieval</strong>; mmap-friendly
+    store behind a library API, CLI and daemon.</li>
+  <li><strong>voicetools</strong> (Rust) — offline speech-to-text. Mic capture
+    through voice-activity detection into <strong>Parakeet-TDT on ONNX
+    Runtime</strong> (25 languages, int8), whisper.cpp fallback.</li>
+  <li><strong>webtools</strong> (Rust) — token-efficient fetch and search for LLM
+    agents; reference-style URL preservation collapses links to single-token
+    markers under a total token budget.</li>
 </ul>
-<div class="note">The data platforms I design are the natural substrate for retrieval
-and ML workloads; this is the layer I am moving toward.</div>
 
 <h2>Technical</h2>
 <table class="skills">

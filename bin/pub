@@ -126,7 +126,19 @@ fi
 if [ "$REPO" = 1 ]; then
   DEST="$ROOT/notes/$REL"
   mkdir -p "$DEST"
-  for f in $FILES; do cp "$f" "$DEST/"; echo "repo      notes/$REL/$(basename "$f")"; done
+  for f in $FILES; do
+    b=$(basename "$f")
+    # Re-rendering a source that already lives at the destination is normal:
+    # edit notes/<P>/<S>/x.html in place, re-run, get a fresh x.pdf beside it.
+    # cp would fail with "same file" and set -e would abort *before* the PDF
+    # was copied, silently leaving the old one in place.
+    if [ "$f" -ef "$DEST/$b" ]; then
+      echo "repo      notes/$REL/$b (already in place)"
+    else
+      cp "$f" "$DEST/"
+      echo "repo      notes/$REL/$b"
+    fi
+  done
   echo "remember to commit."
   exit 0
 fi

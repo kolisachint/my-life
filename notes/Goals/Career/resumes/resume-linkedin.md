@@ -12,7 +12,7 @@
 Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
 ```
 
-**Why this order.** "Data & AI" first because it is where you are going; **the
+**Why this order.** "Data & AI" first because both halves are now earned; **the
 certification second because it is a searchable, verifiable credential** and
 recruiters filter on it explicitly; the named stack third because those are the
 exact tokens they search; the awards last because they are proof, and proof works
@@ -33,8 +33,9 @@ from your dates anyway.)*
 ## About
 
 ```
-I build the data platforms large enterprises run on — and I am steadily moving
-that work toward AI. Google Cloud Certified Professional Data Engineer.
+I build the data platforms large enterprises run on, and I ship the applied-AI
+tooling that sits on top of them. Google Cloud Certified Professional Data
+Engineer.
 
 Right now I architect the batch and real-time streaming platform for a UK tier-1
 retail bank: event-driven ingestion on Confluent Kafka, orchestration across
@@ -54,11 +55,13 @@ Teradata-to-BigQuery lake migration. A customer preference API on GCP serving
 millions of people that took $600,000 a year out of running cost. Warehouses
 unifying a global bank's data across several African markets.
 
-What I am building toward is the AI layer on top of all this. In my own time I
-have written an embedding library from scratch in Rust and built semantic search
-over a codebase — because the platforms I design are exactly the substrate that
-retrieval and ML workloads need, and I would rather own that layer than hand it
-over.
+I also ship applied AI in the open. hoocode is a deterministic terminal coding
+agent I publish to npm — a permission gate on every edit, four scoped modes, and
+a unified API across 25+ LLM providers. Underneath it sits Rust I wrote: an
+embedding search engine with ONNX inference, an HNSW index built from scratch and
+BM25 fusion for hybrid retrieval; offline speech-to-text; token-efficient web
+retrieval for agents. The platforms I design are exactly the substrate retrieval
+and ML workloads need, and I would rather build that layer than hand it over.
 
 Open to Solution Architect, Data Architect and Cloud Architect roles — especially
 where the data platform is the product.
@@ -155,20 +158,38 @@ ETL and data warehousing for an Australian telecom operator.
 ## Projects
 *(a real LinkedIn section — use it, this is your AI evidence)*
 
-**Rust embedding library** — `[link once published]`
+**hoocode** — `github.com/kolisachint/hoocode`
 ```
-A text embedding implementation written from scratch in Rust, built to
-understand the mechanics rather than call an API.
-```
-
-**Semantic code search** — `[link once published]`
-```
-Retrieval over a codebase using vector similarity rather than keyword matching.
+Deterministic terminal coding agent, published to npm. A permission gate on every
+edit and shell command, four scoped modes, MCP servers and subagents. Four
+packages including a unified LLM API across 25+ providers and a TUI library with
+differential rendering. TypeScript.
 ```
 
-> **These sections are empty until you publish.** A Projects entry with no link
-> is weaker than no entry — it reads as an intention. Publish the Rust library
-> first, then add both.
+**embeddingsearchtools** — `github.com/kolisachint/embeddingsearchtools`
+```
+Embedding search engine in Rust. MiniLM via ONNX Runtime with int8 weights
+bundled into the binary; exact and HNSW approximate-nearest-neighbour indexes
+written from scratch; BM25 lexical fusion for hybrid retrieval; library API, CLI
+and long-lived daemon.
+```
+
+**voicetools** — `github.com/kolisachint/voicetools`
+```
+Offline speech-to-text for the terminal, in Rust. Microphone capture through
+voice-activity detection into Parakeet-TDT on ONNX Runtime, 25 languages, with a
+whisper.cpp fallback.
+```
+
+**webtools** — `github.com/kolisachint/webtools`
+```
+Token-efficient web fetch and search for LLM agents, in Rust. Reference-style URL
+preservation collapses links to single-token markers under a total token budget.
+```
+
+> **Fill the Projects section — this is your differentiator.** Almost no services
+> architect has shipped an npm package, ONNX inference in Rust, or an ANN index.
+> Add the repo links, and pin the same four as Featured.
 
 ---
 
@@ -176,11 +197,11 @@ Retrieval over a codebase using vector similarity rather than keyword matching.
 *(order matters — LinkedIn shows the top three and endorsements follow it)*
 
 ```
-1. Data Architecture          6. Apache Airflow        11. Solution Architecture
-2. Google Cloud Platform      7. dbt                   12. Data Engineering
-3. Apache Kafka               8. Terraform             13. Microservices
-4. BigQuery                   9. Python                14. Cloud Migration
-5. Real-Time Data Streaming  10. Data Governance       15. Stakeholder Management
+1. Data Architecture          6. Apache Airflow        11. Rust
+2. Google Cloud Platform      7. dbt                   12. Solution Architecture
+3. Apache Kafka               8. Terraform             13. Data Engineering
+4. BigQuery                   9. Python                14. Vector Databases
+5. Real-Time Data Streaming  10. Large Language Models 15. Retrieval-Augmented Generation
 ```
 
 ## Education
@@ -218,8 +239,8 @@ which goes to one addressed person at a time.
 
 ## Three things to do while you are in there
 
-1. **Publish the Rust library, then fill the Projects section.** Everything about
-   the AI positioning depends on this one action.
+1. **Fill the Projects section and pin the repos as Featured.** The work exists;
+   the profile does not show it. That is the single biggest gap on the page.
 2. **Post about the fraud journey.** Two industry awards sitting silently in the
    Honors section do almost nothing. One short post about what actually changed
    for customers will out-reach everything else on the profile.

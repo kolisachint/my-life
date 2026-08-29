@@ -3,7 +3,7 @@
 Settled answers and open blocking questions. Read before planning anything; it
 stops the same questions being re-asked every session.
 
-_Last updated: 2026-08-28_
+_Last updated: 2026-08-29_
 
 ## Open — blocking
 
@@ -62,22 +62,26 @@ neglect, or delete. No fourth option.
 **Neglect list this quarter.** The accountability support group, tracking "should"
 statements, the weekly routine-change experiment. Revisit January.
 
-**Engineering side projects** do not belong in ✅ Everyday Life. The Rust embedding
-library is career material — publish it.
+**Engineering side projects** do not belong in ✅ Everyday Life — they are career
+material, and they are already public (`github.com/kolisachint`). Treat them as
+portfolio, not hobby.
 
 **Tax regime is NEW.** The Todoist goal saying "opt for old regime" is stale.
 One CA conversation, not a unilateral rewrite.
 
-**Career direction: DATA & AI.** He chose the heading himself on 2026-08-29. Do
-not reposition him as a payments architect — payments is a domain credential now,
-not the identity. **Data is earned** (the Jul 2025– Lloyds platform: Kafka,
-Composer, dbt, BigQuery, Terraform). **AI is a direction, not experience** — that
-workstream has no AI in it at all, and his only AI material is unpublished.
-→ `notes/Goals/Career/resumes/README.md`
+**Career direction: DATA & AI — both halves earned.** He chose the heading
+himself on 2026-08-29. Payments is a domain credential now, not the identity.
+**Data** is the Jul 2025– Lloyds platform. **AI is shipped and public**: hoocode
+(a terminal coding agent on npm, unified API across 25+ LLM providers) plus Rust
+tooling — ONNX inference, an HNSW index written from scratch, BM25 hybrid
+retrieval, offline ASR. → `notes/Goals/Career/resumes/README.md`
 
-**The gating action is publishing the Rust embedding library.** Open since 27 Aug,
-unmoved. Until it is public, half his chosen positioning rests on work nobody can
-verify. One weekend; the highest-leverage career action in this repo.
+**CLOSED: "publish the Rust embedding library".** It was already public — as
+`embeddingsearchtools`, alongside ~25 other repos. The 27 Aug entry describing it
+as an unpublished side project was wrong, and so were my two restatements of it
+on 29 Aug. Remaining gap is presentational, not technical: **his LinkedIn Projects
+section and Featured pins are empty**, so none of this work is visible where
+recruiters look.
 
 **Lloyds is two workstreams.** Digital Cards 2022 – Jul 2025; Data Platform
 Jul 2025 – present. The July 2025 profile card documents only the first and is
@@ -89,10 +93,12 @@ superseded in *form*: the card names clients not employers, is TCS-branded, and
 carries no AI/GenAI content. The rewrite is now assembly, not archaeology.
 → `notes/Goals/Career/tcs-profile-2025.md`
 
-**Specialisation.** He is a **payments architect** — four years on Lloyds Digital
-Cards (wallets, card controls, fraud journeys), with **two industry awards**
-(Banking Tech 2024, Card & Payments 2025). That prices above generic "data
-architect" and points the target list at card networks, banking GCCs and fintech.
+**Specialisation.** Superseded 2026-08-29 — he is a **data & AI platform
+architect**, not a payments architect. Payments remains a strong *domain
+credential*: four years on Lloyds Digital Cards with **two industry awards**
+(Banking Tech 2024, Card & Payments 2025), which still opens card networks,
+banking GCCs and fintech. But the target list now also runs to data-platform and
+ML-infrastructure teams, where the open-source work is the differentiator.
 
 ## Resolved this session
 

@@ -37,11 +37,11 @@ on digital cards at the same bank. The self-serve fraud journey I architected wo
 at the **Banking Tech Awards 2024** and the **Card & Payments Awards 2025** — it
 took fraud reporting out of the call-centre queue and gave it to the customer.
 
-**3. I am building toward the AI layer, and I have started.** In my own time I
-wrote a **text embedding library from scratch in Rust** and built **semantic
-search** over a codebase with it. The platforms I design are exactly the
-substrate retrieval and ML workloads need; I would rather own that layer than
-hand it over.
+**3. I ship applied AI in the open.** **hoocode** — a deterministic terminal
+coding agent **published to npm**, with a unified LLM API across 25+ providers.
+Underneath it, Rust: **embeddingsearchtools** (ONNX inference, an **HNSW index
+written from scratch**, BM25 fusion for hybrid retrieval), plus offline speech
+recognition and token-efficient web retrieval. `github.com/kolisachint`
 
 ### The stack
 
@@ -85,8 +85,10 @@ Tech Awards 2024 and the Card & Payments Awards 2025.
 Earlier he built a preference API on GCP that took $600K a year out of running
 costs at Sears, and migrated their data lake from Teradata to BigQuery.
 
-He is also pushing into applied AI on his own time — wrote an embedding library
-from scratch in Rust and built semantic code search on it.
+He also ships applied AI in the open — hoocode, a terminal coding agent published
+to npm with a unified API across 25+ LLM providers, and the Rust underneath it:
+an embedding search engine with an HNSW index he wrote from scratch, offline
+speech-to-text, token-efficient web retrieval. github.com/kolisachint
 
 One-pager attached. Worth a conversation if you have anything open on the data
 platform or ML infrastructure side — happy to introduce you.
@@ -111,10 +113,10 @@ positioning is data rather than payments:
 conversation" gets a reply; one forwarding "he is applying for req #4471" gets
 routed to the portal, which is the thing you were avoiding.
 
-**Publish the Rust library before you send this.** Point 3 is the line that
-separates you from every other services architect with a Kafka-and-dbt CV — and
-right now it points at nothing anyone can open. A public repo makes it the
-strongest item on the page instead of the weakest.
+**Point 3 is the line that separates you** from every other services architect
+with a Kafka-and-dbt CV — and unlike most such claims, it points at repositories
+anyone can open. Lead with it when the target is a platform or ML-infrastructure
+team.
 
 **The clients are named here** because this goes to one person at a time through
 someone who knows you. Do not post this version publicly — use `resume-public.md`.
