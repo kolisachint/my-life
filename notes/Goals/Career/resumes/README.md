@@ -7,7 +7,48 @@ workstream. Every date is from a source document._
 **Repositioned 2026-08-29 (same day): the core profile is now DATA & AI, not
 payments.** Payments is a domain credential, not the identity.
 
-## Which one to send
+## THE FILES TO ACTUALLY SEND
+
+Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
+
+| Send this | Format | To whom |
+| --- | --- | --- |
+| **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** |
+| **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases |
+| **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager |
+
+The `.html` beside each PDF is the source — edit it and re-run:
+
+```sh
+bin/pub notes/Goals/Career/Sachin_Koli_Resume.html --project Goals --section Career --repo --pdf
+```
+
+The ATS `.docx` is generated from `resumes/build_ats.js` (`node build_ats.js out.docx`).
+
+**LinkedIn and the public bio are not documents** — they are text you paste into
+fields on a website. They stay as Markdown below; there is nothing to render.
+
+### How these were checked
+
+Both PDFs were rendered to images and reviewed. Three defects were found and
+fixed: the resume ran to **three pages** with the third nearly empty, the
+**TECHNICAL heading was orphaned** at the foot of page 2 with its table pushed
+over, and `break-inside: avoid` on long roles left a **large dead gap** at the
+foot of page 1. Now two full pages, no orphans, no gaps.
+
+**The `.docx` could not be visually rendered** — LibreOffice is broken in this
+environment (it fails on a plain text file, so it is not the document). Instead
+it was checked the way that actually matters for an ATS: it passes OOXML schema
+validation, and a parser extracts all **93 paragraphs in order** with headings
+intact and contact details as separate lines rather than in a header. **Open it
+in Word once before you submit it anywhere**, since I could not see it.
+
+---
+
+## The working masters
+
+The Markdown below is where content is edited before regenerating the files
+above. Each explains its own audience and rules.
 
 | # | File | Send it to | Names clients? |
 | - | --- | --- | --- |
@@ -16,6 +57,12 @@ payments.** Payments is a domain credential, not the identity.
 | 3 | `resume-public.md` | kolisachint.github.io, speaker bios, award entries | **No** |
 | 4 | `resume-ats.md` | Naukri, LinkedIn Easy Apply, Workday — machine-parsed | **Yes** |
 | 5 | `resume-referral-onepager.md` | A friend forwarding you to a hiring manager | **Yes**, selectively |
+
+**One difference between the masters and the rendered files:** the Markdown
+carries `[N]` placeholders for the numbers you have not supplied. **The PDFs do
+not** — a final document cannot ship with `[N]` in it, so those bullets were
+rewritten to read properly without a figure. Give me the six numbers and I will
+put them back in with the numbers attached.
 
 **Why 4 and 5.** An ATS version is not a style choice — the portals that reject
 you never show a human your file, and a two-column PDF with tables parses to

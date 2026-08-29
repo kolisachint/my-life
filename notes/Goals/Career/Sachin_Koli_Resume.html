@@ -1,0 +1,351 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Sachin Koli — Solution Architect</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    background: #ffffff;
+    color: #1a1d21;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.05pt;
+    line-height: 1.33;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- header ---------- */
+  .name {
+    font-size: 25pt;
+    font-weight: 700;
+    letter-spacing: -0.4pt;
+    line-height: 1;
+    margin: 0 0 3pt;
+    color: #0b0d0f;
+  }
+  .title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #0b5c4d;
+    margin: 0 0 1pt;
+  }
+  .cert-line {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #35424a;
+    margin: 0 0 5pt;
+  }
+  .contact {
+    font-size: 8.6pt;
+    color: #4a545c;
+    border-top: 0.8pt solid #d8dee2;
+    padding-top: 5pt;
+  }
+  .contact span { white-space: nowrap; }
+  .sep { color: #b3bcc2; padding: 0 4pt; }
+
+  /* ---------- sections ---------- */
+  h2 {
+    font-size: 8.1pt;
+    font-weight: 700;
+    letter-spacing: 1.1pt;
+    text-transform: uppercase;
+    color: #0b5c4d;
+    margin: 9.5pt 0 4pt;
+    padding-bottom: 2pt;
+    border-bottom: 0.8pt solid #0b5c4d;
+    /* never leave a section heading stranded at the foot of a page */
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .summary { margin: 0; text-align: justify; }
+  .summary p { margin: 0 0 3.4pt; }
+  .summary strong { color: #0b0d0f; }
+
+  /* ---------- roles ---------- */
+  /* No break-inside:avoid here — a long role that cannot fit leaves a large
+     dead gap at the foot of the page. Let roles split; keep the smaller
+     units (headers, list items) intact instead. */
+  .role { margin-bottom: 6.5pt; }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .employer { font-size: 10.4pt; font-weight: 700; color: #0b0d0f; }
+  .dates {
+    font-size: 8.4pt;
+    color: #5a646c;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .role-sub {
+    font-size: 9pt;
+    color: #35424a;
+    margin-top: 0.5pt;
+  }
+  .client {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #0b5c4d;
+    margin-top: 2.5pt;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .client .when { color: #6b757c; font-weight: 500; }
+
+  .stream { margin-top: 3.4pt; }
+
+  ul { margin: 2.4pt 0 0; padding-left: 11pt; }
+  li { margin-bottom: 1.9pt; break-inside: avoid; }
+  li::marker { color: #9aa4ab; }
+
+  .note {
+    font-size: 8.4pt;
+    color: #5a646c;
+    font-style: italic;
+    margin-top: 2pt;
+  }
+
+  /* ---------- skills ---------- */
+  table.skills {
+    width: 100%;
+    border-collapse: collapse;
+    break-inside: avoid;
+  }
+  table.skills td {
+    vertical-align: top;
+    padding: 1.9pt 0;
+    border-bottom: 0.5pt solid #eaeef0;
+  }
+  table.skills td.k {
+    width: 84pt;
+    font-weight: 700;
+    color: #0b0d0f;
+    padding-right: 8pt;
+  }
+  table.skills tr:last-child td { border-bottom: none; }
+
+  /* ---------- education ---------- */
+  .edu { break-inside: avoid; }
+  .edu-row { margin-bottom: 2.5pt; }
+  .edu-row .lead { font-weight: 700; color: #0b0d0f; }
+
+  .certs { margin: 0; padding-left: 12pt; }
+  .certs li { margin-bottom: 1.6pt; }
+
+  .keep { break-inside: avoid; }
+</style>
+
+<div class="name">Sachin Koli</div>
+<div class="title">Solution Architect — Cloud Data &amp; AI Platforms</div>
+<div class="cert-line">Google Cloud Certified — Professional Data Engineer</div>
+<div class="contact">
+  <span>Pune, India</span><span class="sep">·</span><span>+91 95522 36200</span><span class="sep">·</span><span>kolisachint@gmail.com</span><span class="sep">·</span><span>linkedin.com/in/kolisachint</span><span class="sep">·</span><span>kolisachint.github.io</span>
+</div>
+
+<h2>Summary</h2>
+<div class="summary">
+  <p><strong>Google Cloud Certified Professional Data Engineer</strong> with
+  <strong>18 years</strong> building enterprise data platforms, now architecting
+  <strong>real-time streaming and batch data infrastructure on Google Cloud</strong>
+  for a UK tier-1 retail bank — Confluent Kafka, Cloud Composer, dbt, BigQuery and
+  Terraform, spanning legacy on-premise and cloud environments.</p>
+
+  <p>Previously architected <strong>digital cards and payments</strong> at the same
+  bank, migrating card servicing to GCP. The self-serve fraud journey I designed won
+  at the <strong>Banking Tech Awards 2024</strong> and the
+  <strong>Card &amp; Payments Awards 2025</strong>.</p>
+
+  <p>Across twelve prior years in retail, telecom and banking data: a
+  <strong>Teradata → BigQuery</strong> lake migration, and a customer preference API
+  on GCP that <strong>cut $600,000 a year</strong> in operating cost. I work the full
+  arc — platform selection, architecture, build, and the stakeholder conversation
+  that gets it funded.</p>
+</div>
+
+<h2>Experience</h2>
+
+<div class="role">
+  <div class="role-head">
+    <span class="employer">Tata Consultancy Services</span>
+    <span class="dates">Sep 2021 – Present</span>
+  </div>
+  <div class="role-sub">Solution Architect &nbsp;·&nbsp; Pune, India</div>
+  <div class="client">Client: Lloyds Banking Group, United Kingdom</div>
+
+  <div class="stream">
+    <div class="role-sub"><strong>Data Platform &amp; Real-Time Analytics</strong>
+      <span class="dates">&nbsp;— Jul 2025 – Present</span></div>
+    <ul>
+      <li>Architected the bank's <strong>end-to-end batch and real-time streaming
+        data platform</strong> on Google Cloud, supporting high-throughput analytics,
+        operational reporting and machine learning workloads.</li>
+      <li>Engineered high-availability, event-driven ingestion pipelines on
+        <strong>Confluent Kafka</strong> with Python, delivering low-latency data for
+        operational reporting and instant business insight.</li>
+      <li>Architected hybrid batch orchestration across <strong>Cloud Composer
+        (Apache Airflow)</strong> and <strong>IBM Tivoli Workload Scheduler</strong>,
+        managing complex dependency graphs that span legacy on-premise and cloud
+        environments.</li>
+      <li>Designed optimised <strong>BigQuery</strong> warehouse schemas and modular
+        <strong>dbt</strong> transformation pipelines with enforced data quality and
+        lineage; built automated testing, validation and monitoring frameworks so
+        downstream analytics fail loudly rather than silently.</li>
+      <li>Standardised infrastructure with <strong>Terraform</strong> — Composer
+        environments, BigQuery datasets, Kafka connectors and IAM roles — and
+        integrated it into <strong>CI/CD</strong>, cutting configuration drift and
+        deployment cycle time.</li>
+      <li>Implemented BigQuery and GCP <strong>cost optimisation and governance</strong>,
+        reducing compute overhead while improving query performance and data security.</li>
+      <li>Partnered with leadership, security and business units to turn requirements
+        into production-ready architectural blueprints.</li>
+    </ul>
+  </div>
+
+  <div class="stream">
+    <div class="role-sub"><strong>Digital Cards Modernisation</strong>
+      <span class="dates">&nbsp;— 2022 – Jul 2025</span></div>
+    <ul>
+      <li>Led end-to-end modernisation of <strong>Digital Cards</strong> — Add to
+        Wallet, card controls, View PIN / View Card — migrating from on-premise
+        infrastructure to <strong>GCP</strong>.</li>
+      <li>Architected secure, scalable <strong>microservices and cross-cloud API
+        patterns</strong> meeting banking compliance and performance requirements.</li>
+      <li><strong>Award-winning self-serve fraud journey</strong> — recognised at the
+        Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025 — moving
+        fraud handling from an assisted call-centre process to a journey the customer
+        completes.</li>
+      <li>Designed service discovery, API gateways, containerisation, load balancing
+        and secure inter-service communication across a hybrid estate.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <span class="employer">Sears IT and Management Services India</span>
+    <span class="dates">Feb 2018 – Sep 2021</span>
+  </div>
+  <div class="role-sub">Technical Specialist → Architect &nbsp;·&nbsp; Pune, India</div>
+  <div class="client">Client: Sears Holdings Corporation, United States
+    <span class="when">— Targeted Interactions / TI Mart</span></div>
+  <ul>
+    <li>Built the <strong>Email Preference Center API</strong> on GCP App Engine,
+      Pub/Sub, DataFlow and BigQuery, serving millions of customers —
+      <strong>reduced annual cost by $600,000</strong>.</li>
+    <li><strong>Migrated DataMarts from Teradata to BigQuery</strong>, on schedule and
+      without significant incident.</li>
+    <li>Built an <strong>API management layer</strong> decoupling applications from
+      cloud complexity across a multicloud estate — reused as the blueprint by other
+      teams.</li>
+    <li>Replaced self-hosted tooling with cloud-native across five stacks: Teradata →
+      BigQuery · Unix → Compute Engine · Control-M → Airflow · shell/ETL → Python ·
+      GitLab Enterprise → Cloud Source Repositories.</li>
+    <li>Designed shared datamarts (CDW, NSegment, Campaign) in BigQuery; led
+      enterprise migration from <strong>IBM Unica to Adobe Campaign</strong> and
+      Telluride, coordinating vendors (Adobe, BounceX) and internal teams.</li>
+    <li>Delivered Tableau and Data Studio reporting; ran continuous GCP cost
+      optimisation.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <span class="employer">Cognizant Technology Solutions</span>
+    <span class="dates">Nov 2010 – Feb 2018</span>
+  </div>
+  <div class="role-sub">Senior Associate – Projects &nbsp;·&nbsp; Pune, India</div>
+
+  <div class="client">Client: Saudi Telecom Company, Saudi Arabia
+    <span class="when">— STC EDW (CLDM7 / CLDM12) · Onsite IT Delivery Lead ·
+    Feb 2015 – Feb 2018</span></div>
+  <ul>
+    <li>Led data modelling for the enterprise warehouse covering customers, accounts,
+      subscriptions, offers and products across all channels and business units.</li>
+    <li>Extended the model by <strong>snowflaking dimensions</strong> — demographics,
+      account status, subscription status.</li>
+    <li>Built an <strong>automation tool</strong> propagating a new key through every
+      dimension table, Teradata utility script (FastLoad, MultiLoad, FastExport,
+      BTEQ) and Ab-Initio object automatically.</li>
+    <li>Ran a big-data POC on <strong>Apache Hive and HDFS</strong> for CDR
+      ingestion.</li>
+  </ul>
+
+  <div class="client">Client: Barclays, United Kingdom
+    <span class="when">— Emerging Markets DW &amp; One Africa Program · Team Lead ·
+    Nov 2010 – Feb 2015</span></div>
+  <ul>
+    <li>Built staging from core banking (FLEX), ATM/POS (SPARROW) and online
+      transaction sources, then the DataMarts above them.</li>
+    <li><strong>One Africa:</strong> unified emerging-market data across African
+      countries into a single source of truth, letting one DataMart span new countries
+      with no rework.</li>
+    <li>Designed the <strong>logical and physical data models</strong>; built reusable
+      automation — TWS object-creation tool, Teradata acquisition code generator, Unix
+      deployment tooling.</li>
+    <li>Implemented archiving and purging against the active warehouse, tiering
+      history to <strong>Greenplum</strong>.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <span class="employer">Mahindra Satyam</span>
+    <span class="dates">Jan 2008 – Nov 2010</span>
+  </div>
+  <div class="role-sub">Software Developer – S2 &nbsp;·&nbsp; Hyderabad / Bangalore, India</div>
+  <div class="client">Client: Telstra Corporation, Australia
+    <span class="when">— TR2.1 / TR2.2 EDW Data-In</span></div>
+  <ul>
+    <li>Built <strong>DataStage 7.5</strong> jobs, Teradata utility scripts and
+      Perl/Unix tooling for the retail customer warehouse — registrations,
+      demographics, segmentation, billed and unbilled call records.</li>
+    <li>Built <strong>Informatica</strong> mappings and workflows migrating Oracle to
+      Teradata for an enterprise data warehouse.</li>
+  </ul>
+</div>
+
+<h2>Independent Engineering — Applied AI</h2>
+<ul class="keep">
+  <li><strong>Rust embedding library</strong> — a from-scratch implementation of text
+    embedding generation, written to understand the mechanics rather than call an
+    API.</li>
+  <li><strong>Semantic code search</strong> — retrieval over a codebase using vector
+    similarity rather than keyword matching.</li>
+</ul>
+<div class="note">The data platforms I design are the natural substrate for retrieval
+and ML workloads; this is the layer I am moving toward.</div>
+
+<h2>Technical</h2>
+<table class="skills">
+  <tr><td class="k">Cloud</td><td>Google Cloud Platform — BigQuery, Cloud Composer, DataFlow, Pub/Sub, App Engine, Cloud Functions, DataProc, Cloud Storage, Compute Engine, Memorystore, Cloud SQL, VPC, IAM · AWS (S3)</td></tr>
+  <tr><td class="k">Streaming</td><td>Confluent Kafka, Pub/Sub, Apache Beam, event-driven architecture</td></tr>
+  <tr><td class="k">Orchestration</td><td>Cloud Composer / Apache Airflow, IBM Tivoli Workload Scheduler, Control-M</td></tr>
+  <tr><td class="k">Transformation</td><td>dbt, Python, SQL, Apache Spark, Informatica, IBM DataStage, Ab-Initio</td></tr>
+  <tr><td class="k">Infrastructure</td><td>Terraform, Git, CI/CD, containerisation</td></tr>
+  <tr><td class="k">Architecture</td><td>Microservices, API gateways, service discovery, load balancing, multicloud and hybrid patterns, data governance, cost optimisation</td></tr>
+  <tr><td class="k">Databases</td><td>BigQuery, Teradata, Oracle, Greenplum</td></tr>
+  <tr><td class="k">BI</td><td>Tableau, Looker Studio, Cognos</td></tr>
+  <tr><td class="k">Domains</td><td>Banking, cards &amp; payments · Retail · Telecom</td></tr>
+</table>
+
+<h2>Education &amp; Certifications</h2>
+<div class="edu">
+  <div class="edu-row"><span class="lead">BE, Computer Science and Engineering</span>
+    — Walchand College of Engineering, Sangli (Shivaji University), 2003–2007</div>
+  <ul class="certs">
+    <li><strong>Google Cloud Certified — Professional Data Engineer</strong></li>
+    <li>Google Cloud Professional Cloud Architect — <em>in progress</em></li>
+    <li>Data Engineering, Big Data and Machine Learning on GCP — Coursera specialisation</li>
+    <li>Teradata Basics V2R5 · Teradata SQL V2R5 · Introduction to Oracle9i: SQL</li>
+  </ul>
+</div>

@@ -2,6 +2,43 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — the resumes exist as real files now
+
+Rendered the sendable formats through `bin/pub` and reviewed them as images.
+Egress still blocks Dropbox, so everything went to the repo with `--repo`.
+
+| File | Format | For |
+| --- | --- | --- |
+| `Sachin_Koli_Resume.pdf` | PDF, 2 pages | Recruiters — the main one |
+| `Sachin_Koli_Resume_ATS.docx` | DOCX, plain | Portals and agency databases |
+| `Sachin_Koli_OnePager.pdf` | PDF, 1 page | Referrals |
+
+All in `notes/Goals/Career/`, with the `.html` source beside each PDF.
+
+**Looking at the render caught three defects the HTML did not show:**
+
+1. The resume ran to **three pages**, the third nearly empty.
+2. The **TECHNICAL heading was orphaned** at the foot of page 2, its table pushed
+   to page 3.
+3. `break-inside: avoid` on the long TCS role left a **large dead gap** at the
+   foot of page 1.
+
+Fixed by tightening to 9.05pt/1.33 with 11–12mm margins, putting
+`break-after: avoid` on headings and role headers, and moving `break-inside`
+from whole roles down to individual list items. Now two full pages, no orphans.
+**That lesson is worth keeping: always rasterise a PDF and look at it.**
+
+**The `.docx` could not be rendered.** LibreOffice is broken in this environment
+— it fails on a plain `.txt`, so it is not the document. Verified the way that
+matters for an ATS instead: it passes OOXML schema validation, and a parser
+extracts all 93 paragraphs in order, headings intact, contact details as
+separate lines rather than in a header. He should still open it in Word once
+before submitting, since nobody has seen it rendered.
+
+**The PDFs carry no `[N]` placeholders** — those bullets were rewritten to read
+properly without figures, because a final document cannot ship with a visible
+placeholder. The Markdown masters keep them.
+
 ## 2026-08-29 — PDE confirmed, Cisco dropped
 
 Two corrections from him, both applied across all five resumes.
