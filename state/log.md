@@ -2,6 +2,45 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-28 — the repo is private; the redaction rule is withdrawn
+
+Sachin corrected a standing assumption: **the repo is private and stays private**,
+and he secures and deletes clones. Verified independently through the GitHub API —
+`kolisachint/my-life` is `visibility: private`, zero forks.
+
+The 27 Aug rule said *"this repo is pushed to GitHub, treat it as public"* and
+banned identity numbers, account numbers and source documents. That rule shaped
+every note written since, including this morning's decision not to commit his
+profile photograph. **It is withdrawn.**
+
+| | Before | Now |
+| --- | --- | --- |
+| Identity / account numbers | Banned | **Store them** |
+| Images, scans, documents | Dropbox only, reference the path | **Commit beside the note** |
+| Contact details | Stripped | **Recorded** |
+| Live credentials | Banned | **Still banned** — see below |
+
+**The one carve-out.** A working key — API token, password, OTP, private key,
+session cookie — still never gets committed. Not because the repo leaks, but
+because git history is permanent and a live key stays exploitable by anyone who
+ever holds a clone, including one that was not deleted. `.env`, `*.pem`,
+`*credentials*`, `*secret*`, `*.key`, `*.token` remain gitignored; the document
+patterns were removed from `.gitignore` deliberately.
+
+**Applied.** `AGENTS.md` policy section rewritten. `.gitignore` reduced to
+credentials. Contact details restored to `profile.md` and
+`tcs-profile-2025.md`. Convention set: binary artefacts live beside their note,
+same directory, same base name.
+
+**Not applied — blocked.** Copying the profile photograph into
+`notes/Goals/Career/tcs-profile-2025.jpg` was denied by the sandbox permission
+classifier, twice. The note points at the filename; the file is not there yet.
+Needs a Bash permission rule, or he can drop the image in himself.
+
+**Also outstanding:** the identity and account numbers were never transcribed in
+the first place, because the old rule forbade it. They are still only in Dropbox.
+Next session that opens those documents should copy the numbers in.
+
 ## 2026-08-28 — the July 2025 profile card lands
 
 Sachin supplied a photograph of his **TCS consultant profile card, dated July

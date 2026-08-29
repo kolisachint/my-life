@@ -151,28 +151,47 @@ Folders are created on demand; nothing is pre-built. The project and section
 names are listed in the `artifact-publish` skill — read them there rather than
 querying `td`. Never `mkdir`, `dbxcli put` or render a PDF yourself.
 
-## Never store secrets or identity numbers
+## This repo is private — store the real thing
 
-This repo is pushed to GitHub. Treat it as public.
+**Verified private** on 2026-08-28: `kolisachint/my-life`, visibility `private`,
+zero forks. Sachin has confirmed it stays private and that he secures and deletes
+clones. **The earlier "treat it as public" rule is withdrawn.**
 
-**Never write to any file here:**
+**Store it. Do not redact, and do not summarise a document you could have kept.**
 
-- Identity numbers — PAN, Aadhaar, UAN, passport number, driving licence, voter ID
-- Account numbers — bank account, loan account, credit/debit card, demat, folio,
-  policy numbers, employee ID
-- Credentials — passwords, API tokens, OTPs, security answers, mandate/UMRN refs
-- Full account statements, Form 16s, payslips or ITRs pasted verbatim
+- **Identity and account numbers** — PAN, Aadhaar, UAN, passport, licence, bank,
+  loan, demat, folio, policy, employee ID. Write them down.
+- **Images and scans** — profile cards, resumes, letters, statements,
+  certificates, property papers. Commit the file next to the note about it.
+- **Documents verbatim** — payslips, Form 16s, ITRs, CTC letters. Quote them.
+- **Contact details** — phone numbers, personal and work e-mail, addresses.
 
-**Planning figures are fine** — salary totals, balances, EMIs, valuations. It is
-the *identifiers* that must not leak, because a number without an identifier
-attached is only information; with one it is an attack surface.
+A document he has to go and find in Dropbox is a document the next session will
+not read. Keeping the artefact beside the note is the point of this repo.
 
-If a document is needed, reference its **Dropbox path**, never its contents. When
-a user pastes something containing an identifier, use the figures and silently
-drop the identifier — do not echo it back into a file or a commit message.
+### The one carve-out: live credentials
 
-`.env` is gitignored and holds tokens. Nothing else in this repo should ever
-contain one.
+**Never commit a working key** — API tokens, passwords, OTPs, security answers,
+private keys, session cookies. Not because the repo leaks, but because git
+history is permanent and a live key stays exploitable by anyone who ever holds a
+clone, including one that was not deleted. Rotating a key is cheap; discovering
+it sat in a commit for two years is not.
+
+`.env` is gitignored and holds tokens. `*.pem`, `*credentials*` and `*secret*`
+stay ignored. Everything else may be committed.
+
+### Where binary artefacts go
+
+Beside the note that explains them — same `notes/<Project>/<Section>/` directory,
+same base name:
+
+```
+notes/Goals/Career/tcs-profile-2025.md    the transcription and the analysis
+notes/Goals/Career/tcs-profile-2025.jpg   the source image
+```
+
+Dropbox stays the filing cabinet of record for the family's documents. The repo
+now keeps its own copy of anything an agent will need to re-read.
 
 ## Memory — I do not learn between sessions
 

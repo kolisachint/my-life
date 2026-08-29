@@ -1,9 +1,8 @@
 # TCS profile card — July 2025
 
 _Supplied by Sachin 2026-08-28 as a photograph of the one-pager on screen.
-Transcribed here; the image itself is **not** committed — it carries his
-photograph, mobile number and TCS e-mail, and this repo is public. File the
-image in `Digital_Drive/Sachin/Job_Resume/` instead._
+Source image: `tcs-profile-2025.jpg`, beside this file. The repo is private, so
+the artefact lives here rather than only in Dropbox — see AGENTS.md._
 
 This is the **TCS consultant profile card** (the "Classification: Public"
 client-facing format), not a market resume. That distinction matters — see
@@ -12,7 +11,10 @@ client-facing format), not a market resume. That distinction matters — see
 ## Header
 
 - **Sachin Koli** — Solutions Architect, Tata Consultancy Services.
-- LinkedIn `in/kolisachint`. Contact details on the card, omitted here.
+- Tel **+91 95522 36200** · **koli.sachin1@tcs.com** · personal
+  **kolisachint@gmail.com**
+- LinkedIn `linkedin.com/in/kolisachint`.
+- Photograph on the card, top left.
 
 ## Professional summary (as written)
 

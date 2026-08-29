@@ -1,16 +1,23 @@
 # Profile — Sachin Tatyaso Koli
 
 _Established 2026-08-27 from the TCS CTC letter, July 2026 payslip, Dropbox
-Digital_Drive, and a handwritten budget plan. Identifiers (PAN, UAN, bank and loan
-account numbers) are deliberately **not** recorded here — this repo is pushed to
-GitHub. They are in Dropbox where they belong._
+Digital_Drive, and a handwritten budget plan._
+
+_**Policy change 2026-08-28:** the repo is verified private and stays that way,
+so identifiers (PAN, UAN, bank and loan account numbers) and source documents
+**may** now be recorded here. They are simply not transcribed **yet** — the
+earlier sessions deliberately left them out. Next time a document is open, copy
+the numbers in rather than pointing at Dropbox. Live credentials remain the one
+exception. See AGENTS.md._
 
 ## Personal
 
 - **Sachin Tatyaso Koli**, born **24 Apr 1986** → age **40**.
 - Married to **Dipali**. Children **Srishti** and **Samarth**. Father **Tatyaso**.
 - D303, Anjani Gaatha, Dehu Alandi Road, Chikhali, Pune **411062**.
-- kolisachint@gmail.com · site: kolisachint.github.io
+- Tel **+91 95522 36200** · **kolisachint@gmail.com** · work
+  **koli.sachin1@tcs.com**
+- LinkedIn `in/kolisachint` · site `kolisachint.github.io`
 
 ## Career — he is a DATA architect, not a generic Solution Architect
 
