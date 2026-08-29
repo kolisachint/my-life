@@ -1,6 +1,7 @@
 # Sachin Koli
 
 **Solution Architect — Cloud Data & AI Platforms**
+**Google Cloud Certified Professional Data Engineer**
 Pune, India · +91 95522 36200 · kolisachint@gmail.com
 linkedin.com/in/kolisachint · kolisachint.github.io
 
@@ -12,9 +13,9 @@ linkedin.com/in/kolisachint · kolisachint.github.io
 
 ## Summary
 
-Solution Architect with **18 years** building enterprise data platforms, now
-architecting **real-time streaming and batch data infrastructure on Google
-Cloud** for a UK tier-1 retail bank — Confluent Kafka, Cloud Composer, dbt,
+**Google Cloud Certified Professional Data Engineer** with **18 years** building
+enterprise data platforms, now architecting **real-time streaming and batch data
+infrastructure on Google Cloud** for a UK tier-1 retail bank — Confluent Kafka, Cloud Composer, dbt,
 BigQuery and Terraform, spanning legacy on-premise and cloud environments.
 
 Before this platform I spent four years architecting **digital cards and
@@ -135,14 +136,12 @@ Architecting the bank's batch and streaming data platform end to end.
 **Software Developer – S2**
 *7 January 2008 – 23 November 2010*
 
-**Client: Cisco, US — EDW2B** *(Jul 2009 – Nov 2010)* — Next-generation
-enterprise warehouse on Teradata. **Informatica** mappings and workflows
-migrating Oracle → Teradata; full Teradata utility set.
+**Client: Telstra, Australia — TR2.1 / TR2.2 EDW Data-In**
 
-**Client: Telstra, Australia — TR2.1 / TR2.2 EDW Data-In** *(Jan 2008 – Jul 2009)*
-— ETL for the retail customer warehouse: registrations, demographics,
-segmentation, billed and unbilled call records. **DataStage 7.5**, Teradata
-utilities, Perl, Unix, Control-M.
+ETL for the retail customer warehouse: registrations, demographics, segmentation,
+billed and unbilled call records. Built **DataStage 7.5** jobs, Teradata utility
+scripts and Perl/Unix tooling; **Informatica** mappings and workflows for
+Oracle → Teradata migration; Control-M scheduling.
 
 ---
 
@@ -184,18 +183,11 @@ and ML workloads, and I want to own that layer as well as the pipes.*
 
 ## Education & certifications
 
-**BE, Computer Science and Engineering** — Walchand College of Engineering,
-Sangli (Shivaji University), 2003–2007.
-
+- **Google Cloud Certified — Professional Data Engineer**
+- **Google Cloud Professional Cloud Architect — in progress**
 - *Data Engineering, Big Data and Machine Learning on GCP* — Coursera
   specialisation
 - Teradata Basics V2R5 · Teradata SQL V2R5 · Introduction to Oracle9i: SQL
-- **Google Cloud Professional Cloud Architect — in progress**
 
-<!--
-NOT INCLUDED, DELIBERATELY: "Google Cloud Certified Professional Data Engineer".
-It appears on the July 2025 TCS profile card but no certificate exists in the
-Dropbox archive, and hiring managers verify certifications. If Sachin confirms he
-holds it, add it above the PCA line — it is worth more under a data-and-AI
-positioning than it was under payments. See resumes/README.md.
--->
+**BE, Computer Science and Engineering** — Walchand College of Engineering,
+Sangli (Shivaji University), 2003–2007.

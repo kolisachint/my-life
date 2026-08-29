@@ -105,17 +105,31 @@ Client names are the whole question, and the answer differs per document:
   submission, a referral one-pager) — name them. Standard practice, and what
   buyers expect.
 
-## One thing deliberately NOT on any of these
+## The PDE certification — confirmed, and now on all five
 
-**The July 2025 profile card claims "Google Cloud Certified Professional Data
-Engineer". No such certificate exists anywhere in your Dropbox** — the only GCP
-credential on file is the Coursera specialisation *"Data Engineering, Big Data,
-and Machine Learning on GCP"*, a course completion rather than a Google
-certification. They are different things and hiring managers verify the second.
+He confirmed on 2026-08-29 that he **holds the Google Cloud Certified
+Professional Data Engineer**. It is now in the header, summary and certifications
+block of every version, and in the LinkedIn headline.
 
-**If you do hold the PDE, tell me and it goes to the top of all five** — for a
-data-and-AI positioning it is a much more valuable line than it was for payments.
-If you do not, the card TCS is showing clients should be corrected.
+It carries more weight under this positioning than it would have under payments:
+it is Google's own data credential, it is verifiable, and it is one of the terms
+recruiters filter on explicitly. It also repairs the "certifications are 15–20
+years old" line — the Oracle and Teradata certificates are old, but the headline
+credential is not.
+
+**Two things to do:**
+
+1. **Find the credential ID and Credly badge link.** LinkedIn renders verified
+   badges, and a certification with an ID attached is materially more credible
+   than a line of text. Add both to the LinkedIn entry.
+2. **File the certificate in Dropbox** — `/Cloud Documents/Sachin/Career/` or
+   `Academics/`. It is not there. A full search on 2026-08-29 found no Google
+   Cloud certificate anywhere in the archive, which is why the earlier drafts
+   left it off. Your filing is otherwise excellent; this is the one gap.
+
+**Note the check date.** PDE certifications expire two years from issue. Confirm
+yours is current before sending — an expired certification stated as current is
+worse than not stating it.
 
 ---
 
@@ -127,7 +141,7 @@ If you do not, the card TCS is showing clients should be corrected.
 | Sears "Feb 2018 – ~2022" | **15 Feb 2018 – 27 Sep 2021**, joined Technical Specialist, left Architect |
 | Satyam "Jan 2008 – Nov 2010" | Confirmed: **7 Jan 2008 – 23 Nov 2010** |
 | Cognizant "Nov 2010 – Feb 2018" | Confirmed: **29 Nov 2010 – 13 Feb 2018** |
-| Clients: Barclays, STC, Sears, LBG | Also **Cisco** and **Telstra** — six, not four |
+| Clients: Barclays, STC, Sears, LBG | Also **Telstra** (and Cisco — dropped, below) |
 | ~18.5 years | **18 years 8 months** as of Aug 2026 |
 | LBG = Digital Cards | **Two workstreams**: Digital Cards 2022 – Jul 2025, **Data Platform Jul 2025 – present** |
 
@@ -135,3 +149,24 @@ If you do not, the card TCS is showing clients should be corrected.
 letter still reads `CC-C3B`. Not a resume line — but the strongest evidence for
 the thesis in `job-options.md`: the ceiling is structural, and only a move
 clears it.
+
+## Cisco: removed on purpose
+
+The Cisco EDW2B engagement (Jul 2009 – Nov 2010, via Mahindra Satyam) **is listed
+in his own 2022 resume**, so it is real. He asked for it out on 2026-08-29
+because he no longer remembers the work.
+
+**That is the right call, and it costs nothing.** A resume line you cannot talk
+about is a liability — an interviewer picks the unfamiliar item precisely because
+it looks distinctive, and "I don't really recall that project" from sixteen years
+ago reads as padding. Dropping it removes the risk.
+
+**No gap is created.** The Mahindra Satyam block keeps its true employment dates
+(Jan 2008 – Nov 2010) and now shows Telstra as the client without per-project
+sub-dates, so the two years read as continuous. The Informatica/Oracle→Teradata
+work moved up into the Telstra bullets — those skills are still his, and they are
+what the line was actually worth.
+
+**Client count is now five:** Lloyds, Sears, Saudi Telecom, Barclays, Telstra.
+The repo's `profile.md` keeps Cisco on record as history, since that file is the
+archive rather than a document anyone sends.

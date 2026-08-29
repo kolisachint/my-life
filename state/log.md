@@ -2,6 +2,36 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — PDE confirmed, Cisco dropped
+
+Two corrections from him, both applied across all five resumes.
+
+**He holds the Google Cloud Professional Data Engineer certification.**
+**Decision I is closed.** My evidence pointed the other way — no certificate
+anywhere in Dropbox, and his own 2022 resume listing only the Coursera course —
+but the document is simply unfiled. It now sits in the header, summary and
+certifications block of every version, and in the LinkedIn headline, where it
+replaced "18 yrs enterprise data" (the years are visible from the dates; the
+certification is the term recruiters filter on). It also repairs the standing
+"certifications are 15–20 years old" criticism — the Oracle and Teradata ones are
+old, the headline credential is not.
+
+Three follow-ups: get the credential ID and Credly link onto LinkedIn, file the
+certificate in Dropbox, and **check the expiry** — PDE runs two years from issue,
+and an expired certification stated as current is worse than omitting it. That
+last is now decision **K**.
+
+**Cisco is off every resume.** He no longer remembers the EDW2B work
+(Jul 2009 – Nov 2010, via Mahindra Satyam). It is real and appears in his own
+2022 resume, so it stays in `profile.md` as history — but a resume line he cannot
+discuss is a liability, because an interviewer picks the unfamiliar item
+precisely *because* it looks distinctive.
+
+No date gap results: the Satyam block keeps its true employment dates and now
+shows Telstra as the client with no per-project sub-dates, with the
+Informatica/Oracle→Teradata work folded into the Telstra bullets. **Resume client
+list is now five** — Lloyds, Sears, Saudi Telecom, Barclays, Telstra.
+
 ## 2026-08-29 — repositioned to Data & AI (same day, after his correction)
 
 He supplied the July 2025 – present workstream and named his own heading: **data

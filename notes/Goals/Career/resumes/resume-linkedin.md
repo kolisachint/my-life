@@ -9,12 +9,18 @@
 *(220 characters — the highest-leverage field on the profile)*
 
 ```
-Solution Architect — Cloud Data & AI Platforms | Real-time streaming (Kafka), BigQuery, dbt, Airflow, Terraform | 18 yrs enterprise data | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
+Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
 ```
 
-**Why this order.** "Data & AI" first because it is where you are going; the
-named stack second because recruiters search on exactly those tokens; the awards
-last because they are proof, and proof works best after a claim.
+**Why this order.** "Data & AI" first because it is where you are going; **the
+certification second because it is a searchable, verifiable credential** and
+recruiters filter on it explicitly; the named stack third because those are the
+exact tokens they search; the awards last because they are proof, and proof works
+best after a claim.
+
+*(197 characters — under the 220 limit. "18 yrs enterprise data" came out to make
+room for the certification, which is the better signal: the years are visible
+from your dates anyway.)*
 
 ## Location / Open to
 
@@ -28,7 +34,7 @@ last because they are proof, and proof works best after a claim.
 
 ```
 I build the data platforms large enterprises run on — and I am steadily moving
-that work toward AI.
+that work toward AI. Google Cloud Certified Professional Data Engineer.
 
 Right now I architect the batch and real-time streaming platform for a UK tier-1
 retail bank: event-driven ingestion on Confluent Kafka, orchestration across
@@ -136,12 +142,12 @@ delivery lead, 2015–2018) and a global bank's emerging markets (2010–2015).
 **Software Developer – S2** · Jan 2008 – Nov 2010 · Hyderabad / Bangalore
 
 ```
-ETL and data warehousing for a US networking major and an Australian telecom.
+ETL and data warehousing for an Australian telecom operator.
 
-• Built Informatica mappings and workflows migrating Oracle data to Teradata for
-  a next-generation enterprise data warehouse.
 • Developed DataStage jobs, Teradata utility scripts and Perl/Unix tooling for a
-  retail customer warehouse handling registrations, segmentation and call records.
+  retail customer warehouse handling registrations, demographics, segmentation
+  and billed and unbilled call records.
+• Built Informatica mappings and workflows migrating Oracle data to Teradata.
 ```
 
 ---
@@ -184,6 +190,9 @@ Engineering**, 2003–2007
 
 ## Licenses & certifications
 
+- **Professional Data Engineer — Google Cloud** *(add the credential ID and the
+  Credly badge link; LinkedIn renders verified badges and recruiters filter on
+  them)*
 - *Data Engineering, Big Data and Machine Learning on GCP* — Coursera
 - Teradata Basics V2R5 · Teradata SQL V2R5 — Teradata
 - Introduction to Oracle9i: SQL — Oracle
@@ -197,7 +206,7 @@ Engineering**, 2003–2007
 
 ## The client-name rule, and why it costs you nothing
 
-Lloyds, Sears, Saudi Telecom, Barclays, Cisco and Telstra all reached you under a
+Lloyds, Sears, Saudi Telecom, Barclays and Telstra all reached you under a
 services contract. Naming them on a public profile is a live contractual and
 reputational risk — and the kind of thing a compliance team at your *next*
 employer notices too.

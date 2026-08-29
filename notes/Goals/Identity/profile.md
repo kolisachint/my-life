@@ -81,11 +81,16 @@ cost by $600K**. Also led a Teradata → BigQuery migration and replaced self-ho
 tooling with cloud-native across five stacks.
 
 **Six client engagements**, as distinct from employers — Telstra AU (2008–09,
-TR2.1/2.2 EDW Data-In), **Cisco US (2009–10, EDW2B)**, Barclays UK (2010–15,
+TR2.1/2.2 EDW Data-In), Cisco US (2009–10, EDW2B), Barclays UK (2010–15,
 Emerging Markets DW / One Africa), Saudi Telecom (2015–18, STC EDW CLDM7/12,
 onsite delivery lead), Sears US (2018–21, Targeted Interactions / TI Mart),
 **Lloyds Banking Group UK (2022–present)**. Cisco and Telstra were missing from
 every earlier note.
+
+**Cisco is kept here as history but is OFF every resume** (his call, 2026-08-29 —
+he no longer remembers the work, and a line he cannot discuss is a liability in
+an interview). This file is the archive; `resumes/` is what gets sent. **Five
+clients on the resumes:** Lloyds, Sears, Saudi Telecom, Barclays, Telstra.
 
 **Lloyds is TWO workstreams, not one** (he confirmed 2026-08-29):
 
@@ -102,17 +107,20 @@ his most current and most marketable work.
 **Banking Tech Awards 2024** and the **Card & Payments Awards 2025**. Two dated,
 external, third-party awards — the scarcest asset on a services CV.
 
-**Certifications:** Teradata Basics + SQL V2R5, Oracle 9i SQL — **both old**, plus
-the Coursera specialisation *Data Engineering, Big Data and ML on GCP*. GCP PCA
-in progress, still no exam date.
+**Certifications:** **Google Cloud Certified — Professional Data Engineer**
+(confirmed by him 2026-08-29). GCP PCA in progress, still no exam date. Plus the
+Coursera specialisation *Data Engineering, Big Data and ML on GCP*, and Teradata
+Basics + SQL V2R5, Oracle 9i SQL — those three are old.
 
-**The PDE claim — evidence now leans hard one way.** A full Dropbox search on
-2026-08-29 found **no Google Cloud certificate document anywhere**; Academics
-holds only BE/HSC/SSC marksheets. His own 2022 resume lists the GCP credential as
-a *Coursera specialisation*. So the July 2025 card's "Google Cloud Certified
-Professional Data Engineer" is most likely that course written up as a
-certification. **Not proof** — he may hold it unfiled — but no resume should
-carry it until he confirms. Decision I stays open.
+**Decision I is closed: he holds the PDE.** The 2026-08-29 Dropbox search found
+no certificate on file and his 2022 resume listed only the Coursera course, so
+the evidence pointed the other way — he corrected it. **The document is simply
+not filed.** Two follow-ups: get the credential ID and Credly link onto LinkedIn,
+and file the certificate in Dropbox. Also confirm the expiry — PDE runs two years
+from issue.
+
+**Do not re-raise this as doubtful.** The absence of a file was the reason for
+the earlier caution; he has answered it.
 
 ### Resume problems — half fixed as of the July 2025 profile card
 

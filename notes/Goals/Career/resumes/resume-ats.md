@@ -32,8 +32,9 @@ kolisachint.github.io
 
 SUMMARY
 
-Solution Architect with 18 years of experience in cloud data platforms, real-time
-streaming architecture and enterprise data engineering. Currently architecting
+Google Cloud Certified Professional Data Engineer and Solution Architect with 18
+years of experience in cloud data platforms, real-time streaming architecture and
+enterprise data engineering. Currently architecting
 end-to-end batch and real-time streaming data platforms on Google Cloud Platform
 (GCP) for a UK tier-1 retail bank using Confluent Kafka, Cloud Composer (Apache
 Airflow), BigQuery, dbt, Python and Terraform. Previously architected digital
@@ -192,14 +193,13 @@ Kingdom (Banking)
 Mahindra Satyam
 Software Developer - S2
 Jan 2008 - Nov 2010 | Hyderabad and Bangalore, India
-Clients: Cisco, United States (Networking); Telstra Corporation, Australia
-(Telecom)
+Client: Telstra Corporation, Australia (Telecom)
 
-- Developed Informatica mappings and workflows migrating data from Oracle to
-  Teradata for a next-generation enterprise data warehouse.
 - Developed DataStage jobs, Teradata utility scripts, Perl and Unix shell
   scripts for ETL of retail customer data including registrations, demographics,
   segmentation and billed and unbilled call records.
+- Developed Informatica mappings and workflows migrating data from Oracle to
+  Teradata for an enterprise data warehouse.
 - Performed unit testing, data validation and defect resolution.
 
 
@@ -223,12 +223,13 @@ Walchand College of Engineering, Sangli (Shivaji University)
 
 CERTIFICATIONS
 
+Google Cloud Certified - Professional Data Engineer (PDE), Google Cloud
+Google Cloud Professional Cloud Architect (PCA) - In Progress
 Data Engineering, Big Data and Machine Learning on Google Cloud Platform -
 Specialization, Coursera
 Teradata Basics V2R5 - Teradata
 Teradata SQL V2R5 - Teradata
 Introduction to Oracle9i SQL - Oracle
-Google Cloud Professional Cloud Architect - In Progress
 
 
 ADDITIONAL

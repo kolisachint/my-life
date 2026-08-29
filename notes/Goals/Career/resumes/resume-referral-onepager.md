@@ -8,6 +8,7 @@
 
 ## SACHIN KOLI
 **Solution Architect — Cloud Data & AI Platforms**
+*Google Cloud Certified Professional Data Engineer*
 Pune · kolisachint@gmail.com · +91 95522 36200 · linkedin.com/in/kolisachint
 
 ---
@@ -57,10 +58,11 @@ putting ML or retrieval on top of a serious data platform.
 
 ### Background
 
-18 years, all in enterprise data · BE Computer Science & Engineering, Walchand
-College of Engineering, Sangli · Currently Tata Consultancy Services ·
-Previously Sears, Cognizant, Mahindra Satyam · Clients: Lloyds Banking Group,
-Sears Holdings, Saudi Telecom, Barclays, Cisco, Telstra
+18 years, all in enterprise data · **Google Cloud Certified Professional Data
+Engineer** · BE Computer Science & Engineering, Walchand College of Engineering,
+Sangli · Currently Tata Consultancy Services · Previously Sears, Cognizant,
+Mahindra Satyam · Clients: Lloyds Banking Group, Sears Holdings, Saudi Telecom,
+Barclays, Telstra
 
 ---
 
@@ -72,8 +74,9 @@ Give them this. A referrer who has to compose something writes nothing.
 Hi [name] — a friend of mine, Sachin Koli, is looking at architect roles and I
 thought of your team.
 
-He is a solution architect with 18 years in enterprise data. Right now he
-architects the real-time streaming and batch data platform at Lloyds — Kafka,
+He is a solution architect with 18 years in enterprise data, and a Google Cloud
+certified Professional Data Engineer. Right now he architects the real-time
+streaming and batch data platform at Lloyds — Kafka,
 BigQuery, dbt, Airflow, all of it Terraformed — bridging their legacy on-prem
 scheduling with cloud orchestration. Before that he led their digital cards
 migration to GCP, and the self-serve fraud journey he built won at the Banking

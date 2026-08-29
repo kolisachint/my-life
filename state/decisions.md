@@ -17,8 +17,8 @@ _Last updated: 2026-08-28_
 | F | **Tayadi's ₹2,00,000 — chase or write off?** | Open since Dec 2022, no action ever attached |
 | G | **Is retiring at 55 fixed?** | Moving to 60 roughly halves the monthly requirement |
 | H | **May an agent edit Todoist without asking each time?** | Six passport/property edits are waiting |
-| I | **Does he hold the Google Cloud Professional Data Engineer certification?** | The July 2025 TCS card claims it; Dropbox shows only Coursera specialisations. Changes the top of the resume, and whether PCA is his first Google cert or his second |
-| J | **Is the July 2025 card still current?** | It reads "2022–2026" for the LBG engagement — a forward-looking end date at the time. Is the Digital Cards work ending? |
+| J | **Is the July 2025 card still current?** | Partly answered — he moved to the LBG data platform in Jul 2025, so the card is stale on his current work. Still open: is the LBG engagement itself ending? |
+| K | **Is the PDE certification still in date?** | It runs two years from issue. An expired cert stated as current is worse than omitting it. Confirm before sending any resume |
 
 ## Settled
 
@@ -98,6 +98,7 @@ architect" and points the target list at card networks, banking GCCs and fintech
 
 | Was open | Answer |
 | --- | --- |
+| **I — does he hold the GCP Professional Data Engineer?** | **Yes.** Confirmed by him 2026-08-29. The certificate is simply not filed in Dropbox, which is why earlier evidence pointed the other way. Now on all five resumes. Do not re-raise as doubtful |
 | Current CTC | ₹36,99,331 |
 | EPF balance | ₹28,13,625 (Jul 2026) |
 | Real monthly investing | Gold 10k / EMI 30k / MF 20k |

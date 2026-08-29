@@ -18,19 +18,20 @@ and I am moving that work toward AI.
 *(speaker introduction, panel listing, award submission)*
 
 ```
-Sachin Koli is a solution architect with eighteen years in enterprise data and
-cloud. He architects the real-time streaming and batch data platform for a UK
-tier-1 retail bank, on Kafka, BigQuery, dbt and Airflow. The self-serve fraud
-journey he designed won at the Banking Tech Awards 2024 and the Card & Payments
-Awards 2025.
+Sachin Koli is a solution architect and Google Cloud Certified Professional Data
+Engineer with eighteen years in enterprise data and cloud. He architects the
+real-time streaming and batch data platform for a UK tier-1 retail bank, on
+Kafka, BigQuery, dbt and Airflow. The self-serve fraud journey he designed won at
+the Banking Tech Awards 2024 and the Card & Payments Awards 2025.
 ```
 
 ## Medium bio — 150 words
 *(personal site "About", meetup organiser, guest post byline)*
 
 ```
-Sachin Koli is a solution architect based in Pune, India, with eighteen years
-spent building the data and cloud platforms underneath large enterprises.
+Sachin Koli is a solution architect based in Pune, India, and a Google Cloud
+Certified Professional Data Engineer, with eighteen years spent building the data
+and cloud platforms underneath large enterprises.
 
 He currently architects the batch and real-time streaming data platform for a UK
 tier-1 retail bank — event-driven ingestion on Confluent Kafka, orchestration
@@ -87,7 +88,8 @@ retrieval and machine learning need, and I would rather build that layer than
 hand it to someone else.
 
 I studied Computer Science and Engineering at Walchand College of Engineering,
-Sangli. I live in Pune with my wife and two children.
+Sangli, and I am a Google Cloud Certified Professional Data Engineer. I live in
+Pune with my wife and two children.
 
 Find me on LinkedIn, or on GitHub.
 ```
