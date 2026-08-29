@@ -16,7 +16,7 @@ Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
 | **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** |
 | **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases |
 | **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager |
-| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone |
+| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone |
 
 The `.html` beside each PDF is the source — edit it and re-run:
 
@@ -40,12 +40,21 @@ about where each one wins:
 | A LinkedIn **Featured** image, or your site | A recruiter's inbox, where they want text they can scan, copy and forward |
 | Handing to someone in person, or a slide | Anywhere a hiring manager expects a standard CV — a designed card outside consulting reads as unusual, not impressive |
 
-`Sachin_Koli_Profile_Card.pdf` is the replacement for the July 2025 TCS card. It
-is laid out as an engineering spec sheet rather than a brochure: a monospace
+`Sachin_Koli_Profile_Card.pdf` is the replacement for the July 2025 TCS card.
+
+**It is landscape, deliberately.** A glance artefact should be the shape of the
+thing it is glanced on — a screen, a slide, a shared window. Portrait forces a
+scroll or a scan down the page; landscape puts the whole profile in one look.
+The top band carries identity, then a four-tile proof strip (**18 yrs · $600K ·
+2024 · 2025**) does the three-second read, then three columns take the eye
+left-to-right: what he builds, what he has shipped publicly, and who he has
+worked for.
+
+It is laid out as an engineering spec sheet rather than a brochure: a monospace
 utility face carrying the labels and data, hairline rules, and one deep signal
-colour. The centrepiece is a **Shipped, in public** table of the four
-repositories — which is the thing no competing profile card has, and the reason
-this version is worth sending at all. The headshot is treated as monochrome,
+colour. The centrepiece is the **Shipped, in public** column of the four
+repositories — the thing no competing profile card has, and the reason this
+version is worth sending at all. The headshot is treated as monochrome,
 deliberately: the only source available was a photograph of the original card on
 a screen, and greyscale reads as a design choice rather than a bad scan.
 **Replace it with a proper headshot when you have one** — the file to swap is the

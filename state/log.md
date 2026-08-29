@@ -2,6 +2,28 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — the profile card is landscape now
+
+His call, and it is right: a glance artefact should be the shape of the screen or
+slide it is glanced on. Portrait made the eye scan down a page; landscape puts
+the whole profile in one look.
+
+Rebuilt as A4 landscape (842×595pt): a header band with identity, then a
+four-tile **proof strip — 18 yrs · $600K · 2024 · 2025** doing the three-second
+read, then three columns left-to-right — what he builds, what he has shipped
+publicly, and clients plus track.
+
+**The read documents stay portrait.** The resume and the referral one-pager are
+*read*, not glanced; landscape would make a long text column worse, not better.
+Offered to convert the one-pager if he wants it.
+
+**A pagination trap worth remembering:** when it rendered two pages, shrinking
+`body { height }` did nothing — 209.4, 208, 206 and 204mm all still paginated.
+Rasterising page two and locating the ink showed the cause was a column
+genuinely one block too tall. Dropped the Certifications block from column three,
+which was redundant anyway since the PDE already sits in the header. Recorded in
+the skill so the next session does not repeat the experiment.
+
 ## 2026-08-29 — tooled the career work so it stops being improvised
 
 He said he will be doing this repeatedly, so the workflow is now packaged rather
