@@ -1,64 +1,66 @@
-# Referral one-pager — payments & fintech
+# Referral one-pager — data platforms & AI
 
 > **Version 5 of 5 — the one a friend forwards.** Senior roles move by referral,
 > not by portal. What a referrer needs is a single page they can paste into a
 > message to a hiring manager without editing it or explaining you first.
->
-> Targeted at the cohort `job-options.md` identifies: card networks, payment
-> processors, banking GCCs and Indian fintech at scale.
 
 ---
 
 ## SACHIN KOLI
-**Solution Architect — Digital Cards, Payments, Cloud**
+**Solution Architect — Cloud Data & AI Platforms**
 Pune · kolisachint@gmail.com · +91 95522 36200 · linkedin.com/in/kolisachint
 
 ---
 
 ### What I do
 
-I build card and payment experiences on cloud. For the last four years I have led
-digital cards modernisation at a **UK tier-1 retail bank** — Add to Wallet, card
-controls, View PIN — moving them off on-premise infrastructure onto **Google
-Cloud**, with the microservice and cross-cloud API patterns that keep that
-compliant and fast.
+I architect enterprise data platforms on Google Cloud. Right now that means the
+batch and real-time streaming platform for a **UK tier-1 retail bank** —
+event-driven ingestion on **Confluent Kafka**, orchestration across **Cloud
+Composer** and a legacy enterprise scheduler, modelling in **BigQuery and dbt**,
+the whole estate provisioned with **Terraform** and deployed through CI/CD.
+
+The hard part is not the tools. It is making a modern cloud stack and a
+twenty-year-old on-premise estate agree with each other, reliably, every night.
 
 ### Three things worth knowing
 
-**1. Award-winning fraud work.** The self-serve fraud journey I architected won
-at the **Banking Tech Awards 2024** and the **Card & Payments Awards 2025**. It
-took fraud reporting out of the call-centre queue and put it in the customer's
-hands.
+**1. I have taken real money out of real systems.** A customer preference API I
+designed on GCP — App Engine, Pub/Sub, DataFlow, BigQuery — served millions of
+customers and **removed $600,000 a year** in operating cost. I also migrated an
+enterprise data lake from **Teradata to BigQuery** and replaced licensed tooling
+with cloud-native across five stacks.
 
-**2. I have taken real cost out.** A customer preference API I designed on GCP —
-App Engine, Pub/Sub, DataFlow, BigQuery — served millions of customers and
-**removed $600,000 a year** in operating cost. I also migrated an enterprise data
-lake from **Teradata to BigQuery** and replaced licensed tooling with cloud-native
-across five stacks.
+**2. Award-winning payments work.** Before the data platform I spent four years
+on digital cards at the same bank. The self-serve fraud journey I architected won
+at the **Banking Tech Awards 2024** and the **Card & Payments Awards 2025** — it
+took fraud reporting out of the call-centre queue and gave it to the customer.
 
-**3. Eighteen years, and the last four are the relevant ones.** Payments and
-cards now; before that, enterprise data platforms in retail, telecom and banking
-— including unifying a global bank's data across several African markets.
+**3. I am building toward the AI layer, and I have started.** In my own time I
+wrote a **text embedding library from scratch in Rust** and built **semantic
+search** over a codebase with it. The platforms I design are exactly the
+substrate retrieval and ML workloads need; I would rather own that layer than
+hand it over.
 
 ### The stack
 
-GCP (BigQuery, DataFlow, Pub/Sub, App Engine, Composer, Cloud Functions) · AWS ·
-microservices, API gateways, containerisation · Apache Beam / Airflow / Spark /
-Kafka · Teradata, Oracle, Greenplum · Python, SQL
+GCP (BigQuery, Composer, DataFlow, Pub/Sub, App Engine) · Confluent Kafka ·
+Apache Airflow · dbt · Terraform · Python, SQL · AWS · microservices and API
+architecture · Teradata, Oracle, Greenplum
 
 ### What I am looking for
 
-A **Solution / Cloud / Data Architect** role at a product company, payments
-business or GCC — somewhere the platform is the product rather than the delivery
-vehicle. Pune or Bengaluru, or remote. Payments and cards preferred; open to any
-domain where the data and integration problem is genuinely hard.
+A **Solution / Data / Cloud Architect** role where the **data platform is the
+product** rather than the delivery vehicle — product companies, payments
+businesses, GCCs. Pune or Bengaluru, or remote. Especially interested in teams
+putting ML or retrieval on top of a serious data platform.
 
 ### Background
 
-BE Computer Science & Engineering, Walchand College of Engineering, Sangli ·
-Currently Tata Consultancy Services · Previously Sears, Cognizant, Mahindra
-Satyam · Clients: Lloyds Banking Group, Sears Holdings, Saudi Telecom, Barclays,
-Cisco, Telstra
+18 years, all in enterprise data · BE Computer Science & Engineering, Walchand
+College of Engineering, Sangli · Currently Tata Consultancy Services ·
+Previously Sears, Cognizant, Mahindra Satyam · Clients: Lloyds Banking Group,
+Sears Holdings, Saudi Telecom, Barclays, Cisco, Telstra
 
 ---
 
@@ -70,35 +72,48 @@ Give them this. A referrer who has to compose something writes nothing.
 Hi [name] — a friend of mine, Sachin Koli, is looking at architect roles and I
 thought of your team.
 
-He is a solution architect with 18 years in enterprise data and cloud, and for
-the last four he has been leading digital cards modernisation at Lloyds — Add to
-Wallet, card controls, View PIN — moving them from on-prem to GCP. The self-serve
-fraud journey he built won at the Banking Tech Awards 2024 and the Card &
-Payments Awards 2025.
+He is a solution architect with 18 years in enterprise data. Right now he
+architects the real-time streaming and batch data platform at Lloyds — Kafka,
+BigQuery, dbt, Airflow, all of it Terraformed — bridging their legacy on-prem
+scheduling with cloud orchestration. Before that he led their digital cards
+migration to GCP, and the self-serve fraud journey he built won at the Banking
+Tech Awards 2024 and the Card & Payments Awards 2025.
 
 Earlier he built a preference API on GCP that took $600K a year out of running
 costs at Sears, and migrated their data lake from Teradata to BigQuery.
 
-One-pager attached. Worth a conversation if you have anything open in the
-payments or platform space — happy to introduce you.
+He is also pushing into applied AI on his own time — wrote an embedding library
+from scratch in Rust and built semantic code search on it.
+
+One-pager attached. Worth a conversation if you have anything open on the data
+platform or ML infrastructure side — happy to introduce you.
 ```
 
 ---
 
 ## How to use this
 
-**Send it to people, not portals.** The list from `job-options.md`: card networks
-and processors (Visa, Mastercard, PayPal, Adyen, Stripe — all with large India
-centres), banking GCCs in Pune (Barclays, where you already have history;
-Deutsche, HSBC, Citi, Mastercard), and Indian fintech at scale (PhonePe,
-Razorpay, Juspay, Pine Labs, CRED).
+**Send it to people, not portals.** The target list has widened now that the
+positioning is data rather than payments:
+
+| Target class | Why |
+| --- | --- |
+| **Data platform teams at product companies** | The stack matches exactly — Kafka, dbt, Airflow, BigQuery is the standard modern build |
+| **ML / AI infrastructure teams** | They need people who can build the platform underneath the models; most ML hires cannot |
+| Card networks and processors | Visa, Mastercard, PayPal, Adyen, Stripe — the payments credential still opens these |
+| Banking GCCs in Pune | Barclays (you have history), Deutsche, HSBC, Citi, Mastercard |
+| Indian fintech at scale | PhonePe, Razorpay, Juspay, Pine Labs, CRED — all running exactly this stack |
 
 **Ask for a conversation, not a job.** A referrer forwarding "worth a
 conversation" gets a reply; one forwarding "he is applying for req #4471" gets
 routed to the portal, which is the thing you were avoiding.
 
+**Publish the Rust library before you send this.** Point 3 is the line that
+separates you from every other services architect with a Kafka-and-dbt CV — and
+right now it points at nothing anyone can open. A public repo makes it the
+strongest item on the page instead of the weakest.
+
 **The clients are named here** because this goes to one person at a time through
-someone who knows you. Do not post this version anywhere public — use
-`resume-public.md` for that.
+someone who knows you. Do not post this version publicly — use `resume-public.md`.
 
 **One page is the whole discipline.** If you add to this, take something out.

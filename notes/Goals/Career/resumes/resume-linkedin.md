@@ -1,52 +1,61 @@
 # LinkedIn profile — no client names
 
-> **Version 2 of 5 — for the public web.** Every client is anonymised to a
-> descriptor. Copy each block straight into the matching LinkedIn field.
+> **Version 2 of 5 — for the public web.** Every client is anonymised. Copy each
+> block straight into the matching LinkedIn field.
 
 ---
 
 ## Headline
-*(220 characters max — this is the single highest-leverage field on the profile)*
+*(220 characters — the highest-leverage field on the profile)*
 
 ```
-Solution Architect — Digital Cards & Payments on Google Cloud | 18 yrs in enterprise data & cloud | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
+Solution Architect — Cloud Data & AI Platforms | Real-time streaming (Kafka), BigQuery, dbt, Airflow, Terraform | 18 yrs enterprise data | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
 ```
+
+**Why this order.** "Data & AI" first because it is where you are going; the
+named stack second because recruiters search on exactly those tokens; the awards
+last because they are proof, and proof works best after a claim.
 
 ## Location / Open to
 
-`Pune, Maharashtra, India` — set **Open to work** to recruiters only, with
-titles: *Solution Architect · Cloud Architect · Data Architect · Principal
-Engineer · Enterprise Architect*, and locations *Pune · Bengaluru · Hyderabad ·
-Remote (India)*.
+`Pune, Maharashtra, India` — set **Open to work**, recruiters only. Titles:
+*Solution Architect · Data Architect · Cloud Architect · Principal Data Engineer
+· Platform Architect*. Locations: *Pune · Bengaluru · Hyderabad · Remote (India)*.
 
 ---
 
 ## About
 
 ```
-I architect payments and card experiences on cloud — and for eighteen years
-before and around that, the data platforms underneath large enterprises.
+I build the data platforms large enterprises run on — and I am steadily moving
+that work toward AI.
 
-For the last four years I have led the modernisation of digital card servicing
-for a UK tier-1 retail bank: moving Add-to-Wallet, card controls and View-PIN
-from on-premise infrastructure onto Google Cloud, and designing the secure
-microservice and cross-cloud API patterns that make that safe in a regulated
-environment. The self-serve fraud journey I architected won at the Banking Tech
-Awards 2024 and the Card & Payments Awards 2025 — it moved fraud handling from
-an assisted call-centre process to something a customer completes themselves.
+Right now I architect the batch and real-time streaming platform for a UK tier-1
+retail bank: event-driven ingestion on Confluent Kafka, orchestration across
+Cloud Composer and a legacy enterprise scheduler, modelling in BigQuery and dbt,
+all of it provisioned through Terraform and CI/CD. The interesting part is not
+any single tool — it is making a modern cloud stack and a twenty-year-old
+on-premise estate agree with each other, reliably, every night.
 
-Earlier I spent twelve years in enterprise data: a Teradata-to-BigQuery lake
-migration for a US Fortune-500 retailer, a customer preference API on GCP that
-took $600,000 a year out of operating cost, and enterprise warehouses for a Gulf
-national telecom operator and a global bank's African markets.
+Before the data platform I spent four years on digital cards at the same bank,
+moving Add-to-Wallet, card controls and View-PIN from on-premise onto Google
+Cloud. The self-serve fraud journey I architected won at the Banking Tech Awards
+2024 and the Card & Payments Awards 2025 — it took fraud reporting out of the
+call-centre queue and gave it to the customer.
 
-What I actually enjoy is the whole arc — choosing the platform, designing the
-architecture, building it, and having the conversation that gets it funded. I
-tend to be an early adopter of cloud services, which is how you find the gaps
-before they become someone's incident.
+Earlier: twelve years of enterprise data across retail, telecom and banking. A
+Teradata-to-BigQuery lake migration. A customer preference API on GCP serving
+millions of people that took $600,000 a year out of running cost. Warehouses
+unifying a global bank's data across several African markets.
 
-Open to Solution Architect, Cloud Architect and Data Architect roles, especially
-in payments, cards and financial services.
+What I am building toward is the AI layer on top of all this. In my own time I
+have written an embedding library from scratch in Rust and built semantic search
+over a codebase — because the platforms I design are exactly the substrate that
+retrieval and ML workloads need, and I would rather own that layer than hand it
+over.
+
+Open to Solution Architect, Data Architect and Cloud Architect roles — especially
+where the data platform is the product.
 ```
 
 ---
@@ -57,18 +66,33 @@ in payments, cards and financial services.
 **Solution Architect** · Sep 2021 – Present · Pune, India
 
 ```
-Digital cards and payments modernisation for a UK tier-1 retail bank.
+Data platform and digital cards architecture for a UK tier-1 retail bank.
 
+Data Platform & Real-Time Analytics (Jul 2025 – present)
+• Architected end-to-end batch and real-time streaming data platform on Google
+  Cloud supporting analytics, operational reporting and ML workloads.
+• Engineered high-availability event-driven ingestion on Confluent Kafka with
+  Python for low-latency data delivery.
+• Architected hybrid batch orchestration across Cloud Composer (Apache Airflow)
+  and a legacy enterprise scheduler, managing dependency graphs spanning
+  on-premise and cloud.
+• Designed BigQuery warehouse schemas and modular dbt transformation pipelines
+  with enforced data quality and lineage.
+• Standardised infrastructure with Terraform — Composer environments, BigQuery
+  datasets, Kafka connectors, IAM — integrated into CI/CD to cut configuration
+  drift and deployment time.
+• Implemented BigQuery cost and governance optimisation, reducing compute
+  overhead while improving query performance.
+
+Digital Cards Modernisation (2022 – Jul 2025)
 • Led end-to-end modernisation of digital card features — Add to Wallet, card
-  controls, View PIN/Card — migrating from on-premise to Google Cloud Platform.
-• Architected secure, scalable microservices and cross-cloud API patterns
-  meeting banking compliance and performance requirements.
+  controls, View PIN/Card — migrating from on-premise to Google Cloud.
+• Architected secure, scalable microservices and cross-cloud API patterns meeting
+  banking compliance and performance requirements.
 • Architected a self-serve fraud journey recognised at the Banking Tech Awards
   2024 and the Card & Payments Awards 2025.
-• Delivered mobile-led customer journeys, aligning cloud strategy with business
-  goals rather than lifting and shifting.
 
-GCP · microservices · API gateways · containerisation · payments · cards
+Kafka · BigQuery · dbt · Airflow · Terraform · GCP · microservices · payments
 ```
 
 ### Sears IT and Management Services India
@@ -94,11 +118,11 @@ Cloud data platform and marketing technology for a US Fortune-500 retailer.
 
 ```
 Enterprise data warehousing for a Gulf national telecom operator (onsite
-delivery lead, 2015–2018) and for a global bank's emerging markets (2010–2015).
+delivery lead, 2015–2018) and a global bank's emerging markets (2010–2015).
 
 • Led data modelling for a national telecom enterprise data warehouse spanning
   customers, accounts, subscriptions, offers and products.
-• Built an automation tool that propagated schema changes through every Teradata
+• Built an automation tool propagating schema changes through every Teradata
   utility script and Ab-Initio object automatically, removing a large manual
   change surface.
 • Ran a big-data POC on Apache Hive and HDFS for call-detail-record ingestion.
@@ -122,15 +146,35 @@ ETL and data warehousing for a US networking major and an Australian telecom.
 
 ---
 
+## Projects
+*(a real LinkedIn section — use it, this is your AI evidence)*
+
+**Rust embedding library** — `[link once published]`
+```
+A text embedding implementation written from scratch in Rust, built to
+understand the mechanics rather than call an API.
+```
+
+**Semantic code search** — `[link once published]`
+```
+Retrieval over a codebase using vector similarity rather than keyword matching.
+```
+
+> **These sections are empty until you publish.** A Projects entry with no link
+> is weaker than no entry — it reads as an intention. Publish the Rust library
+> first, then add both.
+
+---
+
 ## Skills
-*(order matters — LinkedIn shows the top three; endorsements follow the order)*
+*(order matters — LinkedIn shows the top three and endorsements follow it)*
 
 ```
-1. Solution Architecture      6. Data Architecture       11. Apache Airflow
-2. Google Cloud Platform      7. BigQuery                12. Python
-3. Microservices              8. Payments                13. Teradata
-4. API Design                 9. Cloud Migration         14. Apache Beam
-5. Digital Banking           10. Pub/Sub                 15. Stakeholder Management
+1. Data Architecture          6. Apache Airflow        11. Solution Architecture
+2. Google Cloud Platform      7. dbt                   12. Data Engineering
+3. Apache Kafka               8. Terraform             13. Microservices
+4. BigQuery                   9. Python                14. Cloud Migration
+5. Real-Time Data Streaming  10. Data Governance       15. Stakeholder Management
 ```
 
 ## Education
@@ -155,21 +199,20 @@ Engineering**, 2003–2007
 
 Lloyds, Sears, Saudi Telecom, Barclays, Cisco and Telstra all reached you under a
 services contract. Naming them on a public profile is a live contractual and
-reputational risk, and it is the kind of thing a compliance team at your *next*
+reputational risk — and the kind of thing a compliance team at your *next*
 employer notices too.
 
-The descriptors carry the same weight to anyone hiring: "UK tier-1 retail bank",
-"US Fortune-500 retailer", "Gulf national telecom operator" are read fluently by
-every recruiter in this market. **The scale is what signals; the logo is what
-gets you in trouble.**
+The descriptors read identically to anyone hiring: "UK tier-1 retail bank",
+"US Fortune-500 retailer", "Gulf national telecom operator". **The scale is what
+signals; the logo is what creates risk.** Name them in `resume-recruiter.md`,
+which goes to one addressed person at a time.
 
-Name them in `resume-recruiter.md`, which goes to one addressed person at a time.
+## Three things to do while you are in there
 
-## Two things to do while you are in there
-
-1. **Turn the awards into a post.** Two industry awards sitting silently in the
-   Honors section do almost nothing. One short post about what the self-serve
-   fraud journey actually changed for customers will out-perform every other
-   thing on this profile for reaching payments recruiters.
-2. **Fix the profile photo.** The card photo is a passport-style crop. A plain
-   headshot against a clean background is a twenty-minute job with a real return.
+1. **Publish the Rust library, then fill the Projects section.** Everything about
+   the AI positioning depends on this one action.
+2. **Post about the fraud journey.** Two industry awards sitting silently in the
+   Honors section do almost nothing. One short post about what actually changed
+   for customers will out-reach everything else on the profile.
+3. **Replace the profile photo.** The card photo is a passport-style crop. A
+   plain headshot on a clean background is twenty minutes for a real return.

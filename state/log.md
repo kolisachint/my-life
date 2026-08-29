@@ -2,6 +2,48 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — repositioned to Data & AI (same day, after his correction)
+
+He supplied the July 2025 – present workstream and named his own heading: **data
+and AI, and he wants to move toward it.** The five resumes had just been built
+around *payments architect*. Rewritten, all five.
+
+**Two things he told me that the repo did not know:**
+
+1. **Lloyds is two workstreams.** Digital Cards 2022 – Jul 2025, then a **data
+   platform build from Jul 2025** — Confluent Kafka, Cloud Composer/Airflow,
+   IBM Tivoli Workload Scheduler, BigQuery, dbt, Terraform, CI/CD. Same client.
+   **The July 2025 profile card is therefore already stale** on his newest and
+   most marketable work.
+2. **The direction is data and AI**, not payments. Payments is demoted to a
+   domain credential across every document.
+
+**Where I did not simply comply.** The half he asked for is not one thing:
+
+| | Status |
+| --- | --- |
+| **Data** | **Earned.** The Jul 2025 platform is current, modern and marketable. It now leads all five documents. |
+| **AI** | **A direction, not experience.** That workstream contains no AI whatsoever — no models, no ML pipelines, no GenAI, no serving. |
+
+His only AI material is the **Rust embedding library** and **semantic code
+search**, both his own time, **both unpublished**. So the documents headline
+"Data & AI Platforms", sell the data platform on its merits, carry the AI
+material honestly in an Independent Engineering section, and claim nothing that
+would collapse in a technical screen. He picked that framing from three options.
+
+**The gating action is publishing the Rust library.** `decisions.md` has carried
+it since 27 Aug and it has not moved. Until it is public, half of his own chosen
+positioning rests on work nobody can open. One weekend, and it is now the
+highest-leverage career action in the repo.
+
+**Also flagged: his pasted draft had no numbers in it at all** — the same defect
+as the profile card, which quantifies one thing in a full page. Six `[N]`
+placeholders are marked in the resumes for him to fill.
+
+Files: all five resumes and their README rewritten; `profile.md` gained a
+Direction section and the two-workstream correction; `decisions.md` records the
+settled direction and the gating action.
+
 ## 2026-08-29 — five resumes, built from the source documents
 
 Read the Dropbox career folder properly for the first time. Egress blocks the

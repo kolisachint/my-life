@@ -8,6 +8,14 @@ This is the **TCS consultant profile card** (the "Classification: Public"
 client-facing format), not a market resume. That distinction matters — see
 "What it fixes and what it does not" below.
 
+> **⚠ Already stale, as of 2026-08-29.** Since **July 2025** he has been on a
+> different Lloyds workstream — a **data platform build** (Confluent Kafka, Cloud
+> Composer, IBM Tivoli Workload Scheduler, BigQuery, dbt, Terraform). This card
+> documents only the Digital Cards work that preceded it, and so omits his most
+> current and most marketable engagement. It also predates his decision to
+> position as **Data & AI** rather than payments.
+> → `notes/Goals/Career/resumes/` carries the current material.
+
 ## Header
 
 - **Sachin Koli** — Solutions Architect, Tata Consultancy Services.

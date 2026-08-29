@@ -68,6 +68,21 @@ library is career material — publish it.
 **Tax regime is NEW.** The Todoist goal saying "opt for old regime" is stale.
 One CA conversation, not a unilateral rewrite.
 
+**Career direction: DATA & AI.** He chose the heading himself on 2026-08-29. Do
+not reposition him as a payments architect — payments is a domain credential now,
+not the identity. **Data is earned** (the Jul 2025– Lloyds platform: Kafka,
+Composer, dbt, BigQuery, Terraform). **AI is a direction, not experience** — that
+workstream has no AI in it at all, and his only AI material is unpublished.
+→ `notes/Goals/Career/resumes/README.md`
+
+**The gating action is publishing the Rust embedding library.** Open since 27 Aug,
+unmoved. Until it is public, half his chosen positioning rests on work nobody can
+verify. One weekend; the highest-leverage career action in this repo.
+
+**Lloyds is two workstreams.** Digital Cards 2022 – Jul 2025; Data Platform
+Jul 2025 – present. The July 2025 profile card documents only the first and is
+therefore already stale on his most marketable work.
+
 **Resume.** The 14 Feb 2022 resume is superseded in *content* by the **July 2025
 TCS profile card** — TCS present, Sears closed at 2021, 18 years stated. It is not
 superseded in *form*: the card names clients not employers, is TCS-branded, and

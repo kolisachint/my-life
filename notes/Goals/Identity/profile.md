@@ -19,6 +19,31 @@ exception. See AGENTS.md._
   **koli.sachin1@tcs.com**
 - LinkedIn `in/kolisachint` · site `kolisachint.github.io`
 
+## Direction — DATA & AI (settled 2026-08-29)
+
+**He has chosen the heading himself: data and AI.** Do not re-litigate it, and do
+not reposition him as a payments architect — payments is now a *domain
+credential*, not his identity.
+
+Two halves, and they are not equally earned:
+
+- **Data is real.** The Jul 2025 – present Lloyds platform work (Kafka, Composer,
+  dbt, BigQuery, Terraform) is a current, marketable, modern data-platform build.
+  Lead everything with it.
+- **AI is a direction, not yet experience.** That workstream contains **no AI at
+  all** — no models, no ML pipelines, no GenAI, no serving. His only AI material
+  is the **Rust embedding library** and **semantic code search**, both built in
+  his own time and **both unpublished**.
+
+**So the gating action is publishing the Rust library.** `decisions.md` has said
+this since 27 Aug and nothing has moved. Until it is public, the AI half of his
+own chosen positioning rests on work no one can verify. It is one weekend and it
+is the highest-leverage career action in the repo.
+
+Second action: get one AI use case into the day job. He already architects the
+BigQuery platform — that is the natural substrate for anomaly detection on the
+streams, BigQuery ML, a semantic layer, or an LLM interface over the warehouse.
+
 ## Career — he is a DATA architect, not a generic Solution Architect
 
 _Verified 2026-08-29 against the offer, appointment and experience letters in
@@ -59,8 +84,18 @@ tooling with cloud-native across five stacks.
 TR2.1/2.2 EDW Data-In), **Cisco US (2009–10, EDW2B)**, Barclays UK (2010–15,
 Emerging Markets DW / One Africa), Saudi Telecom (2015–18, STC EDW CLDM7/12,
 onsite delivery lead), Sears US (2018–21, Targeted Interactions / TI Mart),
-**Lloyds Banking Group UK (2022–present, Digital Cards modernisation on GCP)**.
-Cisco and Telstra were missing from every earlier note.
+**Lloyds Banking Group UK (2022–present)**. Cisco and Telstra were missing from
+every earlier note.
+
+**Lloyds is TWO workstreams, not one** (he confirmed 2026-08-29):
+
+| | |
+| --- | --- |
+| **2022 – Jul 2025** | Digital Cards modernisation on GCP — the award-winning work |
+| **Jul 2025 – present** | **Data Platform & real-time analytics** — Confluent Kafka, Cloud Composer/Airflow, IBM Tivoli Workload Scheduler, BigQuery, dbt, Terraform, CI/CD |
+
+The July 2025 profile card describes only the first. **It is already stale** on
+his most current and most marketable work.
 → `notes/Goals/Career/tcs-profile-2025.md` · `notes/Goals/Career/resumes/`
 
 **Recognition:** the self-serve fraud journey he architected at LBG won at the
