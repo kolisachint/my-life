@@ -17,7 +17,7 @@ in Dropbox.
 | `Sachin_Koli_Resume.pdf` | Rendered, 2pp | Recruiters, hiring managers — **the main one** | Yes |
 | `Sachin_Koli_Resume_ATS.docx` | Generated | Naukri, Workday, Easy Apply, agency DBs | Yes |
 | `Sachin_Koli_OnePager.pdf` | Rendered, 1pp | A referrer forwarding him | Yes |
-| `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual | Staffing decks, LinkedIn Featured, in person | Yes |
+| `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual, **A4 landscape** | Staffing decks, LinkedIn Featured, in person | Yes |
 | `resumes/resume-recruiter.md` | Master | source for the resume PDF | Yes |
 | `resumes/resume-ats.md` | Master | source for the DOCX | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
@@ -81,6 +81,15 @@ two A4 pages.
 **No CDN fonts, no remote images.** Chromium renders from `file://` with no
 network. Inline everything; embed images as data URIs. System stack here is
 Liberation Sans + DejaVu Sans Mono — the mono carries the character.
+
+**The profile card is landscape; the read documents are portrait.** A glance
+artefact should be the shape of the screen or slide it is glanced on. The resume
+and the referral one-pager are *read*, not glanced, so they stay portrait —
+landscape would make a long text column worse, not better.
+
+**A landscape card that paginates has a column genuinely too tall.** Shrinking
+`body { height }` does nothing — I tried 208/206/204mm and all still produced two
+pages. Cut content from the longest column instead, and check with `bin/pdfcheck`.
 
 **Never ship a visible placeholder.** The masters keep `[N]`; rendered files must
 not. Rewrite the bullet to read properly without the figure.

@@ -107,7 +107,7 @@ Change a fact above and these all need regenerating or editing:
 | --- | --- | --- |
 | `notes/Goals/Career/Sachin_Koli_Resume.html` → `.pdf` | Rendered | Edit HTML, `bin/pub … --repo --pdf`, then `bin/pdfcheck` |
 | `notes/Goals/Career/Sachin_Koli_OnePager.html` → `.pdf` | Rendered | Same |
-| `notes/Goals/Career/Sachin_Koli_Profile_Card.html` → `.pdf`/`.png` | Rendered | Same |
+| `notes/Goals/Career/Sachin_Koli_Profile_Card.html` → `.pdf`/`.png` | Rendered, **landscape** | Same. Export the PNG too — that is the LinkedIn Featured asset |
 | `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `cd notes/Goals/Career/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx` |
 | `notes/Goals/Career/resumes/resume-recruiter.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-linkedin.md` | Master | Hand-edit |
