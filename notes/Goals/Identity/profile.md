@@ -21,14 +21,25 @@ exception. See AGENTS.md._
 
 ## Career — he is a DATA architect, not a generic Solution Architect
 
+_Verified 2026-08-29 against the offer, appointment and experience letters in
+`/Cloud Documents/Sachin/Career/`. Supersedes the earlier approximate dates._
+
 | Organisation | Role | Period |
 | --- | --- | --- |
-| **TCS** | Grade **C3B**, Pune Sahyadri Park | ~2022 → present |
-| Sears Holdings India, Pune | Architect | Feb 2018 – ~2022 |
-| Cognizant, Pune | Senior Associate – Projects | Nov 2010 – Feb 2018 |
-| Mahindra Satyam | Software Developer S2 | Jan 2008 – Nov 2010 |
+| **TCS**, Pune | Associate Consultant, Grade **C3B** (role: Solution Architect). Associate no. 2051164 | **29 Sep 2021** → present |
+| Sears IT & Management Services India (Transformco), Pune | Technical Specialist → **Architect**. Emp. ID SHI00003888 | **15 Feb 2018 – 27 Sep 2021** |
+| Cognizant, Pune | Senior Associate – Projects | **29 Nov 2010 – 13 Feb 2018** |
+| Mahindra Satyam, Hyderabad / Bangalore | Software Developer – S2 | **7 Jan 2008 – 23 Nov 2010** |
 
-**~18.5 years**, all in data platforms / BI / analytics.
+**18 years 8 months** (Aug 2026), all in data platforms / BI / analytics, the
+last four in **cards and payments**.
+
+**Still Grade C3B after five years.** Hired into C3B in Sep 2021; the Sep 2025
+appraisal letter still references `CC-C3B`. No grade movement in four years —
+the strongest evidence yet that the ceiling is structural, not performance.
+
+**Outside offers on file:** Wipro (Jan 2015), UST Global (Dec 2018), Datametica
+(Sep 2021 — he took TCS instead). He is not untested in the market.
 
 **Education:** BE Computer Science & Engineering, **Walchand College of
 Engineering, Sangli** (Shivaji University, 2003–2007).
@@ -44,20 +55,29 @@ Marketing stack: Adobe Campaign, IBM Unica.
 cost by $600K**. Also led a Teradata → BigQuery migration and replaced self-hosted
 tooling with cloud-native across five stacks.
 
-**Client engagements**, as distinct from employers — Barclays (2010–15,
-Emerging Markets DW / One Africa), Saudi Telecom (2015–18, enterprise DW),
-Sears (2018–21, architect + data architect + program manager), **Lloyds Banking
-Group UK (2022–present, Digital Cards modernisation on GCP)**.
-→ `notes/Goals/Career/tcs-profile-2025.md`
+**Six client engagements**, as distinct from employers — Telstra AU (2008–09,
+TR2.1/2.2 EDW Data-In), **Cisco US (2009–10, EDW2B)**, Barclays UK (2010–15,
+Emerging Markets DW / One Africa), Saudi Telecom (2015–18, STC EDW CLDM7/12,
+onsite delivery lead), Sears US (2018–21, Targeted Interactions / TI Mart),
+**Lloyds Banking Group UK (2022–present, Digital Cards modernisation on GCP)**.
+Cisco and Telstra were missing from every earlier note.
+→ `notes/Goals/Career/tcs-profile-2025.md` · `notes/Goals/Career/resumes/`
 
 **Recognition:** the self-serve fraud journey he architected at LBG won at the
 **Banking Tech Awards 2024** and the **Card & Payments Awards 2025**. Two dated,
 external, third-party awards — the scarcest asset on a services CV.
 
-**Certifications:** Teradata Basics + SQL V2R5, Oracle 9i SQL — **both old**. The
-July 2025 TCS profile card claims a full **Google Cloud Certified Professional
-Data Engineer**; the Dropbox evidence only shows Coursera GCP specialisations.
-**Unresolved — see decision I.** GCP PCA is in progress and still has no exam date.
+**Certifications:** Teradata Basics + SQL V2R5, Oracle 9i SQL — **both old**, plus
+the Coursera specialisation *Data Engineering, Big Data and ML on GCP*. GCP PCA
+in progress, still no exam date.
+
+**The PDE claim — evidence now leans hard one way.** A full Dropbox search on
+2026-08-29 found **no Google Cloud certificate document anywhere**; Academics
+holds only BE/HSC/SSC marksheets. His own 2022 resume lists the GCP credential as
+a *Coursera specialisation*. So the July 2025 card's "Google Cloud Certified
+Professional Data Engineer" is most likely that course written up as a
+certification. **Not proof** — he may hold it unfiled — but no resume should
+carry it until he confirms. Decision I stays open.
 
 ### Resume problems — half fixed as of the July 2025 profile card
 

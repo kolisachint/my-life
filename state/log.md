@@ -2,6 +2,68 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-29 — five resumes, built from the source documents
+
+Read the Dropbox career folder properly for the first time. Egress blocks the
+CLIs in this environment exactly as AGENTS.md predicts, so this went through the
+Dropbox MCP fallback.
+
+**The tree had been renamed.** It is `/Cloud Documents/`, not `/Digital_Drive/`,
+and the career folder is `/Cloud Documents/Sachin/Career/`. Every earlier note
+pointed at a path that no longer exists.
+
+**Six factual corrections**, all from offer, appointment and experience letters:
+
+| Was | Actually |
+| --- | --- |
+| TCS from "~2022" | **29 Sep 2021**, Associate Consultant, Grade C3B |
+| Sears "Feb 2018 – ~2022" | **15 Feb 2018 – 27 Sep 2021**; joined Technical Specialist, left Architect |
+| Four clients | **Six** — Cisco and Telstra were missing entirely |
+| "~18.5 years" | **18 years 8 months** |
+| — | **Still Grade C3B after five years.** No movement since Sep 2021 |
+| — | **Three outside offers on file** — Wipro 2015, UST 2018, Datametica 2021 |
+
+The C3B finding matters most. He was hired into that grade and has not moved out
+of it in four years, which is the strongest evidence yet that the ceiling in
+`job-options.md` is structural rather than performance. The offer history is the
+counterweight: he is not untested in the market.
+
+**Decision I is close to resolved.** A full Dropbox search found **no Google
+Cloud certificate anywhere**. His own 2022 resume lists the GCP credential as a
+Coursera specialisation. The July 2025 card's "Google Cloud Certified
+Professional Data Engineer" is most likely that course written up as a
+certification. Not proof — but no resume carries it until he confirms, because
+hiring managers verify certifications and TCS is showing that card to clients.
+
+**Five resumes**, at `notes/Goals/Career/resumes/`, all from one verified fact
+set:
+
+| File | For | Clients named |
+| --- | --- | --- |
+| `resume-recruiter.md` | Named recruiters and hiring managers | Yes |
+| `resume-linkedin.md` | The public LinkedIn profile | **No** — anonymised |
+| `resume-public.md` | Personal site, speaker and award bios | **No** |
+| `resume-ats.md` | Naukri, Workday, Easy Apply — machine-parsed | Yes |
+| `resume-referral-onepager.md` | A friend forwarding him to a hiring manager | Yes |
+
+He specified the first three; ATS and the referral one-pager were the two open
+slots. Both are real gaps rather than style variants — portals reject designed
+documents before a human sees them, and `job-options.md` already concluded senior
+roles move by referral.
+
+The governing rule, written into the README: **name clients only in privately
+addressed documents.** Lloyds, Barclays, Saudi Telecom, Sears, Cisco and Telstra
+all came through services contracts.
+
+**Also stored:** the July 2025 profile card image, now committed at
+`notes/Goals/Career/tcs-profile-2025.jpg` — the copy that the permission
+classifier blocked yesterday.
+
+**Flagged, not acted on:** `/Cloud Documents/Sachin/DigitalRecovery/` holds
+`github-recovery-codes.txt` and `angellist_two_factor_recovery_codes.txt` in
+cleartext. Not opened. 2FA recovery codes in plain cloud storage defeat the
+second factor — they belong in a password manager.
+
 ## 2026-08-28 — the repo is private; the redaction rule is withdrawn
 
 Sachin corrected a standing assumption: **the repo is private and stays private**,
