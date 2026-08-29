@@ -3,18 +3,15 @@
 .DS_Store
 __pycache__/
 
-# Never commit anything carrying identity or account numbers.
-# Planning figures belong in notes/; source documents belong in Dropbox.
-*payslip*
-*Payslip*
-*form16*
-*Form16*
-*ITR*
-*aadhaar*
-*Aadhaar*
-*pan-card*
-*PAN*
-*passport-copy*
+# The repo is private (verified 2026-08-28) and stays that way, so documents,
+# scans and identity numbers are now welcome — see AGENTS.md. The document
+# patterns that used to be ignored here have been removed deliberately.
+#
+# Live credentials remain ignored: git history is permanent, and a working key
+# is exploitable by anyone who ever holds a clone.
 *.pem
+*.key
 *credentials*
 *secret*
+*.token
+node_modules/

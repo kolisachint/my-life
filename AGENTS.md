@@ -151,28 +151,65 @@ Folders are created on demand; nothing is pre-built. The project and section
 names are listed in the `artifact-publish` skill — read them there rather than
 querying `td`. Never `mkdir`, `dbxcli put` or render a PDF yourself.
 
-## Never store secrets or identity numbers
+## This repo is private — store the real thing
 
-This repo is pushed to GitHub. Treat it as public.
+**Verified private** on 2026-08-28: `kolisachint/my-life`, visibility `private`,
+zero forks. Sachin has confirmed it stays private and that he secures and deletes
+clones. **The earlier "treat it as public" rule is withdrawn.**
 
-**Never write to any file here:**
+**Store it. Do not redact, and do not summarise a document you could have kept.**
 
-- Identity numbers — PAN, Aadhaar, UAN, passport number, driving licence, voter ID
-- Account numbers — bank account, loan account, credit/debit card, demat, folio,
-  policy numbers, employee ID
-- Credentials — passwords, API tokens, OTPs, security answers, mandate/UMRN refs
-- Full account statements, Form 16s, payslips or ITRs pasted verbatim
+- **Identity and account numbers** — PAN, Aadhaar, UAN, passport, licence, bank,
+  loan, demat, folio, policy, employee ID. Write them down.
+- **Images and scans** — profile cards, resumes, letters, statements,
+  certificates, property papers. Commit the file next to the note about it.
+- **Documents verbatim** — payslips, Form 16s, ITRs, CTC letters. Quote them.
+- **Contact details** — phone numbers, personal and work e-mail, addresses.
 
-**Planning figures are fine** — salary totals, balances, EMIs, valuations. It is
-the *identifiers* that must not leak, because a number without an identifier
-attached is only information; with one it is an attack surface.
+A document he has to go and find in Dropbox is a document the next session will
+not read. Keeping the artefact beside the note is the point of this repo.
 
-If a document is needed, reference its **Dropbox path**, never its contents. When
-a user pastes something containing an identifier, use the figures and silently
-drop the identifier — do not echo it back into a file or a commit message.
+### The one carve-out: live credentials
 
-`.env` is gitignored and holds tokens. Nothing else in this repo should ever
-contain one.
+**Never commit a working key** — API tokens, passwords, OTPs, security answers,
+private keys, session cookies. Not because the repo leaks, but because git
+history is permanent and a live key stays exploitable by anyone who ever holds a
+clone, including one that was not deleted. Rotating a key is cheap; discovering
+it sat in a commit for two years is not.
+
+`.env` is gitignored and holds tokens. `*.pem`, `*credentials*` and `*secret*`
+stay ignored. Everything else may be committed.
+
+### Where binary artefacts go
+
+Beside the note that explains them — same `notes/<Project>/<Section>/` directory,
+same base name:
+
+```
+notes/Goals/Career/tcs-profile-2025.md    the transcription and the analysis
+notes/Goals/Career/tcs-profile-2025.jpg   the source image
+```
+
+Dropbox stays the filing cabinet of record for the family's documents. The repo
+now keeps its own copy of anything an agent will need to re-read.
+
+## Career documents — use the skill, not improvisation
+
+Resumes, the profile card, LinkedIn, bios, the portfolio: **read the
+`career-docs` skill first**, and `data/career-facts.md` before quoting any date,
+title or figure. Nine documents derive from that one file; it names all nine.
+
+```sh
+bin/portfolio        # refresh the open-source inventory (his AI evidence)
+bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
+```
+
+`/resume` runs the whole sweep. Two rules that are not optional:
+
+- **Always `bin/pdfcheck` a rendered document and read the PNGs.** Page count,
+  orphaned headings, dead space and leftover placeholders are invisible in HTML.
+- **Client names go only in privately addressed documents** — never on LinkedIn
+  or his public site. See the skill.
 
 ## Memory — I do not learn between sessions
 
@@ -196,10 +233,15 @@ LIFE-PLAN.md         the standing audit and operating plan
 bin/setup            install td + dbxcli, install Doist's official skill
 bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
+bin/pdfcheck         PDF/HTML -> page PNGs, so a render can be looked at
+bin/portfolio        public repos -> notes/Goals/Career/portfolio.md
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
+data/career-facts.md single source of truth for every career document
+data/portfolio-repos.txt  repos the career documents cite
 notes/<P>/<S>/       long-term artefacts, same tree as Todoist (lazy)
 memory/learned.txt   append-only facts
+.claude/skills/career-docs/   resumes, profile card, bios — read before editing any
 state/decisions.md   settled answers + open questions
 state/log.md         session log
 .claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`
