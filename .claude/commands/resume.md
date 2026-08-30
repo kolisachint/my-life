@@ -21,11 +21,11 @@ confidentiality rule, the print-CSS traps and the environment gotchas.
 5. **`bin/pdfcheck` each rendered PDF, then Read the PNGs.** Page count, orphaned
    headings, dead space, leftover `[N]`. Never skip this — every layout defect
    ever found here was found this way.
-6. **`bin/docx --check`** — rebuilds all four Word files (resume, one-pager,
-   profile card, ATS) and validates them. They are his review copies; a PDF
-   changed without its `.docx` twin leaves him editing a stale document.
-   If he has been through one in Word first, run `bin/docx --diff <file>`
-   BEFORE rebuilding, or you overwrite his edits.
+6. **`bin/docx --check`** — re-renders the Word copies from the SAME HTML,
+   validates them, renders both sides and writes side-by-side page PNGs.
+   **Read those PNGs too.** A PDF changed without its `.docx` twin leaves him
+   editing a stale document. If he has been through one in Word first, run
+   `bin/docx --diff <file>` BEFORE rebuilding, or you overwrite his edits.
 7. Append what you learned to `memory/learned.txt`, add a `state/log.md` entry,
    commit.
 

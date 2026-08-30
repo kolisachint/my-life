@@ -6,7 +6,7 @@
 //   node build_ats.js ../Sachin_Koli_Resume_ATS.docx
 //   node build_docx.js ats                              # same thing
 const path = require('path');
-const { write } = require('./docx/style');
+const { write } = require('./docx/pack');
 const ats = require('./docx/ats');
 
 const out = process.argv[2] || path.join(__dirname, '..', 'Sachin_Koli_Resume_ATS.docx');

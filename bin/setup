@@ -34,6 +34,27 @@ else
   echo "dbxcli: install manually from github.com/dropbox/dbxcli/releases" >&2
 fi
 
+# LibreOffice Writer — the only way to LOOK at a .docx here. Note that
+# libreoffice-core alone is NOT enough: without the writer module soffice fails
+# with "source file could not be loaded" on every text document, including a
+# plain .txt, which reads like a broken install and is not one. That cost a
+# session, and the fix is this one package.
+if have soffice && soffice --headless --convert-to pdf --outdir /tmp /dev/null >/dev/null 2>&1; then
+  echo "soffice: already working ($(soffice --version 2>/dev/null | head -1))"
+elif have apt-get; then
+  (apt-get update -qq && apt-get install -y libreoffice-writer) >/dev/null 2>&1 \
+    && echo "soffice: installed libreoffice-writer" \
+    || echo "soffice: could not install libreoffice-writer - bin/docx --check cannot render" >&2
+else
+  echo "soffice: install libreoffice-writer to render .docx for review" >&2
+fi
+
+# Node packages for the Word builder (docx + an HTML parser).
+if have npm && [ -f "$ROOT/notes/Goals/Career/resumes/package.json" ]; then
+  (cd "$ROOT/notes/Goals/Career/resumes" && npm install --silent --no-audit --no-fund) >/dev/null 2>&1 \
+    && echo "docx builder: node deps installed"
+fi
+
 # Doist ships an official agent skill describing the whole td surface.
 if have td; then
   td skill install claude-code --local --force >/dev/null 2>&1 \

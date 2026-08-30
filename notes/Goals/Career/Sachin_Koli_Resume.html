@@ -91,6 +91,10 @@
     font-size: 9pt;
     color: #35424a;
     margin-top: 0.5pt;
+    /* keeps an employer (or a workstream) heading from being stranded at the
+       foot of a page with its bullets overleaf */
+    break-after: avoid;
+    page-break-after: avoid;
   }
   .client {
     font-size: 8.5pt;

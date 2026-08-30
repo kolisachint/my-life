@@ -2,42 +2,54 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
-## 2026-08-30 — every career document now has a Word copy he can edit
+## 2026-08-30 — one HTML, two renderers: the Word copies now match the PDFs
 
-He asked for it directly: *"in resume or job profile also have docx version so
-that i can review and update"*. Fair — a PDF is a thing you send, not a thing you
-mark up, and until now only the ATS file was editable.
+He asked for editable copies (*"in resume or job profile also have docx version
+so that i can review and update"*), got them, and then said the thing that
+mattered: *"pdf looks structuring perfect. so docx should look same. so workflow
+can be html to pdf and html to docx"*.
 
-**Three new files**, beside the PDFs in `notes/Goals/Career/`:
-`Sachin_Koli_Resume.docx`, `Sachin_Koli_OnePager.docx` and
-`Sachin_Koli_Profile_Card.docx` (A4 landscape, headshot and all). Same words as
-the PDFs, same order, in ordinary Word furniture — real styles, real bullets,
-real tables, no text boxes. A text box looks identical and cannot be edited
-comfortably, which defeats the point.
+**He was right, and the first version was wrong.** It hand-wrote the Word content
+in JavaScript beside the HTML — two copies of every sentence, guaranteed to
+drift, and it did not look like the PDF. Now:
 
-**The rule that keeps this from forking the facts: he sends the PDF, he edits
-the DOCX, and the DOCX is never a source.** Content still lives in
-`career-facts.md`, the masters and the HTML. So rebuilding would silently
-overwrite whatever he corrected — hence `bin/docx --diff FILE`, which rebuilds
-the document from source into a temp file and diffs his copy against it, line by
-line. Fold those lines into the real sources, then rebuild.
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> .pdf
+                          └── resumes/docx/fromhtml.js ─> .docx
+```
 
-| New | What it does |
+`docx/css.js` reads the stylesheet (selectors, descendant combinators,
+inheritance, `var()`, `@page`) and `docx/fromhtml.js` walks the DOM with it,
+mapping `line-height`, margins with **collapsing**, borders, backgrounds,
+`break-after: avoid`, justified text, flex rows, **CSS grid as Word tables**,
+lists, and images. `--verbose` names every property it could not map, so nothing
+slips past unseen. The ATS file stays code-built: it is deliberately plain and
+has no HTML twin.
+
+**First, the blocker that turned out not to be one.** Two sessions had recorded
+"LibreOffice is broken here, do not debug it". It was not broken —
+`libreoffice-core` was installed **without `libreoffice-writer`**, so nothing
+could load a text document, including a plain `.txt`. One `apt-get install`
+fixed it, `bin/setup` now does it, and `make doctor` reports it. That unlocked
+everything: a `.docx` can be rasterised and **looked at**.
+
+**Then four bugs, each worth a page.**
+
+| Bug | Effect |
 | --- | --- |
-| `bin/docx` | Builds all four (`resume`, `onepager`, `card`, `ats`); `--check` validates and counts paragraphs; `--diff` shows his edits; `--text` shows what a parser sees. `make docx` runs the checked build. |
-| `resumes/docx/` | `style.js` (shared Word furniture) plus one small file per document. Content is written as prose with `**bold**` markers rather than a wall of `TextRun` literals. |
+| `line-height` mapped to Word's `auto` rule | ~15% taller lines — a 2-page resume became 3 |
+| margins added instead of **collapsed** | every gap too big |
+| cell padding and borders counted twice | the skills table grew a page; the card's columns opened a 6.5mm gap under each heading |
+| exact line spacing on an image paragraph | the headshot rendered as a squashed strip |
 
-`build_ats.js` still works with the exact command written down in three places;
-it now delegates to the same builder. The ATS file's extracted text is
-**byte-identical** to the committed version, so the refactor changed nothing he
-submits to a portal.
+**Verified by looking, not by guessing.** `bin/pdfcheck` now accepts a `.docx`,
+and `bin/docx --check` renders both sides and writes side-by-side page PNGs.
+Resume: two pages both, same break, same wrapping. One-pager: one page both.
+Profile card: one page both, headshot, proof strip and all three columns intact.
 
-**Nobody has seen these rendered.** LibreOffice is still broken here — re-tested
-with a fresh user profile, same "source file could not be loaded" on a plain
-`.txt` — so a `.docx` cannot be rasterised the way `bin/pdfcheck` handles a PDF.
-All four pass OOXML schema validation and extract cleanly in order, which is what
-a parser sees. The open question is page count: **he should open the resume in
-Word once** and say whether it still fits two pages.
+One change to the shared source: `break-after: avoid` on `.role-sub` in the
+resume HTML, so an employer heading cannot strand at the foot of a page. It
+improves both renders.
 
 ## 2026-08-29 — the profile card is landscape now
 

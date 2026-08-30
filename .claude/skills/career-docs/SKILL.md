@@ -18,9 +18,9 @@ in Dropbox.
 | `Sachin_Koli_Resume_ATS.docx` | Generated | Naukri, Workday, Easy Apply, agency DBs | Yes |
 | `Sachin_Koli_OnePager.pdf` | Rendered, 1pp | A referrer forwarding him | Yes |
 | `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual, **A4 landscape** | Staffing decks, LinkedIn Featured, in person | Yes |
-| `Sachin_Koli_Resume.docx` | Generated | **him**, to review and correct in Word | Yes |
-| `Sachin_Koli_OnePager.docx` | Generated | **him**, same | Yes |
-| `Sachin_Koli_Profile_Card.docx` | Generated, landscape | **him**, same | Yes |
+| `Sachin_Koli_Resume.docx` | Generated **from the same HTML as the PDF** | **him**, to review and correct in Word | Yes |
+| `Sachin_Koli_OnePager.docx` | Generated from the HTML | **him**, same | Yes |
+| `Sachin_Koli_Profile_Card.docx` | Generated from the HTML, landscape | **him**, same | Yes |
 | `resumes/resume-recruiter.md` | Master | source for the resume PDF | Yes |
 | `resumes/resume-ats.md` | Master | source for the DOCX | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
@@ -29,34 +29,66 @@ in Dropbox.
 
 LinkedIn and the public bio are **text, not documents**. Do not render them.
 
-## The Word copies — he reviews in Word, he sends the PDF
+## One HTML, two renderers — the PDF and the Word copy come from the same file
 
-Added 2026-08-30 at his request: *"in resume or job profile also have docx
-version so that i can review and update"*. A PDF is not markupable, so every
-rendered document now has a `.docx` twin with the same words in the same order.
+He asked for editable copies (*"in resume or job profile also have docx version
+so that i can review and update"*), then for them to **look like the PDFs**:
+*"pdf looks structuring perfect. so docx should look same... workflow can be
+html to pdf and html to docx"*. That is exactly how it works now.
+
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> Sachin_Koli_Resume.pdf
+                          └── resumes/docx/fromhtml.js ─> Sachin_Koli_Resume.docx
+```
 
 ```sh
 bin/docx                  # rebuild all four (resume · onepager · card · ats)
 bin/docx resume           # one of: resume | onepager | card | ats
-bin/docx --check          # build, then OOXML-validate and count paragraphs
+bin/docx --check          # build, validate, render BOTH, write side-by-side PNGs
 bin/docx --diff FILE      # what HE changed, against a fresh build from source
 bin/docx --text FILE      # what a parser (or an ATS) actually sees
+bin/docx --verbose        # list CSS properties the renderer could not map
 ```
 
-Sources: `resumes/docx/style.js` (shared Word furniture — headings, bullets,
-role heads, the label/value table) plus one small file per document. The content
-files write prose with `**bold**` and `` `mono` `` markers; `rich()` turns those
-into runs, so a bullet stays readable as a sentence.
+**There is nothing to keep in step.** Edit the HTML, re-render both, done. The
+first version of this hand-wrote the Word content in JavaScript beside the HTML,
+which meant two copies of every sentence — he was right to reject it.
+
+### What `fromhtml.js` maps
+
+`docx/css.js` is a small CSS reader (selectors, descendant combinators,
+inheritance, `var()`, `@page`) and `docx/fromhtml.js` walks the DOM with it:
+
+| CSS | Word |
+| --- | --- |
+| `@page` margin / `size: landscape` | section margins, orientation |
+| `font-size`, `color`, `font-weight`, `letter-spacing` | run properties |
+| `line-height` | **exact** line spacing — see the traps |
+| `margin-*`, `padding-*` | paragraph spacing, with CSS margin **collapsing** |
+| `border-*` | paragraph borders (`space` = the padding) |
+| `background` | paragraph or cell shading |
+| `break-after/inside: avoid` | `keepNext` / `keepLines` |
+| `text-align: justify` | justified paragraphs |
+| `display: flex` + `justify-content: space-between` | one paragraph, right tab stop |
+| `display: grid` + `grid-template-columns` | a fixed-layout table, children row-major |
+| `ul` / `li`, `list-style: none` | real Word bullets, or none |
+| `position: absolute` marker at `left: 0` | a hanging indent |
+| `<img>` + `width` / `aspect-ratio` / `border` | inline image with an outline |
+
+It is **not** a browser: no flow layout, floats, or general positioning.
+`--verbose` prints every property it ignored, so a new one cannot slip past.
+
+**The ATS file is the exception** and is still built in code
+(`resumes/docx/ats.js`): it is deliberately plain — one column, no tables, no
+styling — so there is no HTML twin to render from.
 
 **Two rules.**
 
-1. **The `.docx` is a review copy, never a source.** Content still lives in
-   `career-facts.md`, the masters and the `.html`. Regenerating overwrites his
-   Word edits without warning — so if he has been through one, run
-   `bin/docx --diff` **first**, fold what he changed into the real sources, then
-   rebuild.
-2. **Change a PDF, rebuild its twin.** A `.docx` that lags the PDF is worse than
-   no `.docx` — he corrects the stale copy and the correction lands nowhere.
+1. **The `.docx` is a review copy, never a source.** Content lives in
+   `career-facts.md` and the `.html`. Regenerating overwrites his Word edits
+   without warning — so if he has been through one, run `bin/docx --diff`
+   **first**, fold what he changed into the real sources, then rebuild.
+2. **Change the HTML, rebuild both.** `bin/pub … --pdf` then `bin/docx`.
 
 ## The confidentiality rule — the one that matters
 
@@ -92,7 +124,7 @@ bin/portfolio                                  # refresh the OSS inventory first
 # 2. edit the affected masters + the .html sources
 bin/pub notes/Goals/Career/<name>.html --project Goals --section Career --repo --pdf
 bin/pdfcheck notes/Goals/Career/<name>.pdf     # THEN READ THE PNGs
-bin/docx --check                               # rebuild + validate all four .docx
+bin/docx --check                               # rebuild both, side by side — LOOK
 ```
 
 `/resume` runs this sweep and checks all nine. Use it rather than remembering.
@@ -126,13 +158,34 @@ pages. Cut content from the longest column instead, and check with `bin/pdfcheck
 **Never ship a visible placeholder.** The masters keep `[N]`; rendered files must
 not. Rewrite the bullet to read properly without the figure.
 
-**LibreOffice is broken in this environment** — it fails on a plain `.txt`, so
-`soffice --convert-to pdf` cannot verify a `.docx`. Re-confirmed 2026-08-30, with
-a fresh `-env:UserInstallation` profile: same "source file could not be loaded".
-Do not debug it. `bin/docx --check` is the substitute — OOXML schema validation
-plus the `w:t` extraction, which is what an ATS actually sees. **Tell him to open
-each one in Word once**, since nobody has ever seen these rendered; the specific
-thing to ask about is whether the resume still fits two pages.
+**LibreOffice was never broken — `libreoffice-writer` was simply not installed.**
+Two sessions recorded "soffice fails even on a plain `.txt`, do not debug it" and
+that was wrong: `libreoffice-core` was present without the Writer module, so
+there was nothing that could load a text document. `apt-get install
+libreoffice-writer` (needs `apt-get update` first — the pinned versions 404)
+fixed it in one go. `bin/setup` installs it and `make doctor` reports it.
+**So a `.docx` CAN be rasterised and looked at** — `bin/pdfcheck FILE.docx`
+converts through soffice, and `bin/docx --check` renders the PDF and the DOCX and
+writes side-by-side page PNGs. Read them; the rule is the same as for a PDF.
+
+**`line-height` must become EXACT line spacing, not `auto`.** Word's `auto` rule
+multiplies its own single spacing (~1.15em), so every line comes out ~15% taller
+and a two-page resume becomes three. `w:line` in twips with `lineRule="exact"`
+reproduces the browser exactly. The exception is a paragraph holding an image —
+exact spacing **clips** it to the line height, so those paragraphs size
+themselves.
+
+**CSS collapses adjacent margins; Word adds them.** Without collapsing to the
+larger of the two, every gap in the document is too big. Same for a parent's
+margin against its first or last child.
+
+**Padding on a cell belongs to the cell, once.** Setting it on the cell margins
+*and* leaving it on the paragraph inside doubles it — that is how the skills
+table grew a page and the card's columns opened a 6.5mm gap under every heading.
+The same goes for borders: drawn twice, they also draw twice.
+
+**A cell's width in OOXML includes its margins**, and two adjacent tables are
+merged by Word unless a paragraph sits between them.
 
 **Extracting `w:t` needs a negative lookbehind.** The obvious regex
 `<w:t[^>]*>(.*?)</w:t>` also matches `<w:tab .../>` and dumps raw XML into the

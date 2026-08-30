@@ -24,38 +24,48 @@ The `.html` beside each PDF is the source — edit it and re-run:
 bin/pub notes/Goals/Career/Sachin_Koli_Resume.html --project Goals --section Career --repo --pdf
 ```
 
-## Every document also has a Word version now — for reviewing, not for sending
+## Every document also has a Word version — built from the same HTML
 
-Added 2026-08-30, because a PDF is not a thing you can mark up. **Each rendered
-document has a `.docx` twin carrying the same words in the same order**, so you
-can open it in Word or Google Docs, fix a line, and hand the change back.
+Added 2026-08-30. **Each rendered document has a `.docx` twin that looks like the
+PDF**, because both come from the same file:
+
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> Sachin_Koli_Resume.pdf
+                          └── resumes/docx/fromhtml.js ─> Sachin_Koli_Resume.docx
+```
+
+Open the `.docx` in Word or Google Docs, fix a line, hand it back.
 
 ```sh
-bin/docx                    # rebuild all four .docx from source
+bin/docx                    # rebuild all four .docx from the HTML
 bin/docx resume             # just one:  resume | onepager | card | ats
-bin/docx --check            # build, then validate + count paragraphs
+bin/docx --check            # build, validate, render BOTH, side-by-side PNGs
 bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx    # what YOU changed
 ```
 
-**Send the PDF. Edit the DOCX.** The two are built from different sources — the
-PDF from the `.html`, the DOCX from `resumes/docx/*.js` — so your Word edits do
-**not** flow back on their own. That is what `--diff` is for: it rebuilds the
-document from source into a temp file, compares your copy against it, and prints
-exactly the lines you rewrote. Hand me that and I fold the changes into
-`data/career-facts.md`, the master and the HTML, then rebuild everything.
+**Send the PDF. Edit the DOCX.** Your Word edits do not flow back on their own —
+that is what `--diff` is for: it rebuilds from the HTML into a temp file,
+compares your copy against it, and prints exactly the lines you rewrote. Hand me
+that and I fold the changes into the `.html` and `data/career-facts.md`, then
+rebuild everything.
 
 The exception is the **ATS** file, which has always been a `.docx` and is still
-the one you upload to portals.
+generated in code (`resumes/docx/ats.js`) — it is deliberately plain, one column
+with no tables or styling, so there is nothing to render it from.
 
-Build sources live in `resumes/docx/` — `style.js` holds the shared Word
-furniture, then one small file per document. `node build_ats.js out.docx` still
-works; it now delegates to the same builder.
+### How close is close?
 
-**These four have never been seen rendered.** LibreOffice is broken in this
-environment, so a `.docx` cannot be converted and looked at the way `bin/pdfcheck`
-handles a PDF. They pass OOXML schema validation and extract cleanly in order,
-which is what a parser sees — but **open the resume in Word once** and tell me if
-it runs past two pages, and I will drop the body size a notch.
+Checked by rendering both and putting the pages side by side. The resume is two
+pages in both, breaking at the same place, with the same line wrapping. The
+one-pager and the profile card are one page each. `bin/docx --check` regenerates
+those comparison images any time you want to see for yourself.
+
+The renderer (`resumes/docx/fromhtml.js`, with `docx/css.js` reading the
+stylesheet) handles what these documents actually use: `@page` margins and
+landscape, fonts and colours, `line-height`, margin collapsing, borders and
+backgrounds, `break-after: avoid`, justified text, flex rows, **CSS grid** as
+Word tables, lists, and images with borders. It is not a browser — run
+`bin/docx --verbose` and it names every CSS property it could not map.
 
 **LinkedIn and the public bio are not documents** — they are text you paste into
 fields on a website. They stay as Markdown below; there is nothing to render.

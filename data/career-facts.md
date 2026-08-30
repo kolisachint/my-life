@@ -108,9 +108,9 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/Sachin_Koli_Resume.html` → `.pdf` | Rendered | Edit HTML, `bin/pub … --repo --pdf`, then `bin/pdfcheck` |
 | `notes/Goals/Career/Sachin_Koli_OnePager.html` → `.pdf` | Rendered | Same |
 | `notes/Goals/Career/Sachin_Koli_Profile_Card.html` → `.pdf`/`.png` | Rendered, **landscape** | Same. Export the PNG too — that is the LinkedIn Featured asset |
-| `notes/Goals/Career/Sachin_Koli_Resume.docx` | Generated, **his review copy** | `bin/docx resume` — source is `resumes/docx/resume.js` |
-| `notes/Goals/Career/Sachin_Koli_OnePager.docx` | Generated, **his review copy** | `bin/docx onepager` |
-| `notes/Goals/Career/Sachin_Koli_Profile_Card.docx` | Generated, **his review copy**, landscape | `bin/docx card` |
+| `notes/Goals/Career/Sachin_Koli_Resume.docx` | Generated **from `Sachin_Koli_Resume.html`**, his review copy | `bin/docx resume` — no separate content to edit |
+| `notes/Goals/Career/Sachin_Koli_OnePager.docx` | Generated from the same HTML as the PDF | `bin/docx onepager` |
+| `notes/Goals/Career/Sachin_Koli_Profile_Card.docx` | Generated from the same HTML, landscape | `bin/docx card` |
 | `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `bin/docx ats` (or the old `cd …/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx`) |
 | `notes/Goals/Career/resumes/resume-recruiter.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-linkedin.md` | Master | Hand-edit |
@@ -121,8 +121,9 @@ Change a fact above and these all need regenerating or editing:
 
 **Twelve documents.** That is why this file exists — and why `/resume` runs the
 whole sweep rather than trusting anyone to remember all twelve. (Nine of them
-carry content; the three new `.docx` twins are generated from the same words as
-the PDFs, so `bin/docx` is one command at the end of the sweep.)
+carry content; the three `.docx` twins are rendered from the very same `.html`
+as the PDFs, so `bin/docx` is one command at the end of the sweep and there is
+no second copy of any sentence to keep in step.)
 
 **The `.docx` files are review copies, never sources.** He opens them in Word to
 correct a line. Those edits do not flow back on their own — run
