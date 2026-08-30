@@ -2,6 +2,40 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — LinkedIn and the public bio got paste sheets
+
+*"also add docx for linkedin and public bio."* Both were deliberately excluded
+before, on the grounds that they are text you paste into fields rather than
+documents — and that is still true. But reviewing and correcting copy is the
+same job whatever the destination, and Word is where he does it.
+
+So they are **paste sheets**, not documents. Each field gets a label, its
+character or word count, and the exact block to copy, behind a banner saying the
+file is never sent. `bin/docx linkedin`, `bin/docx bio`. The Markdown masters
+stay the source of the words.
+
+Two consequences worth writing down:
+
+- **Their page count is not compared.** Chromium has DejaVu Sans Mono and Word
+  has Consolas, so identical words wrap differently — the LinkedIn sheet is 3
+  pages as a `.docx` against 4 as a PDF. Nobody prints a paste sheet.
+  `build_docx.js` marks them `paste: true` and `bin/docx --check` says so
+  instead of flagging a mismatch. Changing the font to force agreement would be
+  the wrong fix.
+- **No client may ever be named in either.** I drafted the LinkedIn banner
+  listing the five clients as the *reason* for the rule, and had to strip it: a
+  public-surface document that lists the clients defeats its own point.
+
+One real renderer bug fell out of it — `padding-right` was not becoming a right
+indent, so text ran past the right edge of every tinted panel.
+
+**Counts corrected while in there.** The manifest said "twelve documents" while
+its own table already listed thirteen rows; with the two sheets it is fifteen,
+and counted. The LinkedIn headline is **205 characters**, not the 197 the master
+claimed — still inside the 220 limit, so nothing to change but the number. The
+short and medium bios run 62 and 162 words against their ~50 and ~150 slots,
+which is fine; the labels now say so rather than implying precision.
+
 ## 2026-08-30 — the rendering knowledge is three skills now
 
 He read the last change and said it plainly: *"i sense 3 skills. html to pdf.

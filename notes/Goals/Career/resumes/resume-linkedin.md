@@ -2,6 +2,12 @@
 
 > **Version 2 of 5 — for the public web.** Every client is anonymised. Copy each
 > block straight into the matching LinkedIn field.
+>
+> **There is a rendered paste sheet of this:**
+> `notes/Goals/Career/Sachin_Koli_LinkedIn.html` → `.docx`, built with
+> `bin/docx linkedin`. Use it to review and correct the wording in Word; the
+> words still go into fields on linkedin.com, and the file is never sent.
+> Change one and change the other — this file is the master.
 
 ---
 
@@ -18,9 +24,10 @@ recruiters filter on it explicitly; the named stack third because those are the
 exact tokens they search; the awards last because they are proof, and proof works
 best after a claim.
 
-*(197 characters — under the 220 limit. "18 yrs enterprise data" came out to make
-room for the certification, which is the better signal: the years are visible
-from your dates anyway.)*
+*(**205 characters** — counted 2026-08-30, under the 220 limit. An earlier note
+here said 197, which was wrong. "18 yrs enterprise data" came out to make room
+for the certification, which is the better signal: the years are visible from
+your dates anyway.)*
 
 ## Location / Open to
 

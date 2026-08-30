@@ -24,11 +24,24 @@ const DOCS = {
   resume:   { file: 'Sachin_Koli_Resume.docx',       html: 'Sachin_Koli_Resume.html' },
   onepager: { file: 'Sachin_Koli_OnePager.docx',     html: 'Sachin_Koli_OnePager.html' },
   card:     { file: 'Sachin_Koli_Profile_Card.docx', html: 'Sachin_Koli_Profile_Card.html' },
+  // Paste sheets, not documents to send: the words go into fields on a website.
+  // They still get a .docx, because reviewing and correcting copy is the same
+  // job whatever the destination.
+  linkedin: { file: 'Sachin_Koli_LinkedIn.docx',     html: 'Sachin_Koli_LinkedIn.html', paste: true },
+  bio:      { file: 'Sachin_Koli_Public_Bio.docx',   html: 'Sachin_Koli_Public_Bio.html', paste: true },
   ats:      { file: 'Sachin_Koli_Resume_ATS.docx',   build: require('./docx/ats') },
 };
 
 async function main() {
   const args = process.argv.slice(2);
+  // bin/docx asks for this so it does not have to know which documents are
+  // paste sheets. Their page count is not worth comparing: nobody prints them,
+  // and Chromium and Word pick different monospace faces, so the same words
+  // wrap differently. The words are what gets pasted.
+  if (args[0] === '--paste-sheets') {
+    console.log(Object.values(DOCS).filter((d) => d.paste).map((d) => d.file).join(' '));
+    return;
+  }
   const flags = args.filter((a) => a.startsWith('--'));
   const rest = args.filter((a) => !a.startsWith('--'));
   const verbose = flags.includes('--verbose');

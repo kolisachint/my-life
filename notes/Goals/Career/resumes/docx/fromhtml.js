@@ -324,7 +324,10 @@ class Renderer {
     const padLeft = css['padding-left'] !== undefined ? CSS.toPt(css['padding-left'])
       : padShort && padShort.length > 3 ? CSS.toPt(padShort[3])
       : padShort && padShort.length > 1 ? CSS.toPt(padShort[1]) : undefined;
+    const padRight = css['padding-right'] !== undefined ? CSS.toPt(css['padding-right'])
+      : padShort && padShort.length > 1 ? CSS.toPt(padShort[1]) : undefined;
     const mLeft = CSS.toPt(css['margin-left']);
+    const mRight = CSS.toPt(css['margin-right']);
 
     const border = {};
     let borderPadTop = 0;
@@ -354,7 +357,12 @@ class Renderer {
         line: lh && size ? pt2tw(size * lh) : undefined,
         lineRule: lh && size ? 'exact' : undefined,
       },
-      indent: (padLeft || mLeft) ? { left: pt2tw((padLeft || 0) + (mLeft || 0)) } : undefined,
+      // Right padding needs a right indent of its own, or text runs out past the
+      // panel it is supposed to sit inside.
+      indent: (padLeft || mLeft || padRight || mRight) ? {
+        left: pt2tw((padLeft || 0) + (mLeft || 0)),
+        right: pt2tw((padRight || 0) + (mRight || 0)) || undefined,
+      } : undefined,
       border: Object.keys(border).length ? border : undefined,
       shading: bg && bg !== 'FFFFFF' ? { type: ShadingType.CLEAR, color: 'auto', fill: bg } : undefined,
       keepNext: keepNext || undefined,

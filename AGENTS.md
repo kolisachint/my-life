@@ -197,7 +197,7 @@ now keeps its own copy of anything an agent will need to re-read.
 
 Resumes, the profile card, LinkedIn, bios, the portfolio: **read the
 `career-docs` skill first**, and `data/career-facts.md` before quoting any date,
-title or figure. Twelve documents derive from that one file; it names all twelve.
+title or figure. Fifteen consumers derive from that one file; it names them all.
 
 **Rendering is three separate skills** — read the one you need rather than
 working it out again: `html-to-pdf` (print CSS, page fitting, looking at a
@@ -208,7 +208,7 @@ career-specific; any document work uses them.
 ```sh
 bin/portfolio        # refresh the open-source inventory (his AI evidence)
 bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
-bin/docx             # HTML -> the four editable Word copies (same source as the PDFs)
+bin/docx             # HTML -> the six editable Word copies (same source as the PDFs)
 bin/docx --check     # ...renders both and writes side-by-side PNGs — look at them
 bin/docx --diff FILE # ...and see what he changed after he has been through one
 ```

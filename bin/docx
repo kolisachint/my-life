@@ -2,8 +2,13 @@
 # docx - build the editable Word copies of the career documents from the SAME
 #        HTML the PDFs are printed from, and prove they still look alike.
 #
-#   bin/docx                                   # build all four
-#   bin/docx resume | onepager | card | ats    # build one
+#        Six documents: the resume, the referral one-pager and the profile card
+#        (each a .docx twin of a PDF), the LinkedIn and public-bio PASTE SHEETS
+#        (whose words go into fields on a website, not into a file anyone
+#        sends), and the ATS file.
+#
+#   bin/docx                                   # build all six
+#   bin/docx resume | onepager | card | linkedin | bio | ats
 #   bin/docx --check                           # build, validate, and COMPARE
 #                                              #   each .docx against its PDF,
 #                                              #   page by page, as PNGs
@@ -51,6 +56,8 @@ case "$1" in
       Sachin_Koli_Resume.docx)       WHICH=resume ;;
       Sachin_Koli_OnePager.docx)     WHICH=onepager ;;
       Sachin_Koli_Profile_Card.docx) WHICH=card ;;
+      Sachin_Koli_LinkedIn.docx)     WHICH=linkedin ;;
+      Sachin_Koli_Public_Bio.docx)   WHICH=bio ;;
       Sachin_Koli_Resume_ATS.docx)   WHICH=ats ;;
       *) echo "docx: $FILE is not one of the generated documents" >&2; exit 2 ;;
     esac
@@ -93,6 +100,8 @@ OUT="${TMPDIR:-/tmp}/docxcheck"
 rm -rf "$OUT"; mkdir -p "$OUT"
 VALIDATE=/mnt/skills/public/docx/scripts/office/validate.py
 
+PASTE=$(cd "$BUILD" && node build_docx.js --paste-sheets)
+
 for f in "$CAREER"/*.docx; do
   base=$(basename "$f" .docx)
   echo
@@ -108,7 +117,15 @@ for f in "$CAREER"/*.docx; do
   if [ -f "$html" ]; then
     "$ROOT/bin/pdfcheck" "$html" --out "$OUT/$base-pdf" --dpi 100 >/dev/null 2>&1 || true
     pp=$(ls "$OUT/$base-pdf"/page*.png 2>/dev/null | wc -l | tr -d ' ')
-    echo "   pages: docx $dp · pdf $pp$( [ "$dp" = "$pp" ] || echo '   <-- MISMATCH' )"
+    case " $PASTE " in
+      *" $(basename "$f") "*)
+        # A paste sheet is read on screen and copied field by field. Its page
+        # count is not a defect — the two renderers pick different monospace
+        # faces, so identical words wrap differently.
+        echo "   pages: docx $dp · pdf $pp   (paste sheet — page count not compared)" ;;
+      *)
+        echo "   pages: docx $dp · pdf $pp$( [ "$dp" = "$pp" ] || echo '   <-- MISMATCH' )" ;;
+    esac
     python3 - "$OUT/$base-pdf" "$OUT/$base-docx" "$OUT/$base-side" <<'PY'
 import os, sys
 try:

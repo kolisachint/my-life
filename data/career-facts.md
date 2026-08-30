@@ -1,7 +1,7 @@
 # Career facts — single source of truth
 
 **Every career document derives from this file.** If a date, title, client or
-number is wrong here, it is wrong in twelve places. Fix it here first, then
+number is wrong here, it is wrong in fifteen places. Fix it here first, then
 regenerate.
 
 _Verified 2026-08-29 against the offer, appointment and experience letters in
@@ -111,6 +111,8 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/Sachin_Koli_Resume.docx` | Generated **from `Sachin_Koli_Resume.html`**, his review copy | `bin/docx resume` — no separate content to edit |
 | `notes/Goals/Career/Sachin_Koli_OnePager.docx` | Generated from the same HTML as the PDF | `bin/docx onepager` |
 | `notes/Goals/Career/Sachin_Koli_Profile_Card.docx` | Generated from the same HTML, landscape | `bin/docx card` |
+| `notes/Goals/Career/Sachin_Koli_LinkedIn.html` → `.docx` | **Paste sheet**, not a document to send | Edit the HTML, `bin/docx linkedin` |
+| `notes/Goals/Career/Sachin_Koli_Public_Bio.html` → `.docx` | **Paste sheet**, not a document to send | Edit the HTML, `bin/docx bio` |
 | `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `bin/docx ats` (or the old `cd …/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx`) |
 | `notes/Goals/Career/resumes/resume-recruiter.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-linkedin.md` | Master | Hand-edit |
@@ -119,11 +121,17 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/resumes/resume-referral-onepager.md` | Master | Hand-edit |
 | `notes/Goals/Identity/profile.md` | Repo memory | Hand-edit |
 
-**Twelve documents.** That is why this file exists — and why `/resume` runs the
-whole sweep rather than trusting anyone to remember all twelve. (Nine of them
-carry content; the three `.docx` twins are rendered from the very same `.html`
-as the PDFs, so `bin/docx` is one command at the end of the sweep and there is
-no second copy of any sentence to keep in step.)
+**Fifteen consumers.** That is why this file exists — and why `/resume` runs the
+whole sweep rather than trusting anyone to remember them all. (The count read
+"twelve" while the table already listed thirteen; it is counted now.) Every
+`.docx` is rendered from the very same `.html` as its PDF or paste sheet, so
+`bin/docx` is one command at the end of the sweep and there is no second copy of
+any sentence to keep in step.
+
+**Two of them are paste sheets, not documents.** `Sachin_Koli_LinkedIn` and
+`Sachin_Koli_Public_Bio` exist so he can review and correct the wording in Word;
+the words then go into fields on a website. Nobody sends the file, so their page
+count is not compared.
 
 **The `.docx` files are review copies, never sources.** He opens them in Word to
 correct a line. Those edits do not flow back on their own — run

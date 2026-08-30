@@ -3,6 +3,12 @@
 > **Version 3 of 5 — for anyone, anywhere.** No client names, no employer
 > confidential detail, no phone number, no address. Assume it is indexed by
 > Google and read by people who are not hiring you.
+>
+> **There is a rendered paste sheet of this:**
+> `notes/Goals/Career/Sachin_Koli_Public_Bio.html` → `.docx`, built with
+> `bin/docx bio`. Use it to review and correct the wording in Word; the bios
+> still get pasted into a site or a programme, and the file is never sent.
+> Change one and change the other — this file is the master.
 
 ---
 
@@ -14,8 +20,8 @@ Solution architect. I build the cloud data platforms large enterprises run on,
 and ship the applied-AI tooling that sits on top of them.
 ```
 
-## Short bio — 50 words
-*(speaker introduction, panel listing, award submission)*
+## Short bio — the ~50-word slot
+*(speaker introduction, panel listing, award submission — **62 words** as written)*
 
 ```
 Sachin Koli is a solution architect and Google Cloud Certified Professional Data
@@ -25,8 +31,8 @@ Kafka, BigQuery, dbt and Airflow. The self-serve fraud journey he designed won a
 the Banking Tech Awards 2024 and the Card & Payments Awards 2025.
 ```
 
-## Medium bio — 150 words
-*(personal site "About", meetup organiser, guest post byline)*
+## Medium bio — the ~150-word slot
+*(personal site "About", meetup organiser, guest post byline — **162 words** as written)*
 
 ```
 Sachin Koli is a solution architect based in Pune, India, and a Google Cloud

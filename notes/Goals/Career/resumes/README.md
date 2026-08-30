@@ -17,6 +17,8 @@ Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
 | **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases | *is the .docx* |
 | **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager | `Sachin_Koli_OnePager.docx` |
 | **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone | `Sachin_Koli_Profile_Card.docx` |
+| *(nothing to send)* | Paste sheet | LinkedIn fields — review the wording in Word, paste the blocks | `Sachin_Koli_LinkedIn.docx` |
+| *(nothing to send)* | Paste sheet | Your site, speaker bios, award entries | `Sachin_Koli_Public_Bio.docx` |
 
 The `.html` beside each PDF is the source — edit it and re-run:
 
@@ -37,8 +39,8 @@ Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> Sachin_Kol
 Open the `.docx` in Word or Google Docs, fix a line, hand it back.
 
 ```sh
-bin/docx                    # rebuild all four .docx from the HTML
-bin/docx resume             # just one:  resume | onepager | card | ats
+bin/docx                    # rebuild all six .docx from the HTML
+bin/docx resume             # one of: resume | onepager | card | linkedin | bio | ats
 bin/docx --check            # build, validate, render BOTH, side-by-side PNGs
 bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx    # what YOU changed
 ```
@@ -52,6 +54,24 @@ rebuild everything.
 The exception is the **ATS** file, which has always been a `.docx` and is still
 generated in code (`resumes/docx/ats.js`) — it is deliberately plain, one column
 with no tables or styling, so there is nothing to render it from.
+
+### LinkedIn and the public bio have paste sheets now
+
+Added 2026-08-30 at your request. `Sachin_Koli_LinkedIn.docx` and
+`Sachin_Koli_Public_Bio.docx` lay every field out with its label, its character
+or word count, and the exact block to copy.
+
+**They are not documents to send.** The words still go into fields on
+linkedin.com or onto your site — each file carries a banner saying so. Two
+consequences: their page count is deliberately not compared against the PDF
+(`bin/docx --check` prints "paste sheet" instead), because Chromium and Word
+pick different monospace faces and the same words wrap differently; and **no
+client may ever be named in either**, since both are public surfaces.
+
+Corrected while building them: the headline is **205 characters**, not the 197
+this file used to claim — still under LinkedIn's 220. The short and medium bios
+run 62 and 162 words against their ~50 and ~150 slots, which is fine, but the
+labels now say so.
 
 ### How close is close?
 
@@ -67,8 +87,9 @@ backgrounds, `break-after: avoid`, justified text, flex rows, **CSS grid** as
 Word tables, lists, and images with borders. It is not a browser — run
 `bin/docx --verbose` and it names every CSS property it could not map.
 
-**LinkedIn and the public bio are not documents** — they are text you paste into
-fields on a website. They stay as Markdown below; there is nothing to render.
+**LinkedIn and the public bio are still not documents** — they are text you paste
+into fields on a website. The Markdown below stays the master; the paste sheets
+above are for reviewing the wording, not for sending.
 
 ### On the visual card — is that format any good?
 

@@ -5,12 +5,12 @@ description: Building, updating and rendering Sachin's career documents — the 
 
 # Career documents
 
-**Facts live in one place: `data/career-facts.md`.** Read it first. Twelve
-documents derive from it, and it names all twelve. Never take a date, title or
+**Facts live in one place: `data/career-facts.md`.** Read it first. Fifteen
+consumers derive from it, and it names all fifteen. Never take a date, title or
 figure from a resume — resumes drift, that file is checked against the letters
 in Dropbox.
 
-## The twelve, and what each is for
+## The set, and what each is for
 
 | Document | Kind | Audience | Clients named? |
 | --- | --- | --- | --- |
@@ -24,10 +24,18 @@ in Dropbox.
 | `resumes/resume-recruiter.md` | Master | source for the resume HTML → PDF + DOCX | Yes |
 | `resumes/resume-ats.md` | Master | source for the **ATS** DOCX | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
-| `resumes/resume-linkedin.md` | Master | **paste into LinkedIn fields** — not a file | **No** |
-| `resumes/resume-public.md` | Master | **paste into his site / bios** — not a file | **No** |
+| `resumes/resume-linkedin.md` | Master | source for the LinkedIn paste sheet | **No** |
+| `resumes/resume-public.md` | Master | source for the public-bio paste sheet | **No** |
+| `Sachin_Koli_LinkedIn.docx` | Generated from `Sachin_Koli_LinkedIn.html` | **him**, to review the wording in Word | **No** |
+| `Sachin_Koli_Public_Bio.docx` | Generated from `Sachin_Koli_Public_Bio.html` | **him**, same | **No** |
 
-LinkedIn and the public bio are **text, not documents**. Do not render them.
+**The last two are paste sheets, not documents.** He asked for them
+(*"also add docx for linkedin and public bio"*) and the reason is sound:
+reviewing and correcting copy is the same job whatever the destination. But the
+output still goes into fields on a website — **nobody sends the file**. Each
+carries a banner saying so, their page count is deliberately not compared
+against the PDF (`bin/docx --check` says "paste sheet"), and **no client may
+ever be named in either**: both are public surfaces.
 
 ## Rendering: three skills own the mechanics, this file does not
 
@@ -50,7 +58,7 @@ Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> .pdf
 | **`docx-pdf-parity`** | rendering both and comparing them, and locating a drift |
 
 ```sh
-bin/docx                  # HTML -> all four Word copies
+bin/docx                  # HTML -> all six Word copies
 bin/docx --check          # build, validate, render both, side-by-side PNGs
 bin/docx --diff FILE      # what HE changed in Word, before you overwrite it
 ```
@@ -106,7 +114,7 @@ bin/docx --check                               # rebuild both, side by side — 
 Mechanics for each of those steps: `html-to-pdf`, `html-to-docx`,
 `docx-pdf-parity`.
 
-`/resume` runs this sweep and checks all twelve. Use it rather than remembering.
+`/resume` runs this sweep and checks all fifteen. Use it rather than remembering.
 
 ## Traps — the career-specific ones
 

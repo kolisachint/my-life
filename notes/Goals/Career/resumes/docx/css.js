@@ -11,7 +11,7 @@
 const PROPS = new Set([
   'font-size', 'font-weight', 'font-style', 'font-family', 'color',
   'line-height', 'letter-spacing', 'text-transform', 'text-align',
-  'margin', 'margin-top', 'margin-bottom', 'margin-left',
+  'margin', 'margin-top', 'margin-bottom', 'margin-left', 'margin-right',
   'padding', 'padding-left', 'padding-right', 'padding-top', 'padding-bottom',
   'aspect-ratio', 'height',
   'border', 'border-bottom', 'border-top', 'border-left', 'border-right',
