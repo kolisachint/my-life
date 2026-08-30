@@ -202,6 +202,8 @@ title or figure. Nine documents derive from that one file; it names all nine.
 ```sh
 bin/portfolio        # refresh the open-source inventory (his AI evidence)
 bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
+bin/docx             # rebuild the four editable Word copies he reviews in
+bin/docx --diff FILE # ...and see what he changed after he has been through one
 ```
 
 `/resume` runs the whole sweep. Two rules that are not optional:
@@ -210,6 +212,10 @@ bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
   orphaned headings, dead space and leftover placeholders are invisible in HTML.
 - **Client names go only in privately addressed documents** — never on LinkedIn
   or his public site. See the skill.
+- **He sends the PDF and edits the `.docx`.** Every rendered document has a Word
+  twin so he can review and correct it. Regenerating overwrites his edits — run
+  `bin/docx --diff FILE` first, fold what he changed into `data/career-facts.md`
+  and the master, and only then rebuild.
 
 ## Memory — I do not learn between sessions
 
@@ -234,6 +240,7 @@ bin/setup            install td + dbxcli, install Doist's official skill
 bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
 bin/pdfcheck         PDF/HTML -> page PNGs, so a render can be looked at
+bin/docx             the editable Word copies of the career documents (+ --diff)
 bin/portfolio        public repos -> notes/Goals/Career/portfolio.md
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`

@@ -1,0 +1,95 @@
+#!/bin/sh
+# docx - build the EDITABLE Word copies of the career documents, and see what
+#        he changed after he has been through one in Word.
+#
+#   bin/docx                                   # build all four into notes/Goals/Career/
+#   bin/docx resume | onepager | card | ats    # build one
+#   bin/docx --check                           # build, then validate + count paragraphs
+#   bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx
+#   bin/docx --text FILE.docx                  # what a parser (or an ATS) sees
+#
+# The PDFs are what he SENDS. These .docx files are what he OPENS to review and
+# correct. Edits in Word do NOT flow back on their own — that is what --diff is
+# for: it rebuilds the document from source into a temp file and diffs his copy
+# against it, so a session can see exactly which lines he rewrote, fold them
+# into data/career-facts.md and the HTML/master, and rebuild.
+#
+# LibreOffice is broken in this environment, so a .docx cannot be rasterised and
+# looked at the way bin/pdfcheck handles a PDF. --check is the substitute:
+# OOXML schema validation plus the extracted text, which is what a parser sees
+# and the only thing an ATS ever reads.
+set -e
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+BUILD="$ROOT/notes/Goals/Career/resumes"
+
+extract() {   # FILE -> one line of text per paragraph, in order
+  python3 - "$1" <<'XML'
+import html, re, sys, zipfile
+# <w:t> only. The negative lookbehind is load-bearing: without it <w:tab .../>
+# also matches "<w:t[^>]*>", and the extraction spews raw XML into the text.
+TEXT = re.compile(r'<w:t(?:\s[^>]*)?(?<!/)>(.*?)</w:t>', re.S)
+xml = zipfile.ZipFile(sys.argv[1]).read('word/document.xml').decode('utf-8')
+for para in re.findall(r'<w:p[ >].*?</w:p>|<w:p/>', xml, re.S):
+    print(html.unescape(''.join(TEXT.findall(para))))
+XML
+}
+
+case "$1" in
+  -h|--help) sed -n '2,18p' "$0"; exit 0 ;;
+
+  --text)
+    [ -n "$2" ] || { echo "docx: --text needs a file" >&2; exit 2; }
+    extract "$2"; exit 0 ;;
+
+  --diff)
+    FILE="$2"
+    [ -f "$FILE" ] || { echo "docx: no such file: $FILE" >&2; exit 2; }
+    case $(basename "$FILE") in
+      Sachin_Koli_Resume.docx)       WHICH=resume ;;
+      Sachin_Koli_OnePager.docx)     WHICH=onepager ;;
+      Sachin_Koli_Profile_Card.docx) WHICH=card ;;
+      Sachin_Koli_Resume_ATS.docx)   WHICH=ats ;;
+      *) echo "docx: $FILE is not one of the generated documents" >&2; exit 2 ;;
+    esac
+    TMP="${TMPDIR:-/tmp}/docxdiff.$$"; mkdir -p "$TMP"
+    trap 'rm -rf "$TMP"' EXIT
+    ( cd "$BUILD" && node build_docx.js "$WHICH" "$TMP" >/dev/null )
+    extract "$TMP/$(basename "$FILE")" > "$TMP/generated.txt"
+    extract "$FILE" > "$TMP/his.txt"
+    if diff -q "$TMP/generated.txt" "$TMP/his.txt" >/dev/null; then
+      echo "no edits — $(basename "$FILE") matches what the source generates"
+    else
+      echo "HIS EDITS  (- generated, + his copy)"
+      echo "fold these into data/career-facts.md and the master, then rebuild."
+      echo
+      diff -u "$TMP/generated.txt" "$TMP/his.txt" | tail -n +3
+    fi
+    exit 0 ;;
+esac
+
+CHECK=""
+WHICH="all"
+for a in "$@"; do
+  case "$a" in
+    --check) CHECK=1 ;;
+    -*) echo "docx: unknown flag $a" >&2; exit 2 ;;
+    *) WHICH="$a" ;;
+  esac
+done
+
+[ -d "$BUILD/node_modules/docx" ] || ( cd "$BUILD" && npm install --silent --no-audit --no-fund )
+( cd "$BUILD" && node build_docx.js "$WHICH" )
+
+[ -n "$CHECK" ] || exit 0
+
+VALIDATE=/mnt/skills/public/docx/scripts/office/validate.py
+for f in "$ROOT"/notes/Goals/Career/*.docx; do
+  echo
+  echo "== $(basename "$f")  —  $(extract "$f" | wc -l | tr -d ' ') paragraphs"
+  if [ -f "$VALIDATE" ]; then
+    python3 "$VALIDATE" "$f" 2>&1 | tail -3
+  else
+    echo "   (validate.py not present — schema check skipped)"
+  fi
+  echo "   placeholders left: $(extract "$f" | grep -c '\[N\]' || true)"
+done

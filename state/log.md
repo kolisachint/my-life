@@ -2,6 +2,43 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — every career document now has a Word copy he can edit
+
+He asked for it directly: *"in resume or job profile also have docx version so
+that i can review and update"*. Fair — a PDF is a thing you send, not a thing you
+mark up, and until now only the ATS file was editable.
+
+**Three new files**, beside the PDFs in `notes/Goals/Career/`:
+`Sachin_Koli_Resume.docx`, `Sachin_Koli_OnePager.docx` and
+`Sachin_Koli_Profile_Card.docx` (A4 landscape, headshot and all). Same words as
+the PDFs, same order, in ordinary Word furniture — real styles, real bullets,
+real tables, no text boxes. A text box looks identical and cannot be edited
+comfortably, which defeats the point.
+
+**The rule that keeps this from forking the facts: he sends the PDF, he edits
+the DOCX, and the DOCX is never a source.** Content still lives in
+`career-facts.md`, the masters and the HTML. So rebuilding would silently
+overwrite whatever he corrected — hence `bin/docx --diff FILE`, which rebuilds
+the document from source into a temp file and diffs his copy against it, line by
+line. Fold those lines into the real sources, then rebuild.
+
+| New | What it does |
+| --- | --- |
+| `bin/docx` | Builds all four (`resume`, `onepager`, `card`, `ats`); `--check` validates and counts paragraphs; `--diff` shows his edits; `--text` shows what a parser sees. `make docx` runs the checked build. |
+| `resumes/docx/` | `style.js` (shared Word furniture) plus one small file per document. Content is written as prose with `**bold**` markers rather than a wall of `TextRun` literals. |
+
+`build_ats.js` still works with the exact command written down in three places;
+it now delegates to the same builder. The ATS file's extracted text is
+**byte-identical** to the committed version, so the refactor changed nothing he
+submits to a portal.
+
+**Nobody has seen these rendered.** LibreOffice is still broken here — re-tested
+with a fresh user profile, same "source file could not be loaded" on a plain
+`.txt` — so a `.docx` cannot be rasterised the way `bin/pdfcheck` handles a PDF.
+All four pass OOXML schema validation and extract cleanly in order, which is what
+a parser sees. The open question is page count: **he should open the resume in
+Word once** and say whether it still fits two pages.
+
 ## 2026-08-29 — the profile card is landscape now
 
 His call, and it is right: a glance artefact should be the shape of the screen or

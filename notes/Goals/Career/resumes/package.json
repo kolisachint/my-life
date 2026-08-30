@@ -1,0 +1,12 @@
+{
+  "name": "career-docx",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Editable Word (.docx) builds of Sachin's career documents.",
+  "scripts": {
+    "build": "node build_docx.js all"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

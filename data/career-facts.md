@@ -1,7 +1,7 @@
 # Career facts — single source of truth
 
 **Every career document derives from this file.** If a date, title, client or
-number is wrong here, it is wrong in nine places. Fix it here first, then
+number is wrong here, it is wrong in twelve places. Fix it here first, then
 regenerate.
 
 _Verified 2026-08-29 against the offer, appointment and experience letters in
@@ -108,7 +108,10 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/Sachin_Koli_Resume.html` → `.pdf` | Rendered | Edit HTML, `bin/pub … --repo --pdf`, then `bin/pdfcheck` |
 | `notes/Goals/Career/Sachin_Koli_OnePager.html` → `.pdf` | Rendered | Same |
 | `notes/Goals/Career/Sachin_Koli_Profile_Card.html` → `.pdf`/`.png` | Rendered, **landscape** | Same. Export the PNG too — that is the LinkedIn Featured asset |
-| `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `cd notes/Goals/Career/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx` |
+| `notes/Goals/Career/Sachin_Koli_Resume.docx` | Generated, **his review copy** | `bin/docx resume` — source is `resumes/docx/resume.js` |
+| `notes/Goals/Career/Sachin_Koli_OnePager.docx` | Generated, **his review copy** | `bin/docx onepager` |
+| `notes/Goals/Career/Sachin_Koli_Profile_Card.docx` | Generated, **his review copy**, landscape | `bin/docx card` |
+| `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `bin/docx ats` (or the old `cd …/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx`) |
 | `notes/Goals/Career/resumes/resume-recruiter.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-linkedin.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-public.md` | Master | Hand-edit |
@@ -116,5 +119,12 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/resumes/resume-referral-onepager.md` | Master | Hand-edit |
 | `notes/Goals/Identity/profile.md` | Repo memory | Hand-edit |
 
-**Nine documents.** That is why this file exists — and why `/resume` runs the
-whole sweep rather than trusting anyone to remember all nine.
+**Twelve documents.** That is why this file exists — and why `/resume` runs the
+whole sweep rather than trusting anyone to remember all twelve. (Nine of them
+carry content; the three new `.docx` twins are generated from the same words as
+the PDFs, so `bin/docx` is one command at the end of the sweep.)
+
+**The `.docx` files are review copies, never sources.** He opens them in Word to
+correct a line. Those edits do not flow back on their own — run
+`bin/docx --diff <file>` to see exactly what he changed, fold it into *this* file
+and the master, then rebuild. Anything else silently forks the facts.

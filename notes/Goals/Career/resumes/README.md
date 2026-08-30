@@ -11,12 +11,12 @@ payments.** Payments is a domain credential, not the identity.
 
 Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
 
-| Send this | Format | To whom |
-| --- | --- | --- |
-| **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** |
-| **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases |
-| **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager |
-| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone |
+| Send this | Format | To whom | Editable twin |
+| --- | --- | --- | --- |
+| **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** | `Sachin_Koli_Resume.docx` |
+| **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases | *is the .docx* |
+| **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager | `Sachin_Koli_OnePager.docx` |
+| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone | `Sachin_Koli_Profile_Card.docx` |
 
 The `.html` beside each PDF is the source — edit it and re-run:
 
@@ -24,7 +24,38 @@ The `.html` beside each PDF is the source — edit it and re-run:
 bin/pub notes/Goals/Career/Sachin_Koli_Resume.html --project Goals --section Career --repo --pdf
 ```
 
-The ATS `.docx` is generated from `resumes/build_ats.js` (`node build_ats.js out.docx`).
+## Every document also has a Word version now — for reviewing, not for sending
+
+Added 2026-08-30, because a PDF is not a thing you can mark up. **Each rendered
+document has a `.docx` twin carrying the same words in the same order**, so you
+can open it in Word or Google Docs, fix a line, and hand the change back.
+
+```sh
+bin/docx                    # rebuild all four .docx from source
+bin/docx resume             # just one:  resume | onepager | card | ats
+bin/docx --check            # build, then validate + count paragraphs
+bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx    # what YOU changed
+```
+
+**Send the PDF. Edit the DOCX.** The two are built from different sources — the
+PDF from the `.html`, the DOCX from `resumes/docx/*.js` — so your Word edits do
+**not** flow back on their own. That is what `--diff` is for: it rebuilds the
+document from source into a temp file, compares your copy against it, and prints
+exactly the lines you rewrote. Hand me that and I fold the changes into
+`data/career-facts.md`, the master and the HTML, then rebuild everything.
+
+The exception is the **ATS** file, which has always been a `.docx` and is still
+the one you upload to portals.
+
+Build sources live in `resumes/docx/` — `style.js` holds the shared Word
+furniture, then one small file per document. `node build_ats.js out.docx` still
+works; it now delegates to the same builder.
+
+**These four have never been seen rendered.** LibreOffice is broken in this
+environment, so a `.docx` cannot be converted and looked at the way `bin/pdfcheck`
+handles a PDF. They pass OOXML schema validation and extract cleanly in order,
+which is what a parser sees — but **open the resume in Word once** and tell me if
+it runs past two pages, and I will drop the body size a notch.
 
 **LinkedIn and the public bio are not documents** — they are text you paste into
 fields on a website. They stay as Markdown below; there is nothing to render.

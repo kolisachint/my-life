@@ -10,7 +10,7 @@ documents derive from it, and it names all nine. Never take a date, title or
 figure from a resume — resumes drift, that file is checked against the letters
 in Dropbox.
 
-## The nine, and what each is for
+## The twelve, and what each is for
 
 | Document | Kind | Audience | Clients named? |
 | --- | --- | --- | --- |
@@ -18,6 +18,9 @@ in Dropbox.
 | `Sachin_Koli_Resume_ATS.docx` | Generated | Naukri, Workday, Easy Apply, agency DBs | Yes |
 | `Sachin_Koli_OnePager.pdf` | Rendered, 1pp | A referrer forwarding him | Yes |
 | `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual, **A4 landscape** | Staffing decks, LinkedIn Featured, in person | Yes |
+| `Sachin_Koli_Resume.docx` | Generated | **him**, to review and correct in Word | Yes |
+| `Sachin_Koli_OnePager.docx` | Generated | **him**, same | Yes |
+| `Sachin_Koli_Profile_Card.docx` | Generated, landscape | **him**, same | Yes |
 | `resumes/resume-recruiter.md` | Master | source for the resume PDF | Yes |
 | `resumes/resume-ats.md` | Master | source for the DOCX | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
@@ -25,6 +28,35 @@ in Dropbox.
 | `resumes/resume-public.md` | Master | **paste into his site / bios** — not a file | **No** |
 
 LinkedIn and the public bio are **text, not documents**. Do not render them.
+
+## The Word copies — he reviews in Word, he sends the PDF
+
+Added 2026-08-30 at his request: *"in resume or job profile also have docx
+version so that i can review and update"*. A PDF is not markupable, so every
+rendered document now has a `.docx` twin with the same words in the same order.
+
+```sh
+bin/docx                  # rebuild all four (resume · onepager · card · ats)
+bin/docx resume           # one of: resume | onepager | card | ats
+bin/docx --check          # build, then OOXML-validate and count paragraphs
+bin/docx --diff FILE      # what HE changed, against a fresh build from source
+bin/docx --text FILE      # what a parser (or an ATS) actually sees
+```
+
+Sources: `resumes/docx/style.js` (shared Word furniture — headings, bullets,
+role heads, the label/value table) plus one small file per document. The content
+files write prose with `**bold**` and `` `mono` `` markers; `rich()` turns those
+into runs, so a bullet stays readable as a sentence.
+
+**Two rules.**
+
+1. **The `.docx` is a review copy, never a source.** Content still lives in
+   `career-facts.md`, the masters and the `.html`. Regenerating overwrites his
+   Word edits without warning — so if he has been through one, run
+   `bin/docx --diff` **first**, fold what he changed into the real sources, then
+   rebuild.
+2. **Change a PDF, rebuild its twin.** A `.docx` that lags the PDF is worse than
+   no `.docx` — he corrects the stale copy and the correction lands nowhere.
 
 ## The confidentiality rule — the one that matters
 
@@ -60,7 +92,7 @@ bin/portfolio                                  # refresh the OSS inventory first
 # 2. edit the affected masters + the .html sources
 bin/pub notes/Goals/Career/<name>.html --project Goals --section Career --repo --pdf
 bin/pdfcheck notes/Goals/Career/<name>.pdf     # THEN READ THE PNGs
-cd notes/Goals/Career/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx
+bin/docx --check                               # rebuild + validate all four .docx
 ```
 
 `/resume` runs this sweep and checks all nine. Use it rather than remembering.
@@ -95,10 +127,16 @@ pages. Cut content from the longest column instead, and check with `bin/pdfcheck
 not. Rewrite the bullet to read properly without the figure.
 
 **LibreOffice is broken in this environment** — it fails on a plain `.txt`, so
-`soffice --convert-to pdf` cannot verify a `.docx`. Verify instead with
-`scripts/office/validate.py` (needs `pip install defusedxml lxml`) plus a `w:t`
-text extraction from `word/document.xml` — which is what an ATS actually sees.
-Tell him to open it in Word once, since nobody has seen it rendered.
+`soffice --convert-to pdf` cannot verify a `.docx`. Re-confirmed 2026-08-30, with
+a fresh `-env:UserInstallation` profile: same "source file could not be loaded".
+Do not debug it. `bin/docx --check` is the substitute — OOXML schema validation
+plus the `w:t` extraction, which is what an ATS actually sees. **Tell him to open
+each one in Word once**, since nobody has ever seen these rendered; the specific
+thing to ask about is whether the resume still fits two pages.
+
+**Extracting `w:t` needs a negative lookbehind.** The obvious regex
+`<w:t[^>]*>(.*?)</w:t>` also matches `<w:tab .../>` and dumps raw XML into the
+text. Use `<w:t(?:\s[^>]*)?(?<!/)>(.*?)</w:t>` — `bin/docx` has it right.
 
 **`docx` is not preinstalled** despite what the `docx` skill says — `npm install
 docx` in the working dir first.
