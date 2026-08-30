@@ -2,6 +2,24 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — the rendering knowledge is three skills now
+
+He read the last change and said it plainly: *"i sense 3 skills. html to pdf.
+html to docx. pdf vs docs comparison. add them so you dont reinvent the same
+again."* Right — all of it was sitting inside `career-docs`, which is about his
+career, not about rendering documents.
+
+| Skill | Owns |
+| --- | --- |
+| **`html-to-pdf`** | print CSS that behaves, page fitting, fonts and images from `file://`, and the rasterise-and-look step |
+| **`html-to-docx`** | the HTML → Word renderer, the full CSS→Word mapping table, the four bugs that each cost a page, and how to extend it |
+| **`docx-pdf-parity`** | rendering both sides, comparing them, locating a vertical drift, and the `libreoffice-writer` misdiagnosis |
+
+`career-docs` now points at them and keeps only what is career-specific — the
+twelve documents, the confidentiality rule, the positioning, his landscape-card
+call. It dropped from 214 lines to 154. `artifact-publish` and `AGENTS.md` point
+at them too, because none of this is career-specific: any document work uses it.
+
 ## 2026-08-30 — one HTML, two renderers: the Word copies now match the PDFs
 
 He asked for editable copies (*"in resume or job profile also have docx version

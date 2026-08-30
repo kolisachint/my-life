@@ -197,7 +197,13 @@ now keeps its own copy of anything an agent will need to re-read.
 
 Resumes, the profile card, LinkedIn, bios, the portfolio: **read the
 `career-docs` skill first**, and `data/career-facts.md` before quoting any date,
-title or figure. Nine documents derive from that one file; it names all nine.
+title or figure. Twelve documents derive from that one file; it names all twelve.
+
+**Rendering is three separate skills** — read the one you need rather than
+working it out again: `html-to-pdf` (print CSS, page fitting, looking at a
+render), `html-to-docx` (the HTML → Word renderer and its CSS mapping),
+`docx-pdf-parity` (rendering both and comparing them). They are not
+career-specific; any document work uses them.
 
 ```sh
 bin/portfolio        # refresh the open-source inventory (his AI evidence)
@@ -251,6 +257,9 @@ data/portfolio-repos.txt  repos the career documents cite
 notes/<P>/<S>/       long-term artefacts, same tree as Todoist (lazy)
 memory/learned.txt   append-only facts
 .claude/skills/career-docs/   resumes, profile card, bios — read before editing any
+.claude/skills/html-to-pdf/   print CSS, page fitting, rasterise-and-look
+.claude/skills/html-to-docx/  the HTML -> Word renderer and its CSS mapping
+.claude/skills/docx-pdf-parity/  render both, compare side by side, find the drift
 state/decisions.md   settled answers + open questions
 state/log.md         session log
 .claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`
