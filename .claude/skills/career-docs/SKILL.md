@@ -15,14 +15,14 @@ in Dropbox.
 | Document | Kind | Audience | Clients named? |
 | --- | --- | --- | --- |
 | `Sachin_Koli_Resume.pdf` | Rendered, 2pp | Recruiters, hiring managers — **the main one** | Yes |
-| `Sachin_Koli_Resume_ATS.docx` | Generated | Naukri, Workday, Easy Apply, agency DBs | Yes |
+| `Sachin_Koli_Resume_ATS.docx` | Generated from `Sachin_Koli_Resume_ATS.html` | Naukri, Workday, Easy Apply, agency DBs | Yes |
 | `Sachin_Koli_OnePager.pdf` | Rendered, 1pp | A referrer forwarding him | Yes |
 | `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual, **A4 landscape** | Staffing decks, LinkedIn Featured, in person | Yes |
 | `Sachin_Koli_Resume.docx` | Generated **from the same HTML as the PDF** | **him**, to review and correct in Word | Yes |
 | `Sachin_Koli_OnePager.docx` | Generated from the HTML | **him**, same | Yes |
 | `Sachin_Koli_Profile_Card.docx` | Generated from the HTML, landscape | **him**, same | Yes |
 | `resumes/resume-recruiter.md` | Master | source for the resume HTML → PDF + DOCX | Yes |
-| `resumes/resume-ats.md` | Master | source for the **ATS** DOCX | Yes |
+| `resumes/resume-ats.md` | Master | the wording behind the ATS HTML | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
 | `resumes/resume-linkedin.md` | Master | source for the LinkedIn paste sheet | **No** |
 | `resumes/resume-public.md` | Master | source for the public-bio paste sheet | **No** |
@@ -70,9 +70,11 @@ bin/docx --diff FILE      # what HE changed in Word, before you overwrite it
    run `bin/docx --diff` **first**, fold what he changed into the real sources,
    then rebuild.
 2. **Change the HTML, rebuild both.** `bin/pub … --pdf`, then `bin/docx`.
-3. **The ATS file is the exception** — built in code (`resumes/docx/ats.js`)
-   because it is deliberately plain: one column, no tables, no styling for a
-   parser to trip on. It has no HTML twin.
+3. **Everything comes from HTML now, the ATS file included.** Its plainness is
+   enforced by its own stylesheet — one column, no tables, no images — and its
+   headings carry `--docx-style: Heading1`, which gives a parser real outline
+   structure rather than text that merely looks like a heading. Nothing is
+   hand-built in JavaScript any more.
 
 ## The confidentiality rule — the one that matters
 

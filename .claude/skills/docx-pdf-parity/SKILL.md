@@ -85,6 +85,17 @@ bin/docx --diff FILE.docx        # rebuild from source, diff a human's copy agai
 the document into a temp file and prints exactly the lines they rewrote. Run it
 **before** any rebuild, or their edits are silently overwritten.
 
+## Not every HTML has a PDF worth comparing
+
+Some source HTML is a build input, not a deliverable — a paste sheet whose words
+go into fields on a website, or a file whose `.docx` **is** the thing that gets
+sent. Nothing is ever printed from those, so a page-count difference is not a
+defect and should not be reported as one.
+
+`build_docx.js` marks them with a `noPdf` reason and exposes
+`--no-pdf-compare`; `bin/docx --check` prints the reason instead of `MISMATCH`.
+Add the marker rather than contorting a stylesheet to make two numbers agree.
+
 ## What "close enough" means
 
 Chromium and Word will never be pixel-identical, and chasing that is waste. The

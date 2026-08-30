@@ -100,7 +100,7 @@ OUT="${TMPDIR:-/tmp}/docxcheck"
 rm -rf "$OUT"; mkdir -p "$OUT"
 VALIDATE=/mnt/skills/public/docx/scripts/office/validate.py
 
-PASTE=$(cd "$BUILD" && node build_docx.js --paste-sheets)
+NO_PDF=$(cd "$BUILD" && node build_docx.js --no-pdf-compare)
 
 for f in "$CAREER"/*.docx; do
   base=$(basename "$f" .docx)
@@ -109,7 +109,11 @@ for f in "$CAREER"/*.docx; do
   if [ -f "$VALIDATE" ]; then
     python3 "$VALIDATE" "$f" 2>&1 | grep -E "PASSED|FAILED|error" | head -3
   fi
-  echo "   paragraphs: $(extract "$f" | wc -l | tr -d ' ')   placeholders: $(extract "$f" | grep -c '\[N\]' || true)"
+  echo "   paragraphs: $(extract "$f" | wc -l | tr -d ' ')"
+  # Anything still in brackets: the [N] figures he has not supplied, and the
+  # "[fill in before submitting]" prompt on the ATS file, which is deliberate
+  # but must not be uploaded as-is.
+  extract "$f" | grep -oE '\[[^]]{1,40}\]' | sort -u | sed 's/^/   PLACEHOLDER: /' || true
 
   html="$CAREER/$base.html"
   "$ROOT/bin/pdfcheck" "$f" --out "$OUT/$base-docx" --dpi 100 >/dev/null 2>&1 || true
@@ -117,15 +121,15 @@ for f in "$CAREER"/*.docx; do
   if [ -f "$html" ]; then
     "$ROOT/bin/pdfcheck" "$html" --out "$OUT/$base-pdf" --dpi 100 >/dev/null 2>&1 || true
     pp=$(ls "$OUT/$base-pdf"/page*.png 2>/dev/null | wc -l | tr -d ' ')
-    case " $PASTE " in
-      *" $(basename "$f") "*)
-        # A paste sheet is read on screen and copied field by field. Its page
-        # count is not a defect — the two renderers pick different monospace
-        # faces, so identical words wrap differently.
-        echo "   pages: docx $dp · pdf $pp   (paste sheet — page count not compared)" ;;
-      *)
-        echo "   pages: docx $dp · pdf $pp$( [ "$dp" = "$pp" ] || echo '   <-- MISMATCH' )" ;;
-    esac
+    # Some HTML here is a build source rather than a deliverable — a paste
+    # sheet, or the ATS file whose .docx IS the thing that gets sent. Nothing is
+    # printed from those, so a page-count difference is not a defect.
+    why=$(printf '%s\n' "$NO_PDF" | awk -F'\t' -v n="$(basename "$f")" '$1==n {print $2}')
+    if [ -n "$why" ]; then
+      echo "   pages: docx $dp · pdf $pp   (not compared — $why)"
+    else
+      echo "   pages: docx $dp · pdf $pp$( [ "$dp" = "$pp" ] || echo '   <-- MISMATCH' )"
+    fi
     python3 - "$OUT/$base-pdf" "$OUT/$base-docx" "$OUT/$base-side" <<'PY'
 import os, sys
 try:

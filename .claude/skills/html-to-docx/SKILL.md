@@ -24,8 +24,8 @@ bin/docx --verbose        # every CSS property the renderer could not map
 ```
 
 Where it lives: `notes/Goals/Career/resumes/docx/` — `css.js` (a small CSS
-reader), `fromhtml.js` (the DOM walker), `pack.js` (writes the file),
-`ats.js` (the one document with no HTML twin). Driven by `build_docx.js`.
+reader), `fromhtml.js` (the DOM walker), `pack.js` (writes the file). Driven by
+`build_docx.js`. **Every document goes through it**; nothing is hand-built.
 
 Dependencies are `docx` and `node-html-parser`, pinned in the `package.json`
 beside them. Neither is preinstalled — `bin/docx` installs them on first run and
@@ -57,6 +57,7 @@ flex rows lost their alignment. It is worse than nothing.
 | `position: absolute` marker at `left: 0` in a padded box | a hanging indent |
 | `<img>` + `width`, `aspect-ratio`, `border` | inline image with an outline |
 | `var(--custom-properties)` | resolved before anything else |
+| `--docx-style: Heading1` | a real Word heading style — see below |
 
 It is **not a browser**: no flow layout, floats, or general positioning. It
 handles what the stylesheets actually use. `--verbose` lists what it ignored, so

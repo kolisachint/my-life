@@ -12,9 +12,10 @@
 // follow. Check the result with `bin/docx --check`, which renders the .docx back
 // to PNGs beside the PDF's.
 //
-// The ATS file is the one exception and stays hand-built: it is deliberately
-// plain — one column, no tables, no styling for a parser to trip on — so it has
-// no HTML twin to render from.
+// The ATS file comes from HTML too, and its stylesheet is where its plainness
+// is enforced: one column, no tables, no images, and `--docx-style: Heading1`
+// on the section headings so a parser gets real outline structure rather than
+// text that merely looks like a heading.
 const path = require('path');
 
 const CAREER = path.join(__dirname, '..');
@@ -27,19 +28,23 @@ const DOCS = {
   // Paste sheets, not documents to send: the words go into fields on a website.
   // They still get a .docx, because reviewing and correcting copy is the same
   // job whatever the destination.
-  linkedin: { file: 'Sachin_Koli_LinkedIn.docx',     html: 'Sachin_Koli_LinkedIn.html', paste: true },
-  bio:      { file: 'Sachin_Koli_Public_Bio.docx',   html: 'Sachin_Koli_Public_Bio.html', paste: true },
-  ats:      { file: 'Sachin_Koli_Resume_ATS.docx',   build: require('./docx/ats') },
+  linkedin: { file: 'Sachin_Koli_LinkedIn.docx',     html: 'Sachin_Koli_LinkedIn.html',
+              noPdf: 'paste sheet — nobody prints it, and the two renderers pick different monospace faces' },
+  bio:      { file: 'Sachin_Koli_Public_Bio.docx',   html: 'Sachin_Koli_Public_Bio.html',
+              noPdf: 'paste sheet — nobody prints it' },
+  ats:      { file: 'Sachin_Koli_Resume_ATS.docx',   html: 'Sachin_Koli_Resume_ATS.html',
+              noPdf: 'the .docx IS the deliverable — no ATS PDF is ever published' },
 };
 
 async function main() {
   const args = process.argv.slice(2);
-  // bin/docx asks for this so it does not have to know which documents are
-  // paste sheets. Their page count is not worth comparing: nobody prints them,
-  // and Chromium and Word pick different monospace faces, so the same words
-  // wrap differently. The words are what gets pasted.
-  if (args[0] === '--paste-sheets') {
-    console.log(Object.values(DOCS).filter((d) => d.paste).map((d) => d.file).join(' '));
+  // bin/docx asks for this so it does not have to know which documents have a
+  // PDF worth comparing against. Some HTML here is a build source, not a
+  // deliverable: nothing is ever printed from it, so a page-count difference is
+  // not a defect.
+  if (args[0] === '--no-pdf-compare') {
+    Object.values(DOCS).filter((d) => d.noPdf)
+      .forEach((d) => console.log(`${d.file}\t${d.noPdf}`));
     return;
   }
   const flags = args.filter((a) => a.startsWith('--'));

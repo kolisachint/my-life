@@ -51,9 +51,15 @@ compares your copy against it, and prints exactly the lines you rewrote. Hand me
 that and I fold the changes into the `.html` and `data/career-facts.md`, then
 rebuild everything.
 
-The exception is the **ATS** file, which has always been a `.docx` and is still
-generated in code (`resumes/docx/ats.js`) — it is deliberately plain, one column
-with no tables or styling, so there is nothing to render it from.
+**The ATS file comes from HTML too** (since 2026-08-30 — you asked). Its
+plainness now lives in its own stylesheet rather than in JavaScript: one column,
+no tables, no images, and `--docx-style: Heading1` on the section headings so a
+parser gets real outline structure. The words a parser extracts are byte-for-byte
+what the hand-built version produced, and so are the page setup, the fonts, the
+bullet count and the heading count — verified, not assumed.
+
+Its `.docx` **is** the deliverable; there is no ATS PDF, so `bin/docx --check`
+does not compare its page count.
 
 ### LinkedIn and the public bio have paste sheets now
 

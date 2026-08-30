@@ -113,7 +113,7 @@ Change a fact above and these all need regenerating or editing:
 | `notes/Goals/Career/Sachin_Koli_Profile_Card.docx` | Generated from the same HTML, landscape | `bin/docx card` |
 | `notes/Goals/Career/Sachin_Koli_LinkedIn.html` → `.docx` | **Paste sheet**, not a document to send | Edit the HTML, `bin/docx linkedin` |
 | `notes/Goals/Career/Sachin_Koli_Public_Bio.html` → `.docx` | **Paste sheet**, not a document to send | Edit the HTML, `bin/docx bio` |
-| `notes/Goals/Career/Sachin_Koli_Resume_ATS.docx` | Generated | `bin/docx ats` (or the old `cd …/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx`) |
+| `notes/Goals/Career/Sachin_Koli_Resume_ATS.html` → `.docx` | Generated; the `.docx` **is** the deliverable, there is no ATS PDF | Edit the HTML, `bin/docx ats` |
 | `notes/Goals/Career/resumes/resume-recruiter.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-linkedin.md` | Master | Hand-edit |
 | `notes/Goals/Career/resumes/resume-public.md` | Master | Hand-edit |
@@ -127,6 +127,9 @@ whole sweep rather than trusting anyone to remember them all. (The count read
 `.docx` is rendered from the very same `.html` as its PDF or paste sheet, so
 `bin/docx` is one command at the end of the sweep and there is no second copy of
 any sentence to keep in step.
+
+**Every `.docx` is rendered from HTML — the ATS file too, since 2026-08-30.**
+Nothing in this set is hand-built in JavaScript any more.
 
 **Two of them are paste sheets, not documents.** `Sachin_Koli_LinkedIn` and
 `Sachin_Koli_Public_Bio` exist so he can review and correct the wording in Word;

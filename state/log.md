@@ -2,6 +2,47 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — the ATS resume comes from HTML too; nothing is hand-built now
+
+*"also add docx for the ATS resume from html."* It was the last thing still
+generated in JavaScript, on the reasoning that an ATS file is deliberately plain
+and had nothing to render from. That reasoning was thin: plainness is a
+stylesheet, not a code path.
+
+`Sachin_Koli_Resume_ATS.html` is now the source and `docx/ats.js` is deleted.
+Its stylesheet is where the constraints live — one column, no tables, no images
+— plus one new thing the others do not use.
+
+**`--docx-style: Heading1`.** A custom property the browser ignores and the
+renderer acts on, emitting a real Word heading style. It matters here: explicit
+bold 12pt text *looks* like a heading, but only a style gives a parser outline
+structure. Opt-in, because Word's built-in heading styles carry their own
+spacing and would shift the documents already checked against their PDFs.
+
+**The port was verified, not assumed.** Extracted text is byte-identical to the
+hand-built version, and so is everything a parser reads: 0 tables, 0 images, the
+same 7 heading styles, 37 bullets, Calibri only, the same three type sizes, the
+same margins and page size, the same 100 paragraphs.
+
+Also: a Word-shipped face named first in a stack is now used verbatim (Calibri
+needed that), with everything else still falling through to a metric-compatible
+substitute — checked against all five existing documents, no change.
+
+**Two things raised rather than changed:**
+
+1. The ATS file runs to **four pages with two lines on the last one**. The
+   hand-built version did the same, so it is not a regression, and a parser does
+   not care — but a human downloading it from a portal does. One CSS value would
+   pull it to three. It goes to employers, so that is his call.
+2. `bin/docx --check` now lists **any** bracketed placeholder, not just `[N]`.
+   That surfaces `Notice period: [fill in before submitting]` — deliberate, but
+   it must never be uploaded as-is.
+
+`bin/docx --check` also stopped crying wolf: documents whose HTML is a build
+source rather than a deliverable (the two paste sheets, and now the ATS file
+whose `.docx` *is* the thing that gets sent) carry a `noPdf` reason and are
+exempt from page-count comparison.
+
 ## 2026-08-30 — LinkedIn and the public bio got paste sheets
 
 *"also add docx for linkedin and public bio."* Both were deliberately excluded

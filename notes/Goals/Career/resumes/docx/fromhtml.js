@@ -25,12 +25,19 @@ const { parse } = require('node-html-parser');
 const {
   Document, Paragraph, TextRun, Table, TableRow, TableCell, ImageRun,
   AlignmentType, BorderStyle, WidthType, LevelFormat, convertInchesToTwip,
-  TabStopType, ShadingType, TableLayoutType,
+  TabStopType, ShadingType, TableLayoutType, HeadingLevel,
 } = require('docx');
 const CSS = require('./css');
 
 // Word gets a metric-compatible face for whatever the stylesheet asked for, so
 // the line breaks land in the same places as the Chromium render.
+// Faces Word ships with. If the stylesheet names one of these FIRST, use it
+// verbatim — the author picked it for Word, not for the browser. Anything else
+// falls through to a metric-compatible substitute so line breaks still land
+// where Chromium put them.
+const WORD_SAFE = new Set(['arial', 'calibri', 'cambria', 'consolas', 'courier new',
+                           'garamond', 'georgia', 'segoe ui', 'tahoma',
+                           'times new roman', 'trebuchet ms', 'verdana']);
 const FONT_MAP = [
   [/helvetica|arial|liberation sans|sans-serif/i, 'Arial'],
   [/times|georgia|serif/i, 'Times New Roman'],
@@ -55,6 +62,8 @@ const UA_DEFAULTS = {
 
 function fontFor(family) {
   if (!family) return DEFAULT_FONT;
+  const first = family.split(',')[0].trim().replace(/^["']|["']$/g, '');
+  if (WORD_SAFE.has(first.toLowerCase())) return first;
   for (const [re, name] of FONT_MAP) if (re.test(family)) return name;
   return DEFAULT_FONT;
 }
@@ -341,11 +350,20 @@ class Renderer {
       if (side === 'bottom') borderPadBot = padBot || 0;
     }
 
+    // `--docx-style: Heading1` asks for a real Word heading style. Chromium
+    // ignores the property; Word gets outline structure, and so does anything
+    // that parses the file — which is the whole point for an ATS.
+    const styleName = (css['--docx-style'] || '').trim();
+    const heading = CSS.DOCX_STYLES.has(styleName)
+      ? HeadingLevel[styleName === 'Title' ? 'TITLE' : `HEADING_${styleName.slice(-1)}`]
+      : undefined;
+
     const keepNext = /avoid/.test(css['break-after'] || css['page-break-after'] || '');
     const keepLines = /avoid/.test(css['break-inside'] || css['page-break-inside'] || '');
     const bg = CSS.toHex(css.background || css['background-color']);
 
     return {
+      heading,
       alignment: alignOf(css),
       spacing: {
         before: pt2tw((mTop || 0) + (padTop || 0) - borderPadTop),

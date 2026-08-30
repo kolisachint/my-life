@@ -28,6 +28,11 @@ const INHERITED = new Set([
   'line-height', 'letter-spacing', 'text-transform', 'text-align', 'white-space',
 ]);
 
+// Word paragraph styles a stylesheet may ask for with `--docx-style`.
+// Structure a parser can read, which explicit formatting alone does not give it.
+const DOCX_STYLES = new Set(['Heading1', 'Heading2', 'Heading3', 'Heading4',
+                             'Heading5', 'Heading6', 'Title']);
+
 // ---------------------------------------------------------------------------
 // units — everything lands in points, because Word thinks in half-points and
 // twips and both divide cleanly from pt.
@@ -105,7 +110,12 @@ function parseCss(text) {
       if (i < 0) return;
       const k = d.slice(0, i).trim().toLowerCase();
       const v = resolve(d.slice(i + 1).trim());
-      if (!k || !v || k.startsWith('--')) return;
+      // `--docx-*` custom properties are instructions to THIS renderer — the
+      // browser ignores them, so one stylesheet can carry both. Everything else
+      // beginning with `--` is a variable and was resolved above.
+      if (!k || !v) return;
+      if (k.startsWith('--docx-')) { decls[k] = v; return; }
+      if (k.startsWith('--')) return;
       if (PROPS.has(k)) decls[k] = v; else dropped.push(k);
     });
     if (selectors === '@page') { Object.assign(page, decls, { raw: m[2] }); continue; }
@@ -216,4 +226,4 @@ function pageIsLandscape(page) {
 }
 
 module.exports = { parseCss, declsFor, computed, gridColumns, pageMargins, pageIsLandscape,
-                   toPt, toHex, toBorder, PROPS, INHERITED };
+                   toPt, toHex, toBorder, PROPS, INHERITED, DOCX_STYLES };
