@@ -9,9 +9,10 @@
 #
 #   bin/docx                                   # build all six
 #   bin/docx resume | onepager | card | linkedin | bio | ats
-#   bin/docx --check                           # build, validate, and COMPARE
-#                                              #   each .docx against its PDF,
-#                                              #   page by page, as PNGs
+#   bin/docx --check                           # build, validate, check every
+#                                              #   word survived the render, and
+#                                              #   compare .docx against PDF page
+#                                              #   by page as PNGs
 #   bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx   # what HE changed
 #   bin/docx --text FILE.docx                  # what a parser (or an ATS) sees
 #
@@ -116,6 +117,10 @@ for f in "$CAREER"/*.docx; do
   extract "$f" | grep -oE '\[[^]]{1,40}\]' | sort -u | sed 's/^/   PLACEHOLDER: /' || true
 
   html="$CAREER/$base.html"
+  # Does the render still contain everything the source says? Looking at a page
+  # answers "does it look right"; only this answers "is anything missing".
+  [ -f "$html" ] && "$ROOT/bin/rendercheck" "$html" || true
+
   "$ROOT/bin/pdfcheck" "$f" --out "$OUT/$base-docx" --dpi 100 >/dev/null 2>&1 || true
   dp=$(ls "$OUT/$base-docx"/page*.png 2>/dev/null | wc -l | tr -d ' ')
   if [ -f "$html" ]; then

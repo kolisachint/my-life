@@ -55,7 +55,7 @@ Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> .pdf
 | --- | --- |
 | **`html-to-pdf`** | print CSS, page fitting, fonts, `bin/pub` / `bin/pdfcheck`, rasterise-and-look |
 | **`html-to-docx`** | the DOCX renderer, its CSS mapping, and the four bugs that each cost a page |
-| **`docx-pdf-parity`** | rendering both and comparing them, and locating a drift |
+| **`render-parity`** | rendering both and comparing them, and locating a drift |
 
 ```sh
 bin/docx                  # HTML -> all six Word copies
@@ -114,13 +114,13 @@ bin/docx --check                               # rebuild both, side by side — 
 ```
 
 Mechanics for each of those steps: `html-to-pdf`, `html-to-docx`,
-`docx-pdf-parity`.
+`render-parity`.
 
 `/resume` runs this sweep and checks all fifteen. Use it rather than remembering.
 
 ## Traps — the career-specific ones
 
-Rendering traps live in `html-to-pdf`, `html-to-docx` and `docx-pdf-parity`.
+Rendering traps live in `html-to-pdf`, `html-to-docx` and `render-parity`.
 Read those before touching a render. What is left here is about *these
 documents*.
 

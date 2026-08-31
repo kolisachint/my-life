@@ -69,7 +69,7 @@ Chromium prints it, so print rules apply:
 headings that must not strand, or a fixed-size landscape page — read the
 **`html-to-pdf`** skill. It has the print CSS that works, the page-fitting rules
 and the rasterise-and-look step. If the same file also has to become a Word
-document, that is **`html-to-docx`**, and **`docx-pdf-parity`** checks the two
+document, that is **`html-to-docx`**, and **`render-parity`** checks the two
 still agree.
 
 ## After publishing

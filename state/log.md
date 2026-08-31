@@ -2,6 +2,43 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — the check that looking cannot do
+
+*"have we documented whatever we did in skill and script... skills like html vs
+pdf comparison. html vs docx comparison."* Two questions in one, and the answer
+to the first was **partly**.
+
+**He was right about the gap.** What existed compared the two *renders* against
+each other. Nothing compared either render against the **source**. A renderer
+that meets a construct it does not understand drops it silently and the page
+still looks fine — which is exactly how the one-pager lost the prose around
+every `<strong>`, caught by chance because someone read that paragraph.
+
+`bin/rendercheck FILE.html` closes it: the source's own text against the text
+extracted from the PDF and from the DOCX, naming anything lost, exit non-zero
+when something is. It runs on every `bin/docx --check`. All six documents are at
+100%.
+
+Three things it had to get right to be worth trusting:
+
+- **Character streams with all whitespace removed.** Word-level comparison
+  produces constant false positives — Chromium extracts a letter-spaced heading
+  as separate glyphs, cells and inline spans run together in the source, line
+  breaks fall wherever each renderer put them.
+- **"Moved" is not "lost".** The one-pager's absolutely positioned numerals
+  extract in a different reading order, dropping naive alignment to 62% with
+  nothing missing. It probes for each flagged fragment elsewhere before calling
+  it gone.
+- **A negative test.** A checker nobody has seen fail is not a checker: a canary
+  sentence added to a copy of the source was reported exactly, with exit 1.
+
+**Documentation gaps closed too** — the widened placeholder listing, and the
+`padding-right` fix, neither of which had reached a skill. `docx-pdf-parity` is
+now **`render-parity`**, because it covers three comparisons rather than one.
+One skill and not three: the same tools, the same reading, and splitting would
+have duplicated the LibreOffice and drift-measuring material three ways — which
+is the thing he asked me to stop doing.
+
 ## 2026-08-30 — the ATS resume comes from HTML too; nothing is hand-built now
 
 *"also add docx for the ATS resume from html."* It was the last thing still

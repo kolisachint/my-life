@@ -202,15 +202,16 @@ title or figure. Fifteen consumers derive from that one file; it names them all.
 **Rendering is three separate skills** — read the one you need rather than
 working it out again: `html-to-pdf` (print CSS, page fitting, looking at a
 render), `html-to-docx` (the HTML → Word renderer and its CSS mapping),
-`docx-pdf-parity` (rendering both and comparing them). They are not
-career-specific; any document work uses them.
+`render-parity` (checking a render against its source, and the two renders
+against each other). They are not career-specific; any document work uses them.
 
 ```sh
 bin/portfolio        # refresh the open-source inventory (his AI evidence)
 bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
 bin/docx             # HTML -> the six editable Word copies (same source as the PDFs)
-bin/docx --check     # ...renders both and writes side-by-side PNGs — look at them
+bin/docx --check     # validate + prove nothing was lost + side-by-side PNGs — LOOK
 bin/docx --diff FILE # ...and see what he changed after he has been through one
+bin/rendercheck FILE.html   # did every word survive into the PDF and the DOCX?
 ```
 
 `/resume` runs the whole sweep. Two rules that are not optional:
@@ -249,6 +250,7 @@ bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
 bin/pdfcheck         PDF/HTML/DOCX -> page PNGs, so a render can be looked at
 bin/docx             HTML -> the editable Word copies (+ --check, --diff)
+bin/rendercheck      source HTML vs its renders — is anything MISSING?
 bin/portfolio        public repos -> notes/Goals/Career/portfolio.md
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
@@ -259,7 +261,7 @@ memory/learned.txt   append-only facts
 .claude/skills/career-docs/   resumes, profile card, bios — read before editing any
 .claude/skills/html-to-pdf/   print CSS, page fitting, rasterise-and-look
 .claude/skills/html-to-docx/  the HTML -> Word renderer and its CSS mapping
-.claude/skills/docx-pdf-parity/  render both, compare side by side, find the drift
+.claude/skills/render-parity/ HTML vs PDF, HTML vs DOCX, PDF vs DOCX — all three
 state/decisions.md   settled answers + open questions
 state/log.md         session log
 .claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`

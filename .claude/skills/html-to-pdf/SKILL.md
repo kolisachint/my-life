@@ -16,7 +16,12 @@ bin/pdfcheck FILE.html          # render, then rasterise to page PNGs
 bin/pdfcheck FILE.pdf --dpi 150 --out /tmp/look
 ```
 
-## The non-negotiable step
+## The two checks, and why one is not enough
+
+```sh
+bin/pdfcheck FILE.html                    # render, rasterise, then READ the PNGs
+bin/rendercheck FILE.html --pdf-only      # did every word survive the render?
+```
 
 **Rasterise the result and Read the PNGs. Every time.**
 
@@ -26,6 +31,12 @@ HTML**. On 2026-08-29 a resume looked perfect in source and came out three pages
 with the last nearly empty, an orphaned `TECHNICAL` heading and half a page of
 gap. Every layout defect ever found in this repo was found by looking, and none
 of them any other way.
+
+**And looking still cannot tell you what is MISSING.** A dropped block leaves a
+page that looks fine. `bin/rendercheck` compares the source's own text against
+the text extracted from the render and names anything lost; it exits non-zero
+when something is. Run both — they answer different questions. Details in
+`render-parity`.
 
 ## Print CSS that behaves
 
@@ -81,5 +92,5 @@ the figure.
 ## When the same HTML also has to become a Word file
 
 That is a separate skill: **`html-to-docx`**. Both renderers read the same
-`.html`, so print CSS choices show up in both — and **`docx-pdf-parity`** is how
+`.html`, so print CSS choices show up in both — and **`render-parity`** is how
 to check they still agree.

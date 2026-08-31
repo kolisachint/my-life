@@ -124,8 +124,18 @@ XML into the extracted text. The negative lookbehind is load-bearing.
 1. Add the property to `PROPS` in `css.js` (and to `INHERITED` if CSS inherits it).
 2. Handle it in `runFrom` (a run property) or `paraProps` (a paragraph property),
    or in `block`/`grid`/`table` if it changes structure.
-3. Rebuild, then **`bin/docx --check` and look at the side-by-side PNGs** —
-   see the `docx-pdf-parity` skill. Never judge a `.docx` from its XML.
+3. **Do both sides of a box property.** `padding-left` was mapped to a left
+   indent and `padding-right` to nothing, so text ran out past the right edge of
+   every tinted panel. Whatever you add, ask what its mirror does.
+4. Rebuild, then **`bin/docx --check`**: it validates the file, runs
+   `bin/rendercheck` to prove no text was lost, and writes side-by-side PNGs
+   against the PDF. Read them — never judge a `.docx` from its XML. See
+   `render-parity`.
+
+**A construct the renderer does not understand is dropped silently.** That is
+the failure mode to fear, not a wrong margin: the one-pager lost the prose
+around every `<strong>` and the page still looked plausible. `bin/rendercheck`
+exists for exactly this, and runs on every `--check`.
 
 ## The rule for humans editing the output
 
