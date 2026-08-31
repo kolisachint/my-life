@@ -11,12 +11,14 @@ payments.** Payments is a domain credential, not the identity.
 
 Built 2026-08-29. These live one level up, in `notes/Goals/Career/`:
 
-| Send this | Format | To whom |
-| --- | --- | --- |
-| **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** |
-| **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases |
-| **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager |
-| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone |
+| Send this | Format | To whom | Editable twin |
+| --- | --- | --- | --- |
+| **`Sachin_Koli_Resume.pdf`** | PDF, 2 pages | Recruiters and hiring managers — **the main one** | `Sachin_Koli_Resume.docx` |
+| **`Sachin_Koli_Resume_ATS.docx`** | DOCX, plain | Naukri, Workday, Easy Apply, agency databases | *is the .docx* |
+| **`Sachin_Koli_OnePager.pdf`** | PDF, 1 page | A friend forwarding you to a hiring manager | `Sachin_Koli_OnePager.docx` |
+| **`Sachin_Koli_Profile_Card.pdf`** / `.png` | Visual, **A4 landscape**, 1 page | TCS/client staffing decks · LinkedIn Featured image · your site · handing to someone | `Sachin_Koli_Profile_Card.docx` |
+| *(nothing to send)* | Paste sheet | LinkedIn fields — review the wording in Word, paste the blocks | `Sachin_Koli_LinkedIn.docx` |
+| *(nothing to send)* | Paste sheet | Your site, speaker bios, award entries | `Sachin_Koli_Public_Bio.docx` |
 
 The `.html` beside each PDF is the source — edit it and re-run:
 
@@ -24,10 +26,76 @@ The `.html` beside each PDF is the source — edit it and re-run:
 bin/pub notes/Goals/Career/Sachin_Koli_Resume.html --project Goals --section Career --repo --pdf
 ```
 
-The ATS `.docx` is generated from `resumes/build_ats.js` (`node build_ats.js out.docx`).
+## Every document also has a Word version — built from the same HTML
 
-**LinkedIn and the public bio are not documents** — they are text you paste into
-fields on a website. They stay as Markdown below; there is nothing to render.
+Added 2026-08-30. **Each rendered document has a `.docx` twin that looks like the
+PDF**, because both come from the same file:
+
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> Sachin_Koli_Resume.pdf
+                          └── resumes/docx/fromhtml.js ─> Sachin_Koli_Resume.docx
+```
+
+Open the `.docx` in Word or Google Docs, fix a line, hand it back.
+
+```sh
+bin/docx                    # rebuild all six .docx from the HTML
+bin/docx resume             # one of: resume | onepager | card | linkedin | bio | ats
+bin/docx --check            # build, validate, render BOTH, side-by-side PNGs
+bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx    # what YOU changed
+```
+
+**Send the PDF. Edit the DOCX.** Your Word edits do not flow back on their own —
+that is what `--diff` is for: it rebuilds from the HTML into a temp file,
+compares your copy against it, and prints exactly the lines you rewrote. Hand me
+that and I fold the changes into the `.html` and `data/career-facts.md`, then
+rebuild everything.
+
+**The ATS file comes from HTML too** (since 2026-08-30 — you asked). Its
+plainness now lives in its own stylesheet rather than in JavaScript: one column,
+no tables, no images, and `--docx-style: Heading1` on the section headings so a
+parser gets real outline structure. The words a parser extracts are byte-for-byte
+what the hand-built version produced, and so are the page setup, the fonts, the
+bullet count and the heading count — verified, not assumed.
+
+Its `.docx` **is** the deliverable; there is no ATS PDF, so `bin/docx --check`
+does not compare its page count.
+
+### LinkedIn and the public bio have paste sheets now
+
+Added 2026-08-30 at your request. `Sachin_Koli_LinkedIn.docx` and
+`Sachin_Koli_Public_Bio.docx` lay every field out with its label, its character
+or word count, and the exact block to copy.
+
+**They are not documents to send.** The words still go into fields on
+linkedin.com or onto your site — each file carries a banner saying so. Two
+consequences: their page count is deliberately not compared against the PDF
+(`bin/docx --check` prints "paste sheet" instead), because Chromium and Word
+pick different monospace faces and the same words wrap differently; and **no
+client may ever be named in either**, since both are public surfaces.
+
+Corrected while building them: the headline is **205 characters**, not the 197
+this file used to claim — still under LinkedIn's 220. The short and medium bios
+run 62 and 162 words against their ~50 and ~150 slots, which is fine, but the
+labels now say so.
+
+### How close is close?
+
+Checked by rendering both and putting the pages side by side. The resume is two
+pages in both, breaking at the same place, with the same line wrapping. The
+one-pager and the profile card are one page each. `bin/docx --check` regenerates
+those comparison images any time you want to see for yourself.
+
+The renderer (`resumes/docx/fromhtml.js`, with `docx/css.js` reading the
+stylesheet) handles what these documents actually use: `@page` margins and
+landscape, fonts and colours, `line-height`, margin collapsing, borders and
+backgrounds, `break-after: avoid`, justified text, flex rows, **CSS grid** as
+Word tables, lists, and images with borders. It is not a browser — run
+`bin/docx --verbose` and it names every CSS property it could not map.
+
+**LinkedIn and the public bio are still not documents** — they are text you paste
+into fields on a website. The Markdown below stays the master; the paste sheets
+above are for reviewing the wording, not for sending.
 
 ### On the visual card — is that format any good?
 

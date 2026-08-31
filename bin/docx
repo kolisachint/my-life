@@ -1,0 +1,165 @@
+#!/bin/sh
+# docx - build the editable Word copies of the career documents from the SAME
+#        HTML the PDFs are printed from, and prove they still look alike.
+#
+#        Six documents: the resume, the referral one-pager and the profile card
+#        (each a .docx twin of a PDF), the LinkedIn and public-bio PASTE SHEETS
+#        (whose words go into fields on a website, not into a file anyone
+#        sends), and the ATS file.
+#
+#   bin/docx                                   # build all six
+#   bin/docx resume | onepager | card | linkedin | bio | ats
+#   bin/docx --check                           # build, validate, check every
+#                                              #   word survived the render, and
+#                                              #   compare .docx against PDF page
+#                                              #   by page as PNGs
+#   bin/docx --diff notes/Goals/Career/Sachin_Koli_Resume.docx   # what HE changed
+#   bin/docx --text FILE.docx                  # what a parser (or an ATS) sees
+#
+# One source, two renderers: Chromium prints the .html to PDF, and
+# resumes/docx/fromhtml.js reads the same .html and its stylesheet to write the
+# .docx. Edit the HTML and both follow. The ATS file is the exception — it is
+# deliberately plain, so it has no HTML twin and is still built in code.
+#
+# --diff exists because his Word edits do NOT flow back on their own: it
+# rebuilds from source into a temp file and diffs his copy against it, so a
+# session can see exactly what he rewrote, fold it into the HTML and
+# data/career-facts.md, and rebuild.
+set -e
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+BUILD="$ROOT/notes/Goals/Career/resumes"
+CAREER="$ROOT/notes/Goals/Career"
+
+extract() {   # FILE -> one line of text per paragraph, in order
+  python3 - "$1" <<'XML'
+import html, re, signal, sys, zipfile
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)   # `| head` should not traceback
+# <w:t> only. The negative lookbehind is load-bearing: without it <w:tab .../>
+# also matches "<w:t[^>]*>", and the extraction spews raw XML into the text.
+TEXT = re.compile(r'<w:t(?:\s[^>]*)?(?<!/)>(.*?)</w:t>', re.S)
+xml = zipfile.ZipFile(sys.argv[1]).read('word/document.xml').decode('utf-8')
+for para in re.findall(r'<w:p[ >].*?</w:p>|<w:p/>', xml, re.S):
+    print(html.unescape(''.join(TEXT.findall(para))))
+XML
+}
+
+case "$1" in
+  -h|--help) sed -n '2,22p' "$0"; exit 0 ;;
+
+  --text)
+    [ -n "$2" ] || { echo "docx: --text needs a file" >&2; exit 2; }
+    extract "$2"; exit 0 ;;
+
+  --diff)
+    FILE="$2"
+    [ -f "$FILE" ] || { echo "docx: no such file: $FILE" >&2; exit 2; }
+    case $(basename "$FILE") in
+      Sachin_Koli_Resume.docx)       WHICH=resume ;;
+      Sachin_Koli_OnePager.docx)     WHICH=onepager ;;
+      Sachin_Koli_Profile_Card.docx) WHICH=card ;;
+      Sachin_Koli_LinkedIn.docx)     WHICH=linkedin ;;
+      Sachin_Koli_Public_Bio.docx)   WHICH=bio ;;
+      Sachin_Koli_Resume_ATS.docx)   WHICH=ats ;;
+      *) echo "docx: $FILE is not one of the generated documents" >&2; exit 2 ;;
+    esac
+    TMP="${TMPDIR:-/tmp}/docxdiff.$$"; mkdir -p "$TMP"
+    trap 'rm -rf "$TMP"' EXIT
+    ( cd "$BUILD" && node build_docx.js "$WHICH" "$TMP" >/dev/null )
+    extract "$TMP/$(basename "$FILE")" > "$TMP/generated.txt"
+    extract "$FILE" > "$TMP/his.txt"
+    if diff -q "$TMP/generated.txt" "$TMP/his.txt" >/dev/null; then
+      echo "no edits — $(basename "$FILE") matches what the source generates"
+    else
+      echo "HIS EDITS  (- generated, + his copy)"
+      echo "fold these into the .html and data/career-facts.md, then rebuild."
+      echo
+      diff -u "$TMP/generated.txt" "$TMP/his.txt" | tail -n +3
+    fi
+    exit 0 ;;
+esac
+
+CHECK=""
+WHICH="all"
+for a in "$@"; do
+  case "$a" in
+    --check) CHECK=1 ;;
+    --verbose) VERBOSE=--verbose ;;
+    -*) echo "docx: unknown flag $a" >&2; exit 2 ;;
+    *) WHICH="$a" ;;
+  esac
+done
+
+[ -d "$BUILD/node_modules/docx" ] || ( cd "$BUILD" && npm install --silent --no-audit --no-fund )
+( cd "$BUILD" && node build_docx.js "$WHICH" "$CAREER" $VERBOSE )
+
+[ -n "$CHECK" ] || exit 0
+
+# ---- the comparison -------------------------------------------------------
+# A .docx cannot be trusted from its XML any more than a PDF can from its HTML.
+# Render both sides and put the pages side by side, then LOOK at them.
+OUT="${TMPDIR:-/tmp}/docxcheck"
+rm -rf "$OUT"; mkdir -p "$OUT"
+VALIDATE=/mnt/skills/public/docx/scripts/office/validate.py
+
+NO_PDF=$(cd "$BUILD" && node build_docx.js --no-pdf-compare)
+
+for f in "$CAREER"/*.docx; do
+  base=$(basename "$f" .docx)
+  echo
+  echo "== $base"
+  if [ -f "$VALIDATE" ]; then
+    python3 "$VALIDATE" "$f" 2>&1 | grep -E "PASSED|FAILED|error" | head -3
+  fi
+  echo "   paragraphs: $(extract "$f" | wc -l | tr -d ' ')"
+  # Anything still in brackets: the [N] figures he has not supplied, and the
+  # "[fill in before submitting]" prompt on the ATS file, which is deliberate
+  # but must not be uploaded as-is.
+  extract "$f" | grep -oE '\[[^]]{1,40}\]' | sort -u | sed 's/^/   PLACEHOLDER: /' || true
+
+  html="$CAREER/$base.html"
+  # Does the render still contain everything the source says? Looking at a page
+  # answers "does it look right"; only this answers "is anything missing".
+  [ -f "$html" ] && "$ROOT/bin/rendercheck" "$html" || true
+
+  "$ROOT/bin/pdfcheck" "$f" --out "$OUT/$base-docx" --dpi 100 >/dev/null 2>&1 || true
+  dp=$(ls "$OUT/$base-docx"/page*.png 2>/dev/null | wc -l | tr -d ' ')
+  if [ -f "$html" ]; then
+    "$ROOT/bin/pdfcheck" "$html" --out "$OUT/$base-pdf" --dpi 100 >/dev/null 2>&1 || true
+    pp=$(ls "$OUT/$base-pdf"/page*.png 2>/dev/null | wc -l | tr -d ' ')
+    # Some HTML here is a build source rather than a deliverable — a paste
+    # sheet, or the ATS file whose .docx IS the thing that gets sent. Nothing is
+    # printed from those, so a page-count difference is not a defect.
+    why=$(printf '%s\n' "$NO_PDF" | awk -F'\t' -v n="$(basename "$f")" '$1==n {print $2}')
+    if [ -n "$why" ]; then
+      echo "   pages: docx $dp · pdf $pp   (not compared — $why)"
+    else
+      echo "   pages: docx $dp · pdf $pp$( [ "$dp" = "$pp" ] || echo '   <-- MISMATCH' )"
+    fi
+    python3 - "$OUT/$base-pdf" "$OUT/$base-docx" "$OUT/$base-side" <<'PY'
+import os, sys
+try:
+    from PIL import Image
+except ImportError:
+    sys.exit(0)
+pdf, docx, out = sys.argv[1:4]
+os.makedirs(out, exist_ok=True)
+n = 1
+while os.path.exists(f'{pdf}/page{n}.png') or os.path.exists(f'{docx}/page{n}.png'):
+    tiles = [Image.open(f'{d}/page{n}.png') for d in (pdf, docx) if os.path.exists(f'{d}/page{n}.png')]
+    w = sum(t.width for t in tiles) + 10 * (len(tiles) + 1)
+    h = max(t.height for t in tiles) + 20
+    sheet = Image.new('RGB', (w, h), '#dddddd')
+    x = 10
+    for t in tiles:
+        sheet.paste(t, (x, 10)); x += t.width + 10
+    sheet.save(f'{out}/page{n}.png')
+    print(f'   side-by-side: {out}/page{n}.png   (left PDF, right DOCX)')
+    n += 1
+PY
+  else
+    echo "   pages: docx $dp   (no HTML twin — built in code)"
+  fi
+done
+echo
+echo "Now READ the side-by-side PNGs. Page count agreeing is not the same as"
+echo "the two documents looking alike."

@@ -65,6 +65,13 @@ Chromium prints it, so print rules apply:
 - Fully self-contained — inline CSS, no external stylesheets, no remote images,
   no CDN fonts. It renders from a `file://` URL with no network.
 
+**For anything denser than a one-page report** — a document with a page budget,
+headings that must not strand, or a fixed-size landscape page — read the
+**`html-to-pdf`** skill. It has the print CSS that works, the page-fitting rules
+and the rasterise-and-look step. If the same file also has to become a Word
+document, that is **`html-to-docx`**, and **`render-parity`** checks the two
+still agree.
+
 ## After publishing
 
 Print the share link in your reply — that is what Sachin actually wants. If the

@@ -3,6 +3,7 @@
 #
 #   bin/pdfcheck notes/Goals/Career/Sachin_Koli_Resume.pdf
 #   bin/pdfcheck notes/Goals/Career/Sachin_Koli_Resume.html      # renders, then rasterises
+#   bin/pdfcheck notes/Goals/Career/Sachin_Koli_Resume.docx      # via LibreOffice
 #   bin/pdfcheck out.pdf --dpi 150 --out /tmp/look
 #
 # Prints the page count and the PNG paths. Read the PNGs — do not skip this.
@@ -54,8 +55,18 @@ case "$EXT" in
     [ -s "$PDF" ] || { echo "pdfcheck: render produced nothing" >&2; exit 3; }
     echo "rendered  $PDF"
     ;;
+  docx)
+    # LibreOffice renders it the way Word does, near enough to review layout.
+    command -v soffice >/dev/null 2>&1 || {
+      echo "pdfcheck: no soffice — install libreoffice-writer (bin/setup does)" >&2; exit 3; }
+    PDF="$OUT/$STEM.pdf"
+    soffice --headless -env:UserInstallation=file:///tmp/pdfcheck-lo \
+            --convert-to pdf --outdir "$OUT" "$SRC" >/dev/null 2>&1 || true
+    [ -s "$PDF" ] || { echo "pdfcheck: soffice produced nothing" >&2; exit 3; }
+    echo "converted $PDF"
+    ;;
   pdf) ;;
-  *) echo "pdfcheck: need a .pdf or .html, got .$EXT" >&2; exit 2 ;;
+  *) echo "pdfcheck: need a .pdf, .html or .docx, got .$EXT" >&2; exit 2 ;;
 esac
 
 python3 - "$PDF" "$OUT" "$DPI" <<'PY'

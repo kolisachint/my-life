@@ -2,6 +2,185 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-08-30 — the check that looking cannot do
+
+*"have we documented whatever we did in skill and script... skills like html vs
+pdf comparison. html vs docx comparison."* Two questions in one, and the answer
+to the first was **partly**.
+
+**He was right about the gap.** What existed compared the two *renders* against
+each other. Nothing compared either render against the **source**. A renderer
+that meets a construct it does not understand drops it silently and the page
+still looks fine — which is exactly how the one-pager lost the prose around
+every `<strong>`, caught by chance because someone read that paragraph.
+
+`bin/rendercheck FILE.html` closes it: the source's own text against the text
+extracted from the PDF and from the DOCX, naming anything lost, exit non-zero
+when something is. It runs on every `bin/docx --check`. All six documents are at
+100%.
+
+Three things it had to get right to be worth trusting:
+
+- **Character streams with all whitespace removed.** Word-level comparison
+  produces constant false positives — Chromium extracts a letter-spaced heading
+  as separate glyphs, cells and inline spans run together in the source, line
+  breaks fall wherever each renderer put them.
+- **"Moved" is not "lost".** The one-pager's absolutely positioned numerals
+  extract in a different reading order, dropping naive alignment to 62% with
+  nothing missing. It probes for each flagged fragment elsewhere before calling
+  it gone.
+- **A negative test.** A checker nobody has seen fail is not a checker: a canary
+  sentence added to a copy of the source was reported exactly, with exit 1.
+
+**Documentation gaps closed too** — the widened placeholder listing, and the
+`padding-right` fix, neither of which had reached a skill. `docx-pdf-parity` is
+now **`render-parity`**, because it covers three comparisons rather than one.
+One skill and not three: the same tools, the same reading, and splitting would
+have duplicated the LibreOffice and drift-measuring material three ways — which
+is the thing he asked me to stop doing.
+
+## 2026-08-30 — the ATS resume comes from HTML too; nothing is hand-built now
+
+*"also add docx for the ATS resume from html."* It was the last thing still
+generated in JavaScript, on the reasoning that an ATS file is deliberately plain
+and had nothing to render from. That reasoning was thin: plainness is a
+stylesheet, not a code path.
+
+`Sachin_Koli_Resume_ATS.html` is now the source and `docx/ats.js` is deleted.
+Its stylesheet is where the constraints live — one column, no tables, no images
+— plus one new thing the others do not use.
+
+**`--docx-style: Heading1`.** A custom property the browser ignores and the
+renderer acts on, emitting a real Word heading style. It matters here: explicit
+bold 12pt text *looks* like a heading, but only a style gives a parser outline
+structure. Opt-in, because Word's built-in heading styles carry their own
+spacing and would shift the documents already checked against their PDFs.
+
+**The port was verified, not assumed.** Extracted text is byte-identical to the
+hand-built version, and so is everything a parser reads: 0 tables, 0 images, the
+same 7 heading styles, 37 bullets, Calibri only, the same three type sizes, the
+same margins and page size, the same 100 paragraphs.
+
+Also: a Word-shipped face named first in a stack is now used verbatim (Calibri
+needed that), with everything else still falling through to a metric-compatible
+substitute — checked against all five existing documents, no change.
+
+**Two things raised rather than changed:**
+
+1. The ATS file runs to **four pages with two lines on the last one**. The
+   hand-built version did the same, so it is not a regression, and a parser does
+   not care — but a human downloading it from a portal does. One CSS value would
+   pull it to three. It goes to employers, so that is his call.
+2. `bin/docx --check` now lists **any** bracketed placeholder, not just `[N]`.
+   That surfaces `Notice period: [fill in before submitting]` — deliberate, but
+   it must never be uploaded as-is.
+
+`bin/docx --check` also stopped crying wolf: documents whose HTML is a build
+source rather than a deliverable (the two paste sheets, and now the ATS file
+whose `.docx` *is* the thing that gets sent) carry a `noPdf` reason and are
+exempt from page-count comparison.
+
+## 2026-08-30 — LinkedIn and the public bio got paste sheets
+
+*"also add docx for linkedin and public bio."* Both were deliberately excluded
+before, on the grounds that they are text you paste into fields rather than
+documents — and that is still true. But reviewing and correcting copy is the
+same job whatever the destination, and Word is where he does it.
+
+So they are **paste sheets**, not documents. Each field gets a label, its
+character or word count, and the exact block to copy, behind a banner saying the
+file is never sent. `bin/docx linkedin`, `bin/docx bio`. The Markdown masters
+stay the source of the words.
+
+Two consequences worth writing down:
+
+- **Their page count is not compared.** Chromium has DejaVu Sans Mono and Word
+  has Consolas, so identical words wrap differently — the LinkedIn sheet is 3
+  pages as a `.docx` against 4 as a PDF. Nobody prints a paste sheet.
+  `build_docx.js` marks them `paste: true` and `bin/docx --check` says so
+  instead of flagging a mismatch. Changing the font to force agreement would be
+  the wrong fix.
+- **No client may ever be named in either.** I drafted the LinkedIn banner
+  listing the five clients as the *reason* for the rule, and had to strip it: a
+  public-surface document that lists the clients defeats its own point.
+
+One real renderer bug fell out of it — `padding-right` was not becoming a right
+indent, so text ran past the right edge of every tinted panel.
+
+**Counts corrected while in there.** The manifest said "twelve documents" while
+its own table already listed thirteen rows; with the two sheets it is fifteen,
+and counted. The LinkedIn headline is **205 characters**, not the 197 the master
+claimed — still inside the 220 limit, so nothing to change but the number. The
+short and medium bios run 62 and 162 words against their ~50 and ~150 slots,
+which is fine; the labels now say so rather than implying precision.
+
+## 2026-08-30 — the rendering knowledge is three skills now
+
+He read the last change and said it plainly: *"i sense 3 skills. html to pdf.
+html to docx. pdf vs docs comparison. add them so you dont reinvent the same
+again."* Right — all of it was sitting inside `career-docs`, which is about his
+career, not about rendering documents.
+
+| Skill | Owns |
+| --- | --- |
+| **`html-to-pdf`** | print CSS that behaves, page fitting, fonts and images from `file://`, and the rasterise-and-look step |
+| **`html-to-docx`** | the HTML → Word renderer, the full CSS→Word mapping table, the four bugs that each cost a page, and how to extend it |
+| **`docx-pdf-parity`** | rendering both sides, comparing them, locating a vertical drift, and the `libreoffice-writer` misdiagnosis |
+
+`career-docs` now points at them and keeps only what is career-specific — the
+twelve documents, the confidentiality rule, the positioning, his landscape-card
+call. It dropped from 214 lines to 154. `artifact-publish` and `AGENTS.md` point
+at them too, because none of this is career-specific: any document work uses it.
+
+## 2026-08-30 — one HTML, two renderers: the Word copies now match the PDFs
+
+He asked for editable copies (*"in resume or job profile also have docx version
+so that i can review and update"*), got them, and then said the thing that
+mattered: *"pdf looks structuring perfect. so docx should look same. so workflow
+can be html to pdf and html to docx"*.
+
+**He was right, and the first version was wrong.** It hand-wrote the Word content
+in JavaScript beside the HTML — two copies of every sentence, guaranteed to
+drift, and it did not look like the PDF. Now:
+
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> .pdf
+                          └── resumes/docx/fromhtml.js ─> .docx
+```
+
+`docx/css.js` reads the stylesheet (selectors, descendant combinators,
+inheritance, `var()`, `@page`) and `docx/fromhtml.js` walks the DOM with it,
+mapping `line-height`, margins with **collapsing**, borders, backgrounds,
+`break-after: avoid`, justified text, flex rows, **CSS grid as Word tables**,
+lists, and images. `--verbose` names every property it could not map, so nothing
+slips past unseen. The ATS file stays code-built: it is deliberately plain and
+has no HTML twin.
+
+**First, the blocker that turned out not to be one.** Two sessions had recorded
+"LibreOffice is broken here, do not debug it". It was not broken —
+`libreoffice-core` was installed **without `libreoffice-writer`**, so nothing
+could load a text document, including a plain `.txt`. One `apt-get install`
+fixed it, `bin/setup` now does it, and `make doctor` reports it. That unlocked
+everything: a `.docx` can be rasterised and **looked at**.
+
+**Then four bugs, each worth a page.**
+
+| Bug | Effect |
+| --- | --- |
+| `line-height` mapped to Word's `auto` rule | ~15% taller lines — a 2-page resume became 3 |
+| margins added instead of **collapsed** | every gap too big |
+| cell padding and borders counted twice | the skills table grew a page; the card's columns opened a 6.5mm gap under each heading |
+| exact line spacing on an image paragraph | the headshot rendered as a squashed strip |
+
+**Verified by looking, not by guessing.** `bin/pdfcheck` now accepts a `.docx`,
+and `bin/docx --check` renders both sides and writes side-by-side page PNGs.
+Resume: two pages both, same break, same wrapping. One-pager: one page both.
+Profile card: one page both, headshot, proof strip and all three columns intact.
+
+One change to the shared source: `break-after: avoid` on `.role-sub` in the
+resume HTML, so an employer heading cannot strand at the foot of a page. It
+improves both renders.
+
 ## 2026-08-29 — the profile card is landscape now
 
 His call, and it is right: a glance artefact should be the shape of the screen or

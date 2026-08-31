@@ -1,0 +1,171 @@
+#!/bin/sh
+# rendercheck - does every word in the SOURCE survive into its renders?
+#
+#   bin/rendercheck notes/Goals/Career/Sachin_Koli_Resume.html
+#   bin/rendercheck FILE.html --pdf-only | --docx-only
+#
+# bin/pdfcheck answers "does it LOOK right". This answers the other question,
+# the one looking cannot: "is anything MISSING". A renderer that meets a
+# construct it does not understand drops it silently — the one-pager lost the
+# prose around every <strong> that way, and it was only visible because someone
+# happened to read that paragraph in the render.
+#
+# It compares word multisets, not layout: every word in the HTML body should
+# appear, the same number of times, in the extracted text of the PDF and of the
+# DOCX. Words the render has and the source does not are reported too — that is
+# duplication, which is how a marker glyph or a repeated heading shows up.
+set -e
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+
+SRC=""; WANT_PDF=1; WANT_DOCX=1
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --pdf-only)  WANT_DOCX=0 ;;
+    --docx-only) WANT_PDF=0 ;;
+    -h|--help) sed -n '2,17p' "$0"; exit 0 ;;
+    -*) echo "rendercheck: unknown flag $1" >&2; exit 2 ;;
+    *)  SRC="$1" ;;
+  esac
+  shift
+done
+[ -n "$SRC" ] || { echo "rendercheck: no HTML given. try --help" >&2; exit 2; }
+[ -f "$SRC" ] || { echo "rendercheck: no such file: $SRC" >&2; exit 2; }
+
+DIR=$(cd "$(dirname "$SRC")" && pwd)
+STEM=$(basename "$SRC"); STEM=${STEM%.*}
+OUT="${TMPDIR:-/tmp}/rendercheck/$STEM"
+rm -rf "$OUT"; mkdir -p "$OUT"
+
+# --- the source's own words ------------------------------------------------
+python3 - "$SRC" > "$OUT/source.txt" <<'PY'
+import sys
+from html.parser import HTMLParser
+
+# Container tags only. A void element like <meta> has no closing tag, so
+# counting it here would leave the skip depth stuck above zero and silently
+# swallow the entire document.
+SKIP = {'style', 'script', 'title'}
+# Boundaries between blocks and table cells separate words; boundaries around
+# inline tags do not — splitting there would break `github.com/<b>name</b>`.
+INLINE = {'b', 'strong', 'i', 'em', 'span', 'a', 'code', 'small', 'sub', 'sup', 'u'}
+
+class Text(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.skip = 0
+        self.out = []
+    def handle_starttag(self, tag, attrs):
+        if tag in SKIP:
+            self.skip += 1
+        elif tag not in INLINE:
+            self.out.append(' ')      # a cell or block boundary is a word break
+    def handle_endtag(self, tag):
+        if tag in SKIP and self.skip:
+            self.skip -= 1
+        elif tag not in INLINE:
+            self.out.append(' ')
+    def handle_data(self, data):
+        if not self.skip:
+            self.out.append(data)
+
+p = Text()
+p.feed(open(sys.argv[1], encoding='utf-8').read())
+print(' '.join(''.join(p.out).split()))
+PY
+
+# --- what each render actually contains ------------------------------------
+if [ "$WANT_DOCX" = 1 ] && [ -f "$DIR/$STEM.docx" ]; then
+  "$ROOT/bin/docx" --text "$DIR/$STEM.docx" > "$OUT/docx.txt"
+fi
+if [ "$WANT_PDF" = 1 ]; then
+  "$ROOT/bin/pdfcheck" "$SRC" --out "$OUT/render" >/dev/null 2>&1 || true
+  [ -f "$OUT/render/$STEM.pdf" ] && python3 - "$OUT/render/$STEM.pdf" > "$OUT/pdf.txt" <<'PY'
+import sys
+try:
+    import pymupdf
+except ImportError:
+    import fitz as pymupdf
+doc = pymupdf.open(sys.argv[1])
+print(' '.join(' '.join(page.get_text() for page in doc).split()))
+PY
+fi
+
+# --- compare ---------------------------------------------------------------
+python3 - "$OUT" <<'CMP'
+import difflib, os, re, sys
+
+out = sys.argv[1]
+
+def stream(path):
+    """Everything the document says, as one lowercase character stream.
+
+    Whitespace is removed entirely rather than normalised. That is the point:
+    the two sides disagree about it constantly and none of it matters here.
+    Chromium extracts a letter-spaced heading as separate glyphs ("W H A T"),
+    adjacent table cells and inline spans join up in the source, and a line
+    break lands wherever the renderer put it. Strip it all and what remains is
+    the only question worth asking - are the same characters present, in the
+    same order?
+    """
+    if not os.path.exists(path):
+        return None
+    text = open(path, encoding='utf-8').read().lower()
+    text = text.replace('\u00ad', '')                       # soft hyphen
+    text = re.sub(r'[\u2010-\u2015\u2212-]', '-', text)     # every dash is a dash
+    text = re.sub(r'[\u2018\u2019]', "'", text)
+    text = re.sub(r'[\u201c\u201d]', '"', text)
+    text = re.sub(r'[\u00b7\u2022]', '', text)              # bullets and middots
+    return re.sub(r'\s+', '', text)
+
+def readable(fragment, limit=60):
+    f = fragment.strip()
+    return (f[:limit] + '...') if len(f) > limit else f
+
+src = stream(f'{out}/source.txt')
+if not src:
+    sys.exit('rendercheck: the source produced no text')
+
+worst = 0
+for label, path in (('docx', f'{out}/docx.txt'), ('pdf', f'{out}/pdf.txt')):
+    got = stream(path)
+    if got is None:
+        print(f'   {label:<4} not rendered - skipped')
+        continue
+    sm = difflib.SequenceMatcher(None, src, got, autojunk=False)
+    matched = sum(b.size for b in sm.get_matching_blocks())
+    pct = 100.0 * matched / len(src)
+    print(f'   {label:<4} aligned  {pct:6.2f}%   {matched}/{len(src)} characters')
+    # A block can be PRESENT but extracted in a different order - an absolutely
+    # positioned marker, or a multi-column page read column by column. That is
+    # not a loss, and reporting it as one would train everybody to ignore this
+    # tool. Probe inside each flagged fragment: if the text turns up anywhere in
+    # the render, it moved.
+    lost_chars, moved = 0, 0
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag not in ('delete', 'replace') or (i2 - i1) < 3:
+            continue
+        frag = src[i1:i2]
+        probes = [frag[k:k + 30] for k in (3, len(frag) // 2, max(0, len(frag) - 33))
+                  if len(frag[k:k + 30]) >= 12] or [frag]
+        if any(pr in got for pr in probes):
+            moved += 1
+            continue
+        lost_chars += i2 - i1
+        print(f'        MISSING from the {label}: "{readable(frag)}"')
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag not in ('insert', 'replace') or (j2 - j1) < 3:
+            continue
+        frag = got[j1:j2]
+        probes = [frag[k:k + 30] for k in (3, len(frag) // 2, max(0, len(frag) - 33))
+                  if len(frag[k:k + 30]) >= 12] or [frag]
+        if any(pr in src for pr in probes):
+            continue                      # the same moved block, seen from the other side
+        print(f'        only in the {label}:      "{readable(frag)}"')
+    if lost_chars:
+        print(f'        {label} is MISSING {lost_chars} characters of the source')
+    elif moved:
+        print(f'        (all present; {moved} block(s) extract in a different '
+              f'reading order - normal for absolute positioning or columns)')
+    worst = max(worst, lost_chars)
+sys.exit(1 if worst else 0)
+CMP

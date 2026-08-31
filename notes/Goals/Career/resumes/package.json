@@ -1,0 +1,13 @@
+{
+  "name": "career-docx",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Renders Sachin's career HTML to editable Word (.docx) \u2014 the same source Chromium prints to PDF.",
+  "scripts": {
+    "build": "node build_docx.js all"
+  },
+  "dependencies": {
+    "docx": "^9.0.0",
+    "node-html-parser": "^9.0.2"
+  }
+}

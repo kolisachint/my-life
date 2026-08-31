@@ -197,11 +197,21 @@ now keeps its own copy of anything an agent will need to re-read.
 
 Resumes, the profile card, LinkedIn, bios, the portfolio: **read the
 `career-docs` skill first**, and `data/career-facts.md` before quoting any date,
-title or figure. Nine documents derive from that one file; it names all nine.
+title or figure. Fifteen consumers derive from that one file; it names them all.
+
+**Rendering is three separate skills** — read the one you need rather than
+working it out again: `html-to-pdf` (print CSS, page fitting, looking at a
+render), `html-to-docx` (the HTML → Word renderer and its CSS mapping),
+`render-parity` (checking a render against its source, and the two renders
+against each other). They are not career-specific; any document work uses them.
 
 ```sh
 bin/portfolio        # refresh the open-source inventory (his AI evidence)
 bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
+bin/docx             # HTML -> the six editable Word copies (same source as the PDFs)
+bin/docx --check     # validate + prove nothing was lost + side-by-side PNGs — LOOK
+bin/docx --diff FILE # ...and see what he changed after he has been through one
+bin/rendercheck FILE.html   # did every word survive into the PDF and the DOCX?
 ```
 
 `/resume` runs the whole sweep. Two rules that are not optional:
@@ -210,6 +220,11 @@ bin/pdfcheck FILE    # rasterise a PDF/HTML so you can LOOK at it
   orphaned headings, dead space and leftover placeholders are invisible in HTML.
 - **Client names go only in privately addressed documents** — never on LinkedIn
   or his public site. See the skill.
+- **He sends the PDF and edits the `.docx`.** Both are rendered from the same
+  `.html` — Chromium prints one, `resumes/docx/fromhtml.js` writes the other — so
+  there is never a second copy of the content. Regenerating overwrites his Word
+  edits, so run `bin/docx --diff FILE` first, fold what he changed into the HTML
+  and `data/career-facts.md`, and only then rebuild.
 
 ## Memory — I do not learn between sessions
 
@@ -233,7 +248,9 @@ LIFE-PLAN.md         the standing audit and operating plan
 bin/setup            install td + dbxcli, install Doist's official skill
 bin/brief            td today + upcoming -> data/brief.md
 bin/pub              artefact -> PDF -> Dropbox or notes/, mirroring Todoist
-bin/pdfcheck         PDF/HTML -> page PNGs, so a render can be looked at
+bin/pdfcheck         PDF/HTML/DOCX -> page PNGs, so a render can be looked at
+bin/docx             HTML -> the editable Word copies (+ --check, --diff)
+bin/rendercheck      source HTML vs its renders — is anything MISSING?
 bin/portfolio        public repos -> notes/Goals/Career/portfolio.md
 bin/doctor           verify tools, tokens, connectivity
 data/brief.md        generated, committed, regenerate with `make brief`
@@ -242,6 +259,9 @@ data/portfolio-repos.txt  repos the career documents cite
 notes/<P>/<S>/       long-term artefacts, same tree as Todoist (lazy)
 memory/learned.txt   append-only facts
 .claude/skills/career-docs/   resumes, profile card, bios — read before editing any
+.claude/skills/html-to-pdf/   print CSS, page fitting, rasterise-and-look
+.claude/skills/html-to-docx/  the HTML -> Word renderer and its CSS mapping
+.claude/skills/render-parity/ HTML vs PDF, HTML vs DOCX, PDF vs DOCX — all three
 state/decisions.md   settled answers + open questions
 state/log.md         session log
 .claude/skills/todoist-cli/   Doist's official skill — do not edit, `td skill update`

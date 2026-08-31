@@ -57,6 +57,15 @@ for p in /opt/pw-browsers/chromium-*/chrome-linux/chrome \
 done
 [ -z "$c" ] && c=$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)
 [ -n "$c" ] && chk "pdf engine" "$c" || chk "pdf engine" "none - bin/pub --pdf will fail"
+# A .docx can only be reviewed if it can be rendered. libreoffice-core WITHOUT
+# libreoffice-writer loads nothing and looks like a broken install.
+if ! command -v soffice >/dev/null 2>&1; then
+  chk "docx engine" "none - bin/docx --check cannot render"; ok=1
+elif ls /usr/lib/libreoffice/program/libswlo.so >/dev/null 2>&1; then
+  chk "docx engine" "$(soffice --version 2>/dev/null | head -1)"
+else
+  chk "docx engine" "soffice present, libreoffice-writer MISSING - run make setup"; ok=1
+fi
 [ -f "$ROOT/data/brief.md" ] && chk "brief.md" "$(wc -c < "$ROOT/data/brief.md") bytes" \
                              || chk "brief.md" "not generated - run make brief"
 chk "memory" "$(grep -vc '^#' "$ROOT/memory/learned.txt" 2>/dev/null || echo 0) facts"

@@ -5,26 +5,76 @@ description: Building, updating and rendering Sachin's career documents — the 
 
 # Career documents
 
-**Facts live in one place: `data/career-facts.md`.** Read it first. Nine
-documents derive from it, and it names all nine. Never take a date, title or
+**Facts live in one place: `data/career-facts.md`.** Read it first. Fifteen
+consumers derive from it, and it names all fifteen. Never take a date, title or
 figure from a resume — resumes drift, that file is checked against the letters
 in Dropbox.
 
-## The nine, and what each is for
+## The set, and what each is for
 
 | Document | Kind | Audience | Clients named? |
 | --- | --- | --- | --- |
 | `Sachin_Koli_Resume.pdf` | Rendered, 2pp | Recruiters, hiring managers — **the main one** | Yes |
-| `Sachin_Koli_Resume_ATS.docx` | Generated | Naukri, Workday, Easy Apply, agency DBs | Yes |
+| `Sachin_Koli_Resume_ATS.docx` | Generated from `Sachin_Koli_Resume_ATS.html` | Naukri, Workday, Easy Apply, agency DBs | Yes |
 | `Sachin_Koli_OnePager.pdf` | Rendered, 1pp | A referrer forwarding him | Yes |
 | `Sachin_Koli_Profile_Card.pdf` / `.png` | Rendered, visual, **A4 landscape** | Staffing decks, LinkedIn Featured, in person | Yes |
-| `resumes/resume-recruiter.md` | Master | source for the resume PDF | Yes |
-| `resumes/resume-ats.md` | Master | source for the DOCX | Yes |
+| `Sachin_Koli_Resume.docx` | Generated **from the same HTML as the PDF** | **him**, to review and correct in Word | Yes |
+| `Sachin_Koli_OnePager.docx` | Generated from the HTML | **him**, same | Yes |
+| `Sachin_Koli_Profile_Card.docx` | Generated from the HTML, landscape | **him**, same | Yes |
+| `resumes/resume-recruiter.md` | Master | source for the resume HTML → PDF + DOCX | Yes |
+| `resumes/resume-ats.md` | Master | the wording behind the ATS HTML | Yes |
 | `resumes/resume-referral-onepager.md` | Master | source for the one-pager | Yes |
-| `resumes/resume-linkedin.md` | Master | **paste into LinkedIn fields** — not a file | **No** |
-| `resumes/resume-public.md` | Master | **paste into his site / bios** — not a file | **No** |
+| `resumes/resume-linkedin.md` | Master | source for the LinkedIn paste sheet | **No** |
+| `resumes/resume-public.md` | Master | source for the public-bio paste sheet | **No** |
+| `Sachin_Koli_LinkedIn.docx` | Generated from `Sachin_Koli_LinkedIn.html` | **him**, to review the wording in Word | **No** |
+| `Sachin_Koli_Public_Bio.docx` | Generated from `Sachin_Koli_Public_Bio.html` | **him**, same | **No** |
 
-LinkedIn and the public bio are **text, not documents**. Do not render them.
+**The last two are paste sheets, not documents.** He asked for them
+(*"also add docx for linkedin and public bio"*) and the reason is sound:
+reviewing and correcting copy is the same job whatever the destination. But the
+output still goes into fields on a website — **nobody sends the file**. Each
+carries a banner saying so, their page count is deliberately not compared
+against the PDF (`bin/docx --check` says "paste sheet"), and **no client may
+ever be named in either**: both are public surfaces.
+
+## Rendering: three skills own the mechanics, this file does not
+
+He asked for editable copies (*"in resume or job profile also have docx version
+so that i can review and update"*), then for them to match: *"pdf looks
+structuring perfect. so docx should look same... workflow can be html to pdf and
+html to docx"*. That is how it works — **one HTML, two renderers**:
+
+```
+Sachin_Koli_Resume.html ──┬── Chromium print-to-PDF ──> .pdf
+                          └── resumes/docx/fromhtml.js ─> .docx
+```
+
+**Read the skill, do not re-derive it.**
+
+| Skill | Owns |
+| --- | --- |
+| **`html-to-pdf`** | print CSS, page fitting, fonts, `bin/pub` / `bin/pdfcheck`, rasterise-and-look |
+| **`html-to-docx`** | the DOCX renderer, its CSS mapping, and the four bugs that each cost a page |
+| **`render-parity`** | rendering both and comparing them, and locating a drift |
+
+```sh
+bin/docx                  # HTML -> all six Word copies
+bin/docx --check          # build, validate, render both, side-by-side PNGs
+bin/docx --diff FILE      # what HE changed in Word, before you overwrite it
+```
+
+**What is career-specific, and belongs here:**
+
+1. **The `.docx` is his review copy, never a source.** Content lives in
+   `data/career-facts.md` and the `.html`. If he has been through one in Word,
+   run `bin/docx --diff` **first**, fold what he changed into the real sources,
+   then rebuild.
+2. **Change the HTML, rebuild both.** `bin/pub … --pdf`, then `bin/docx`.
+3. **Everything comes from HTML now, the ATS file included.** Its plainness is
+   enforced by its own stylesheet — one column, no tables, no images — and its
+   headings carry `--docx-style: Heading1`, which gives a parser real outline
+   structure rather than text that merely looks like a heading. Nothing is
+   hand-built in JavaScript any more.
 
 ## The confidentiality rule — the one that matters
 
@@ -60,51 +110,42 @@ bin/portfolio                                  # refresh the OSS inventory first
 # 2. edit the affected masters + the .html sources
 bin/pub notes/Goals/Career/<name>.html --project Goals --section Career --repo --pdf
 bin/pdfcheck notes/Goals/Career/<name>.pdf     # THEN READ THE PNGs
-cd notes/Goals/Career/resumes && node build_ats.js ../Sachin_Koli_Resume_ATS.docx
+bin/docx --check                               # rebuild both, side by side — LOOK
 ```
 
-`/resume` runs this sweep and checks all nine. Use it rather than remembering.
+Mechanics for each of those steps: `html-to-pdf`, `html-to-docx`,
+`render-parity`.
 
-## Traps — each of these cost a cycle
+`/resume` runs this sweep and checks all fifteen. Use it rather than remembering.
 
-**Always rasterise and look.** `bin/pdfcheck`, then Read the PNGs. The first
-resume render was three pages with the last nearly empty, an orphaned
-`TECHNICAL` heading, and half a page of dead space. **None of it was visible in
-the HTML.** Non-negotiable step.
+## Traps — the career-specific ones
 
-**Print CSS for a dense CV.** `break-after: avoid` on `h2` and on role headers so
-headings never strand. Do **not** put `break-inside: avoid` on a long
-multi-bullet role — it dumps a whole page of whitespace; put it on the `li`
-instead. 9.05pt / 1.33 line-height / 11–12mm margins fits 18 years onto exactly
-two A4 pages.
+Rendering traps live in `html-to-pdf`, `html-to-docx` and `render-parity`.
+Read those before touching a render. What is left here is about *these
+documents*.
 
-**No CDN fonts, no remote images.** Chromium renders from `file://` with no
-network. Inline everything; embed images as data URIs. System stack here is
-Liberation Sans + DejaVu Sans Mono — the mono carries the character.
+**Always rasterise and look.** `bin/pdfcheck` for a PDF, `bin/docx --check` for
+the Word copies, then Read the PNGs. The first resume render was three pages
+with the last nearly empty, an orphaned `TECHNICAL` heading and half a page of
+dead space — **none of it visible in the HTML**. Non-negotiable, still.
 
-**The profile card is landscape; the read documents are portrait.** A glance
-artefact should be the shape of the screen or slide it is glanced on. The resume
-and the referral one-pager are *read*, not glanced, so they stay portrait —
-landscape would make a long text column worse, not better.
+**Density for a dense CV:** 9.05pt / 1.33 line-height / 11–12mm margins fits
+18 years onto exactly two A4 pages. Start there before cutting content.
+
+**The profile card is landscape; the read documents are portrait.** His call, and
+right: a glance artefact should be the shape of the screen or slide it is glanced
+on. The resume and the referral one-pager are *read*, not glanced, so they stay
+portrait — landscape would make a long text column worse.
 
 **A landscape card that paginates has a column genuinely too tall.** Shrinking
-`body { height }` does nothing — I tried 208/206/204mm and all still produced two
-pages. Cut content from the longest column instead, and check with `bin/pdfcheck`.
+`body { height }` does nothing — 208/206/204mm all still produced two pages. Cut
+from the longest column instead.
 
 **Never ship a visible placeholder.** The masters keep `[N]`; rendered files must
 not. Rewrite the bullet to read properly without the figure.
 
-**LibreOffice is broken in this environment** — it fails on a plain `.txt`, so
-`soffice --convert-to pdf` cannot verify a `.docx`. Verify instead with
-`scripts/office/validate.py` (needs `pip install defusedxml lxml`) plus a `w:t`
-text extraction from `word/document.xml` — which is what an ATS actually sees.
-Tell him to open it in Word once, since nobody has seen it rendered.
-
-**`docx` is not preinstalled** despite what the `docx` skill says — `npm install
-docx` in the working dir first.
-
 **Dropbox: MCP reads metadata and text, but not bytes.** `download_link` returns
-a `dl.dropboxusercontent.com` URL that the egress policy blocks, so images and
+a `dl.dropboxusercontent.com` URL the egress policy blocks, so images and
 binaries cannot be pulled. Tree root is `/Cloud Documents/`, not `Digital_Drive`.
 
 **Enumerating his repos cannot be scripted** — the GitHub API is bound to
