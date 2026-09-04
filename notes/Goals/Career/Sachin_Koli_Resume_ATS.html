@@ -49,12 +49,13 @@
 <p class="gap">kolisachint.github.io</p>
 
 <h2>SUMMARY</h2>
-<p>Google Cloud Certified Professional Data Engineer and Solution Architect with 18 years of experience in cloud data platforms, real-time streaming architecture and enterprise data engineering. Currently architecting end-to-end batch and real-time streaming data platforms on Google Cloud Platform (GCP) for a UK tier-1 retail bank using Confluent Kafka, Cloud Composer (Apache Airflow), BigQuery, dbt, Python and Terraform. Previously architected digital cards and payments modernisation on GCP at the same bank. Expertise in data architecture, data modelling, real-time streaming ingestion, ELT and ETL pipeline design, infrastructure as code, data governance and cloud cost optimisation. Also ships open-source applied AI: an LLM coding agent published to npm and Rust libraries for vector embedding search, approximate nearest neighbour retrieval and speech recognition. Recognised at the Banking Tech Awards 2024 and the Card and Payments Awards 2025. Domains: banking, cards and payments, retail, telecom.</p>
+<p>Google Cloud Certified Professional Data Engineer and Solution Architect with 18 years of experience in cloud data platforms, real-time streaming architecture and enterprise data engineering. Currently architecting end-to-end batch and real-time streaming data platforms on Google Cloud Platform (GCP) for a UK tier-1 retail bank using Confluent Kafka, Cloud Composer (Apache Airflow), BigQuery, dbt, Python and Terraform. Five years at that bank across three platforms: digital wallets and Click to Pay, the migration of its entire card journey estate to GCP microservices behind an Apigee X API gateway, and now the GCP-native operational data platform replacing its enterprise data warehouse. Expertise in data architecture, data modelling, real-time streaming ingestion, ELT and ETL pipeline design, infrastructure as code, data governance and cloud cost optimisation. Also ships open-source applied AI: an LLM coding agent published to npm and Rust libraries for vector embedding search, approximate nearest neighbour retrieval and speech recognition. Recognised at the Banking Tech Awards 2024 and the Card and Payments Awards 2025. Domains: banking, cards and payments, retail, telecom.</p>
 
 <h2>SKILLS</h2>
 <p class="gap">Cloud Platforms: Google Cloud Platform (GCP), Amazon Web Services (AWS), multicloud architecture, hybrid cloud architecture</p>
 <p class="gap">Google Cloud: BigQuery, Cloud Composer, Dataflow, Pub/Sub, App Engine, Cloud Functions, Dataproc, Cloud Storage, Compute Engine, Memorystore, Cloud SQL, Cloud Source Repositories, VPC Network, Identity and Access Management (IAM), Google Cloud SDK</p>
 <p class="gap">Streaming and Messaging: Apache Kafka, Confluent Kafka, Confluent Cloud, Kafka Connect, Pub/Sub, Apache Beam, event-driven architecture, real-time data streaming, low-latency ingestion, change data capture (CDC)</p>
+<p class="gap">Data Platform and Governance: operational data platform (ODP), foundational data products, data contracts, data mesh, architecture decision records (ADR), data lineage, data quality, data governance, authorised views, partitioning and clustering, delta load, FinOps, cost optimisation, Google Kubernetes Engine (GKE), Apigee X, HashiCorp Vault, Istio, Jenkins, VPC Service Controls</p>
 <p class="gap">Orchestration and Scheduling: Apache Airflow, Cloud Composer, IBM Tivoli Workload Scheduler (TWS), Control-M, dependency management, workflow automation</p>
 <p class="gap">Transformation and Modelling: dbt (data build tool), SQL, Python, Apache Spark, IBM DataStage, Informatica, Ab Initio, ETL, ELT, data modelling, dimensional modelling, star schema, snowflake schema, data warehouse, data lake, data mart, data lineage, data quality</p>
 <p class="gap">Infrastructure and DevOps: Terraform, infrastructure as code (IaC), CI/CD, Git, GitHub, containerisation, environment provisioning, deployment automation</p>
@@ -73,24 +74,41 @@
 <p>Sep 2021 - Present | Pune, India</p>
 <p class="role">Client: Lloyds Banking Group, United Kingdom (Banking)</p>
 
-<p class="stream">Data Platform and Real-Time Analytics (Jul 2025 - Present)</p>
+<p class="stream">GCP Data Platform and Real-Time Analytics (Jul 2025 - Present)</p>
 <ul>
   <li>Architected scalable, fault-tolerant end-to-end batch and real-time streaming data architectures on Google Cloud Platform supporting high-throughput analytics, operational reporting and machine learning workloads.</li>
-  <li>Engineered high-availability event-driven streaming pipelines using Confluent Kafka and Python enabling low-latency data ingestion and real-time business insight.</li>
+  <li>Architected the bank's migration off its enterprise Group Data Warehouse onto a GCP-native operational data platform against a Q3-2026 decommissioning deadline, covering ingestion, curation and consumption layers.</li>
+  <li>Authored the shared Microbatch Ingestion Service solution design on Google Kubernetes Engine (GKE) with Cloud Storage landing zones, BigQuery targets, Cloud Composer (Apache Airflow) orchestration, Jenkins CI and infrastructure-as-code deployment paths, adopted as the standard onboarding pattern for all source systems.</li>
+  <li>Engineered high-availability event-driven streaming pipelines using Confluent Kafka, Google Cloud Pub/Sub and Python enabling low-latency data ingestion and real-time business insight.</li>
   <li>Architected hybrid batch ingestion workflows using Cloud Composer (Apache Airflow) and IBM Tivoli Workload Scheduler (TWS), managing complex dependency graphs across legacy on-premise and cloud environments.</li>
-  <li>Designed optimised data warehouse schemas in Google BigQuery and implemented modular transformation pipelines using dbt and Python, ensuring data quality and lineage.</li>
+  <li>Designed optimised data warehouse schemas in Google BigQuery and implemented modular transformation pipelines using dbt and Python with delta-load audit tables, ensuring data quality and end-to-end data lineage.</li>
+  <li>Authored formal technical data contracts for five source systems onboarding to the platform, specifying source extracts, BigQuery target tables, orchestration, SLAs and data volumes.</li>
+  <li>Authored the full architecture decision record (ADR) baseline for the bank's digital behaviour foundational data products on BigQuery, covering nested STRUCT and ARRAY schema modelling, partitioning and clustering strategy per entity, and identifier and key strategy.</li>
+  <li>Redesigned the visitor and session identifier strategy to use canonical source keys, achieving exact parity with Adobe Analytics dashboards while eliminating window-function sessionization compute and retaining legacy keys for reconciliation.</li>
   <li>Built automated data testing, validation and monitoring frameworks within dbt and Airflow ensuring data reliability across downstream analytics.</li>
-  <li>Standardised infrastructure deployment using Terraform to provision Cloud Composer environments, BigQuery datasets, Kafka connectors and IAM roles across multiple environments.</li>
-  <li>Integrated Terraform and data pipeline deployments into automated CI/CD workflows, reducing environment configuration drift and deployment cycle time.</li>
-  <li>Implemented cloud resource optimisation in BigQuery and GCP, reducing compute overhead while improving query performance and data security governance.</li>
+  <li>Standardised infrastructure deployment using Terraform to provision Cloud Composer environments, BigQuery datasets, Kafka connectors and IAM roles across multiple environments, and integrated Terraform and pipeline deployments into automated CI/CD workflows, reducing environment configuration drift and deployment cycle time.</li>
+  <li>Designed platform FinOps and cost governance controls including rightsizing, autoscaling, storage tiering, bucket lifecycle policy, tagging and quota limits, reducing compute overhead while improving query performance and data security governance.</li>
+  <li>Co-owned the platform foundation migration recommendation, delivering the tier-1 MVP on the incumbent GCP foundation to protect the warehouse exit date while pre-planning a phased parallel-run migration to the strategic platform with explicit cutover, rollback, disaster recovery and capacity criteria.</li>
   <li>Partnered with cross-functional leadership, security teams and business units to translate functional requirements into production-ready architectural blueprints.</li>
 </ul>
 
-<p class="stream">Digital Cards Modernisation (2022 - Jul 2025)</p>
+<p class="stream">Card Platform Modernisation on Google Cloud (2024 - Jul 2025)</p>
 <ul>
-  <li>Led end-to-end modernisation of Digital Cards features including Add to Wallet, card controls and View PIN/View Card, migrating from on-premise infrastructure to Google Cloud Platform.</li>
+  <li>Owned the solution design for migrating the entire card journey estate including card controls, spending limits, card freeze, wallet provisioning and View Card / View PIN from on-premise infrastructure to Google Cloud Platform microservices behind an Apigee X API gateway, sequenced as a three-tranche release plan.</li>
+  <li>Produced as-is and to-be solution designs with full sequence diagrams covering mobile application single sign-on, token provider integration, API gateway routing, channel and core services, and downstream card management system integration.</li>
+  <li>Authored and secured approval for the identity and authentication onboarding pattern now used across the card estate, based on a ten-criteria options analysis covering token exchange, proof-of-possession, scaling rates, traceability and authorisation scope.</li>
+  <li>Designed shared VISA and Fiserv scheme-connectivity microservices reused across feature teams on a common external certificate management pattern, with explicit trade-off analysis of coupling, certificate blast radius and environment conflicts.</li>
+  <li>Carried every design through enterprise governance including technical architecture group review, security design assurance, cloud solution design assurance and API gateway design forums.</li>
+</ul>
+
+<p class="stream">Digital Wallets, Click to Pay and Card Controls (2021 - 2024)</p>
+<ul>
+  <li>Architected an award-winning self-serve fraud journey recognised at the Banking Tech Awards 2024 and the Card and Payments Awards 2025, moving card freeze from an assisted call-centre process to a customer-completed digital journey.</li>
+  <li>Authored the solution designs enabling the bank's four card brands in Apple Pay, Google Pay and VISA Click to Pay, covering Android and iOS push provisioning, card registration flows and scheme token handling.</li>
+  <li>Designed the push provisioning API extension enabling wallet-added cards to be used for online card-on-file and autofill transactions rather than in-store transactions only, and authored the supporting business case.</li>
+  <li>Designed payment token security to PCI standards including scheme and wallet one-time-passcode token generation, PGP key exchange with the wallet provider, PAN encryption placement and HSM-backed key storage using HashiCorp Vault.</li>
   <li>Architected secure and scalable microservices and cross-cloud API patterns ensuring regulatory compliance and performance for a tier-1 retail bank.</li>
-  <li>Architected an award-winning self-serve fraud journey recognised at the Banking Tech Awards 2024 and the Card and Payments Awards 2025.</li>
+  <li>Produced data lineage, data quality, data controls and data monitoring governance artefacts for the wallet data flows, plus application alerting and SSL/TLS certificate issuance standards.</li>
   <li>Designed service discovery, API gateway, containerisation, load balancing and secure inter-service communication patterns for mobile applications.</li>
 </ul>
 

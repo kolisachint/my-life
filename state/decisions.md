@@ -100,7 +100,60 @@ credential*: four years on Lloyds Digital Cards with **two industry awards**
 banking GCCs and fintech. But the target list now also runs to data-platform and
 ML-infrastructure teams, where the open-source work is the differentiator.
 
-## Resolved this session
+## Resolved 2026-09-03 — the LBG 5-year profile
+
+| Was open | Answer |
+| --- | --- |
+| **When did the Lloyds engagement start?** | **Sep 2021**, with his TCS joining date. Five years, not four. `career-facts.md` said 2022 and was wrong |
+| **Are Confluent Kafka and IBM TWS real?** | **Yes** — he confirmed it. They appear nowhere in the 150-page Confluence base (which documents Pub/Sub and Composer), but the work happened. They stay on every document; there is simply no artefact to point a reviewer at |
+| **Can the six platform figures be recovered?** | **No — closed.** Not from Confluence. The only numbers across 150 pages are a 3–5% autofill uplift and a $100 average online order, and both are business-case assumptions he authored. He chose to ship without numbers; the documents are written to land without one |
+
+## Client names on public profiles — settled 2026-09-03
+
+**Rule unchanged: no client is named on LinkedIn or the public bio.** He asked
+whether it should change. It should not, and the reasoning is recorded here so it
+is not re-derived every time the profile is edited.
+
+1. **The trade is bad.** "UK tier-1 retail bank" plus card journeys plus GCP
+   narrows it to about five institutions for anyone in that market. The scale
+   already signals; the logo adds almost nothing while carrying real cost.
+2. **The risk is asymmetric in time.** He is still on the engagement. The same
+   line is unremarkable two years after he leaves — no reason to pay now for a
+   benefit available later for free.
+3. **The realistic downside is not legal.** The binding restriction usually sits
+   in the supplier's master agreement with the client, not in his own contract.
+   What actually happens is a vendor-management or account conversation landing on
+   him while he still works there.
+
+**On "everyone does it":** many Indian IT services employees do name clients on
+LinkedIn, and enforcement is inconsistent — but it is *visibility-triggered*, and
+he has award-winning payments work, a dated warehouse migration, ADR-007 and a
+published open-source AI stack. He does not need to borrow credibility from
+someone else's logo.
+
+**The awards partly de-anonymise the client, and the position still holds.**
+Winners are published, so "Banking Tech Awards 2024" plus "a UK tier-1 retail
+bank" resolves in one search. Keep both: **he is responsible for what he
+publishes, not for what a reader deduces.** The awards are public information he
+may associate himself with; he has disclosed no client relationship. That is the
+distinction a policy review would actually draw.
+
+**Awards phrasing is now explicit in both LinkedIn sources** — never "I won".
+Awards of this kind go to the institution or programme. "Awarded to the journey I
+architected", with the role stated, is true and survives interview scrutiny.
+
+## Still open after 2026-09-03
+
+| Question | Why it matters |
+| --- | --- |
+| **Does the award citation name the card-freeze journey?** | He is not sure, so every document still says "self-serve fraud journey" generically. The profile places that work as Card Controls — Freeze Card — Fraud Journey (AL08169), which would be more concrete and more defensible in an interview. **Now higher priority:** the LinkedIn Honors & Awards entries are structured fields people actually verify, so the uncertainty is less tolerable there than in prose. Ten minutes with the citation |
+| **His employment terms are not on record** | Nothing in this repo says what his TCS contract states about naming clients. The offer, appointment and experience letters are in Dropbox `/Cloud Documents/Sachin/Career/` and have never been read in — Dropbox egress is blocked from Claude Code on the web. The client-name decision above reasons about the *shape* of the risk, not his paperwork. Get those letters into the repo and it can be replaced with terms |
+| **LinkedIn Projects and Featured are still empty on the live profile** | The copy has been written and ready since Aug 2026 — four projects with repo links, in both LinkedIn sources. Nothing is blocked. It is the highest-value, zero-risk change available to him, and worth far more than a client logo |
+| **The tail of the source file** | `lbg-5-year-profile.md` lives only in his local clone and has never been pushed. The repo has a transcription from photographs, complete but with four `[?]` strings. Pushing the real file replaces guesswork with bytes |
+| **The 2021–early 2023 legacy wiki** | His oldest Confluence page is May 2023. Everything before that was on a pre-cloud LBG wiki he can no longer reach, so era 1 is dated from evidence, not from memory. If he can still get at that wiki, a second pass backfills two years |
+| **PDE expiry** | Unchanged from Aug 2026 — two years from issue, still unconfirmed, certificate still not filed in Dropbox |
+
+## Resolved earlier
 
 | Was open | Answer |
 | --- | --- |

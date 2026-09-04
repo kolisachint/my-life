@@ -2,6 +2,88 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-09-03 (later) — the client-name question, settled
+
+*"do we need to put client names open. what does contract says. what other folks
+are doing. does this mean awards and recognition also makes sense or not."*
+
+**The rule does not change: no client on LinkedIn.** But it is now argued rather
+than asserted, and written into `state/decisions.md` so nobody re-derives it. The
+weight is not caution — it is that the trade is bad. "UK tier-1 retail bank" plus
+card journeys plus GCP already narrows it to about five institutions, so the logo
+adds nothing and costs something. And the cost is **asymmetric in time**: he is
+still on the engagement, and the same line is unremarkable two years after he
+leaves. No reason to pay now for a benefit available later for free.
+
+**He spotted a real inconsistency, and he was right to.** The awards are public
+record, so naming them while saying "a UK tier-1 retail bank" is a veil anyone can
+lift in one search. The resolution is not to drop the awards. It is that **he is
+responsible for what he publishes, not for what a reader deduces** — he has
+disclosed no client relationship, and a reader connecting two public facts is
+doing their own work. That distinction holds up.
+
+**What actually got fixed.** The Honors & Awards section was the one genuine
+overclaim risk on the profile: a bare "Banking Tech Awards 2024 — award-winning
+self-serve fraud journey" under his name reads as a personal award. Awards of that
+kind go to the institution. Both LinkedIn sources now carry all four LinkedIn
+fields per entry with his role stated explicitly, and a standing note never to
+shorten it to "I won". The headline said "fraud journeys" — one journey, two
+awards — now singular, 204 of 220 characters, recounted.
+
+Every prose instance elsewhere already made *the journey* the subject of "won", so
+nothing else needed touching. Checked rather than assumed.
+
+**Two things I could not answer.** His employment terms are not in this repo at
+all — the letters are in Dropbox and Dropbox egress is blocked here — so the
+reasoning above is about the shape of the risk, not his paperwork. That is now an
+open item. And the unconfirmed award citation matters more than it did: a
+structured Honors field is verified in a way a sentence buried in a job
+description is not.
+
+**A correction to my own earlier advice.** I said his LinkedIn Projects copy was a
+gap. It is not, and has not been since Aug 2026 — four repos with links, in both
+sources. The gap is his live profile. Check what exists before offering to write it.
+
+## 2026-09-03 — five years at Lloyds, written down at last
+
+*"record this information about my 5 year last experience first. once done update
+my resume to reflect this."* He sent seven photographs of `lbg-5-year-profile.md`
+open in Notepad++ — a document he had compiled himself from **150 Confluence
+pages he authored**, and which existed only in his local clone of this repo.
+
+**Recorded first, as asked.** The full 230-line transcription is
+`notes/Goals/Career/lbg-5-year-profile.md`, with the seven photos committed beside
+it as provenance. It is now the primary source for *what he did at Lloyds*;
+`career-facts.md` keeps dates, titles and figures.
+
+**Three things it settled, once he confirmed them.** The engagement began
+**Sep 2021**, not 2022 — five years, not four. Lloyds is **three eras**, not one
+blob: wallets and Click to Pay, then a three-tranche migration of the whole
+card-journey estate onto GCP microservices behind Apigee X, then the data
+platform. And Confluent Kafka and IBM TWS are real work that simply never got
+written up — they stay on the documents, but there is no artefact behind them.
+
+**One thing it closed.** The six missing platform numbers, open since Aug 2026,
+are **not recoverable**. His own method note says the only figures in 150 pages
+are a 3–5% autofill uplift and a $100 average order, and both are business-case
+assumptions he authored rather than measured outcomes. He chose to ship without
+them. That is fine, because the section no longer needs one: ADR-007's *exact
+Adobe Analytics dashboard parity*, the Q3-2026 warehouse-exit date and the
+three-tranche migration are all concrete and checkable.
+
+**Then the whole set was updated** — `career-facts.md`, five masters, six HTML
+sources, three PDFs, six Word copies and the card PNG. The resume went to three
+pages and came back to two; the profile card grew a fourth block and needed real
+CSS surgery to hold one landscape page. Both were rasterised and looked at.
+
+Two things to note. The ATS file still carries its deliberate
+`Notice period: [fill in before submitting]` prompt — untouched, it is his to fill
+per application. And `bin/docx --check` reports "docx 0 pages" and a spurious
+MISMATCH on every document here: LibreOffice in this environment cannot load the
+`.docx` files, including the one committed before this session. `bin/rendercheck`
+aligns all six at 100%, so the content is verified; the page-count comparison
+needs a machine where LibreOffice works.
+
 ## 2026-08-30 — the check that looking cannot do
 
 *"have we documented whatever we did in skill and script... skills like html vs

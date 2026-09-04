@@ -92,10 +92,39 @@ profile is public. "A UK tier-1 retail bank" carries the same weight to anyone
 hiring; the logo only carries risk. Client names belong in the recruiter resume,
 which goes to one addressed person at a time.</div>
 
+<div class="note"><strong>Settled 2026-09-03 — do not re-litigate this while
+editing.</strong> Three reasons the rule holds, in order of weight.
+<b>(1) The trade is bad.</b> "UK tier-1 retail bank" plus card journeys plus GCP
+narrows it to about five institutions for anyone in that market — the scale
+already signals, so the logo adds almost nothing while carrying real cost.
+<b>(2) The risk is asymmetric in time.</b> He is still on the engagement. The
+same line is unremarkable two years after he leaves, so there is no reason to pay
+now for a benefit available later for free. <b>(3) The realistic downside is not
+legal.</b> The binding restriction usually sits in the supplier's master agreement
+with the client, not in his own contract; what actually happens is a
+vendor-management or account conversation landing on him while he still works
+there.</div>
+
+<div class="note"><strong>Yes, the awards partly de-anonymise the client — and
+the position still holds.</strong> Award winners are published, so "Banking Tech
+Awards 2024" plus "a UK tier-1 retail bank" can be resolved in one search. Keep
+both anyway: <strong>he is responsible for what he publishes, not for what a
+reader deduces.</strong> The awards are public information he is entitled to
+associate himself with, and he has disclosed no client relationship. That
+distinction is the one a policy review would actually draw, and it holds.</div>
+
+<div class="note"><strong>His employment terms are not on record.</strong> Nothing
+in this repo states what his TCS contract says about naming clients — the offer,
+appointment and experience letters sit in Dropbox
+<code>/Cloud Documents/Sachin/Career/</code> and have never been read in. The
+reasoning above is about the <em>shape</em> of the risk, not a reading of his
+paperwork. If those letters ever land in the repo, revisit this note and replace
+inference with terms.</div>
+
 <h2>Headline</h2>
-<div class="meta">Profile → Headline · <b>205 of 220 characters</b> · the
+<div class="meta">Profile → Headline · <b>204 of 220 characters</b> · the
 highest-leverage field on the profile</div>
-<div class="copy"><p>Solution Architect — Cloud Data &amp; AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journeys (Banking Tech 2024, Card &amp; Payments 2025)</p></div>
+<div class="copy"><p>Solution Architect — Cloud Data &amp; AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journey (Banking Tech 2024, Card &amp; Payments 2025)</p></div>
 <div class="note">Order is deliberate: <strong>Data &amp; AI</strong> first because
 both halves are earned; the <strong>certification second</strong> because it is
 searchable and recruiters filter on it; the named stack third because those are the
@@ -112,8 +141,8 @@ Locations: Pune · Bengaluru · Hyderabad · Remote (India)</p></div>
 <div class="meta">Profile → About · <b>1,959 of 2,600 characters</b></div>
 <div class="copy">
 <p>I build the data platforms large enterprises run on, and I ship the applied-AI tooling that sits on top of them. Google Cloud Certified Professional Data Engineer.</p>
-<p>Right now I architect the batch and real-time streaming platform for a UK tier-1 retail bank: event-driven ingestion on Confluent Kafka, orchestration across Cloud Composer and a legacy enterprise scheduler, modelling in BigQuery and dbt, all of it provisioned through Terraform and CI/CD. The interesting part is not any single tool — it is making a modern cloud stack and a twenty-year-old on-premise estate agree with each other, reliably, every night.</p>
-<p>Before the data platform I spent four years on digital cards at the same bank, moving Add-to-Wallet, card controls and View-PIN from on-premise onto Google Cloud. The self-serve fraud journey I architected won at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025 — it took fraud reporting out of the call-centre queue and gave it to the customer.</p>
+<p>Right now I architect the batch and real-time streaming platform for a UK tier-1 retail bank, and the move of its enterprise data warehouse onto a cloud-native one: event-driven ingestion on Confluent Kafka and Pub/Sub, a shared ingestion service on Kubernetes, orchestration across Cloud Composer and a legacy enterprise scheduler, modelling in BigQuery and dbt, all of it provisioned through Terraform and CI/CD. The interesting part is not any single tool — it is making a modern cloud stack and a twenty-year-old on-premise estate agree with each other, reliably, every night, and writing the decisions down so the next team can see why.</p>
+<p>Before the data platform I spent four years on cards and payments at the same bank: first putting its card brands into the mobile wallets and scheme click-to-pay, then migrating the whole card-journey estate onto cloud microservices behind an API gateway. The self-serve fraud journey I architected won at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025 — it took fraud reporting out of the call-centre queue and gave it to the customer.</p>
 <p>Earlier: twelve years of enterprise data across retail, telecom and banking. A Teradata-to-BigQuery lake migration. A customer preference API on GCP serving millions of people that took $600,000 a year out of running cost. Warehouses unifying a global bank's data across several African markets.</p>
 <p>I also ship applied AI in the open. hoocode is a deterministic terminal coding agent I publish to npm — a permission gate on every edit, four scoped modes, and a unified API across 25+ LLM providers. Underneath it sits Rust I wrote: an embedding search engine with ONNX inference, an HNSW index built from scratch and BM25 fusion for hybrid retrieval; offline speech-to-text; token-efficient web retrieval for agents. The platforms I design are exactly the substrate retrieval and ML workloads need, and I would rather build that layer than hand it over.</p>
 <p>Open to Solution Architect, Data Architect and Cloud Architect roles — especially where the data platform is the product.</p>
@@ -125,22 +154,29 @@ description field</div>
 
 <h3>Tata Consultancy Services — Solution Architect</h3>
 <div class="meta">Sep 2021 – Present · Pune, India</div>
-<div class="copy"><p>Data platform and digital cards architecture for a UK tier-1 retail bank.<br>
+<div class="copy"><p>Data platform and cards &amp; payments architecture for a UK tier-1 retail bank — five years, three platforms.<br>
 <br>
 Data Platform &amp; Real-Time Analytics (Jul 2025 – present)<br>
-• Architected end-to-end batch and real-time streaming data platform on Google Cloud supporting analytics, operational reporting and ML workloads.<br>
-• Engineered high-availability event-driven ingestion on Confluent Kafka with Python for low-latency data delivery.<br>
+• Architected the migration of an enterprise data warehouse onto a cloud-native data platform, covering ingestion, curation and consumption.<br>
+• Authored the shared batch ingestion service design — Kubernetes-hosted ingestion, object-storage landing zones, BigQuery targets, Cloud Composer orchestration and CI — adopted as the standard onboarding pattern for source systems.<br>
+• Engineered high-availability event-driven ingestion on Confluent Kafka and Pub/Sub with Python for low-latency data delivery.<br>
 • Architected hybrid batch orchestration across Cloud Composer (Apache Airflow) and a legacy enterprise scheduler, managing dependency graphs spanning on-premise and cloud.<br>
-• Designed BigQuery warehouse schemas and modular dbt transformation pipelines with enforced data quality and lineage.<br>
-• Standardised infrastructure with Terraform — Composer environments, BigQuery datasets, Kafka connectors, IAM — integrated into CI/CD to cut configuration drift and deployment time.<br>
-• Implemented BigQuery cost and governance optimisation, reducing compute overhead while improving query performance.<br>
+• Designed BigQuery warehouse schemas and modular dbt transformation pipelines with delta-load audit tables, enforced data quality and end-to-end lineage.<br>
+• Authored the architecture decision baseline for a behavioural data-product layer on BigQuery — nested schema modelling, partitioning and clustering strategy, and an identifier strategy that achieved exact parity with the incumbent analytics dashboards while removing sessionization compute.<br>
+• Standardised infrastructure with Terraform — Composer environments, BigQuery datasets, IAM — integrated into CI/CD to cut configuration drift and deployment time.<br>
+• Designed platform FinOps controls: rightsizing, autoscaling, storage tiering and lifecycle policy.<br>
 <br>
-Digital Cards Modernisation (2022 – Jul 2025)<br>
-• Led end-to-end modernisation of digital card features — Add to Wallet, card controls, View PIN/Card — migrating from on-premise to Google Cloud.<br>
-• Architected secure, scalable microservices and cross-cloud API patterns meeting banking compliance and performance requirements.<br>
+Card Platform Modernisation on Cloud (2024 – Jul 2025)<br>
+• Owned the solution design migrating an entire card-journey estate — controls, limits, freeze, wallet provisioning, view card and PIN — from on-premise to cloud microservices behind an API gateway, sequenced across three release tranches.<br>
+• Authored and secured approval for the identity and authentication onboarding pattern adopted across the estate, from a ten-criteria options analysis.<br>
+• Designed shared scheme-connectivity microservices reused across feature teams on a common certificate-management pattern.<br>
+<br>
+Digital Wallets, Click to Pay &amp; Card Controls (2021 – 2024)<br>
 • Architected a self-serve fraud journey recognised at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025.<br>
+• Authored the solution designs enabling four card brands in the major mobile wallets and in scheme click-to-pay, covering push provisioning, card registration and scheme token handling.<br>
+• Designed payment-token security to PCI standards — token generation, PGP key exchange with the wallet provider, and HSM-backed key storage.<br>
 <br>
-Kafka · BigQuery · dbt · Airflow · Terraform · GCP · microservices · payments</p></div>
+Kafka · BigQuery · dbt · Airflow · Terraform · Kubernetes · GCP · microservices · payments</p></div>
 
 <h3>Sears IT and Management Services India — Architect</h3>
 <div class="meta">Joined as Technical Specialist · Feb 2018 – Sep 2021 · Pune</div>
@@ -213,8 +249,36 @@ Introduction to Oracle9i: SQL — Oracle</p></div>
 the PDE entry. LinkedIn renders verified badges, and recruiters filter on them.</div>
 
 <h2>Honors and awards</h2>
-<div class="copy"><p>Banking Tech Awards 2024 — award-winning self-serve fraud journey<br>
-Card &amp; Payments Awards 2025 — award-winning self-serve fraud journey</p></div>
+<div class="meta">Profile → Honors &amp; awards · LinkedIn stores four fields per
+entry: <b>Title</b>, <b>Issuer</b>, <b>Issue date</b>, <b>Description</b>. Fill all
+four — a bare title reads as unverifiable.</div>
+
+<div class="copy"><p><b>Title:</b> Banking Tech Awards 2024 — winning entry<br>
+<b>Issuer:</b> Banking Tech Awards (FinTech Futures)<br>
+<b>Issue date:</b> 2024<br>
+<b>Description:</b> Awarded to the self-serve fraud journey I architected as
+solution architect for a UK tier-1 retail bank — moving card freeze from an
+assisted call-centre process to one the customer completes end to end. The award
+was made to the programme; my contribution was the solution architecture.</p></div>
+
+<div class="copy"><p><b>Title:</b> Card &amp; Payments Awards 2025 — winning entry<br>
+<b>Issuer:</b> The Card &amp; Payments Awards<br>
+<b>Issue date:</b> 2025<br>
+<b>Description:</b> Same self-serve fraud journey, recognised a second time the
+following year.</p></div>
+
+<div class="note"><strong>Phrasing is deliberate — do not shorten it to "I won".</strong>
+Awards of this kind are made to the institution or the programme, not to an
+individual. "Awarded to the journey I architected", with the role stated, is both
+true and stronger: it survives the question an interviewer will actually ask.
+A bare "Banking Tech Awards 2024" under your name does not.</div>
+
+<div class="note"><strong>Confirm the citation before you publish these.</strong>
+You were unsure (2026-09-03) whether the published citation names this journey.
+That is tolerable in prose inside a job description; it is not tolerable in a
+structured Honors entry, which is exactly the field people verify. Ten minutes
+with the citation closes it. If it names the work differently, use their words.</div>
+
 <div class="note">Two industry awards sitting silently in this section do almost
 nothing. <strong>One short post about what actually changed for customers</strong>
 will out-reach everything else on the profile.</div>

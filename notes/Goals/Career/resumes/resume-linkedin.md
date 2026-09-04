@@ -15,7 +15,7 @@
 *(220 characters — the highest-leverage field on the profile)*
 
 ```
-Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
+Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journey (Banking Tech 2024, Card & Payments 2025)
 ```
 
 **Why this order.** "Data & AI" first because both halves are now earned; **the
@@ -51,7 +51,7 @@ all of it provisioned through Terraform and CI/CD. The interesting part is not
 any single tool — it is making a modern cloud stack and a twenty-year-old
 on-premise estate agree with each other, reliably, every night.
 
-Before the data platform I spent four years on digital cards at the same bank,
+Before the data platform I spent four years on cards and payments at the same bank,
 moving Add-to-Wallet, card controls and View-PIN from on-premise onto Google
 Cloud. The self-serve fraud journey I architected won at the Banking Tech Awards
 2024 and the Card & Payments Awards 2025 — it took fraud reporting out of the
@@ -100,15 +100,25 @@ Data Platform & Real-Time Analytics (Jul 2025 – present)
 • Implemented BigQuery cost and governance optimisation, reducing compute
   overhead while improving query performance.
 
-Digital Cards Modernisation (2022 – Jul 2025)
-• Led end-to-end modernisation of digital card features — Add to Wallet, card
-  controls, View PIN/Card — migrating from on-premise to Google Cloud.
-• Architected secure, scalable microservices and cross-cloud API patterns meeting
-  banking compliance and performance requirements.
+Card Platform Modernisation on Cloud (2024 – Jul 2025)
+• Owned the solution design migrating an entire card-journey estate — controls,
+  limits, freeze, wallet provisioning, view card and PIN — from on-premise to
+  cloud microservices behind an API gateway, across three release tranches.
+• Authored and secured approval for the identity and authentication onboarding
+  pattern adopted across the estate, from a ten-criteria options analysis.
+• Designed shared scheme-connectivity microservices reused across feature teams
+  on a common certificate-management pattern.
+
+Digital Wallets, Click to Pay & Card Controls (2021 – 2024)
 • Architected a self-serve fraud journey recognised at the Banking Tech Awards
   2024 and the Card & Payments Awards 2025.
+• Authored the solution designs enabling four card brands in the major mobile
+  wallets and in scheme click-to-pay, covering push provisioning, card
+  registration and scheme token handling.
+• Designed payment-token security to PCI standards — token generation, PGP key
+  exchange with the wallet provider, and HSM-backed key storage.
 
-Kafka · BigQuery · dbt · Airflow · Terraform · GCP · microservices · payments
+Kafka · BigQuery · dbt · Airflow · Terraform · Kubernetes · GCP · microservices · payments
 ```
 
 ### Sears IT and Management Services India
@@ -227,8 +237,30 @@ Engineering**, 2003–2007
 
 ## Honors & awards
 
-- **Banking Tech Awards 2024** — award-winning self-serve fraud journey
-- **Card & Payments Awards 2025** — award-winning self-serve fraud journey
+LinkedIn stores four fields per entry — **Title, Issuer, Issue date,
+Description**. Fill all four; a bare title reads as unverifiable.
+
+**Banking Tech Awards 2024 — winning entry**
+Issuer: Banking Tech Awards (FinTech Futures) · Issue date: 2024
+> Awarded to the self-serve fraud journey I architected as solution architect for
+> a UK tier-1 retail bank — moving card freeze from an assisted call-centre
+> process to one the customer completes end to end. The award was made to the
+> programme; my contribution was the solution architecture.
+
+**Card & Payments Awards 2025 — winning entry**
+Issuer: The Card & Payments Awards · Issue date: 2025
+> Same self-serve fraud journey, recognised a second time the following year.
+
+**Phrasing is deliberate — never shorten it to "I won".** Awards of this kind go
+to the institution or the programme, not to an individual. "Awarded to the journey
+I architected", with the role stated, is both true and stronger: it survives the
+question an interviewer will actually ask. A bare "Banking Tech Awards 2024" under
+your name does not.
+
+**Confirm the citation before publishing these.** You were unsure (2026-09-03)
+whether the published citation names this journey. That is tolerable in prose
+inside a job description; it is not in a structured Honors entry, which is exactly
+the field people verify. If it names the work differently, use their words.
 
 ---
 
@@ -238,6 +270,32 @@ Lloyds, Sears, Saudi Telecom, Barclays and Telstra all reached you under a
 services contract. Naming them on a public profile is a live contractual and
 reputational risk — and the kind of thing a compliance team at your *next*
 employer notices too.
+
+**Settled 2026-09-03. Three reasons, in order of weight.**
+
+1. **The trade is bad.** "UK tier-1 retail bank" plus card journeys plus GCP
+   narrows it to about five institutions for anyone in that market. The scale
+   already signals; the logo adds almost nothing while carrying real cost.
+2. **The risk is asymmetric in time.** You are still on the engagement. The same
+   line is unremarkable two years after you leave, so there is no reason to pay
+   now for a benefit available later for free.
+3. **The realistic downside is not legal.** The binding restriction usually sits
+   in the supplier's master agreement with the client, not in your own contract.
+   What actually happens is a vendor-management or account conversation landing on
+   you while you still work there.
+
+**Yes, the awards partly de-anonymise the client — and the position still holds.**
+Award winners are published, so "Banking Tech Awards 2024" plus "a UK tier-1
+retail bank" resolves in one search. Keep both anyway: **you are responsible for
+what you publish, not for what a reader deduces.** The awards are public
+information you are entitled to associate yourself with, and you have disclosed no
+client relationship. That is the distinction a policy review would draw.
+
+**Your employment terms are not on record.** Nothing in this repo states what your
+TCS contract says about naming clients — the letters sit in Dropbox
+`/Cloud Documents/Sachin/Career/` and have never been read in. The reasoning above
+is about the *shape* of the risk, not a reading of your paperwork. If those letters
+reach the repo, revisit this and replace inference with terms.
 
 The descriptors read identically to anyone hiring: "UK tier-1 retail bank",
 "US Fortune-500 retailer", "Gulf national telecom operator". **The scale is what

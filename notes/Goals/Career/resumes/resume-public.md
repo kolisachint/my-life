@@ -72,9 +72,11 @@ is not any single tool. It is making a modern cloud stack and a twenty-year-old
 on-premise estate agree with each other, reliably, every night, without either
 side pretending the other does not exist.
 
-Before the platform work I spent four years on payments at the same bank: moving
-digital card features — adding a card to your phone wallet, freezing it when you
-have mislaid it, looking up your PIN — from on-premise systems onto Google Cloud.
+Before the platform work I spent four years on payments at the same bank: first
+getting its cards into the wallet on your phone and into click-to-pay checkout,
+then moving the whole set of card features — freezing a card when you have
+mislaid it, changing a limit, looking up your PIN — from on-premise systems onto
+cloud microservices.
 The piece I am proudest of is a self-serve fraud journey that let customers
 handle a fraud report themselves instead of waiting in a call-centre queue. It
 won at the Banking Tech Awards in 2024 and the Card & Payments Awards in 2025.
