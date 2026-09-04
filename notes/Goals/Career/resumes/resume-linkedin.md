@@ -15,7 +15,7 @@
 *(220 characters — the highest-leverage field on the profile)*
 
 ```
-Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journeys (Banking Tech 2024, Card & Payments 2025)
+Solution Architect — Cloud Data & AI Platforms | GCP Certified Professional Data Engineer | Kafka, BigQuery, dbt, Airflow, Terraform | Award-winning fraud journey (Banking Tech 2024, Card & Payments 2025)
 ```
 
 **Why this order.** "Data & AI" first because both halves are now earned; **the
@@ -237,8 +237,30 @@ Engineering**, 2003–2007
 
 ## Honors & awards
 
-- **Banking Tech Awards 2024** — award-winning self-serve fraud journey
-- **Card & Payments Awards 2025** — award-winning self-serve fraud journey
+LinkedIn stores four fields per entry — **Title, Issuer, Issue date,
+Description**. Fill all four; a bare title reads as unverifiable.
+
+**Banking Tech Awards 2024 — winning entry**
+Issuer: Banking Tech Awards (FinTech Futures) · Issue date: 2024
+> Awarded to the self-serve fraud journey I architected as solution architect for
+> a UK tier-1 retail bank — moving card freeze from an assisted call-centre
+> process to one the customer completes end to end. The award was made to the
+> programme; my contribution was the solution architecture.
+
+**Card & Payments Awards 2025 — winning entry**
+Issuer: The Card & Payments Awards · Issue date: 2025
+> Same self-serve fraud journey, recognised a second time the following year.
+
+**Phrasing is deliberate — never shorten it to "I won".** Awards of this kind go
+to the institution or the programme, not to an individual. "Awarded to the journey
+I architected", with the role stated, is both true and stronger: it survives the
+question an interviewer will actually ask. A bare "Banking Tech Awards 2024" under
+your name does not.
+
+**Confirm the citation before publishing these.** You were unsure (2026-09-03)
+whether the published citation names this journey. That is tolerable in prose
+inside a job description; it is not in a structured Honors entry, which is exactly
+the field people verify. If it names the work differently, use their words.
 
 ---
 
@@ -248,6 +270,32 @@ Lloyds, Sears, Saudi Telecom, Barclays and Telstra all reached you under a
 services contract. Naming them on a public profile is a live contractual and
 reputational risk — and the kind of thing a compliance team at your *next*
 employer notices too.
+
+**Settled 2026-09-03. Three reasons, in order of weight.**
+
+1. **The trade is bad.** "UK tier-1 retail bank" plus card journeys plus GCP
+   narrows it to about five institutions for anyone in that market. The scale
+   already signals; the logo adds almost nothing while carrying real cost.
+2. **The risk is asymmetric in time.** You are still on the engagement. The same
+   line is unremarkable two years after you leave, so there is no reason to pay
+   now for a benefit available later for free.
+3. **The realistic downside is not legal.** The binding restriction usually sits
+   in the supplier's master agreement with the client, not in your own contract.
+   What actually happens is a vendor-management or account conversation landing on
+   you while you still work there.
+
+**Yes, the awards partly de-anonymise the client — and the position still holds.**
+Award winners are published, so "Banking Tech Awards 2024" plus "a UK tier-1
+retail bank" resolves in one search. Keep both anyway: **you are responsible for
+what you publish, not for what a reader deduces.** The awards are public
+information you are entitled to associate yourself with, and you have disclosed no
+client relationship. That is the distinction a policy review would draw.
+
+**Your employment terms are not on record.** Nothing in this repo states what your
+TCS contract says about naming clients — the letters sit in Dropbox
+`/Cloud Documents/Sachin/Career/` and have never been read in. The reasoning above
+is about the *shape* of the risk, not a reading of your paperwork. If those letters
+reach the repo, revisit this and replace inference with terms.
 
 The descriptors read identically to anyone hiring: "UK tier-1 retail bank",
 "US Fortune-500 retailer", "Gulf national telecom operator". **The scale is what

@@ -2,6 +2,48 @@
 
 Newest first. One entry per session that changed Todoist, a decision, or the plan.
 
+## 2026-09-03 (later) — the client-name question, settled
+
+*"do we need to put client names open. what does contract says. what other folks
+are doing. does this mean awards and recognition also makes sense or not."*
+
+**The rule does not change: no client on LinkedIn.** But it is now argued rather
+than asserted, and written into `state/decisions.md` so nobody re-derives it. The
+weight is not caution — it is that the trade is bad. "UK tier-1 retail bank" plus
+card journeys plus GCP already narrows it to about five institutions, so the logo
+adds nothing and costs something. And the cost is **asymmetric in time**: he is
+still on the engagement, and the same line is unremarkable two years after he
+leaves. No reason to pay now for a benefit available later for free.
+
+**He spotted a real inconsistency, and he was right to.** The awards are public
+record, so naming them while saying "a UK tier-1 retail bank" is a veil anyone can
+lift in one search. The resolution is not to drop the awards. It is that **he is
+responsible for what he publishes, not for what a reader deduces** — he has
+disclosed no client relationship, and a reader connecting two public facts is
+doing their own work. That distinction holds up.
+
+**What actually got fixed.** The Honors & Awards section was the one genuine
+overclaim risk on the profile: a bare "Banking Tech Awards 2024 — award-winning
+self-serve fraud journey" under his name reads as a personal award. Awards of that
+kind go to the institution. Both LinkedIn sources now carry all four LinkedIn
+fields per entry with his role stated explicitly, and a standing note never to
+shorten it to "I won". The headline said "fraud journeys" — one journey, two
+awards — now singular, 204 of 220 characters, recounted.
+
+Every prose instance elsewhere already made *the journey* the subject of "won", so
+nothing else needed touching. Checked rather than assumed.
+
+**Two things I could not answer.** His employment terms are not in this repo at
+all — the letters are in Dropbox and Dropbox egress is blocked here — so the
+reasoning above is about the shape of the risk, not his paperwork. That is now an
+open item. And the unconfirmed award citation matters more than it did: a
+structured Honors field is verified in a way a sentence buried in a job
+description is not.
+
+**A correction to my own earlier advice.** I said his LinkedIn Projects copy was a
+gap. It is not, and has not been since Aug 2026 — four repos with links, in both
+sources. The gap is his live profile. Check what exists before offering to write it.
+
 ## 2026-09-03 — five years at Lloyds, written down at last
 
 *"record this information about my 5 year last experience first. once done update
