@@ -58,13 +58,15 @@
 
 <h2>What I do</h2>
 <p class="lead">I architect enterprise data platforms on Google Cloud. Right now that
-means the batch and real-time streaming platform for a <strong>UK tier-1 retail
-bank</strong> — event-driven ingestion on <strong>Confluent Kafka</strong>,
-orchestration across <strong>Cloud Composer</strong> and a legacy enterprise
-scheduler, modelling in <strong>BigQuery and dbt</strong>, the whole estate
-provisioned with <strong>Terraform</strong> and deployed through CI/CD.</p>
+means moving a <strong>UK tier-1 retail bank</strong> off its enterprise data warehouse
+onto a GCP-native platform against a <strong>2026 decommissioning date</strong> —
+event-driven ingestion on <strong>Confluent Kafka</strong> and <strong>Pub/Sub</strong>,
+a shared ingestion service on <strong>GKE</strong>, orchestration across <strong>Cloud
+Composer</strong> and a legacy enterprise scheduler, modelling in <strong>BigQuery and
+dbt</strong>, the whole estate provisioned with <strong>Terraform</strong>.</p>
 <p>The hard part is not the tools. It is making a modern cloud stack and a
-twenty-year-old on-premise estate agree with each other, reliably, every night.</p>
+twenty-year-old on-premise estate agree with each other, reliably, every night — and
+writing the decisions down so the next team can see why.</p>
 
 <h2>Three things worth knowing</h2>
 <ul class="three">
@@ -80,10 +82,12 @@ twenty-year-old on-premise estate agree with each other, reliably, every night.<
   <li>
     <span class="num">2</span>
     <h3>Award-winning payments work.</h3>
-    Before the data platform I spent four years on digital cards at the same bank.
-    The self-serve fraud journey I architected won at the <strong>Banking Tech
-    Awards 2024</strong> and the <strong>Card &amp; Payments Awards 2025</strong> —
-    it took fraud reporting out of the call-centre queue and gave it to the customer.
+    <strong>Five years</strong> at that bank, three platforms. Before the data work I
+    put its card brands into <strong>Apple Pay, Google Pay and Click to Pay</strong>,
+    then migrated the whole card-journey estate onto GCP microservices behind an API
+    gateway. The self-serve fraud journey I architected won at the <strong>Banking Tech
+    Awards 2024</strong> and the <strong>Card &amp; Payments Awards 2025</strong> — it
+    took fraud reporting out of the call-centre queue and gave it to the customer.
   </li>
   <li>
     <span class="num">3</span>
@@ -99,7 +103,7 @@ twenty-year-old on-premise estate agree with each other, reliably, every night.<
 
 <h2>The stack</h2>
 <div class="stack">
-  GCP (BigQuery, Cloud Composer, DataFlow, Pub/Sub, App Engine) &nbsp;·&nbsp;
+  GCP (BigQuery, Cloud Composer, GKE, Pub/Sub, DataFlow, Apigee) &nbsp;·&nbsp;
   Confluent Kafka &nbsp;·&nbsp; Apache Airflow &nbsp;·&nbsp; dbt &nbsp;·&nbsp;
   Terraform &nbsp;·&nbsp; Python, SQL &nbsp;·&nbsp; AWS &nbsp;·&nbsp;
   microservices and API architecture &nbsp;·&nbsp; Teradata, Oracle, Greenplum

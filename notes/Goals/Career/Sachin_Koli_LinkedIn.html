@@ -112,8 +112,8 @@ Locations: Pune · Bengaluru · Hyderabad · Remote (India)</p></div>
 <div class="meta">Profile → About · <b>1,959 of 2,600 characters</b></div>
 <div class="copy">
 <p>I build the data platforms large enterprises run on, and I ship the applied-AI tooling that sits on top of them. Google Cloud Certified Professional Data Engineer.</p>
-<p>Right now I architect the batch and real-time streaming platform for a UK tier-1 retail bank: event-driven ingestion on Confluent Kafka, orchestration across Cloud Composer and a legacy enterprise scheduler, modelling in BigQuery and dbt, all of it provisioned through Terraform and CI/CD. The interesting part is not any single tool — it is making a modern cloud stack and a twenty-year-old on-premise estate agree with each other, reliably, every night.</p>
-<p>Before the data platform I spent four years on digital cards at the same bank, moving Add-to-Wallet, card controls and View-PIN from on-premise onto Google Cloud. The self-serve fraud journey I architected won at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025 — it took fraud reporting out of the call-centre queue and gave it to the customer.</p>
+<p>Right now I architect the batch and real-time streaming platform for a UK tier-1 retail bank, and the move of its enterprise data warehouse onto a cloud-native one: event-driven ingestion on Confluent Kafka and Pub/Sub, a shared ingestion service on Kubernetes, orchestration across Cloud Composer and a legacy enterprise scheduler, modelling in BigQuery and dbt, all of it provisioned through Terraform and CI/CD. The interesting part is not any single tool — it is making a modern cloud stack and a twenty-year-old on-premise estate agree with each other, reliably, every night, and writing the decisions down so the next team can see why.</p>
+<p>Before the data platform I spent four years on cards and payments at the same bank: first putting its card brands into the mobile wallets and scheme click-to-pay, then migrating the whole card-journey estate onto cloud microservices behind an API gateway. The self-serve fraud journey I architected won at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025 — it took fraud reporting out of the call-centre queue and gave it to the customer.</p>
 <p>Earlier: twelve years of enterprise data across retail, telecom and banking. A Teradata-to-BigQuery lake migration. A customer preference API on GCP serving millions of people that took $600,000 a year out of running cost. Warehouses unifying a global bank's data across several African markets.</p>
 <p>I also ship applied AI in the open. hoocode is a deterministic terminal coding agent I publish to npm — a permission gate on every edit, four scoped modes, and a unified API across 25+ LLM providers. Underneath it sits Rust I wrote: an embedding search engine with ONNX inference, an HNSW index built from scratch and BM25 fusion for hybrid retrieval; offline speech-to-text; token-efficient web retrieval for agents. The platforms I design are exactly the substrate retrieval and ML workloads need, and I would rather build that layer than hand it over.</p>
 <p>Open to Solution Architect, Data Architect and Cloud Architect roles — especially where the data platform is the product.</p>
@@ -125,22 +125,29 @@ description field</div>
 
 <h3>Tata Consultancy Services — Solution Architect</h3>
 <div class="meta">Sep 2021 – Present · Pune, India</div>
-<div class="copy"><p>Data platform and digital cards architecture for a UK tier-1 retail bank.<br>
+<div class="copy"><p>Data platform and cards &amp; payments architecture for a UK tier-1 retail bank — five years, three platforms.<br>
 <br>
 Data Platform &amp; Real-Time Analytics (Jul 2025 – present)<br>
-• Architected end-to-end batch and real-time streaming data platform on Google Cloud supporting analytics, operational reporting and ML workloads.<br>
-• Engineered high-availability event-driven ingestion on Confluent Kafka with Python for low-latency data delivery.<br>
+• Architected the migration of an enterprise data warehouse onto a cloud-native data platform, covering ingestion, curation and consumption.<br>
+• Authored the shared batch ingestion service design — Kubernetes-hosted ingestion, object-storage landing zones, BigQuery targets, Cloud Composer orchestration and CI — adopted as the standard onboarding pattern for source systems.<br>
+• Engineered high-availability event-driven ingestion on Confluent Kafka and Pub/Sub with Python for low-latency data delivery.<br>
 • Architected hybrid batch orchestration across Cloud Composer (Apache Airflow) and a legacy enterprise scheduler, managing dependency graphs spanning on-premise and cloud.<br>
-• Designed BigQuery warehouse schemas and modular dbt transformation pipelines with enforced data quality and lineage.<br>
-• Standardised infrastructure with Terraform — Composer environments, BigQuery datasets, Kafka connectors, IAM — integrated into CI/CD to cut configuration drift and deployment time.<br>
-• Implemented BigQuery cost and governance optimisation, reducing compute overhead while improving query performance.<br>
+• Designed BigQuery warehouse schemas and modular dbt transformation pipelines with delta-load audit tables, enforced data quality and end-to-end lineage.<br>
+• Authored the architecture decision baseline for a behavioural data-product layer on BigQuery — nested schema modelling, partitioning and clustering strategy, and an identifier strategy that achieved exact parity with the incumbent analytics dashboards while removing sessionization compute.<br>
+• Standardised infrastructure with Terraform — Composer environments, BigQuery datasets, IAM — integrated into CI/CD to cut configuration drift and deployment time.<br>
+• Designed platform FinOps controls: rightsizing, autoscaling, storage tiering and lifecycle policy.<br>
 <br>
-Digital Cards Modernisation (2022 – Jul 2025)<br>
-• Led end-to-end modernisation of digital card features — Add to Wallet, card controls, View PIN/Card — migrating from on-premise to Google Cloud.<br>
-• Architected secure, scalable microservices and cross-cloud API patterns meeting banking compliance and performance requirements.<br>
+Card Platform Modernisation on Cloud (2024 – Jul 2025)<br>
+• Owned the solution design migrating an entire card-journey estate — controls, limits, freeze, wallet provisioning, view card and PIN — from on-premise to cloud microservices behind an API gateway, sequenced across three release tranches.<br>
+• Authored and secured approval for the identity and authentication onboarding pattern adopted across the estate, from a ten-criteria options analysis.<br>
+• Designed shared scheme-connectivity microservices reused across feature teams on a common certificate-management pattern.<br>
+<br>
+Digital Wallets, Click to Pay &amp; Card Controls (2021 – 2024)<br>
 • Architected a self-serve fraud journey recognised at the Banking Tech Awards 2024 and the Card &amp; Payments Awards 2025.<br>
+• Authored the solution designs enabling four card brands in the major mobile wallets and in scheme click-to-pay, covering push provisioning, card registration and scheme token handling.<br>
+• Designed payment-token security to PCI standards — token generation, PGP key exchange with the wallet provider, and HSM-backed key storage.<br>
 <br>
-Kafka · BigQuery · dbt · Airflow · Terraform · GCP · microservices · payments</p></div>
+Kafka · BigQuery · dbt · Airflow · Terraform · Kubernetes · GCP · microservices · payments</p></div>
 
 <h3>Sears IT and Management Services India — Architect</h3>
 <div class="meta">Joined as Technical Specialist · Feb 2018 – Sep 2021 · Pune</div>

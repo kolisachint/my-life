@@ -110,7 +110,7 @@ Solution Architect / Associate Consultant
 Sep 2021 - Present | Pune, India
 Client: Lloyds Banking Group, United Kingdom (Banking)
 
-Data Platform and Real-Time Analytics (Jul 2025 - Present)
+GCP Data Platform and Real-Time Analytics (Jul 2025 - Present)
 - Architected scalable, fault-tolerant end-to-end batch and real-time streaming
   data architectures on Google Cloud Platform supporting high-throughput
   analytics, operational reporting and machine learning workloads.
@@ -136,14 +136,44 @@ Data Platform and Real-Time Analytics (Jul 2025 - Present)
   to translate functional requirements into production-ready architectural
   blueprints.
 
-Digital Cards Modernisation (2022 - Jul 2025)
-- Led end-to-end modernisation of Digital Cards features including Add to
-  Wallet, card controls and View PIN/View Card, migrating from on-premise
-  infrastructure to Google Cloud Platform.
+Card Platform Modernisation on Google Cloud (2024 - Jul 2025)
+- Owned the solution design for migrating the entire card journey estate
+  including card controls, spending limits, card freeze, wallet provisioning and
+  View Card / View PIN from on-premise infrastructure to Google Cloud Platform
+  microservices behind an Apigee X API gateway, sequenced as a three-tranche
+  release plan.
+- Produced as-is and to-be solution designs with full sequence diagrams covering
+  mobile application single sign-on, token provider integration, API gateway
+  routing, channel and core services, and downstream card management system
+  integration.
+- Authored and secured approval for the identity and authentication onboarding
+  pattern now used across the card estate, based on a ten-criteria options
+  analysis covering token exchange, proof-of-possession, scaling rates,
+  traceability and authorisation scope.
+- Designed shared VISA and Fiserv scheme-connectivity microservices reused across
+  feature teams on a common external certificate management pattern.
+- Carried every design through enterprise governance including technical
+  architecture group review, security design assurance, cloud solution design
+  assurance and API gateway design forums.
+
+Digital Wallets, Click to Pay and Card Controls (2021 - 2024)
+- Architected an award-winning self-serve fraud journey recognised at the
+  Banking Tech Awards 2024 and the Card and Payments Awards 2025, moving card
+  freeze from an assisted call-centre process to a customer-completed digital
+  journey.
+- Authored the solution designs enabling the bank's four card brands in Apple
+  Pay, Google Pay and VISA Click to Pay, covering Android and iOS push
+  provisioning, card registration flows and scheme token handling.
+- Designed the push provisioning API extension enabling wallet-added cards to be
+  used for online card-on-file and autofill transactions rather than in-store
+  transactions only, and authored the supporting business case.
+- Designed payment token security to PCI standards including scheme and wallet
+  one-time-passcode token generation, PGP key exchange with the wallet provider,
+  PAN encryption placement and HSM-backed key storage using HashiCorp Vault.
 - Architected secure and scalable microservices and cross-cloud API patterns
   ensuring regulatory compliance and performance for a tier-1 retail bank.
-- Architected an award-winning self-serve fraud journey recognised at the
-  Banking Tech Awards 2024 and the Card and Payments Awards 2025.
+- Produced data lineage, data quality, data controls and data monitoring
+  governance artefacts for the wallet data flows.
 - Designed service discovery, API gateway, containerisation, load balancing and
   secure inter-service communication patterns for mobile applications.
 

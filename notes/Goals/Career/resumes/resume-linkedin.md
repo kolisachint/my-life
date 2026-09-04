@@ -51,7 +51,7 @@ all of it provisioned through Terraform and CI/CD. The interesting part is not
 any single tool — it is making a modern cloud stack and a twenty-year-old
 on-premise estate agree with each other, reliably, every night.
 
-Before the data platform I spent four years on digital cards at the same bank,
+Before the data platform I spent four years on cards and payments at the same bank,
 moving Add-to-Wallet, card controls and View-PIN from on-premise onto Google
 Cloud. The self-serve fraud journey I architected won at the Banking Tech Awards
 2024 and the Card & Payments Awards 2025 — it took fraud reporting out of the
@@ -100,15 +100,25 @@ Data Platform & Real-Time Analytics (Jul 2025 – present)
 • Implemented BigQuery cost and governance optimisation, reducing compute
   overhead while improving query performance.
 
-Digital Cards Modernisation (2022 – Jul 2025)
-• Led end-to-end modernisation of digital card features — Add to Wallet, card
-  controls, View PIN/Card — migrating from on-premise to Google Cloud.
-• Architected secure, scalable microservices and cross-cloud API patterns meeting
-  banking compliance and performance requirements.
+Card Platform Modernisation on Cloud (2024 – Jul 2025)
+• Owned the solution design migrating an entire card-journey estate — controls,
+  limits, freeze, wallet provisioning, view card and PIN — from on-premise to
+  cloud microservices behind an API gateway, across three release tranches.
+• Authored and secured approval for the identity and authentication onboarding
+  pattern adopted across the estate, from a ten-criteria options analysis.
+• Designed shared scheme-connectivity microservices reused across feature teams
+  on a common certificate-management pattern.
+
+Digital Wallets, Click to Pay & Card Controls (2021 – 2024)
 • Architected a self-serve fraud journey recognised at the Banking Tech Awards
   2024 and the Card & Payments Awards 2025.
+• Authored the solution designs enabling four card brands in the major mobile
+  wallets and in scheme click-to-pay, covering push provisioning, card
+  registration and scheme token handling.
+• Designed payment-token security to PCI standards — token generation, PGP key
+  exchange with the wallet provider, and HSM-backed key storage.
 
-Kafka · BigQuery · dbt · Airflow · Terraform · GCP · microservices · payments
+Kafka · BigQuery · dbt · Airflow · Terraform · Kubernetes · GCP · microservices · payments
 ```
 
 ### Sears IT and Management Services India

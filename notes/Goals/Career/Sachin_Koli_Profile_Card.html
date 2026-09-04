@@ -113,7 +113,7 @@
     gap: 0;
     min-height: 0;
   }
-  .col { padding: 6.5mm 6.5mm; border-right: 0.9pt solid var(--rule); }
+  .col { padding: 5.2mm 6.5mm; border-right: 0.9pt solid var(--rule); }
   .col:first-child { padding-left: 10mm; }
   .col:last-child { border-right: none; padding-right: 10mm; background: #fbfcfa; }
 
@@ -129,7 +129,7 @@
   }
   h2 + h2, .gap { margin-top: 4.5mm; }
 
-  .blk { margin-bottom: 5.4mm; }
+  .blk { margin-bottom: 3.4mm; }
   .blk h3 {
     margin: 0 0 1.4mm;
     font-size: 9.9pt;
@@ -150,7 +150,7 @@
     font-size: 7.4pt;
     color: var(--signal);
     line-height: 1.55;
-    margin-top: 1.8mm;
+    margin-top: 1.2mm;
   }
 
   /* repos */
@@ -242,27 +242,31 @@
 
     <div class="blk">
       <h3>Cloud Data Platform<em>2025 —</em></h3>
-      <p>Architect of the batch and real-time streaming platform for a
-      <b>UK tier-1 retail bank</b>. Event-driven ingestion, hybrid orchestration
-      bridging a legacy enterprise scheduler with cloud workflows, modelled
-      warehouse, provisioned as code.</p>
-      <div class="tok">Confluent Kafka · Cloud Composer · Airflow · dbt · BigQuery · Terraform · CI/CD</div>
+      <p>Moving a <b>UK tier-1 retail bank</b> off its enterprise data warehouse
+      onto a GCP-native platform against a <b>2026 deadline</b>.</p>
+      <div class="tok">Kafka · Pub/Sub · GKE · Airflow · dbt · BigQuery · Terraform</div>
+    </div>
+
+    <div class="blk">
+      <h3>Card Platform on GCP<em>2024 — 2025</em></h3>
+      <p>Owned the design migrating the bank's <b>whole card-journey estate</b> —
+      controls, limits, freeze, wallets, view card and PIN — onto GCP
+      microservices behind an API gateway.</p>
+      <div class="tok">Apigee X · microservices · ID &amp; Auth · scheme connectivity</div>
+    </div>
+
+    <div class="blk">
+      <h3>Wallets &amp; Click to Pay<em>2021 — 2024</em></h3>
+      <p>Put four card brands into <b>Apple Pay, Google Pay and Click to Pay</b>,
+      with the token security under them — and the award-winning fraud journey.</p>
+      <div class="tok">payment tokens · PGP key exchange · HashiCorp Vault · PCI</div>
     </div>
 
     <div class="blk">
       <h3>Applied AI<em>open source</em></h3>
       <p>A published agent ecosystem: a <b>terminal coding agent on npm</b>, and
-      the Rust beneath it — embedding search with an ANN index written from
-      scratch, offline speech recognition, token-efficient web retrieval.</p>
-      <div class="tok">Rust · TypeScript · ONNX Runtime · HNSW · BM25 hybrid retrieval · MCP · 25+ LLM providers</div>
-    </div>
-
-    <div class="blk">
-      <h3>Payments &amp; Cards<em>2022 — 2025</em></h3>
-      <p>Led modernisation of <b>Digital Cards</b> — Add to Wallet, card controls,
-      View PIN — from on-premise to GCP, with the secure microservice and
-      cross-cloud API patterns a regulated estate needs.</p>
-      <div class="tok">GCP · microservices · API gateways · containerisation · compliance</div>
+      the Rust beneath it — embedding search, offline ASR, web retrieval.</p>
+      <div class="tok">Rust · TypeScript · ONNX · HNSW · BM25 · MCP</div>
     </div>
   </div>
 

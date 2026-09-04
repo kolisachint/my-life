@@ -7,7 +7,9 @@ linkedin.com/in/kolisachint · github.com/kolisachint · kolisachint.github.io
 
 > **Version 1 of 5 — the workhorse.** Full client detail. Send to named
 > recruiters and hiring managers. Do not post publicly.
-> `[N]` marks a number you need to supply — see `README.md`.
+> **No `[N]` placeholders remain.** The six platform figures were confirmed
+> unrecoverable from Confluence on 2026-09-03, so every bullet is written to land
+> without one — see `data/career-facts.md`.
 
 ---
 
@@ -18,10 +20,10 @@ enterprise data platforms, now architecting **real-time streaming and batch data
 infrastructure on Google Cloud** for a UK tier-1 retail bank — Confluent Kafka, Cloud Composer, dbt,
 BigQuery and Terraform, spanning legacy on-premise and cloud environments.
 
-Before this platform I spent four years architecting **digital cards and
-payments** at the same bank, migrating card servicing to GCP. The self-serve
-fraud journey I designed won at the **Banking Tech Awards 2024** and the
-**Card & Payments Awards 2025**.
+**Five years** at that bank across three platforms: digital wallets and Click to
+Pay, then the migration of its whole card-journey estate to GCP microservices
+behind Apigee X, now the data platform. The self-serve fraud journey I designed
+won at the **Banking Tech Awards 2024** and the **Card & Payments Awards 2025**.
 
 Across twelve prior years in retail, telecom and banking data: a **Teradata →
 BigQuery** lake migration, and a customer preference API on GCP that **cut
@@ -40,48 +42,63 @@ funded.
 ### Tata Consultancy Services — Pune
 **Solution Architect** (Associate Consultant, Grade C3B)
 *September 2021 – present*
-**Client: Lloyds Banking Group, UK**
+**Client: Lloyds Banking Group, UK — five years, Everyday Banking Platform**
+*(Title on record at the client: Solution Architect E)*
 
-#### Data Platform & Real-Time Analytics — *July 2025 – present*
+#### GCP Data Platform & Real-Time Analytics — *July 2025 – present*
 
-Architecting the bank's batch and streaming data platform end to end.
+- Architecting the bank's move off its **Group Data Warehouse** onto a GCP-native
+  operational data platform against a **Q3-2026 decommissioning date** — authoring
+  the shared **Microbatch Ingestion Service** (GKE, Cloud Storage landing zones,
+  **BigQuery**, **Cloud Composer**, Jenkins CI) that every source system onboards
+  through, with formal **data contracts** for five of them.
+- Engineered high-availability, event-driven ingestion on **Confluent Kafka** and
+  **Pub/Sub** with Python, and hybrid batch orchestration spanning **Airflow** and
+  **IBM Tivoli Workload Scheduler** — bridging the legacy on-premise estate to
+  cloud rather than stopping at one or the other. *(Bridging TWS and Airflow rather
+  than replacing one with the other is the hard part, and the part most candidates
+  have never done.)*
+- Designed BigQuery schemas and modular **dbt** transformation pipelines with
+  delta-load audit tables, enforced data quality and end-to-end lineage; automated
+  testing and monitoring so downstream analytics fail loudly rather than silently.
+- Authored the **full architecture-decision baseline (ADR-001–013)** for the bank's
+  digital-behaviour data products — nested STRUCT/ARRAY modelling, partition and
+  cluster strategy per entity, and an identifier strategy that **achieved exact
+  parity with the Adobe Analytics dashboards** while removing the window-function
+  sessionization compute the previous design depended on.
+- Standardised provisioning with **Terraform** and designed the platform's FinOps
+  controls; co-owned the **migration recommendation** — ship the MVP on the current
+  GCP foundation (CNE 1.0) to protect the warehouse-exit date, with a pre-planned
+  parallel run onto the strategic one (Google 2.0 / IDP) and explicit cutover,
+  rollback and DR criteria.
 
-- **Real-time streaming ingestion.** Engineered high-availability, event-driven
-  pipelines on **Confluent Kafka** with Python, delivering low-latency ingestion
-  for operational reporting and analytics — `[N]` events/day.
-- **Hybrid batch orchestration.** Architected batch ingestion across **Cloud
-  Composer (Apache Airflow)** and **IBM Tivoli Workload Scheduler**, managing
-  complex dependency graphs that span legacy on-premise and cloud environments —
-  `[N]` pipelines. *(Bridging TWS and Airflow rather than replacing one with the
-  other is the hard part, and the part most candidates have never done.)*
-- **Analytical modelling.** Designed BigQuery warehouse schemas and modular
-  **dbt** transformation pipelines with enforced data quality and lineage —
-  `[N]` models.
-- **Reliability engineering.** Built automated testing, validation and
-  monitoring frameworks inside dbt and Airflow so downstream analytics fail
-  loudly rather than silently.
-- **Infrastructure as code.** Standardised provisioning with **Terraform** —
-  Composer environments, BigQuery datasets, Kafka connectors and IAM roles across
-  `[N]` environments — and integrated it into CI/CD, cutting configuration drift
-  and reducing deployment cycle time by `[N]`.
-- **Governance and cost.** Implemented BigQuery and GCP optimisation reducing
-  compute overhead by `[N]` while improving query performance and tightening data
-  security governance.
-- **Strategic alignment.** Partnered with cross-functional leadership, security
-  and business units to turn functional requirements into production
-  architectural blueprints.
+#### Card Platform Modernisation on GCP — *2024 – July 2025*
 
-#### Digital Cards Modernisation — *2022 – July 2025*
+- Owned the solution design migrating the **entire card-journey estate** —
+  controls, limits, freeze, wallet provisioning, view card and PIN — from
+  on-premise to **GCP microservices behind Apigee X**, sequenced as a
+  **three-tranche** release plan.
+- Won approval for the **ID & Auth onboarding pattern** now used across the estate,
+  from a ten-criteria options analysis covering token exchange,
+  proof-of-possession, scaling and traceability.
+- Designed **shared scheme-connectivity microservices** for VISA and Fiserv, reused
+  across feature teams on a common certificate-management pattern — every design
+  carried through the bank's architecture, security-assurance and API governance
+  forums.
 
-- Led **end-to-end modernisation of Digital Cards** — Add to Wallet, card
-  controls, View PIN / View Card — migrating from on-premise to **GCP**.
-- Architected **secure, scalable microservices and cross-cloud API patterns**
-  meeting banking compliance and performance requirements.
+#### Digital Wallets, Click to Pay & Card Controls — *2021 – 2024*
+
 - **Award-winning self-serve fraud journey** — **Banking Tech Awards 2024** and
-  **Card & Payments Awards 2025**. Moved fraud handling from an assisted
-  call-centre process to a journey the customer completes.
-- Designed service discovery, API gateways, containerisation, load balancing and
-  secure inter-service communication across a hybrid estate.
+  **Card & Payments Awards 2025**. Moved card freeze from an assisted call-centre
+  process to one the customer completes.
+- Authored the solution designs putting the bank's four card brands into
+  **Apple Pay, Google Pay and VISA Click to Pay**, including the push-provisioning
+  extension that made wallet-added cards usable for **online** checkout rather than
+  offline only.
+- Designed the payment-token security to PCI standards — scheme and wallet
+  **token generation**, PGP key exchange with the wallet provider, HSM-backed keys
+  on **HashiCorp Vault** — plus the lineage, quality and monitoring governance for
+  the wallet data flows.
 
 ### Sears IT and Management Services India (Transformco) — Pune
 **Technical Specialist → Architect**

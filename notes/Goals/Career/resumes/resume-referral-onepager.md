@@ -32,10 +32,12 @@ customers and **removed $600,000 a year** in operating cost. I also migrated an
 enterprise data lake from **Teradata to BigQuery** and replaced licensed tooling
 with cloud-native across five stacks.
 
-**2. Award-winning payments work.** Before the data platform I spent four years
-on digital cards at the same bank. The self-serve fraud journey I architected won
-at the **Banking Tech Awards 2024** and the **Card & Payments Awards 2025** — it
-took fraud reporting out of the call-centre queue and gave it to the customer.
+**2. Award-winning payments work.** **Five years** at that bank, three platforms.
+Before the data work I put its card brands into **Apple Pay, Google Pay and Click
+to Pay**, then migrated the whole card-journey estate onto GCP microservices
+behind an API gateway. The self-serve fraud journey I architected won at the
+**Banking Tech Awards 2024** and the **Card & Payments Awards 2025** — it took
+fraud reporting out of the call-centre queue and gave it to the customer.
 
 **3. I ship applied AI in the open.** **hoocode** — a deterministic terminal
 coding agent **published to npm**, with a unified LLM API across 25+ providers.

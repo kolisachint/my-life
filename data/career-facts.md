@@ -8,6 +8,12 @@ _Verified 2026-08-29 against the offer, appointment and experience letters in
 Dropbox `/Cloud Documents/Sachin/Career/`. Where this file and a document
 disagree, this file wins._
 
+_The Lloyds rows were rebuilt 2026-09-03 from
+`notes/Goals/Career/lbg-5-year-profile.md` — his own evidence-based profile of
+the engagement, compiled from 150 Confluence pages he authored. That note is the
+primary source for **what he did at Lloyds**; this file stays the source for
+dates, titles and figures._
+
 ---
 
 ## Identity
@@ -16,6 +22,7 @@ disagree, this file wins._
 | --- | --- |
 | Name | Sachin Tatyaso Koli |
 | Positioning | **Solution Architect — Cloud Data & AI Platforms** |
+| Title on record at the client | **Solution Architect E**, Everyday Banking Platform, Lloyds Banking Group *(confirmed 2026-09-03)* |
 | Location | Pune, Maharashtra, India |
 | Phone | +91 95522 36200 |
 | Email | kolisachint@gmail.com · work koli.sachin1@tcs.com |
@@ -39,7 +46,7 @@ structural. → `notes/Goals/Career/job-options.md`
 
 | Client | Domain | Via | Period | Work |
 | --- | --- | --- | --- | --- |
-| **Lloyds Banking Group**, UK | Banking | TCS | 2022 – present | **Two workstreams** — Digital Cards modernisation to GCP (2022 – Jul 2025), then the **Data Platform** (Jul 2025 – present) |
+| **Lloyds Banking Group**, UK | Banking | TCS | **Sep 2021 – present** | **Three eras** — Push to Wallet / Click to Pay / Card Controls (to 2024), Card & Wallet **GCP journey modernisation** (2024 – Jul 2025), then the **GCP Operational Data Platform** (Jul 2025 – present) |
 | **Sears Holdings**, US | Retail | Sears India | 2018 – 2021 | Targeted Interactions / TI Mart |
 | **Saudi Telecom**, SAU | Telecom | Cognizant | Feb 2015 – Feb 2018 | STC EDW CLDM7/CLDM12, onsite IT delivery lead |
 | **Barclays**, UK | Banking | Cognizant | Nov 2010 – Feb 2015 | Emerging Markets DW, One Africa Program |
@@ -50,6 +57,26 @@ structural. → `notes/Goals/Career/job-options.md`
 the work, and a line he cannot discuss is an interview liability. Keep it here as
 history; never put it back.
 
+**The Lloyds engagement began Sep 2021, with his TCS joining date** — he confirmed
+this 2026-09-03. The earlier "2022" here was wrong. Note the profile's own
+coverage caveat: his oldest *Confluence* page is May 2023, because 2021–early
+2023 was documented on a legacy pre-cloud LBG wiki he can no longer reach. The
+engagement is five years; the *written evidence* covers the last three.
+
+### Lloyds — the three eras, and what each is good for
+
+| Era | Period | Programme | The line that earns its place |
+| --- | --- | --- | --- |
+| **1. Wallet & Click to Pay** | to 2024 | AL08169 (Card Controls / Debit Freeze) | Five Push-to-Wallet MVDs across GooglePay and ApplePay, four brands; scheme + Google OPC token generation, PGP with Google, HSM-backed keys in HashiCorp Vault. The **award-winning card-freeze fraud journey** sits here |
+| **2. GCP journey modernisation** | 2024 – Jul 2025 | AL16776 (Card Platform on GCP), AL16992/CPR703 (PTW) | A **three-tranche** migration of the whole card-journey estate to GCP microservices behind **Apigee X** — with an approved ID & Auth onboarding pattern (10-criteria analysis) and shared VISA/Fiserv connectivity services reused across feature teams |
+| **3. GCP data platform** | Jul 2025 – present | AL22853 (ODP / IMI SMS / Tealium / GCP 2.0), GOADCF | Microbatch Ingestion Service on **GKE**, Batch Transformation Service on **dbt**, Pub/Sub Event Streaming Framework; five ODP data contracts; the **ADR-001…013** Digital Behaviour FDP baseline; CNE 1.0 → Google 2.0/IDP parallel-run migration against a **Q3-2026 GDW-exit date** |
+
+**Confluent Kafka and IBM Tivoli Workload Scheduler are real** — he confirmed
+2026-09-03 — but appear **nowhere** in the 150-page Confluence evidence base,
+which documents Pub/Sub and Cloud Composer instead. They stay on the documents.
+Anyone probing them will find no paper trail, so he should expect to describe
+that work from memory rather than from an artefact.
+
 ## Quantified achievements — the scarce ones, use them
 
 | Claim | Where |
@@ -57,16 +84,34 @@ history; never put it back.
 | **$600,000/year** operating cost removed — Email Preference Center API on GCP (App Engine, Pub/Sub, DataFlow, BigQuery), millions of customers | Sears |
 | **Banking Tech Awards 2024** — self-serve fraud journey | Lloyds |
 | **Card & Payments Awards 2025** — self-serve fraud journey | Lloyds |
+| **Exact Adobe Analytics dashboard parity** — ADR-007 replaced a custom 4-tier COALESCE visitor key and cookie-anchored sessionization with Adobe-native canonical keys, *removing* window-function sessionization compute and keeping legacy keys as `resolved_*` columns for reconciliation | Lloyds, 2026 |
+| **Q3-2026 Group Data Warehouse exit** — the date the whole ODP/FDP programme is architected to protect; his CNE 1.0 vs Google 2.0/IDP recommendation (KDD13) is what keeps it | Lloyds |
+| **Three-tranche GCP migration** of the entire card-journey estate — controls, limits, freeze, wallet provisioning, view card/PIN — behind Apigee X | Lloyds |
 | Teradata → BigQuery data lake migration | Sears |
 | Five stacks replaced with cloud-native: Teradata→BigQuery, Unix→Compute Engine, Control-M→Airflow, shell/ETL→Python, GitLab Enterprise→Cloud Source Repositories | Sears |
 
-### Numbers still missing — ask him
+### Numbers still missing — and where they are NOT
 
-The Jul 2025– platform work has **no figures at all**. Six to chase:
+Six figures have been open since Aug 2026:
 
 `[N]` Kafka throughput (events/day or /sec) · `[N]` pipeline or DAG count ·
 `[N]` dbt model count · `[N]` BigQuery cost reduction (% or currency) ·
 `[N]` deployment-time before/after · `[N]` environments Terraform provisions
+
+**2026-09-03: they are not recoverable from Confluence.** His own method note
+(section 10 of the 5-year profile) is explicit — across all 150 pages the only
+figures are a **3–5% autofill purchase-volume uplift** and a **$100 average
+online order**, and both are *business-case assumptions he authored*, not
+measured outcomes. Stop looking there. They have to come from his recollection,
+a Jira or Looker export, or a colleague.
+
+**Never write the 3–5% as a delivered result.** "Built the business case for a
+3–5% purchase-volume uplift" is honest and still strong. "Delivered a 3–5%
+uplift" is not true.
+
+Meanwhile the platform section no longer *needs* a number to land: ADR-007's
+dashboard parity, the Q3-2026 GDW-exit date, the three-tranche migration and the
+ADR-001…013 baseline are all concrete, checkable and free of placeholders.
 
 ## Education & certifications
 

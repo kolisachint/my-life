@@ -100,7 +100,24 @@ credential*: four years on Lloyds Digital Cards with **two industry awards**
 banking GCCs and fintech. But the target list now also runs to data-platform and
 ML-infrastructure teams, where the open-source work is the differentiator.
 
-## Resolved this session
+## Resolved 2026-09-03 — the LBG 5-year profile
+
+| Was open | Answer |
+| --- | --- |
+| **When did the Lloyds engagement start?** | **Sep 2021**, with his TCS joining date. Five years, not four. `career-facts.md` said 2022 and was wrong |
+| **Are Confluent Kafka and IBM TWS real?** | **Yes** — he confirmed it. They appear nowhere in the 150-page Confluence base (which documents Pub/Sub and Composer), but the work happened. They stay on every document; there is simply no artefact to point a reviewer at |
+| **Can the six platform figures be recovered?** | **No — closed.** Not from Confluence. The only numbers across 150 pages are a 3–5% autofill uplift and a $100 average online order, and both are business-case assumptions he authored. He chose to ship without numbers; the documents are written to land without one |
+
+## Still open after 2026-09-03
+
+| Question | Why it matters |
+| --- | --- |
+| **Does the award citation name the card-freeze journey?** | He is not sure, so every document still says "self-serve fraud journey" generically. The profile places that work as Card Controls — Freeze Card — Fraud Journey (AL08169), which would be more concrete and more defensible in an interview. Worth ten minutes with the citation |
+| **The tail of the source file** | `lbg-5-year-profile.md` lives only in his local clone and has never been pushed. The repo has a transcription from photographs, complete but with four `[?]` strings. Pushing the real file replaces guesswork with bytes |
+| **The 2021–early 2023 legacy wiki** | His oldest Confluence page is May 2023. Everything before that was on a pre-cloud LBG wiki he can no longer reach, so era 1 is dated from evidence, not from memory. If he can still get at that wiki, a second pass backfills two years |
+| **PDE expiry** | Unchanged from Aug 2026 — two years from issue, still unconfirmed, certificate still not filed in Dropbox |
+
+## Resolved earlier
 
 | Was open | Answer |
 | --- | --- |

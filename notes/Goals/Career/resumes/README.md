@@ -286,7 +286,7 @@ worse than not stating it.
 | Cognizant "Nov 2010 – Feb 2018" | Confirmed: **29 Nov 2010 – 13 Feb 2018** |
 | Clients: Barclays, STC, Sears, LBG | Also **Telstra** (and Cisco — dropped, below) |
 | ~18.5 years | **18 years 8 months** as of Aug 2026 |
-| LBG = Digital Cards | **Two workstreams**: Digital Cards 2022 – Jul 2025, **Data Platform Jul 2025 – present** |
+| LBG | **Three eras**: Wallets/Click to Pay 2021 – 2024, Card Platform on GCP 2024 – Jul 2025, **Data Platform Jul 2025 – present**. Engagement began Sep 2021 (confirmed 2026-09-03) |
 
 **Still Grade C3B after five years.** Hired into C3B Sep 2021; the Sep 2025
 letter still reads `CC-C3B`. Not a resume line — but the strongest evidence for
